@@ -1,0 +1,335 @@
+:tocdepth: 2
+
+1.4 Release Notes
+~~~~~~~~~~~~~~~~~
+
+SchoolTool
+==========
+
+1.4.4 (2011-09-05)
+------------------
+
+- Allowed non-integer values for course credits (https://bugs.launchpad.net/bugs/488376)
+- Add School Year copies all course attributes (https://bugs.launchpad.net/bugs/785994)
+- Fixed XLS import crashes:
+
+  + Username is a number (https://launchpad.net/bugs/801870)
+  + No file selected for import
+  + Section timetables without resources (https://launchpad.net/bugs/839031)
+  + Empty sections or groups (https://launchpad.net/bugs/382566)
+
+- Update translations.
+
+
+1.4.3 (2010-11-23)
+------------------
+
+Stable release that contains bugfixes backported from development series up to 1.5.3.
+
+- Fixed Section meeting time misalignment in calendar (https://launchpad.net/bugs/611797)
+- Activation of selected school year (https://launchpad.net/bugs/635160)
+- Added "New Person" (for administration) to all person views
+  (https://bugs.launchpad.net/bugs/268127)
+- Empty usernames no longer crash when adding a person (https://launchpad.net/bugs/644296)
+- Fix security checks to let teachers edit learners and other section info
+  if they have access rights.
+- Allow teachers to view student info and contacts
+- Add "View Person" action button in contact views (https://launchpad.net/bugs/635207)
+- Tweaked WYSIWYG CK editor (https://launchpad.net/bugs/485446)
+- Make CK editor work with servers under mod-rewrite (https://launchpad.net/bugs/258951)
+- Added error checking on demographics edit form (https://launchpad.net/bugs/610870)
+- Update translations.
+
+
+1.4.2 (2010-07-15)
+------------------
+
+- Speed up editing of section learners and instructors (https://launchpad.net/bugs/599258)
+- XLS Importer catches errors before trying to create objects. (https://launchpad.net/bugs/306339)
+- Removed SchoolTool logo from PDF footers (https://launchpad.net/bugs/561558)
+- Update translations (ca, en_AU, eu, ne, pl, tr)
+
+More info at https://launchpad.net/schooltool/+release/1.4.2
+
+
+1.4.1 (2010-06-15)
+------------------
+
+- Copy data from previous school year (https://launchpad.net/bugs/541673)
+- Update translations (ca, es, es_SV, sk, te, vi, zh_CN)
+
+More info at https://launchpad.net/schooltool/+release/1.4.1
+
+
+1.4.0 (2010-05-21)
+------------------
+
+This is a final release for Lucid.
+
+- Fix Timetable Schemas page for non-manager users (https://launchpad.net/bugs/545780)
+- Fix timetable display when first day of the week is empty (https://launchpad.net/bugs/545763)
+- Fix timetable plugin for sampledata (https://launchpad.net/bugs/306107)
+- Translate "Confirm" button in delete forms correctly.
+- Update translations
+
+More info at https://launchpad.net/schooltool/+release/1.4.0
+
+
+1.3.2 (2010-04-29)
+------------------
+
+- Added course names to section links in the person view, sorting Sections and
+  Groups links by school year (https://launchpad.net/bugs/545793)
+- Made edit links on person, section and group views available only to managers (https://launchpad.net/bugs/361436)
+- Display resources of calendar events on weekly view (https://launchpad.net/bugs/540099)
+- Changed old Zonki in pdf footers (https://launchpad.net/bugs/561558)
+- Use semicolon to separate instructors in section's label (https://launchpad.net/bugs/558911)
+- Prevent the user to enter non-ascii usernames (https://launchpad.net/bugs/397610)
+- Update translations
+
+More info at https://launchpad.net/schooltool/+release/1.3.2
+
+
+1.3.1 (2010-04-07)
+------------------
+
+- Reduce dependency on ``zope.app.*`` packages
+- Allow advisors to view person info (https://launchpad.net/bugs/513064)
+- Flag to disable mail server (https://launchpad.net/bugs/513026)
+- Added action to send emails to student contacts (https://launchpad.net/bugs/496255)
+- Formatted email form notifications (https://launchpad.net/bugs/497492)
+- Fixed broken FCK Editor in some views (https://launchpad.net/bugs/556478)
+- Added a "neutral" submit button style (https://launchpad.net/bugs/424510)
+- Added security descriptions tutorial
+- Update translations
+
+More info at https://launchpad.net/schooltool/+release/1.3.1
+
+
+1.3.0 (2010-01-06)
+------------------
+
+- Port to zope versions available in karmic https://launchpad.net/bugs/498803
+- Update translations
+
+
+SchoolTool Gradebook
+====================
+
+0.7.3 (2010-10-27)
+------------------
+
+- Grades rounding mismatch (https://launchpad.net/bugs/585796)
+- Calculate average grade with more precision (https://launchpad.net/bugs/333971)
+- Use fixed precision for total and linked columns (https://launchpad.net/bugs/650838)
+- Fix to let students view section's gradebook.
+- Cosmetic fixes in various pages.
+- Updated translations (es, lt, nl)
+
+
+0.7.2 (2010-09-16)
+------------------
+
+New features
+++++++++++++
+
+- CSV export of all sections' grades (requested by SLA)
+- Custom Score Systems need min/max passing scores (https://launchpad.net/bugs/616451)
+
+Bug fixes
++++++++++
+
+- Fixed Gradebook doesn't remember last section visited (https://launchpad.net/bugs/623507)
+- Fixed deletion of report activities (https://launchpad.net/bugs/627490)
+- Fixed exception deploying a report sheet when no templates exist (https://launchpad.net/bugs/592144)
+- "Enter" in gradebook should not submit form (https://launchpad.net/bugs/615957)
+- Updated translations (el, en, es, fr, it, nl)
+
+
+0.7.1 (2010-06-25)
+------------------
+
+- Fixed accessing gradebook if last visited section was deleted (https://launchpad.net/bugs/591872)
+- Fixed all averages displayed as "A" (https://launchpad.net/bugs/596311)
+- Fix a crash in manage Activity categories (https://launchpad.net/bugs/585805)
+- Updated translations (es, ru, tr)
+
+
+0.7.0 (2010-05-20)
+------------------
+
+Stable release to go with SchoolTool 1.4.0.
+
+- Fixed failing ranged score system for report activities when using non-english views (https://launchpad.net/bugs/581825)
+- Made the gradebook to stop creating a default worksheet if there are report sheets deployed (https://launchpad.net/bugs/579720)
+- Made 'Apply' button translatable in edit form of report activities
+- Improved due filter message id in the gradebook overview
+- Fixed typo (https://launchpad.net/bugs/582436)
+- Updated translations
+
+
+0.6.2 (2010-04-28)
+------------------
+
+- Added user preference to hide the due date filter
+- Students should be able to view activity descriptions (https://launchpad.net/bugs/306553)
+- Fixed gradebook pdf to break across pages better (https://launchpad.net/bugs/356544)
+- Added support for comment score system values in student grades view
+- Add margin of 1em where appropriate (https://launchpad.net/bugs/513473)
+- Fixed "Workheet" typo (https://launchpad.net/bugs/558472)
+- Make score systems texts translatable
+- Include compiled translations in the tarball
+- Updated translations (da, de, es, pl, pt_BR, vi)
+
+
+0.6.1 (2010-02-24)
+------------------
+
+- Main "Gradebook" link now remembers last section (https://launchpad.net/bugs/513246)
+- Add gradebook pdf (https://launchpad.net/bugs/509672)
+- Add request page for report cards (https://launchpad.net/bugs/485595)
+- Overhauled report card layout view for easier use (https://launchpad.net/bugs/485609)
+- Ability to unhide worksheets (https://launchpad.net/bugs/511246)
+- Linked columns that link to hidden worksheets will now also be hidden
+- Fix gradebook crashes with linked activities (https://launchpad.net/bugs/513351)
+- Fix viewing gradebook for sections without courses (https://launchpad.net/bugs/484485)
+- Accept the term filter for student reports
+- Fix removing scores from gradebook
+- Left-justify names in gradebook overview (https://launchpad.net/bugs/513469)
+- Add security descriptions (https://launchpad.net/bugs/513476)
+- Administration can grade students if that is enabled in access control
+  (https://launchpad.net/bugs/517201)
+- Made cell ids predictable for selenium scripts (https://launchpad.net/bugs/422641)
+- Reduce dependency on ``zope.app.*`` packages
+- Update translations (es, fi, nl, pl, pt)
+
+
+0.6.0 (2010-01-06)
+------------------
+
+- Port to zope versions available in karmic https://launchpad.net/bugs/498803
+
+
+SchoolTool Intervention
+=======================
+
+0.3.3 (2010-10-27)
+------------------
+
+- Change style of some buttons to neutral (https://launchpad.net/bugs/613571)
+- Do not crash if persons are removed or don't have email
+- Added and updated translations (it, nl, pt_BR, sk)
+
+
+0.3.2 (2010-07-15)
+------------------
+
+- Added and updated translations (es_SV, it, pl, pt_BR, ru)
+
+
+0.3.1 (2010-04-28)
+------------------
+
+- Fix Interventions Messages Layout (https://launchpad.net/bugs/561753)
+- Updated translations (es, vi)
+
+
+0.3.0 (2010-04-08)
+------------------
+
+- Multiple UI changes including new dashboard page
+- Refactored intervention security model
+- Created security descriptions (https://launchpad.net/bugs/513476)
+- Need user interventions dashboard (https://launchpad.net/bugs/507313)
+- Better css for goal add/edit and other intervention views (https://launchpad.net/bugs/513466)
+- Evolution script and subscriber for person removal (https://launchpad.net/bugs/523274)
+- Need evolution script and subscriber for schoolyear deletion (https://launchpad.net/bugs/523261)
+- Search student view now also matches on username
+- Do not crash when there are no terms set up (https://launchpad.net/bugs/480616, https://launchpad.net/bugs/540530)
+- Added first translations (es, fi, nl, vi)
+
+More info at https://launchpad.net/schooltool.intervention/+release/0.3.0
+
+
+0.2.1 (2010-02-10)
+------------------
+
+- Fix evolution scripts if there is no container yet (https://launchpad.net/bugs/515863)
+
+
+0.2.0 (2010-01-06)
+------------------
+
+- Port to zope versions available in karmic https://launchpad.net/bugs/498803
+
+
+SchoolTool Lyceum Journal
+=========================
+
+0.6.1 (2010-10-20)
+------------------
+
+- Update translations
+
+
+0.6.0 (2010-05-26)
+------------------
+
+This release goes with SchoolTool 1.4.0
+
+- Link to Schedule instead of Timetables when there are no periods.
+  (https://launchpad.net/bugs/389563)
+- Update translations
+
+
+0.5.3 (2010-04-27)
+------------------
+
+- Fix crash with non-ascii usernames (https://launchpad.net/bugs/495872)
+- Rename journal tab to "Attendance" for students (https://launchpad.net/bugs/557450)
+- Update translations (mn, fi, bg), fix or delete wrong translations.
+
+
+0.5.2 (2010-04-09)
+------------------
+
+- Add security descriptions (https://launchpad.net/bugs/513476)
+- Update translations
+
+
+0.5.1 (2010-02-05)
+------------------
+
+- Reduce dependencies
+- Fix to work with zc.table >= 0.7.0
+- Update translations
+
+
+0.5.0 (2010-01-06)
+------------------
+
+- Port to zope versions available in karmic https://launchpad.net/bugs/498803
+- Update translations
+
+
+SchoolTool CAS
+==============
+
+0.4.2 (2010-07-01)
+------------------
+
+Final release for SchoolTool 1.4
+
+
+0.4.1 (2010-04-09)
+------------------
+
+- Remove dependency on ``zope.app.security``
+- Minor build improvements, add license, etc.
+
+
+0.4.0 (2010-01-06)
+------------------
+
+- Fix for stricter redirect rules in newer zope.publisher
+

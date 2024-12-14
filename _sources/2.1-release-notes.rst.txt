@@ -1,0 +1,129 @@
+:tocdepth: 2
+
+SchoolTool 2.1 Release Notes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SchoolTool 2.1 builds upon the the redesigned 2.0 and is included in Ubuntu 12.04 LTS.
+That means it will be supported for several years to come. Please add
+:ref:`ppa` to your Software Sources to get bugfix releases since 2.1.0_
+
+2.1.2
+=====
+
+SchoolTool Gradebook 2.1.1 (2012-10-03)
+---------------------------------------
+
+- Recursion error in gradebook (https://launchpad.net/bugs/1052931)
+- Fixed Edit Activity submit
+- Fix a rare failure when upgrading from gradebook <= 0.9.0 (https://launchpad.net/bugs/995615)
+- Report Layout displays a server error (https://launchpad.net/bugs/1008176)
+- Set short spreadsheet names in Gradebook Export xls (https://launchpad.net/bugs/1024814)
+- Updated translations
+
+
+2.1.1 (2012-08-16)
+==================
+
+SchoolTool 2.1.1 (2012-08-16)
+-----------------------------
+
+Translations
+++++++++++++
+
+- Updated translations
+- Added Bosnian, Croatian, Slovenian translations
+
+XLS
++++
+
+- Added course_id, government_id and credits to Courses sheet import/export.
+- Exporters must skip sections with no courses (https://launchpad.net/bugs/1020842)
+
+Bugfixes
+++++++++
+
+- Missing hexes.svg background in released packages (https://launchpad.net/bugs/1030218)
+- Timetables evolution fails on exception days (https://launchpad.net/bugs/1003834)
+- Advisory accordion doesn't show advisees (https://launchpad.net/bugs/1005989)
+- Fix upgrade from schooltool < 1.5 crashing (https://launchpad.net/bugs/1007361)
+- Remove demographics when person is deleted.
+- Users cannot see their own photo (https://launchpad.net/bugs/1007145)
+
+Development tools
++++++++++++++++++
+
+- Selenium screenshots
+
+
+SchoolTool Journal 2.1.1 (2012-08-16)
+-------------------------------------
+
+- Update translations
+
+
+SchoolTool Intervention 2.1.1 (2012-08-08)
+------------------------------------------
+
+- Updated translations
+
+
+.. _2.1.0:
+
+2.1.0 (2012-04-19)
+==================
+
+Final release for Precise
+
+
+SchoolTool 2.1.0 (2012-04-19)
+-----------------------------
+
+New features
+++++++++++++
+
+- Add Calendar tab, configure default tab (https://launchpad.net/bugs/938825)
+- Add a background with hexes (https://launchpad.net/bugs/967233)
+- XLS import now has Teachers and Students sheets
+- Updated many translations, added Sinhalese (si).
+
+Bugfixes
+++++++++
+
+- Fix date validation to not crash on years before 1900 (https://launchpad.net/bugs/960367)
+- Fixed section delete view when school year was created with non-ascii title (https://launchpad.net/bugs/963740)
+- Fixed resource views when the resource title has non-ascii characters (https://launchpad.net/bugs/916086)
+- Show all demographics fields in person index view (https://launchpad.net/bugs/944471)
+- XLS import automatically adds teachers and students to the corresponding groups
+- Fix breakage if intervention plugin was used, but then disabled (https://launchpad.net/bugs/969221)
+- Replace PIL dependency with Pillow to fix image libraries detection when
+  building from source on Ubuntu.
+
+
+SchoolTool Gradebook 2.1.0 (2012-04-18)
+---------------------------------------
+
+- Report sheets XLS export (https://launchpad.net/bugs/976757)
+- Period order in attendance report incorrect (https://launchpad.net/bugs/932508)
+- Round the score in student gradebook (https://launchpad.net/bugs/950531)
+- Refactor worksheets to separate activities and enable different kinds of
+  worksheets.
+- Updated translations
+
+
+SchoolTool Journal 2.1.0 (2012-04-18)
+-------------------------------------
+
+- Journal XLS export (https://launchpad.net/bugs/961854)
+- Clicking on a student in the Journal does not go to the student (https://launchpad.net/bugs/661243)
+- Fix displaying journal if section is scheduled for some other term, but not the
+  viewed one (https://launchpad.net/bugs/976712)
+- Update translations
+
+
+SchoolTool Intervention 2.1.0 (2012-04-18)
+------------------------------------------
+
+- Make Intervention tab highlighted (https://launchpad.net/bugs/868435)
+- List relationships with all responsible parties (https://launchpad.net/bugs/922271)
+- Contacts may include people other than parents (https://launchpad.net/bugs/973679)
+- Added (da) and updated translations.

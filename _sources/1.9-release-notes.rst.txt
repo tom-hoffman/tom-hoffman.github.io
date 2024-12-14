@@ -1,0 +1,321 @@
+:tocdepth: 2
+
+1.9 Release Notes
+~~~~~~~~~~~~~~~~~
+
+1.9, better known as flourish_, is a development series focusing on redesign of
+the user interface, that has now become the SchoolTool 2.0_ release.
+
+.. _flourish: https://launchpad.net/schooltool.release/flourish
+.. _2.0: 2.0-release-notes.html
+
+
+.. _2.0.0:
+
+2.0.0 (2011-11-23)
+==================
+
+2.0_ release!
+
+- Final touches to the new look.
+
+
+SchoolTool 2.0.0 (2011-11-23)
+-----------------------------
+
+- Many CSS fixes (https://launchpad.net/bugs/885807)
+
+Bugfixes
+++++++++
+
+- Deal with the 's in the sidebar (https://launchpad.net/bugs/873045)
+- Terms index still has inconsistent style (https://launchpad.net/bugs/892923)
+- Move pack database action to server page (https://launchpad.net/bugs/886310)
+- Done's to get back to /school (https://launchpad.net/bugs/892926)
+- Credits hint still asks for integer (https://launchpad.net/bugs/892946)
+- Courses import should have cancel (https://launchpad.net/bugs/892952)
+- Courses import instructions doesn't reflect new field names (https://launchpad.net/bugs/892949)
+- Translate default demographics fields.
+
+Cleanup
++++++++
+
+- Remove ancient demographics implementation.
+- Remove obsolete images and docs.
+- Remove duplicate jQuery(ui).
+
+
+SchoolTool Lyceum Journal 2.0.0 (2011-11-22)
+--------------------------------------------
+
+- Allow administrators see the journal, add a setting to allow them enter attendance
+  (https://launchpad.net/bugs/892362)
+
+
+SchoolTool Gradebook 2.0.0 (2011-11-22)
+---------------------------------------
+
+- Column header in the Detailed Student Report spans beyond column borders.
+  (https://launchpad.net/bugs/837156)
+- Absences by day report dialog should have a proper date widget (https://launchpad.net/bugs/876800)
+- PDF file names should include student username (https://launchpad.net/bugs/893019)
+- Flourish request failing report modal submits too soon (https://launchpad.net/bugs/893240)
+
+
+SchoolTool Intervention 2.0.0 (2011-11-22)
+------------------------------------------
+
+- Updated translations
+
+
+1.9.3 (2011-11-18)
+==================
+
+Flourish release candidate.
+
+- Include Makefile in all releases.
+
+
+SchoolTool 1.9.3 (2011-11-18)
+-----------------------------
+
+- Improved style of date pickers, buttons, calendars, errors, gradebook etc.
+- Fixed all tests.
+- Updated translations.
+
+Calendar
+++++++++
+
+- More informative calendar titles.
+- Multi term sections should show only once in calendar view. (https://launchpad.net/bugs/872289)
+- Classes show up twice in student/teacher calendars (https://launchpad.net/bugs/882285)
+- Name order reversed in calendar (https://launchpad.net/bugs/891341)
+- Calendar showing wrong day (https://launchpad.net/bugs/877815)
+- Only restore last visited calendar days if date user last looked at it is today.
+- In calendar overlay legend, display only sections that are in terms that are visible in the view.
+
+Export
+++++++
+
+- XLS importer crashes on reimport in timetable code (https://launchpad.net/bugs/878209)
+- Import of Contact Relationships fails with DuplicateRelationship error (https://launchpad.net/bugs/882482)
+- Reimporting sections using CSV does not work anymore (https://launchpad.net/bugs/251866)
+- XLS importer needs to handle integer data (https://launchpad.net/bugs/362014)
+- Allow import of Equipment resources
+- Ensure XLS import works with existing objects in database (https://launchpad.net/bugs/585119)
+
+Other bugfixes
+++++++++++++++
+
+- Server error when opening demographic container (https://launchpad.net/bugs/887662)
+- Need to sort groups in filter widget (https://launchpad.net/bugs/884230)
+
+Devmode
++++++++
+
+- Instead of redirecting to log-in page, show security check log (https://launchpad.net/bugs/716340)
+
+
+SchoolTool Gradebook 1.9.3 (2011-11-18)
+---------------------------------------
+
+New features
+++++++++++++
+
+- Hide/Unhide deployed Report Sheets
+- Set title before deploying a report sheet.
+- Too easy to deploy duplicate report sheets (https://launchpad.net/bugs/836732)
+- "Report" in student pop up menu that brings up the same view as student sees
+  (https://launchpad.net/bugs/887122)
+
+
+Bugfixes
+++++++++
+
+- Selecting score system for average column does nothing (https://launchpad.net/bugs/882061)
+- Gradebook menuitem fails when person teaches and attends sections (https://launchpad.net/bugs/885823)
+- All tests fixed
+
+
+SchoolTool Lyceum Journal 1.9.3 (2011-11-18)
+--------------------------------------------
+
+- Fix saving attendance/grades for months other than first (https://launchpad.net/bugs/879425)
+- Fix displaying journal for sections that are not scheduled (https://launchpad.net/bugs/868421)
+- Link to journal from section views
+
+
+1.9.2 (2011-11-04)
+==================
+
+Flourish beta 2.
+
+- Make sandbox with virtualenv. Fixes bootstrap with Python 2.7.
+
+
+SchoolTool 1.9.2 (2011-11-04)
+-----------------------------
+
+- Group sections by term in calendar (https://launchpad.net/bugs/872289)
+- Terms are listed upside down (https://launchpad.net/bugs/872240)
+- Moved Demographics into General Information accordion (https://launchpad.net/bugs/882073)
+- Added two "Other" contact fields (https://launchpad.net/bugs/874568)
+- User information doesn't show username (https://launchpad.net/bugs/545767)
+- Username in login bar should go to user home (https://launchpad.net/bugs/868394)
+- No language selector in flourish (https://launchpad.net/bugs/868397)
+- Many calendaring fixes
+- Updated translations.
+
+Export
+++++++
+
+- XLS import of boolean or required demo fields (https://launchpad.net/bugs/859424)
+
+
+SchoolTool Gradebook 1.9.2 (2011-11-02)
+---------------------------------------
+
+- Fixed the overzealous security checks to improve performance (https://launchpad.net/bugs/561217)
+- Add a link from Section to Gradebook (https://launchpad.net/bugs/868426)
+- Fix Gradebook breadcrumb (https://launchpad.net/bugs/868431)
+- Updated translations
+
+
+SchoolTool Lyceum Journal 1.9.2 (2011-10-28)
+--------------------------------------------
+
+- Fix upgrading from versions earlier than 1.9 (https://launchpad.net/bugs/859708)
+- Minimize amount of permission checks for performance reasons (https://launchpad.net/bugs/879402)
+- Section stays the same when switching between Gradebook and Journal (https://launchpad.net/bugs/661240)
+- Selenium testing support
+- Update translations
+
+
+SchoolTool Intervention 1.9.2 (2011-10-28)
+------------------------------------------
+
+- Updated translations
+
+
+SchoolTool Devtools 0.6.3 (2011-10-12)
+--------------------------------------
+
+- Fix import errors left in previous release.
+
+
+1.9.1 (2011-10-06)
+==================
+
+Flourish beta.
+
+- Fully translatable.
+- Selenium tests support.
+
+
+SchoolTool 1.9.1 (2011-10-07)
+-----------------------------
+
+- Fully translatable.
+- Experimental implementation of Selenium testing API.
+- Fixed or disabled some tests.
+- Page title.
+- Updated translations.
+
+Export
+++++++
+
+- Added small sample data xls.
+- Added boolean and date demo field support to xls import.
+- Fixed export of booleans bug (https://launchpad.net/bugs/796791)
+
+
+SchoolTool Gradebook 1.9.1 (2011-10-06)
+---------------------------------------
+
+- Fully translatable
+- Updated translations
+
+
+SchoolTool Intervention 1.9.1 (2011-10-06)
+------------------------------------------
+
+- Created student interventions PDF (https://launchpad.net/bugs/541498)
+- Fully translatable
+- Updated translations (es_SV, lt, nl and pt_BR already translated)
+
+
+SchoolTool Lyceum Journal 1.9.1 (2011-10-06)
+--------------------------------------------
+
+- Fully translatable
+- Update translations
+
+
+SchoolTool Devtools 0.6.1 (2011-10-06)
+--------------------------------------
+
+- Restore support for python << 2.6, move selenium dependent code to
+  webdriver.py
+
+
+SchoolTool Devtools 0.6 (2011-10-05)
+------------------------------------
+
+- Selenium test runner recipe
+- Create a http://launchpad.net/schooltool.devtools project
+
+
+1.9.0 (2011-09-25)
+==================
+
+Flourish alpha.
+
+First release of "flourish" summer sprint work, featuring a totally new user
+interface.
+
+
+SchoolTool Lyceum Journal 1.9.0 (2011-09-25)
+--------------------------------------------
+
+New skin for SchoolTool 1.9 (flourish) and many other changes.
+
+
+SchoolTool Intervention 1.9.0 (2011-09-23)
+------------------------------------------
+
+New skin for SchoolTool 1.9 (flourish) and many other changes.
+
+
+SchoolTool Gradebook 1.9.0 (2011-09-22)
+---------------------------------------
+
+New skin for SchoolTool 1.9 (flourish) and many other changes.
+
+Cleanup
++++++++
+
+- Move categories from z3c.optionstorage to a simple container.
+
+
+SchoolTool 1.9.0 (2011-09-21)
+-----------------------------
+
+This is a first release from "flourish" branch that was being worked on
+tirelessly since June. 
+
+It features a new, much improved look and navigation, a total redesign.
+
+There are too many changes to list.
+
+Export
+++++++
+
+- XLS import/export of contacts (https://launchpad.net/bugs/608873)
+
+API changes
++++++++++++
+
+- Timetables rewrite
+- Pluggable traverser refactoring, traversers lost redundant request parameter
+- New `flourish` content, viewlet, page, breadcrumbs, resourceLibrary and
+  ZCML directives for them.

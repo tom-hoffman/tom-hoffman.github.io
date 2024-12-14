@@ -1,0 +1,52 @@
+.. _2.8-and-beyond:
+
+SchoolTool 2.8 And Beyond
+=========================
+
+SchoolTool 2.8
+--------------
+
+SchoolTool 2.8 is scheduled for release in April 2014, co-inciding with the release of Ubuntu 14.04 LTS, Trusty Tahr.
+
+The 2.8 release will include several significant new features:
+
+ * Student transcript reports -- that is, courses completed by a student, with scores from section report sheets, including multiple years of data.
+
+ * Parent contacts can be converted to users with access to their children's grades.  This is the initial implementation of parent access.
+
+ * An alternative report card layout based on course worksheets.
+
+ * Grade levels can be assigned to courses.
+
+ * Each student's progression through the school, from enrollment, through grade levels, to completion (or other departure) is tracked over time.  That is, the history of changes to status and level is recorded and timestamped, future changes can be pre-scheduled, and the current status is kept up to date.  Customized statuses for pre-enrolled, actively enrolled, and exited students can be created.
+
+ * Student progression through a section, including early withdrawal or completion, is tracked and updated in the gradebook and journal interfaces, including custom statuses.
+
+ * Changing instructor status within a section may also be tracked during the term.
+
+ * The changes in the status of other relationships, including advisors and contacts, is also tracked over time.
+
+ * Several performance improvements made to gradebook/journal/CanDo loading and saving.
+
+ * Group and section membership forms updated to include the additional statuses described above.  Form switched to a more straightforward checkbox style.
+
+A bugfix release of the current stable SchoolTool, the 2.6_ series, will be included in Ubuntu 14.04 LTS.  SchoolTool 2.8_ will be released to a new "2.8" PPA on Launchpad for Ubuntu 12.04 and 14.04.  Given that SchoolTool 2.8 includes some far-reaching internal changes, most users will not want to apply this update mid-year.
+
+Future Releases
+---------------
+
+SchoolTool 2.8 will be the last SchoolTool release synced to the Ubuntu six-month release cycle.  For the rest of 2014 we plan a 2.8 update release at the end of July, and an end of 2014 release, probably called SchoolTool 2.10.
+
+We will be focusing on the current LTS Ubuntu release as the primary platform, with new PPA's for each point release.  That is, 2.8 users should eventually shift to Ubuntu 14.04.  Ubuntu 2.10 will probably be only released for Ubuntu 14.04 in a "2.10" PPA.
+
+Funding, SIELibre and the Future
+--------------------------------
+
+Mark Shuttleworth has funded incarnations of the SchoolTool project for over a decade.  Mark's support has been generous, consistent, patient, and deeply appreciated, but his support for the project will end with 2014, as has been planned for several years.
+
+To continue the project and, in particular, to provide the assurance of ongoing paid support to SchoolTool users, Project Manager Tom Hoffman and Lead Developer Douglas Cerna have established `SIELibre, LLC <http://sielibre.com>`_.  For more information about SIELibre's services, please see `http://sielibre.com <http://sielibre.com>`_.
+
+To be clear, the license to SchoolTool will not change, and it will continue to be free software.
+
+.. _2.6: 2.6-release-notes.html
+.. _2.8: 2.8-release-notes.html

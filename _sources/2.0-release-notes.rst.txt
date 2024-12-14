@@ -1,0 +1,205 @@
+:tocdepth: 2
+
+SchoolTool 2.0 Release Notes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+User Interface
+==============
+
+SchoolTool 2.0 represents a complete rethinking of SchoolTool's web interface from the organization of the application as a whole to the layout of each form and button.
+
+The staring point for the redesign was the Ubuntu Web Design Guidelines and the free Ubuntu font, both created by Canonical Design.  We developed a new color scheme and logo with Schwadesign.  This gave us a clear, attractive and consistent foundation for all our web assets across our homepage, documentation, and the SchoolTool application itself.
+
+We standardized the design of forms used throughout the application, including an attractive grid design used in both the gradebook and the attendance journal.  The judicious use of Javascript in dynamic dialogs, sliders and menus has streamlined the user experience at key points.  Explanatory text has been added to many rarely-used pages.
+
+Administrative views were a particular focus.  They have been divided into technical/server and school-oriented tasks and re-organized for clarity and efficiency.
+
+Thanks to a clean separation of model and view in SchoolTool, we were able to make these changes with minimal changes to the underlying database and application logic.
+
+Timetable Model
+===============
+
+The school timetable model used for scheduling class sections was completely rewritten for this release to be more flexible and in tune with the realities of schools around the world.  Classes can now start and stop at different points throughout a term and can be edited during the term to reflect ongoing changes.
+
+Intervention
+============
+
+The Intervention user interface was simplified, with areas of redundancy with core SchoolTool removed.  Status messages were removed as a special type of message.
+
+Installation on Active Production Servers
+=========================================
+
+Because of the extent of the user interface changes in SchoolTool 2.0, we recommend this **not** be applied to an active deployment during the school year.  While these changes should not require significant re-training, some testing and advance warning will be necessary before making this change.
+
+Below are changes since the release of SchoolTool :ref:`2.0.0`.
+
+
+CHANGES
+=======
+
+.. _2.0.3:
+
+2.0.3 (2012-03-20)
+==================
+
+SchoolTool for Precise Beta 2.
+
+SchoolTool 2.0.3 (2012-03-19)
+-----------------------------
+
+New features
+++++++++++++
+
+- Dynamic javascript person and other tables
+- Can search persons and contacts by full name or partial names
+- Add all search results button in relationship views
+- Photos for persons (https://launchpad.net/bugs/683316)
+- Added ID cards for persons and groups 
+- Tab hiding (https://launchpad.net/bugs/938810)
+- Sections need locations (https://launchpad.net/bugs/932920)
+- Update jQuery to 1.7.1
+- Add more options from paster to start-schooltool-instance.
+- Updated translations, added Occitan (oc).
+
+
+Bugfixes
+++++++++
+
+- Server tab not highlighted, no breadcrumbs (https://launchpad.net/bugs/868435)
+- Make (weekly) schedules only contain schooldays (https://launchpad.net/bugs/930312)
+- Prevented duplicated demographics field IDs (https://launchpad.net/bugs/783887)
+- Gradebook popup fixes (https://launchpad.net/bugs/886257)
+
+Development tools
++++++++++++++++++
+
+- Selenium testing improvements
+- Selenium browser extensions
+
+
+SchoolTool Journal 2.0.3 (2012-03-20)
+-------------------------------------
+
+- Tab hiding (https://launchpad.net/bugs/938810)
+- Update translations
+
+
+SchoolTool Gradebook 2.0.3 (2012-03-16)
+---------------------------------------
+
+- Fill down is back in the contextual menu (https://launchpad.net/bugs/907907)
+- Course worksheet outstanding issues (https://launchpad.net/bugs/927862)
+- Tab hiding (https://launchpad.net/bugs/938810)
+- Fixes to navigation, style, i18n, tables, etc.
+- Updated translations
+
+
+SchoolTool Intervention 2.0.3 (2012-03-15)
+------------------------------------------
+
+- Send email selections should be inactive if email is disabled (https://launchpad.net/bugs/922265)
+- Show notification when email was sent, with status and error messages (https://launchpad.net/bugs/942566)
+- Add an envelope icon next to responsible parties who have email addresses (https://launchpad.net/bugs/922267)
+- Tab hiding (https://launchpad.net/bugs/938810)
+- Updated translations, added ast, de, fr translations.
+
+
+.. _2.0.2:
+
+2.0.2 (2012-02-15)
+==================
+
+- Sync versions with Precise Alpha 2.
+- Transition to zope.testbrowser 4.
+- Transition `z3c.*` libraries to versions that can use Chameleon 2.
+
+
+SchoolTool 2.0.2 (2012-02-14)
+-----------------------------
+
+- Added integer demographic fields.
+
+Bugfixes
+++++++++
+
+- Fixed the password edit view (https://launchpad.net/bugs/868411)
+- Allow optional Selection List demographics fields to remain unset (https://launchpad.net/bugs/898219)
+- Fixed person edit view to show limited demographics fields (https://launchpad.net/bugs/914609)
+- Sorted section list in person accordion (https://launchpad.net/bugs/921373)
+- Move 'School name' to the bottom of Customize menu (https://launchpad.net/bugs/876797)
+- Updated translations.
+
+
+SchoolTool Gradebook 2.0.2 (2012-02-02)
+---------------------------------------
+
+New features
+++++++++++++
+
+- Course leaders may deploy course worksheets (https://launchpad.net/bugs/916678)
+
+Bugfixes
+++++++++
+
+- Error editing Activity category with unicode characters (https://launchpad.net/bugs/913581)
+- Crash viewing a Section, when all sheets are hidden
+  (https://launchpad.net/bugs/913055)
+- Missing XLS and PDF export (https://launchpad.net/bugs/916674)
+- Different style for deployed worksheet tabs (https://launchpad.net/bugs/916674)
+- Min/max should show while editing report sheet template
+  (https://launchpad.net/bugs/916675)
+- Unhiding personal sheet unhides deployed sheets (https://launchpad.net/bugs/917294)
+- In sorts, no value should be less than zero (https://launchpad.net/bugs/907895)
+- Updated translations (de, fr)
+
+
+.. _2.0.1:
+
+2.0.1 (2011-12-22)
+==================
+
+First bugfix release.
+
+- Sync versions with Precise Alpha 1.
+- Upgrade to zc.buildout 1.5
+
+
+SchoolTool 2.0.1 (2011-12-22)
+-----------------------------
+
+- Cannot add resources (https://launchpad.net/bugs/894632)
+- Email view needs formatting (https://launchpad.net/bugs/886304)
+- Batches missing in several views (https://launchpad.net/bugs/882060)
+- Show usernames in every persons table (https://launchpad.net/bugs/897260)
+- Many CSS fixes (https://launchpad.net/bugs/885807)
+- Many wording and i18n fixes by Douglas Cerna.
+- Hide demographics fieldset if it is empty in person add views (https://launchpad.net/bugs/752051)
+- Fix test failing when translations are compiled.
+- Sorted course titles in section add form (https://launchpad.net/bugs/905386)
+- Fixed required demographics description fields (https://launchpad.net/bugs/896390)
+- Styled the fckeditor widget (https://launchpad.net/bugs/891348)
+- Updated README.txt (https://launchpad.net/bugs/590781)
+- Document running on port 80 (https://launchpad.net/bugs/259415)
+- Updated translations.
+
+
+SchoolTool Journal 2.0.1 (2011-12-22)
+-------------------------------------
+
+- Fixed css for cells in section journal
+- Update translations
+
+
+SchoolTool Gradebook 2.0.1 (2011-12-22)
+---------------------------------------
+
+- Allow scoresystem point value be equal to the previous grade (https://launchpad.net/bugs/899228)
+- Updated translations
+
+
+SchoolTool Intervention 2.0.1 (2011-12-22)
+------------------------------------------
+
+- Updated translations
+
+

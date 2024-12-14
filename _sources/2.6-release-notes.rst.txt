@@ -1,0 +1,576 @@
+:tocdepth: 2
+
+SchoolTool 2.6 Release Notes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Long-running tasks
+==================
+
+Some tasks take more than a few seconds to complete, especially in bigger
+schools. Users were not able to use the application while reports were being
+generated. Downloads were timing out in as little as 10 seconds. Such tasks
+should be done asynchronously to allow users do something else, or wait for them
+to be completed if they wish so.
+
+``Celery`` is an asynchronous task queue that executes long running tasks.
+SchoolTool and its plugins now use it to do the following tasks in background:
+
+- PDF reports
+- XLS export
+- XLS import (disabled)
+- Multiple reports in a ZIP archive 
+
+Messages are sent when a task is completed. They are available from the Home
+page. A notification with the number of new messages is displayed near the
+person's name in the top right of the page.
+
+
+Server
+======
+
+There are now 4 processes, controlled by a ``supervisor`` daemon:
+
+  + ``schooltool``    - schooltool web application
+  + ``zeo``           - ``ZEO`` server allows many clients to use the same ``ZODB`` storage
+  + ``celery_report`` - a ``celery`` task queue that generates reports
+  + ``redis``         - a simple key-value database for ``celery``
+
+
+Ubuntu
+======
+
+SchoolTool 2.6 is available for
+
+- 14.04 (trusty) from the universe_, add the ppa_ for bugfixes
+- 13.10 (saucy) from the universe_, add the ppa_ for bugfixes
+- 12.04 (precise) from the dev_ PPA
+
+Ubuntu package ``schooltool`` contains updated configuration files. If they have
+been modified, you may be asked how to handle the conflicts. So it is
+recommended to upgrade it in the terminal::
+
+    $ sudo apt-get update
+    $ sudo apt-get dist-upgrade
+
+Answer ``Y`` (install package maintainer's version) to all questions to get
+the new files. A backup of modified files is made with a suffix ``.dpkg-old``,
+compare them and make the same changes in the new files::
+
+    $ cd /etc/schooltool/standard
+    $ diff -u paste.ini.dpkg-old paste.ini 
+
+To see the status of all 4 processes, use the status command of the init
+script::
+
+    $ sudo service schooltool status
+
+
+Running from source
+===================
+
+New ``make`` targets:
+
+  + start       - start all processes as daemons
+  + stop        - stop all processes
+  + restart     - restart ``schooltool`` and ``celery`` processes
+  + rerun       - stop ``schooltool`` and run again in the foreground. restarts ``celery``
+  + status      - status of all processes
+
+``Redis`` server is written in C and needs to be installed separately. On Ubuntu
+or Debian::
+
+    $ sudo apt-get install redis-server
+
+Instances have to be updated to run this version. If you run from a sandbox::
+
+    $ bin/make-schooltool-instance instance
+
+
+New features
+============
+
+- Background XLS export
+- Background report generation
+- Message about finished background tasks, with download links
+- The rest of reports converted to the new style
+- SVG-based filtered/chart reports
+- Differentiate permissions of administrators, clerks, and managers
+- Read-only views for gradebook and parts of the school
+- Split journal into three modes: attendance, scores, and homeroom.
+- Customizable journal score systems
+- Schoolwide attendance view
+
+
+2.6.4 (2014-05-08)
+==================
+
+Trusty bugfixes
+
+
+SchoolTool Journal 2.6.4 (2014-05-05)
+-------------------------------------
+
+- Update translations
+
+
+SchoolTool Gradebook 2.6.4 (2014-05-01)
+---------------------------------------
+
+- Deploy hidden report sheets to new sections, fix hide/unhide report
+  sheets view for sections that don't have them (https://launchpad.net/bugs/1261992)
+- Fix report cards broken after deleting a term (https://launchpad.net/bugs/1065381)
+- Sort terms by date in course/report worksheet views (https://launchpad.net/bugs/1311818)
+- Fix deploying report sheet using a shortened template title (https://launchpad.net/bugs/1290167)
+- Translate "Ave." string in student's gradebook (https://launchpad.net/bugs/1307136)
+- Update Dutch translation
+
+
+SchoolTool 2.6.4 (2014-05-01)
+-----------------------------
+
+- Support CKEditor 4.x (https://launchpad.net/bugs/1309133)
+- Delete schedules that reference a deleted timetable (https://launchpad.net/bugs/1280528)
+- Improve tab style to make active tab more clear (https://launchpad.net/bugs/1023378)
+- Timetables copied from active year retain old start/end dates (https://launchpad.net/bugs/1005962)
+- Updated translations
+
+
+SchoolTool CanDo 2.6.3 (2014-05-02)
+-----------------------------------
+
+- Updated for CKEditor and celery migrations
+- Updated Dutch translation
+
+
+2.6.3 "trusty" (2014-04-12)
+===========================
+
+Final release for Ubuntu 14.04 LTS
+
+SchoolTool 2.6.3 (2014-04-12)
+-----------------------------
+
+New features
+++++++++++++
+
+- Switch to CKEditor (https://bugs.launchpad.net/bugs/485898)
+- Celery 3 support (https://bugs.launchpad.net/bugs/1276384)
+- Latest translations from Launchpad
+
+Bugfixes
+++++++++
+
+- Fixed exception dates format in calendar widget of recurring events (https://launchpad.net/bugs/372889)
+- Fixed export of deleted timetables (https://launchpad.net/bugs/1281335)
+- Updated copyright (https://launchpad.net/bugs/1289277)
+- Fixed term/section navigation in a different school year (https://launchpad.net/bugs/1281050)
+
+
+SchoolTool Gradebook 2.6.3 (2014-04-12)
+---------------------------------------
+
+- Switch to CKEditor (https://bugs.launchpad.net/bugs/485898)
+- Latest translations from Launchpad
+
+
+SchoolTool Journal 2.6.3 (2014-04-12)
+-------------------------------------
+
+- Latest translations from Launchpad
+
+
+SchoolTool CanDo 2.6.2 (2014-04-11)
+-----------------------------------
+
+- Fixed report generation (https://launchpad.net/bugs/1306778)
+
+
+SchoolTool Intervention 2.6.2 (2014-04-09)
+------------------------------------------
+
+- Fix a crash on startup if used with z3c.form < 2.8
+- Latest translations from Launchpad
+
+
+2.6.2 (2014-02-15)
+==================
+
+February bugfixes
+
+
+SchoolTool 2.6.2 (2014-02-15)
+-----------------------------
+
+- Fix upgrade from a fresh install of version 2.6.0 (https://launchpad.net/bugs/1258529)
+- Fix delete year/term if it contains non-ascii chars.
+- Updated translations
+
+
+SchoolTool Gradebook 2.6.2 (2014-02-15)
+---------------------------------------
+
+- Deploy course worksheets on new sections.
+- Removed attendance score systems from Average column's menu (https://launchpad.net/bugs/1258939)
+- Fix exception in mygrades view after timeout.
+- Updated translations
+
+
+SchoolTool Journal 2.6.2 (2014-02-15)
+-------------------------------------
+
+- Allow uppercase values in attendance score system (https://launchpad.net/bugs/1253663)
+- Update translations
+
+
+SchoolTool LDAP 1.0.2 (2014-02-07)
+----------------------------------
+
+- Support non-ascii characters in data coming from LDAP (https://launchpad.net/bugs/1277518)
+
+
+2.6.1 (2013-11-24)
+==================
+
+SchoolTool LDAP 1.0.1 (2013-12-12)
+----------------------------------
+
+- Fix failure to start when example /etc/ldap.conf exists (https://launchpad.net/bugs/1251181)
+- Add Dutch and Sinhalese translations.
+
+
+SchoolTool Intervention 2.6.1 (2013-12-06)
+------------------------------------------
+
+- Let clerks edit goals
+- Hide add/edit links from users who cannot do that
+- Fixed error when student clicks on Interventions menu item in profile
+- Fixed Inbox when goals have no "Presenting concerns" set (https://launchpad.net/bugs/1231371)
+- Updated translations
+- Added Portuguese and Sinhalese translations
+
+
+SchoolTool 2.6.1 (2013-11-24)
+-----------------------------
+
+- Synchronize timezone set in preferences with timetables and schedules (https://launchpad.net/bugs/1239468)
+- Set initial timezone from ``/etc/timezone`` (https://launchpad.net/bugs/1030211)
+- Add SchoolTool versions to the Server page.
+- Person cannot see his own preferences (https://launchpad.net/bugs/1247825)
+- Do not escape extra spaces in comments (https://launchpad.net/bugs/1241022)
+- Fix error when trying to replace existing school logo (https://launchpad.net/bugs/1250733)
+- Restore the warning about unsaved changes in gradebook, broken after adding
+  autocompletion (https://launchpad.net/bugs/1253070)
+- Updated translations
+
+
+SchoolTool Journal 2.6.1 (2013-11-24)
+-------------------------------------
+
+- Display homeroom attendance hint in all periods (https://launchpad.net/bugs/1247853)
+- Journal tab should display a section in the active school year when first
+  opened (https://launchpad.net/bugs/1243781)
+- Fix periods disappearing in exotic time zones (https://launchpad.net/bugs/1239468)
+
+
+SchoolTool CanDo 2.6.1 (2013-11-24)
+-----------------------------------
+
+- Fixed equivalent lookup in the skills gradebook.
+- Fix Total points external activity to return a percentage of total possible
+  points.
+
+
+SchoolTool Gradebook 2.6.1 (2013-11-21)
+---------------------------------------
+
+- Prevented hidden report sheets to be deployed to new sections (https://launchpad.net/bugs/1220211)
+- Fixed error when deploying a course worksheet (https://launchpad.net/bugs/1186231)
+- Added What is This? sidebars to course worksheet views.
+- Fixed attendance calculation in XLS export and reports.
+- Fixed journal average calculation if alternative score system is used.
+- Gradebook tab should display a section in the active school year when first
+  opened (https://launchpad.net/bugs/1243781)
+
+
+2.6.0 "saucy" (2013-10-10)
+==========================
+
+Final release for Saucy
+
+- Name order setting and column split.
+- Navigation inside School tab when non-active school year is selected.
+- Tracebacks can now be submitted to the correct project in Launchpad.
+
+
+SchoolTool 2.6.0 (2013-10-10)
+-----------------------------
+
+- Don't reverse name order (https://launchpad.net/bugs/1201887)
+- Add "Name sorting" option to Server settings, display the selected name
+  column first in person tables.
+- Person search does not find by full name (https://launchpad.net/bugs/894798)
+- Change manager's full name to "Default Manager" (https://launchpad.net/bugs/1227220)
+- Fix timetable wizard for weekly timetables with different periods order.
+- Fix crash when displaying timetables with only one day (https://launchpad.net/bugs/1235150)
+- Fix navigation inside the School tab if a non-active school year is selected,
+  or school years title contains accented characters (https://launchpad.net/bugs/1234690)
+- Setting multiple languages in schooltool.conf breaks remote reports (https://launchpad.net/bugs/1229013)
+- Improvements to PDF grid and table style.
+- Extra info in traceback page and submit to launchpad button
+- Updated translations, removed unsupported ones (less than 25% translated).
+
+
+SchoolTool Gradebook 2.6.0 (2013-10-10)
+---------------------------------------
+
+- Flourish-style report card and student detail report.
+- Update for the new journal that uses an attendance score system.
+- Split Name column into First Name and Last Name, allow sorting by either.
+- Used name sorting setting in gradebook XLS export
+- Sections in the report card should be sorted (https://launchpad.net/bugs/1154209)
+- Fix navigation in report card layout views  if a non-active school year is selected,
+  or school years title contains accented characters (https://launchpad.net/bugs/1234690)
+- Make default score systems translatable.
+
+
+SchoolTool Journal 2.6.0 (2013-10-10)
+-------------------------------------
+
+- Respect name sorting setting to order columns, allow sorting by either name.
+- Initialize score systems container before adding new ones.
+- Order the scores in the '10 points' in descending order.
+- Translate score system titles and options.
+- Journal attendance / grade months should respect the configured time zone (https://launchpad.net/bugs/1233995)
+- Update translations, remove unsupported ones.
+
+
+SchoolTool CanDo 2.6.0 (2013-10-10)
+-----------------------------------
+
+- Add student's view for projects (https://launchpad.net/bugs/1070278)
+- Fix student and teacher sorting in some reports.
+- Allow sorting gradebook by first or last name (https://launchpad.net/bugs/1234284)
+- Fix navigation when schoolear has non-ascii chars (https://launchpad.net/bugs/1234690)
+- Fix forbidden attribute error on login after timeout (https://launchpad.net/bugs/1154662)
+
+
+SchoolTool Intervention 2.6.0 (2013-10-10)
+------------------------------------------
+
+- Register launchpad project for the error view.
+
+
+SchoolTool Virginia 2.6.0 (2013-10-10)
+--------------------------------------
+
+- Respect name order setting for sorting.
+
+
+2.5.3 (2013-09-17)
+==================
+
+Saucy Beta 2
+
+
+SchoolTool 2.5.3 (2013-09-17)
+-----------------------------
+
+Bugfixes
+++++++++
+
+- Fix integer demographic fields handling in importer (https://launchpad.net/bugs/1211613)
+- Add Activate school year link in School tab under Customize (https://launchpad.net/bugs/1216992 )
+- Fix links and Done buttons inside School tab when a different school year is selected
+- Add manager to Site Managers and Clerks groups (https://launchpad.net/bugs/1216915)
+- Access setting: allow instructor to add students to their section (https://launchpad.net/bugs/637759)
+- Access setting: allow instructor to modify section
+- Display contact information of a person in profile.
+- Updated translations
+
+Internals
++++++++++
+
+- Add ability to disable views in customized packages (https://launchpad.net/bugs/716346)
+
+
+SchoolTool Gradebook 2.5.3 (2013-09-13)
+---------------------------------------
+
+- Fix report sheet links when a different school year is selected
+- Updated translations
+
+
+SchoolTool Journal 2.5.3 (2013-09-13)
+-------------------------------------
+
+- Fix Journal tab clerk attendance view (https://launchpad.net/bugs/1216942)
+- Spell 'score systems' as two words.
+- Update Dutch translation.
+
+
+SchoolTool CanDo 0.8.2 (2013-09-14)
+-----------------------------------
+
+- Add a view to batch-deprecate skills, skill sets and nodes.
+- Added field to node search table to filter by common text
+- Fixed Save button in deprecate skills view when there's only one result
+- Changed wording and functionality of Visible/Active/Retired to Deprecated
+- Changed wording attribute to field in batch assign view
+- Fixed score student view for projects
+
+
+SchoolTool Virginia 0.8.2 (2013-09-14)
+--------------------------------------
+
+- Fix access to report with newer schooltool.
+
+
+2.5.2 (2013-08-23)
+==================
+
+Saucy Beta
+
+- Fix access to parts of the school for clerks, managers and administrators.
+- Update GPL license and file headers from gnu.org (https://launchpad.net/bugs/1211145)
+
+
+SchoolTool 2.5.2 (2013-08-23)
+-----------------------------
+
+- Autocompletion in gradebook for discrete score systems.
+- TAB key in gradebook moves to the next cell.
+- Further updates to permissions.
+- Clerks and administrators now have appropriate access to parts of the School.
+- Fix failures when creating timetables with rotating periods and weekly time slots (https://launchpad.net/bugs/1214131)
+- Updated translations
+
+
+SchoolTool Journal 2.5.2 (2013-08-23)
+-------------------------------------
+
+- Fix student's journal tab and view.
+- Used jQuery UI autocomplete widget for discrete score systems
+- Update Portuguese translation.
+
+
+SchoolTool Gradebook 2.5.2 (2013-08-23)
+---------------------------------------
+
+- Read-only gradebook and term reports access for clerks and administrators
+- Used jQuery UI autocomplete widget for discrete score systems
+- Updated Portuguese translation
+
+
+SchoolTool Intervention 2.5.2 (2013-08-25)
+------------------------------------------
+
+- Added Portuguese and Sinhalese translations
+
+
+SchoolTool CanDo 0.8.1 (2013-08-23)
+-----------------------------------
+
+- Nodes and skill sets can now be deprecated.
+- Allow clerks and managers to access skills and reports.
+
+
+SchoolTool Virginia 0.8.1 (2013-08-23)
+--------------------------------------
+
+- Clerk, manager and administrator access to reports
+- Added option for setting a year suffix for document ID and title
+
+
+SchoolTool Devtools 0.8.0 (2013-08-23)
+--------------------------------------
+
+- Add ``debugdb``, an interactive database debug tool.
+
+
+2.5.1 (2013-08-02)
+==================
+
+Saucy alpha
+
+SchoolTool Journal 2.5.1 (2013-08-02)
+-------------------------------------
+
+- Split journal into three modes: attendance, scores, and homeroom.
+- Schoolwide attendance view
+- Homeroom attendance grades overlayed in journal attendance gradebook (where available)
+- Rewrite journal storage based on score systems.
+- Customizable journal score systems
+- Excused status, enter ``ae`` or ``te`` in the journal.
+- Score history
+- Only clerks and instructors can edit journals by default.
+
+
+SchoolTool 2.5.1 (2013-08-01)
+-----------------------------
+
+- Differentiate permissions of administrators, clerks, and managers.
+- Scripts and styles for the new attendance features.
+- Updated translations
+
+
+SchoolTool Gradebook 2.5.1 (2013-08-01)
+---------------------------------------
+
+- Changes to scores systems, needed for the new attendance features.
+
+
+SchoolTool Intervention 2.5.1 (2013-08-02)
+------------------------------------------
+
+- Update permissions for administrative groups
+
+
+SchoolTool 2.5.0 (2013-06-03)
+-----------------------------
+
+Reports
++++++++
+
+- Background XLS import (disabled)
+- Background XLS export
+- Background report generation
+- Multiple reports in a .zip archive
+- Messages about finished background tasks
+- Added resource library for filtered/chart reports
+- Removed Person XML reports
+
+
+SchoolTool Gradebook 2.5.0 (2013-07-03)
+---------------------------------------
+
+- Background PDF reports
+- Background XLS export
+- Removed one hundred total constraint on category weights
+
+
+SchoolTool Journal 2.5.0 (2013-07-03)
+-------------------------------------
+
+- Background XLS export
+
+
+SchoolTool CanDo 0.8.0 (2013-08-01)
+-----------------------------------
+
+- Background PDF reports
+- Moved in Per Student Skills Report and Skills Completion Report from schooltool.virginia
+- Added Student skill completion (by section) pdf archive report.
+
+
+SchoolTool Virginia 0.8.0 (2013-08-01)
+--------------------------------------
+
+- Background completion reports
+- Fixed sorting of completion reports
+- Moved out Per Student Skills Report and Skills Completion Report
+- Added section report links
+
+
+.. _universe: install-2_0.html
+.. _ppa: install-2_0.html#ppa
+.. _dev: install-dev.html

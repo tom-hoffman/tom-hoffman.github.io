@@ -1,0 +1,352 @@
+:tocdepth: 2
+
+SchoolTool 2.3 Release Notes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SchoolTool 2.3 features a new gradebook/journal grid that is faster and supports large
+number of sheets, improved XLS import/export, and many bugfixes.
+
+New plugins
+===========
+
+SchoolTool CanDo
+----------------
+
+CanDo is a complete system for tracking skills, competencies, standards, or any similar set of student outcomes.  
+
+* Create documents specifying student skills, standards or outcomes via spreadsheet import or through the web interface.
+
+* Associate groups of skills with courses automatically or manually.
+
+* Create projects with unique combinations of skills.
+
+* Assess student skills through a familiar gradebook-style interface.
+
+* Track the history of student skill achievement across multiple sections and school years.
+
+* Teachers and administators can generate graphical reports by student, section or teacher.
+
+* Skill scores can be integrated into SchoolTool's point based gradebook.
+
+https://launchpad.net/schooltool.cando
+
+Included in default install.
+
+
+SchoolTool Virginia
+-------------------
+
+CanDo extensions for schools in Virginia state.
+
+https://launchpad.net/schooltool.virginia
+
+
+SchoolTool LDAP
+---------------
+
+LDAP authentication plugin for SchoolTool.
+
+https://launchpad.net/schooltool.ldap
+
+
+2.3.2
+=====
+
+SchoolTool Journal 2.3.1 (2013-02-19)
+-------------------------------------
+
+- Update translations
+
+
+SchoolTool CanDo 0.4.4 (2013-02-18)
+-----------------------------------
+
+- Fixed error when current skillset for the user has been removed.
+- Sorted tables for adding/removing nodes by label and title.
+
+
+SchoolTool CanDo 0.4.3 (2013-02-11)
+-----------------------------------
+
+- Fixed submit of Set Required/Visible course skills page.
+
+
+SchoolTool CanDo 0.4.2 (2013-01-29)
+-----------------------------------
+
+- Skills now have their own scoresystem. Old skills that had no scoresystem
+  set, system default is used.
+- Add IEP (Individualized Educational Plan) functionality.
+- Added Dutch and Spanish (El Salvador) translations.
+
+
+SchoolTool Virginia 0.4 (2013-01-29)
+------------------------------------
+
+- Updated VA reports and their descriptions
+- build_xls now gets verso_skills.xls from the web, creates new_verso_skills.xls
+  by matching matching skillset and skill external ids, making sure labels
+  sort in same order as the web api
+
+
+SchoolTool Intervention 2.3.1 (2013-01-24)
+------------------------------------------
+
+- Added hint for "Persons responsible" in goal form (https://launchpad.net/bugs/922211)
+- Made some of the less essential goal fields optional (https://launchpad.net/bugs/922209)
+- Added a student interventions link to message and goal views
+- Added optional subject line to messages (https://launchpad.net/bugs/922226)
+- Updated translations
+
+
+2.3.1 (2012-12-05)
+==================
+
+- Update to Zope Toolkit 1.1.5 (or more)
+- Sync versions with Raring Alpha 1.
+
+
+SchoolTool CanDo 0.4.1 (2012-11-29)
+-----------------------------------
+
+- Fixed skills sorting in more teacher and student views.
+- Update section worksheets on global skill or skillset change (https://launchpad.net/bugs/1066940)
+
+
+SchoolTool Gradebook 2.3.1 (2012-11-29)
+---------------------------------------
+
+- Set default point value of external score to 100, the same as of activity.
+- Refactor student's gradebook view for CanDo.
+
+
+SchoolTool CanDo 0.4 (2012-11-27)
+---------------------------------
+
+- Search skills, skillsets, or nodes.
+- Sorted components (skills, skill sets, layers, etc) by label and title
+
+
+SchoolTool 2.3.1 (2012-11-27)
+-----------------------------
+
+- Indexed table improvements for CanDo.
+- Automatically include plugin overrides.zcml
+- Updated translations.
+
+
+SchoolTool CanDo 0.3.2 (2012-11-09)
+-----------------------------------
+
+- Fix for the missing scores fix
+
+
+SchoolTool CanDo 0.3.1 (2012-11-08)
+-----------------------------------
+
+- Sorted skills by label in the skills gradebook
+- Fixed validation in score student view
+- Removed subscriber that prevented section deleting
+- Restored scores that disappeared after upgrade to 0.3
+
+
+2.3 (2012-10-19)
+================
+
+Final release to go with Ubuntu 12.10.
+
+SchoolTool 2.3.0 (2012-10-19)
+-----------------------------
+
+Bugfixes
+++++++++
+
+- Update scheduled calendar event titles on section title change (https://launchpad.net/bugs/899368)
+- Allow student's instructors edit his contact's data (https://launchpad.net/bugs/479336)
+- Schedule for all terms at once (https://launchpad.net/bugs/1047266)
+
+
+SchoolTool Gradebook 2.3.0 (2012-10-19)
+---------------------------------------
+
+- Fix score history when first grade is unscored
+
+SchoolTool Journal 2.3.0 (2012-10-19)
+-------------------------------------
+
+- Fix exception in student journal when grade is not a number (https://launchpad.net/bugs/1065474)
+
+SchoolTool Intervention 2.3.0 (2012-10-19)
+------------------------------------------
+
+- Update style of Done links
+
+
+2.3rc (2012-10-09)
+==================
+
+SchoolTool 2.2.4 (2012-10-09)
+-----------------------------
+
+New features
+++++++++++++
+
+- School logo (https://launchpad.net/bugs/314151)
+- Photos for contacts (https://launchpad.net/bugs/970201)
+- Highlight today in calendars (https://launchpad.net/bugs/79865)
+- Done links now look like buttons
+- New script, schooltool-server, to enable --pack and --restore-password
+  commands (https://launchpad.net/bugs/505824)
+
+Bugfixes
+++++++++
+
+- SectionTimetables sheet doesn't add calendar events (https://launchpad.net/bugs/1061385)
+- Log In button should remember where you came from (https://launchpad.net/bugs/1039194)
+- Permission fixes
+- Updated translations.
+
+
+SchoolTool Gradebook 2.2.1 (2012-10-09)
+---------------------------------------
+
+- Cross linked sections break gradebook (https://launchpad.net/bugs/1052931)
+- Fixed Edit Activity submit
+- Total and Average calculation shouldn't use the minimum score of the activity
+  (https://launchpad.net/bugs/966426)
+- Updated translations
+
+
+SchoolTool Journal 2.2.1 (2012-10-08)
+-------------------------------------
+
+- Journal for students (https://launchpad.net/bugs/882663)
+- Update Dutch translation
+
+
+2.3b (2012-09-13)
+=================
+
+SchoolTool 2.2.3 (2012-09-13)
+-----------------------------
+
+- Section add form needs title and location (https://launchpad.net/bugs/1042267)
+- Person links in group view return to group
+
+
+SchoolTool 2.2.2 (2012-08-31)
+-----------------------------
+
+- We need person filters on the group page (https://launchpad.net/bugs/1038845)
+- Ignore trailing space in ID cells (https://launchpad.net/bugs/1042773)
+- Unrecognized day id error on localized XLS import (https://launchpad.net/bugs/901267)
+- Updated translations
+
+
+SchoolTool 2.2.1 (2012-08-15)
+-----------------------------
+
+XLS
++++
+
+- We need to allow id cells to be numeric again on import (https://launchpad.net/bugs/1035036)
+- Handle empty Weekends table (https://launchpad.net/bugs/1035969)
+- Skip empty rows if there is only one table in the sheet (https://launchpad.net/bugs/1035088)
+
+Bugfixes
+++++++++
+
+- Users cannot see their own photo (https://launchpad.net/bugs/1007145)
+
+
+2.3a (2012-08-08)
+=================
+
+First releases of rewritten gradebook/journal grid and other work done over the
+last three months.
+
+SchoolTool Gradebook 2.2.0 (2012-08-08)
+---------------------------------------
+
+Features
+++++++++
+
+- Gradebook refactoring
+- New style for worksheet tabs that allows for many sheets and long titles
+- Hide sidebar button
+- Score history
+- Updated translations
+
+Bugfixes
+++++++++
+
+- Text area smaller than cell (https://launchpad.net/bugs/921750)
+- Red cells don't revert to green (https://launchpad.net/bugs/921694)
+- Fix a rare failure when upgrading from gradebook <= 0.9.0 (https://launchpad.net/bugs/995615)
+- Report Layout displays a server error (https://launchpad.net/bugs/1008176)
+- Set short spreadsheet names in Gradebook Export xls (https://launchpad.net/bugs/1024814)
+
+Developer tools
++++++++++++++++
+
+- Selenium tests and testing extensions
+
+
+SchoolTool Journal 2.2.0 (2012-08-08)
+-------------------------------------
+
+- Refactored month navigation to match new-style gradebook
+- Hide sidebar button
+- Update translations
+
+
+SchoolTool 2.2.0 (2012-08-07)
+-----------------------------
+
+New features
+++++++++++++
+
+- Refactored gradebook/journal javascript and style
+- Add teachers column sections list
+- Add filter by course and term to sections list
+- Show term details in term view
+
+Old features
+++++++++++++
+
+- Show sections and groups of a person in a tree, grouped by term, like in old skin.
+- List sections in course view (https://launchpad.net/bugs/868396)
+
+XLS
++++
+
+- Added course_id, government_id and credits to Courses sheet import/export.
+- New sections sheets to replace section sheets per term (https://launchpad.net/bugs/1020836)
+- Remove the old Sections exporter and tests (https://launchpad.net/bugs/1020837).
+  Old section import still supported.
+- New LinkedSectionImport sheet for import only (https://launchpad.net/bugs/1020838)
+- Import errors grouped by sheet and error type, displayed in a textarea
+  (https://launchpad.net/bugs/1020839)
+- ResourceImporter needs to process description cells (https://launchpad.net/bugs/1020840)
+- Exporters must skip sections with no courses (https://launchpad.net/bugs/1020842)
+
+Bugfixes
+++++++++
+
+- Timetables evolution fails on exception days (https://launchpad.net/bugs/1003834)
+- Advisory accordion doesn't show advisees (https://launchpad.net/bugs/1005989)
+- Fix upgrade from schooltool < 1.5 crashing on missing levels (https://launchpad.net/bugs/1007361)
+- Allow teachers to see attributes of all sections and resources.
+- Remove demographics when person is deleted.
+
+Translations
+++++++++++++
+
+- Updated translations
+- Added Bosnian, Croatian, Slovenian translations
+
+Development tools
++++++++++++++++++
+
+- Selenium screenshots and downloads
+- XLS file testing helpers

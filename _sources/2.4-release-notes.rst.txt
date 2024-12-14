@@ -1,0 +1,338 @@
+:tocdepth: 2
+
+SchoolTool 2.4 Release Notes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SchoolTool 2.4 has been released for Ubuntu 13.04. It is also available for
+Ubuntu 12.10 and 12.04 LTS from the dev_ ppa.
+
+New features
+============
+
+- New design of PDF reports
+- Ability to render forms and tables to PDF
+- Average, total and category weights in report sheets
+- Enter scores in gradebook cells of comment activities
+- Section roster, person profile, and resources reports
+- Three new reports for CanDo
+
+
+2.4.2 (2013-07-03)
+==================
+
+Second round of bugfixes.
+
+
+Journal 2.4.1 (2013-07-03)
+--------------------------
+
+- Update translations
+
+
+SchoolTool 2.4.2 (2013-07-01)
+-----------------------------
+
+- Small fixes for other plugins.
+- Updated translations
+
+
+SchoolTool Gradebook 2.4.2 (2013-07-01)
+---------------------------------------
+
+- Fix clicking on comment cells to bring up the editor.
+- Updated Sinhalese translation
+
+
+SchoolTool Virginia 0.7.1 (2013-07-01)
+--------------------------------------
+
+- Fixed sorting of completion reports
+
+
+2.4.1 (2013-05-30)
+==================
+
+Bugfixes for 13.04 release
+
+- Supports import of .xlsx spreadsheets
+
+
+SchoolTool 2.4.1 (2013-05-30)
+-----------------------------
+
+Reports
++++++++
+
+- Fixed report generation to not do network requests (https://launchpad.net/bugs/1185418).
+- Fixed ratio of school logo.
+- Fixed rendering of "&" in headers.
+
+Bugfixes
+++++++++
+
+- Warn about unsaved changes when leaving gradebook (https://launchpad.net/bugs/907999)
+
+Language
+++++++++
+
+- Replaced Filter by... labels
+- Updated Italian, Greek, Portuguese, and other translations.
+
+
+SchoolTool Gradebook 2.4.1 (2013-05-30)
+---------------------------------------
+
+- Made comment cells to submit the gradebook form
+- Warn about unsaved changes when leaving gradebook (https://launchpad.net/bugs/907999)
+- Updated translations, added Sinhalese.
+
+
+SchoolTool CanDo 0.7.1 (2013-05-29)
+-----------------------------------
+
+- Renamed Section Competencies reports to Student Skill Reports
+- Fixed Add Skill exception when z3c.form >= 2.9 is used (https://launchpad.net/bugs/1185433)
+
+
+2.4.0 (2013-04-19)
+==================
+
+Final release for Raring
+
+- Compatible with reportlab 2.6 / z3c.rml 2.0.0
+- Remove rwproperty dependency
+- Remove zope.app.server dependency
+
+
+SchoolTool 2.4.0 (2013-04-19)
+-----------------------------
+
+- Fix PDF reports crashing with newer ``z3c.rml`` (https://launchpad.net/bugs/1169723)
+- Remove dependency on ``zope.app.server``
+- Remove or deprecate unused ``schooltool.conf`` options
+- Do not echo password being entered using ``schooltool-server --restore-manager -``
+- Remove ``rwproperty`` dependency.
+
+
+SchoolTool CanDo 0.7.0 (2013-04-18)
+-----------------------------------
+
+- Fixed column title in SkillSets worksheet in sample data xls (https://launchpad.net/bugs/1126624)
+- Added Label column to SkillSets worksheet in the exporter
+- Changed required widget terms to Required and Optional (https://launchpad.net/bugs/1123471)
+- Made label and descriptions fields uniform for nodes, skill sets and skills (https://launchpad.net/bugs/1103708)
+- Added "Submit and add" action to "New skill set" form (https://launchpad.net/bugs/1103710)
+- Changed Skills selector to Skill Sets in the gradebook (https://launchpad.net/bugs/1154425)
+- Fixed worksheet order in Skills Export xls (https://launchpad.net/bugs/1126612)
+- Updated translations
+
+
+SchoolTool Gradebook 2.4.0 (2013-04-18)
+---------------------------------------
+
+- Remove ``rwproperty`` dependency.
+
+
+SchoolTool Intervention 2.4.0 (2013-04-18)
+------------------------------------------
+
+- Added message subject to student's view
+- Updated translations, added Thai
+
+
+SchoolTool Virginia 0.7.0 (2013-04-22)
+--------------------------------------
+
+- Prevented XLS importer from crashing with non-xls files (https://launchpad.net/bugs/904968)
+- Removed None from Student ID column in section summary report
+
+
+2.4b1 (2013-04-17)
+==================
+
+- Local ``buildout.cfg``.  Your changes to ``buildout.cfg`` will not be committed.
+- Update to ``zc.buildout`` 1.7.1
+- Remove ``hurry.query`` dependency
+
+
+SchoolTool 2.4b1 (2013-04-17)
+-----------------------------
+
+Bugfixes
+++++++++
+
+- Fixed setting up section schedules for multiple terms
+- Home and Calendar tabs work incorrectly when looking at other persons (https://launchpad.net/bugs/1166926)
+- Prevented XLS importer from crashing with non-xls files (https://launchpad.net/bugs/904968)
+
+Translations
+++++++++++++
+
+- Updated translations, added Thai. Special thanks to Vitali Oleshkevich, who
+  has completed both Russian and Ukrainian translations!
+
+
+SchoolTool Journal 2.4.0 (2013-04-04)
+-------------------------------------
+
+- Fix journals when section out-of-term-bounds schedules overlap (https://launchpad.net/bugs/1104190)
+- Journals now display all scheduled dates for selected section
+- Tab redirects to a section only if current user can access it (https://launchpad.net/bugs/1155226)
+- Added Thai translation
+
+
+SchoolTool Gradebook 2.4b1 (2013-04-04)
+---------------------------------------
+
+- Tab redirects to a section only if current user can access it (https://launchpad.net/bugs/1155226)
+- Added Thai translation
+
+
+SchoolTool CanDo 0.6.2 (2013-03-25)
+-----------------------------------
+
+- Added section student competency report
+- Fixed skills sorting in Set Required/Visible view
+- Fixed permissions of project view
+
+
+SchoolTool Virginia 0.6.1 (2013-03-25)
+--------------------------------------
+
+- Added frozen table headers to the VA completion reports
+- Fixed VA section report attainment calculation
+
+
+SchoolTool Virginia 0.6 (2013-03-20)
+------------------------------------
+
+- Updated completion reports:
+
+  + Added number of required skills
+  + Removed average percentages
+  + Render only when submit button is pressed, to allow changing filters first
+  + Added course filter
+  + Added totals column
+
+- Download required skills completion report as PDF
+
+
+SchoolTool CanDo 0.6.1 (2013-03-20)
+-----------------------------------
+
+- Fixed permissions of popup menus and competency report
+- Updated translations, added Thai
+
+
+2.4a3 (2013-02-26)
+==================
+
+SchoolTool Virginia 0.5.1 (2013-02-26)
+--------------------------------------
+
+- Fixed reports for strange section/person ids.
+
+
+SchoolTool CanDo 0.6 (2013-02-25)
+---------------------------------
+
+- Fix section skills with no equivalent course skill
+- Sorted by label and title in add skill view for projects
+- Moved "Skills Export" option from School to Documents view (https://launchpad.net/bugs/1126577)
+- Moved "Import Skill Data" option from School to Documents view (https://launchpad.net/bugs/1131436)
+- Changed string "skillset" to "skill set" (https://launchpad.net/bugs/1131376)
+- Removed title from tables in index views for document and node (https://launchpad.net/bugs/1049966)
+
+
+2.4a2 (2013-02-19)
+==================
+
+- Sync versions with Raring Alpha 2.
+
+SchoolTool 2.4a2 (2013-02-18)
+-----------------------------
+
+- Move User fieldset up in Add person page (https://launchpad.net/bugs/896848)
+- Removed unsupported translations: af, bn, fo, et, hu, te.
+- Updated translations.
+
+
+SchoolTool Gradebook 2.4a2 (2013-02-19)
+---------------------------------------
+
+- Remove Download Gradebook CSV
+- Updated Printable Gradebook style
+
+
+SchoolTool CanDo 0.5.1 (2013-02-18)
+-----------------------------------
+
+- New-style CanDo Gradebook report.
+- Added student's Section Competencies report.
+- Added student's Certificate of Competency report.
+
+
+2.4a1 (2013-01-23)
+==================
+
+- Removed dependency on zope.app.content
+
+- Removed optional dependencies:
+
+  + zope.app.apidoc
+  + zope.app.file
+  + zope.app.onlinehelp
+  + zope.app.preference
+  + zope.app.tree
+  + zope.preference
+
+
+SchoolTool 2.4a1 (2013-01-23)
+-----------------------------
+
+- Javascript for entering comments in gradebook cells.
+- Support table grouping by column.
+- Refactor out makeFormatter from table render methods.
+- Updated translations.
+
+Reports
++++++++
+
+- New PDF page design and implementation.
+- Render forms, tables, and grids to RML (PDF).
+- Add section roster, person profile, and resources reports.
+
+Development tools
++++++++++++++++++
+
+- Removed API Docs and Introspector
+
+
+SchoolTool Gradebook 2.4a1 (2013-01-23)
+---------------------------------------
+
+- Remake "Printable Worksheet" as a new style PDF
+- Report sheet templates now have category weights
+- Display total/average in deployed report sheets
+- Added category to report sheet template activity add/edit views
+- Added report sheet average to report card layout, pdf view
+- Removed hidden deployed worksheets from dropdown in layout activity add views
+- Do not give extra credit with discrete scoresystems
+- Case-insensitive score entry
+- Modal for entering scores in gradebook cells of comment activities
+- Updated translations
+
+
+SchoolTool CanDo 0.5 (2013-01-23)
+---------------------------------
+
+- Updated tables to use new table formatters.
+
+
+SchoolTool Virginia 0.5 (2013-01-23)
+------------------------------------
+
+- Updated tables to use new table formatters.
+
+
+.. _dev: install-dev.html

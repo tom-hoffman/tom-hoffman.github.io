@@ -1,0 +1,119 @@
+:tocdepth: 2
+
+1.7 Release Notes
+~~~~~~~~~~~~~~~~~
+
+SchoolTool in Ubuntu 11.10 (Oneiric).
+
+Evolutionary improvements to the Natty release: better separation and
+integration between gradebook, journal, and intervention; cleanup, bugfixes, and
+new features made before, or in parallel to, the flourish_ sprint.
+
+.. _flourish: 1.9-release-notes.html
+
+
+1.7.1 (2012-09-03)
+==================
+
+- Make sandbox with virtualenv. Fixes bootstrap with Python 2.7.
+- Upgrade to zc.buildout 1.5
+
+
+SchoolTool 1.7.1 (2012-09-03)
+-----------------------------
+
+- Update translations.
+- Make sandbox with virtualenv. Fixes bootstrap with Python 2.7.
+- Hide demographics fieldset if it is empty in person add views (https://launchpad.net/bugs/752051)
+- Updated README.txt (https://launchpad.net/bugs/590781)
+- Document running on port 80 (https://launchpad.net/bugs/259415)
+- Translate default demographics fields.
+
+Cleanup
++++++++
+
+- Remove ancient demographics implementation.
+- Remove obsolete images and docs.
+
+
+1.7.0 (2011-09-25)
+==================
+
+Final release for Oneiric
+
+- Removed Help.
+- No longer needed dependencies:
+
+  + zope.app.authentication
+  + zope.app.folder
+  + zope.app.i18n
+  + zope.app.rotterdam
+  + zope.app.zcmlfiles
+  + zope.app.zopeappgenerations
+  + zope.pluggableauth
+
+- Dependencies made optional:
+
+  + zope.app.apidoc
+  + zope.app.file
+  + zope.app.onlinehelp
+  + zope.app.preference
+  + zope.app.tree
+  + zope.preference
+
+- Use zope.testrunner separated from zope.testing
+
+
+SchoolTool Intervention 0.5.1 (2011-10-06)
+------------------------------------------
+
+- Updated translations
+
+
+SchoolTool Lyceum Journal 0.8.1 (2011-09-25)
+--------------------------------------------
+
+- Fixed syntax error in journal.js
+
+
+SchoolTool Lyceum Journal 0.8.0 (2011-09-23)
+--------------------------------------------
+
+- Removed term grading views and data.
+
+
+SchoolTool Gradebook 0.9.2 (2011-09-22)
+---------------------------------------
+
+- Updated translations.
+
+
+SchoolTool Intervention 0.5.0 (2011-09-16)
+------------------------------------------
+
+- Replaced student ids in intervention objects with relationship properties
+- Reorganized code for simplicity of reading
+- Added tests to more completely cover the code
+- Converted catalog to new style
+- Made dependency on schooltool.gradebook optional
+
+
+SchoolTool 1.7.0 (2011-09-15)
+-----------------------------
+
+New features
+++++++++++++
+
+- Linked sections view for a section, allowing to extend a section to another term
+  or link an existing section (https://launchpad.net/bugs/424498)
+- XLS importer now automatically links sections with same ID that are marked to link
+
+Cleanup
++++++++
+
+- Removed help (https://launchpad.net/bugs/789157)
+- Removed school setup data framework (https://launchpad.net/bugs/307237)
+- Made ``zope.app.apidoc`` dependency optional, it is only useful for
+  developers. Add ``schooltool [apidoc]`` to package:eggs in buildout.cfg
+  if you want API Docs.
+- Remove dependency on ``zope.app.zcmlfiles`` and many others implied by it.

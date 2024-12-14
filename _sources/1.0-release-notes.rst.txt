@@ -1,0 +1,466 @@
+:tocdepth: 2
+
+1.0 Release Notes
+~~~~~~~~~~~~~~~~~
+
+SchoolTool
+==========
+
+1.0.6 (2010-07-20)
+------------------
+
+New features 
+++++++++++++
+
+- Removed SchoolTool logo from PDF footers (https://launchpad.net/bugs/561558)
+- Copy data from previous school year (https://launchpad.net/bugs/541673)
+- Added course names to section links in the person view, sorting Sections and
+  Groups links by school year (https://launchpad.net/bugs/545793)
+
+Bug fixes
++++++++++
+
+- Speed up editing of section learners and instructors (https://launchpad.net/bugs/599258)
+- XLS Importer catches errors before trying to create objects. (https://launchpad.net/bugs/306339)
+- Fix Timetable Schemas page for non-manager users (https://launchpad.net/bugs/545780)
+- Fix timetable display when first day of the week is empty (https://launchpad.net/bugs/545763)
+- Fix timetable plugin for sampledata (https://launchpad.net/bugs/306107)
+- Translate "Confirm" button in delete forms correctly.
+- Made edit links on person, section and group views available only to managers (https://launchpad.net/bugs/361436)
+- Display resources of calendar events on weekly view (https://launchpad.net/bugs/540099)
+- Use semicolon to separate instructors in section's label (https://launchpad.net/bugs/558911)
+- Prevent the user to enter non-ascii usernames (https://launchpad.net/bugs/397610)
+- Update translations
+
+
+1.0.5 (2010-03-09)
+------------------
+
+- Backport report template refactoring for CanDo
+
+
+1.0.4 (2009-12-28)
+------------------
+
+- Many i18n fixes by Douglas and Gediminas
+
+- Update translations from trunk
+
+- Many build improvements by Justas and Gediminas
+
+Bug fixes
++++++++++
+
+- Broken urls in help window when application URL is not /
+  https://launchpad.net/bugs/372606
+
+- Section scheduling view now returns to section on save
+  https://launchpad.net/bugs/485616
+
+- Failed to create sections that span multiple terms.
+  https://launchpad.net/bugs/427321
+
+- Crufty section name display for section.
+  https://launchpad.net/bugs/394388
+
+
+1.0.3 (2009-07-07)
+------------------
+
+New features 
+++++++++++++
+
+- New section adding view.  
+
+  - Multiple-term (linked) sections can now be created.
+  
+  - "New Section" button replaced with a link in action menu in course view.  
+  
+  - Sections now can also be added from term's "sections" view. 
+  
+  - See https://launchpad.net/bugs/389283
+
+- You can specify the relationship between a person and a contact from a
+  standard set (parent, guardian, step-parent, etc). See
+  https://launchpad.net/bugs/381412
+
+- Removed ability to delete calendar events that come from (section) timetables.
+  See https://launchpad.net/bugs/271391
+
+Douglas Cerna:
+
+- Added missing attributes to the course adding form and the csv import.  See
+  https://launchpad.net/bugs/384945 and
+  https://launchpad.net/bugs/384957
+
+Tweaks and fixes
+++++++++++++++++
+
+- Active year is no longer highlighted in red.  See
+  https://launchpad.net/bugs/317651
+
+- Fixed contact deletion crash. See
+  https://launchpad.net/bugs/382239
+
+- Section and course descriptions are displayed properly now.  See
+  https://launchpad.net/bugs/370581
+
+- Fixed a typo in default ethnicity demographics field.  See
+  https://launchpad.net/bugs/376116
+
+- Fixed glitches (events not displayed or displayed in wrong day) in weekly
+  calendar views. See https://launchpad.net/bugs/285514 and
+  https://launchpad.net/bugs/389626  Thanks go to Daniel Höger
+  for the report and part of the fix.
+
+Unicode fixes
++++++++++++++
+
+Douglas Cerna:
+
+- Contacts views.  See https://launchpad.net/bugs/382251
+
+- Course CSV import.  See https://launchpad.net/bugs/375792
+
+
+1.0.2 (2009-06-02)
+------------------
+
+Justas Sadzevičius:
+
+- SchoolTool no longer supports groups as members of a section.  To add all
+  members of a group, please use the filter in section's "edit individuals"
+  page.  See https://launchpad.net/bugs/370629
+
+- Optional "Course ID", "Goverment ID" and "Credits" fields added to a Course.
+  See  https://launchpad.net/bugs/381031
+
+Gediminas Paulauskas:
+
+- Fixed broken packages.  See https://launchpad.net/bugs/352096
+
+- Server properly starts after installation or upgrade.  See
+  https://launchpad.net/bugs/334365
+
+
+1.0.1 (2009-05-11)
+------------------
+
+Major
++++++
+
+Translations are back in SchoolTool.
+
+As usual, please set a preferred language in your browser or follow instructions
+in the SchoolTool book:
+http://book.schooltool.org/htmlhelp/translations.html#selecting-schooltool-s-language
+
+Tweaks and fixes
+++++++++++++++++
+
+Douglas Cerna:
+
+- Made CSV importer support blank lines.  See https://launchpad.net/bugs/253663
+
+Justas Sadzevičius:
+
+- Added section linking to the edit section view.
+
+
+1.0.0 (2009-04-30)
+------------------
+
+Person and Demographics
++++++++++++++++++++++++
+
+Filip Sufitchi <fsufitch@charon>:
+
+- Initial implementation of demographics field management views.
+
+Ignas Mikalajūnas <ignas@pov.lt>:
+
+- Added custom demographics field storage and fields themselves.
+- Added contacts to schooltool with list/add/edit/display views.
+- Added contact managemenet view and made it possbile to add+assign contact
+  in one go.
+
+Alan Elkner <aelkner@gmail.com>:
+
+- added group to person add form
+- added advisor to person add form
+- added advisor and advisee functionality to BasicPerson
+- basicperson has new fields and some old ones were removed
+
+PDF Reporting improvements
+++++++++++++++++++++++++++
+
+Justas Sadzevičius <justas@pov.lt>:
+
+- Rewrite calendar PDF views to use RML.
+- Added headers and footers to PDF views.
+
+XLS import/export
++++++++++++++++++
+
+Tom Hoffman <tom.hoffman@gmail.com>:
+
+- Creaded empty annotated XLS import template.
+- Updated texts in XLS import view
+
+Ignas Mikalajūnas <ignas@pov.lt>:
+
+- Added ability to import user passwords.
+
+- Importer now will not complain about missing spreadsheets in the XLS
+  file being imported.
+
+- Added Export to XLS functionality.
+
+- Split terms into 2 school years in sample data.
+
+- Fixed a crash in export when no resources are assigned to a timetable
+  event.
+
+- Separated section import/export into separate spreadsheets.
+
+- Made most if not all the objects in xls import reimportable.
+
+- Added demographics information to the sample data file.
+
+- Changed "Excel import" action to "XLS import".
+
+Tweaks and fixes
+++++++++++++++++
+
+Tom Hoffman <tom.hoffman@gmail.com>:
+
+- Updated section import csv file documentation.
+
+Alan Elkner <aelkner@gmail.com>:
+
+- Removed unused identifier field from add forms.
+
+Filip Sufitchi:
+
+- Made Delete buttons look consistently (Red) all over the system.
+
+Chris Carey:
+
+- Unify color color scheme in schooltool.gradebook and schooltool.lyceum.journal
+  ajax status indicators.
+
+- Added School Timetable id display to the School Timetable view page
+
+Ignas Mikalajūnas <ignas@pov.lt>:
+
+- Added headers to some Section views.
+- Do not allow people without schooltool.edit permission on SchoolYears delete
+  terms.
+- Made field descriptions in most of the forms visible.
+- Switched to ISO dates everyehere.
+- Added date picker to all the forms in schooltool.
+- Started using ISO date format (yyyy-mm-dd) in the short date formatter.
+
+- Removed resource booking link from the section view.
+
+Justas Sadzevičius <justas@pov.lt>:
+
+- Added simple section cross-term copying and linking interface.
+
+- Fixed a small bug in weekly calendar title - week date range was
+  one day too long.
+
+Douglas Cerna:
+
+- Group and section member CSV import views.
+
+
+SchoolTool Gradebook
+====================
+
+0.4.10 (2010-02-04)
+-------------------
+
+Backport fixes, translations and small features from trunk up to 0.5.2 release.
+
+Translations
+++++++++++++
+
+- Gradebook translations are now separate from schooltool.
+- Many fixes to make it translatable.
+
+Tweaks and fixes
+++++++++++++++++
+
+- Many build improvements by Justas and Gediminas
+- Fix to allow changing activity order https://launchpad.net/bugs/494262
+- Fix term selection in gradebook overview and student's views.
+- Traceback on gradebook averages when a student has no scores.
+  https://launchpad.net/bugs/479305
+- Better category weighting documentation. https://launchpad.net/bugs/447468,
+  https://launchpad.net/bugs/417919
+- Fixed mygrades bug, https://launchpad.net/bugs/397296
+- fixed bug with deleting report sheet template activities, https://launchpad.net/bugs/417924
+- Report Card Layout view re-wording of text and adding OK button, https://launchpad.net/bugs/400499
+- fixed filename of report card pdf, https://launchpad.net/bugs/422915
+- replaced Report Worksheet with Report Sheet in ui, https://launchpad.net/bugs/400402
+- manage view for a worksheet has no activities message, https://launchpad.net/bugs/400406
+- added Worksheets link that was long overdue
+- changed Print Report Card links to Download Report Card, https://launchpad.net/bugs/400512
+- changed Column Preferences link to Preferences, https://launchpad.net/bugs/427976
+- added nexturl support to student gradebook, https://launchpad.net/bugs/418157
+- fixed bad navigation following activity edit, https://launchpad.net/bugs/378672
+- added outline activities to report card
+- fixed student gradebook view to use worksheet activities
+- returning invalid scores are now higlighted in red, https://launchpad.net/bugs/391305
+- successful filldown now sets dirty flag, https://launchpad.net/bugs/390801
+- added OK link to scoresystem view to take user back to scoresystems overview, https://launchpad.net/bugs/394768
+- filldown values are now color-coded according to validity, https://launchpad.net/bugs/391781
+- mouseover header cell, not just activity label, shows description text, https://launchpad.net/bugs/390805
+- redirect unauthenticated user to login in gradebook startup view, https://launchpad.net/bugs/391216
+
+
+0.4.9 (2009-07-07)
+------------------
+
+New features 
+++++++++++++
+
+- There is a new gradebook view for grading a single student.  Please follow ">"
+  next to a student's name in the gradebook.
+
+- Report sheet activities can have comments as their scores now, to allow
+  comments on report cards.  See https://launchpad.net/bugs/381054
+
+- Administrators can define custom score systems (grading scales) used in the
+  gradebook and report sheets.
+
+Tweaks and fixes
+++++++++++++++++
+
+- Graceful handling of incomplete set up in gradebook report card pdfs.  See
+  https://launchpad.net/bugs/379968
+
+- Gradebook: "Update" button renamed to "Save".  See
+  https://launchpad.net/bugs/395272
+
+- Fixed average gradebook score calculation when dealing with invalid scores.
+  See https://launchpad.net/bugs/391310
+
+- Cleaned up pre-release ui bugs in "Add a new score system" view.  See
+  https://launchpad.net/bugs/394792, https://launchpad.net/bugs/394805 and
+  https://launchpad.net/bugs/394778
+
+Fixes by Douglas Cerna:
+
+- Fixed keyboard navigation in gradebook.  See https://launchpad.net/bugs/391313
+
+- Improved gradebook XLS export - added First Name, Last Name, ID fields.  See
+  https://launchpad.net/bugs/391787
+
+- Tweaked text in gradebook column set up page.  See
+  https://launchpad.net/bugs/394774
+
+- Unicode fixes in gradebook activities. See https://launchpad.net/bugs/383416
+
+
+0.4.8 (2009-05-12)
+------------------
+
+Alan Elkner:
+
+- Re-enabled final grades as "summary" view.  See
+  https://launchpad.net/bugs/372557
+
+- Fixed unicode encoding bug. Having unicode characters in activity
+  descriptions prevented access to the gradebook.  See
+  https://launchpad.net/bugs/371577
+
+
+0.4.7 (2009-04-29)
+------------------
+
+Released together with SchoolTool 1.0.
+
+Ignas Mikalajūnas <ignas@pov.lt>:
+
+- Move gradebook tab to the left.
+- Add i18n domain to the zcml file.
+- Style remove button red.
+
+Douglas Cerna:
+
+- Added gradebook XLS export views.
+- Added capacity to import "external activities" into gradebook.
+
+Chris Carey:
+
+- moved gradebook cell color validity from javascript to css
+
+Alan Elkner <aelkner@gmail.com>:
+
+- got rid of confusing description of requirement title field
+- mygrades (student) view now looks like teacher gradebook
+- spaces now removed from activity column headings
+- report card now handles multi-course sections
+- added capability to deploy a report worksheet to a school year
+- added instructor names to course title in report card pdf
+- fixed javascript bug caused by activity description having newline char
+- added handling of arrow keys for navigating cells
+- added description field to gradebook and set on cell focus and activity
+  mouseover
+- got rid of obselete final grades view
+- added javascript to set focus to first gradebook cell
+- added javascript to allow user to save changes when trying to navigate away
+  from a gradebook with unsaved changes
+- added heading attribute to report card layouts
+- added term drop-down to gradebook overview
+- changed worksheet drop-down to be tabs instead
+- added due date to activities and filtering by due date to gradebook overview
+- moved label from external activity to linked activity where it belongs
+- added label to IActivity, to be used for gradebook column labels
+- got rid of unnecessary student and student/activity grade views
+- made activity grade view look like gradebook overview
+- made Weight Categories button an action button
+- worksheets can no longer be deleted
+- create sheet1 if the section has no worksheets
+- got gradebook to handle switching between sections in different terms
+- created report card pdf view
+- created Report Card Layout view
+- added subscriber to deploy worksheets to newly added sections
+- deployed worksheets and activities are now blocked from deletion
+- created view for deploying report worksheets
+- created simpler add/edit activity views
+- added javascipt for validating input
+
+
+SchoolTool Lyceum Journal
+=========================
+
+0.3.6 (2010-02-04)
+------------------
+
+- Add period number to day of month headings, https://launchpad.net/bugs/485614
+- Add Tardies column to section journal, https://launchpad.net/bugs/409997
+- Update and fix translations
+
+
+0.3.5 (2009-05-27)
+------------------
+
+- Automatically compile translations.
+
+
+0.3.4 (2009-05-26)
+------------------
+
+- Add a view with links to timetables if no periods in timetables of section
+  are selected, https://launchpad.net/bugs/375797
+
+
+0.3.2 (2009-04-20)
+------------------
+
+This release goes with SchoolTool 1.0.0.
+
+- Removed lesson descriptions from the journal views.

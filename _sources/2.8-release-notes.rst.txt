@@ -1,0 +1,250 @@
+:tocdepth: 2
+
+SchoolTool 2.8 Release Notes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SchoolTool 2.8 is a feature release for new deployments or those ready to
+upgrade their 2.6 installation.
+
+See :ref:`2.8-and-beyond` for plans regarding this and future releases.
+
+
+New features
+============
+
+- Relationships (enrollment, group membership) have explicit states (e.g., pending, enrolled, withdrawn) with explicit start dates
+- Enrollment modes
+- Basic parent access
+- Levels for courses and persons
+- Transcript reports
+
+See :ref:`2.8-changes` for introduction to the new relationships.
+
+
+Availability
+============
+
+It is available for all supported Ubuntu releases in a new `2.8 ppa
+<https://launchpad.net/~schooltool-owners/+archive/2.8>`_
+
+When to Upgrade
+===============
+
+We recommend new users of SchoolTool begin with the 2.8 release.
+
+Users of SchoolTool 2.8.0 should upgrade to 2.8.3 at a convenient time.
+
+Users of SchoolTool 2.6 should upgrade to 2.8.3 after testing against their 
+database and reviewing the changes in functionality.
+
+2.8.5 (2016-02-13)
+==================
+
+SchoolTool 2.8.5
+----------------
+
+- Fixed group delete view when school year or group was created with non-ascii title (https://bugs.launchpad.net/bugs/1545236)
+
+
+2.8.4 (2015-07-02)
+==================
+
+SchoolTool 2.8.4
+----------------
+
+- Fixed ckeditor widget in gradebook overview popup dialog (https://launchpad.net/bugs/1436881)
+
+SchoolTool Gradebook 2.8.4
+--------------------------
+
+- Added school year dropdown to report card request view (https://launchpad.net/bugs/1432672)
+
+
+2.8.3 (2014-11-11)
+==================
+
+Gradebook 2.8.3.1 (2014-12-03)
+------------------------------
+
+- Removed attendance scores from report card (https://bugs.launchpad.net/bugs/1393720)
+
+Journal 2.8.2.1 (2014-12-03)
+----------------------------
+
+- Fixed request dialog for attendance by student report (https://bugs.launchpad.net/bugs/1398265)
+
+SchoolTool 2.8.3 (2014-11-11)
+-----------------------------
+
+- Moved custom CSS handling to /etc/schooltool/standard/custom-css see :ref:`css` for instructions.
+- Specified 24 hour format for slots in timetable wizard (https://launchpad.net/bugs/892941)
+
+Gradebook 2.8.3 (2014-11-11)
+----------------------------
+
+- Added journal scores to student detail report
+
+Journal 2.8.2 (2014-11-11)
+--------------------------
+
+- Added attendance by student report
+
+
+2.8.2 (2014-10-14)
+==================
+
+SchoolTool 2.8.2 (2014-10-14)
+-----------------------------
+
+- Added Sign In & Out report for groups/sections
+- Added Mailing Labels report for groups/sections
+- Added Name Labels report for groups
+- Updated and added checkboxes to Roster report for sections
+
+Gradebook 2.8.2 (2014-10-14)
+----------------------------
+
+- Fixed gradebook view when future dates are used for section enrollment
+- Fixed absences by day report to work with multiple years
+- Added absences for range of dates schoolyear report
+
+Journal 2.8.1 (2014-10-14)
+--------------------------
+
+- Fixed template error in journal default score system view
+- Changed today access in journal attendance export report (https://launchpad.net/bugs/1341519)
+- Added journal data export for terms
+
+CanDo 2.8.2 (2014-10-14)
+------------------------
+
+- Removed column averages row from gradebooks
+
+
+2.8.1 (2014-08-25)
+==================
+
+SchoolTool 2.8.1 (2014-08-25)
+-----------------------------
+
+- **Added Leave School link (under Actions) and relevant information fields for students** 
+- **Added slider and edit view for modifying student level**
+- Added custom CSS handling
+- Fixed row indexing in group importer after relationship change
+- Added relationship states to group accordion in person view
+- Fixed permissions for school year report links and manage year link
+- Fixed page numbers in pdf reports
+- Avoid insecure content warning for fonts.googleapis.com when accessing schooltool through https (https://launchpad.net/bugs/1330106)
+- Fixed email forms
+- Fixed ampersand breaks student detail report (https://launchpad.net/bugs/1328619)
+- Fixed reorder demographics view (https://launchpad.net/bugs/1341514)
+- Included future enrollments in membership counts on School page
+- Updated translations
+
+
+SchoolTool Gradebook 2.8.1 (2014-08-25)
+---------------------------------------
+
+- **Added per activity averages row** at bottom of gradebook grid (https://launchpad.net/bugs/1271867)
+- Fixed printable worksheet report (https://launchpad.net/bugs/1358878)
+- Allowed administrative users to access the request view for the absences by day report
+
+
+SchoolTool CanDo 2.8.1 (2014-08-25)
+-----------------------------------
+
+- Fixed permission issue in gradebook view when students with active IEP were withdrawn
+- **Made importing skills a background task** (no timeouts!)
+- Fixed parent and layer setting in node add view (https://launchpad.net/bugs/1353932)
+
+
+SchoolTool Virginia 2.6.1 (2014-08-25)
+--------------------------------------
+
+- Fixed Export As PDF dialog for skills completion report
+- Made importing Virginia sections a background task
+
+
+2.8.0 (2014-05-08)
+==================
+
+Public release with new relationships, transcript reports,
+and all the bugfixes included in 2.6.4 release.
+
+
+SchoolTool 2.8.0 (2014-05-08)
+-----------------------------
+
+- Added 'Added in error' state for temporal relationships
+- Added What is this info to membership state edit view (https://launchpad.net/bugs/1308944)
+
+
+SchoolTool Gradebook 2.8.0 (2014-05-08)
+---------------------------------------
+
+- Added scoresystem field to course worksheet activity add view
+- Added course worksheets report
+- Added transcript report
+- Added checkboxes for column preferences to the sidebar (https://launchpad.net/bugs/1288274)
+
+
+SchoolTool Journal 2.8.0 (2014-05-08)
+-------------------------------------
+
+- Fixed cell validation in school attendance view
+- Fixed highlighting of inactive students in the journal 
+- Fixed active tab in school attendance view
+
+
+SchoolTool CanDo 2.8.0 (2014-05-08)
+-----------------------------------
+
+- Hide preferences menu introduced with gradebook 2.8.0
+- Fix add/edit views broken in 2.7.0
+
+
+2.7.0 (2014-04-12)
+==================
+
+Preview of the new relationships
+
+SchoolTool 2.7.0 (2014-04-12)
+-----------------------------
+
+New features
+++++++++++++
+
+- Temporal relationships
+- Checkboxes in relationship views
+- Levels for courses and persons
+- Parent access
+- Background import
+- Added descriptions for demographic fields
+
+
+SchoolTool Gradebook 2.7.0 (2014-04-12)
+---------------------------------------
+
+- Added enrollment modes to gradebook
+- Added children gradebook for parents
+
+
+SchoolTool Journal 2.7.0 (2014-04-12)
+-------------------------------------
+
+- Added enrollment modes to journal
+
+
+SchoolTool CanDo 2.7.0 (2014-04-12)
+-----------------------------------
+
+- Temporal relationships support
+
+
+SchoolTool Intervention 2.7.0 (2014-04-12)
+------------------------------------------
+
+- Temporal relationships support
+
+
+.. _trunk: install-dev.html#daily
