@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Basic Database Administration &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Testing SchoolTool with Virtual Servers" href="sandbox.html" />
+    <link rel="prev" title="Managing Multiple SchoolTools on One Server" href="multiple-schooltools.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="sandbox.html" title="Testing SchoolTool with Virtual Servers"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="multiple-schooltools.html" title="Managing Multiple SchoolTools on One Server"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="administrators.html" accesskey="U">System Administration</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Basic Database Administration</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="basic-database-administration">
+<h1>Basic Database Administration<a class="headerlink" href="#basic-database-administration" title="Link to this heading">¶</a></h1>
+<p>Unlike most web applications, SchoolTool does not use a relational database such as MySQL or PostgreSQL.  Instead, it uses ZODB – the Zope Object Database.  ZODB has some specific characteristics a SchoolTool site manager should be aware of.</p>
+<p>The main drawback to this, from the point of view of a school’s systems administrator or programmer, is that you cannot simply directly access data in the form of raw tables.  It has to be done programmatically in Python, either from a module in the main server application, or an external Python script that imports much of SchoolTool’s object model.</p>
+<p>If you have specific needs for data reporting, don’t hesitate to contact us.</p>
+<section id="where-is-the-data">
+<h2>Where is the data?<a class="headerlink" href="#where-is-the-data" title="Link to this heading">¶</a></h2>
+<p>All the data in a given SchoolTool instance is stored in a file named <code class="docutils literal notranslate"><span class="pre">Data.fs</span></code>.  On an Ubuntu system this file can be found in the <code class="docutils literal notranslate"><span class="pre">/var/lib/schooltool/</span></code> directory.  The additional files in that directory ending with <code class="docutils literal notranslate"><span class="pre">.index</span></code>, <code class="docutils literal notranslate"><span class="pre">.lock</span></code>, and <code class="docutils literal notranslate"><span class="pre">.tmp</span></code> are all used by the application in various ways, but they <cite>do not</cite> contain any data about your school which is not also included in the main <code class="docutils literal notranslate"><span class="pre">Data.fs</span></code> file.</p>
+<p>Photos, reports, and other binary files are stored outside the <code class="docutils literal notranslate"><span class="pre">Data.fs</span></code> database in a <code class="docutils literal notranslate"><span class="pre">blobs</span></code> directory.</p>
+</section>
+<section id="automatic-backups">
+<h2>Automatic backups<a class="headerlink" href="#automatic-backups" title="Link to this heading">¶</a></h2>
+<p>Whenever SchoolTool is updated to a new version via Ubuntu’s update mechanisms, it creates a backup of the current database.  It also compresses and retains previous backups.  The most recent back up in <code class="docutils literal notranslate"><span class="pre">/var/lib/schooltool/</span></code> has a <code class="docutils literal notranslate"><span class="pre">.0</span></code> appended, like <code class="docutils literal notranslate"><span class="pre">schooltool/Data.fs.0</span></code>.  Older backups are also gzipped, with increasing numbers as suffixes.  <code class="docutils literal notranslate"><span class="pre">schooltool/Data.fs.2.gz</span></code> is older than <code class="docutils literal notranslate"><span class="pre">schooltool/Data.fs.1.gz</span></code>, for example.</p>
+</section>
+<section id="how-do-i-do-a-manual-backup">
+<h2>How do I do a manual backup?<a class="headerlink" href="#how-do-i-do-a-manual-backup" title="Link to this heading">¶</a></h2>
+<p>Backing up and restoring SchoolTool’s database is done using a script called
+<code class="docutils literal notranslate"><span class="pre">repozo</span></code>.  It supports incremental backup, “hot” backups of a live database
+while the SchoolTool service is running, and is included with the Ubuntu packages.</p>
+<p>To perfom a hot incremental backup on the standard default Ubuntu package
+configuration is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">repozo</span> <span class="o">-</span><span class="n">B</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">r</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">backup</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">Data</span><span class="o">.</span><span class="n">fs</span>
+</pre></div>
+</div>
+<p>Where “/path/to/backup” is the actually path to the directory where you want
+the backups to be stored.</p>
+<p>This will result in a set of timestamped backups that look like this (this is
+after several incremental backups):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">51</span><span class="o">-</span><span class="mf">02.</span><span class="n">dat</span>      <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mf">02.</span><span class="n">index</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">51</span><span class="o">-</span><span class="mf">02.</span><span class="n">fs</span>       <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mf">02.</span><span class="n">deltafs</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">51</span><span class="o">-</span><span class="mf">02.</span><span class="n">index</span>    <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mf">02.</span><span class="n">index</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mf">02.</span><span class="n">deltafs</span>  <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mf">02.</span><span class="n">deltafs</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mf">02.</span><span class="n">index</span>    <span class="mi">2014</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mf">02.</span><span class="n">index</span>
+</pre></div>
+</div>
+<p>You want these backups to be stored as far away from the original database
+files as possible, at least on a different drive, ideally at a completely
+different facility.</p>
+<p>You can and should set this up as a scheduled <code class="docutils literal notranslate"><span class="pre">cron</span></code> job.  For example,
+on Ubuntu you can simply create a file (as root) named <code class="docutils literal notranslate"><span class="pre">schooltool-repozo</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">/etc/cron.daily</span></code> directory containing a this text:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="n">repozo</span> <span class="o">-</span><span class="n">B</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">r</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">backup</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">Data</span><span class="o">.</span><span class="n">fs</span> <span class="o">&gt;/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+</pre></div>
+</div>
+<p>This will run once a day automatically.  More documentation on using <code class="docutils literal notranslate"><span class="pre">cron</span></code>
+is available online or in standard Unix reference books.</p>
+<p>You also must back up the <code class="docutils literal notranslate"><span class="pre">/var/lib/schooltool/blobs</span></code> directory.  This
+directory contains image files, generated pdf reports and other binary files.
+It can be backed up like any regular file directory.</p>
+</section>
+<section id="restoring-from-a-backup">
+<h2>Restoring from a backup<a class="headerlink" href="#restoring-from-a-backup" title="Link to this heading">¶</a></h2>
+<p>First, stop SchoolTool:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">service</span> <span class="n">schooltool</span> <span class="n">stop</span>
+</pre></div>
+</div>
+<p>To restore the database from your backup directory back into
+<code class="docutils literal notranslate"><span class="pre">/var/lib/schooltool</span></code>, the command would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">repozo</span> <span class="o">-</span><span class="n">R</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">r</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">backup</span> <span class="o">-</span><span class="n">o</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">Data</span><span class="o">.</span><span class="n">fs</span>
+</pre></div>
+</div>
+<p>You will also need to copy or restore your backed up contents of the <code class="docutils literal notranslate"><span class="pre">blobs</span></code>
+directory.</p>
+<p>Then, restart SchoolTool:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">service</span> <span class="n">schooltool</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>Running <code class="docutils literal notranslate"><span class="pre">repozo</span> <span class="pre">--help</span></code> in a terminal will return full documentation of
+repozo’s flags and options.</p>
+</section>
+<section id="what-if-my-database-is-empty-after-an-upgrade">
+<h2>What if My Database is Empty After an Upgrade?<a class="headerlink" href="#what-if-my-database-is-empty-after-an-upgrade" title="Link to this heading">¶</a></h2>
+<p>If something goes awry during the backup process, it is possible that your current database will be moved into the first backup position (ending with <code class="docutils literal notranslate"><span class="pre">.0</span></code>), but a blank database will be in the “current” <code class="docutils literal notranslate"><span class="pre">Data.fs</span></code> position:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">mv</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">Data</span><span class="o">.</span><span class="n">fs</span><span class="mf">.0</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">Data</span><span class="o">.</span><span class="n">fs</span>
+</pre></div>
+</div>
+</section>
+<section id="how-can-i-erase-the-entire-database">
+<h2>How can I erase the entire database?<a class="headerlink" href="#how-can-i-erase-the-entire-database" title="Link to this heading">¶</a></h2>
+<p>Delete the <code class="docutils literal notranslate"><span class="pre">Data.fs</span></code> file and the <code class="docutils literal notranslate"><span class="pre">blobs</span></code> directory.  This is, of course, permanent.  If there is the slightest chance you’ll ever want that data, moving rather than deleting the files is advisable.</p>
+</section>
+<section id="packing-the-database">
+<h2>Packing the database.<a class="headerlink" href="#packing-the-database" title="Link to this heading">¶</a></h2>
+<p>The ZODB is designed to keep a record of transactions, which can be used by an application to allow “undo” functionality.  One implication of this, however, is that the database file grows in size as it stores a longer and longer list of changes to each object.  To shrink the database back to a more efficient size, one can “pack” it.  Because SchoolTool does not allow you to undo transactions, there is no practical reason not to pack the database.</p>
+<p>Packing the database does not have to be done very frequently – certainly not daily.  Monthly or weekly should suffice, but your mileage may vary depending on the intensity of usage.  It may be something you do prior to high demand periods, such as before teachers submit grades.  Backing up your database prior to packing it should not be necessary, but nonetheless it is not a bad idea.</p>
+<p>To pack the database via the web, you must be logged in as a member of “Site Managers.” Navigate to the <strong>Server</strong> tab at the top of the page, then click on <strong>Actions: Pack Database</strong>.  You will see a spinner indicating that packing is in progress.  If you stay on the page, you will get a confirmation dialog:</p>
+<blockquote>
+<div><img alt="_images/packing.png" src="_images/packing.png" />
+</div></blockquote>
+<p>You can also run <code class="docutils literal notranslate"><span class="pre">zeopack</span></code> to pack the database from the terminal.  The
+complete usage for the standard install is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">zeopack</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">7081</span>
+</pre></div>
+</div>
+<p>Depending on your site’s database usage, this process could take several minutes and put a load on the server, so plan to pack the database at an off-peak time.</p>
+<p>You can also use a cron job to run <code class="docutils literal notranslate"><span class="pre">zeopack</span></code> weekly or monthly.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Basic Database Administration</a><ul>
+<li><a class="reference internal" href="#where-is-the-data">Where is the data?</a></li>
+<li><a class="reference internal" href="#automatic-backups">Automatic backups</a></li>
+<li><a class="reference internal" href="#how-do-i-do-a-manual-backup">How do I do a manual backup?</a></li>
+<li><a class="reference internal" href="#restoring-from-a-backup">Restoring from a backup</a></li>
+<li><a class="reference internal" href="#what-if-my-database-is-empty-after-an-upgrade">What if My Database is Empty After an Upgrade?</a></li>
+<li><a class="reference internal" href="#how-can-i-erase-the-entire-database">How can I erase the entire database?</a></li>
+<li><a class="reference internal" href="#packing-the-database">Packing the database.</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="multiple-schooltools.html"
+                          title="previous chapter">Managing Multiple SchoolTools on One Server</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="sandbox.html"
+                          title="next chapter">Testing SchoolTool with Virtual Servers</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/database.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

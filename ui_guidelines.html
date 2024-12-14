@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SchoolTool User Interface Guidelines &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to add a new XLS report" href="report_example.html" />
+    <link rel="prev" title="SchoolTool “presentation” components" href="flourish.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="report_example.html" title="How to add a new XLS report"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="flourish.html" title="SchoolTool “presentation” components"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="developers.html" accesskey="U">Developers’ Handbook</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SchoolTool User Interface Guidelines</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="schooltool-user-interface-guidelines">
+<h1>SchoolTool User Interface Guidelines<a class="headerlink" href="#schooltool-user-interface-guidelines" title="Link to this heading">¶</a></h1>
+<p>At this point in the development of SchoolTool, the existing application is complete enough to largely act as its own implicit guide to how the interface should be structured, through the existing code and style sheets.</p>
+<p>There are some explicit documents we used in re-designing the interface (see <a class="reference internal" href="flourish.html#flourish"><span class="std std-ref">SchoolTool “presentation” components</span></a>), they are:</p>
+<section id="the-ubuntu-web-guidelines">
+<h2>The Ubuntu Web Guidelines<a class="headerlink" href="#the-ubuntu-web-guidelines" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="http://www.schooltool.org/files/Ubuntu-Web-Guidelines.pdf">The Ubuntu Web Guidelines</a> is an extensive document commissioned by Canonical for use across Canonical and Ubuntu affiliated web properties.  While SchoolTool does not exactly fit that description as a web application, it shared the same founder and primary funder – Mark Shuttleworth – as Canonical and Ubuntu, so the connection was natural, and thus this design was implicitly pre-approved by Mark.</p>
+<p>We changed the colors and branding in fairly obvious ways, but essentially used the Ubuntu Web Guidelines as first reference in any design decision.  When we needed new forms, if possible we extended them from the Ubuntu model in straightforward ways.</p>
+</section>
+<section id="schooltool-guidelines">
+<h2>SchoolTool Guidelines<a class="headerlink" href="#schooltool-guidelines" title="Link to this heading">¶</a></h2>
+<p>The Ubuntu Web Guidelines lacked designs for printed resources and a few sufficiently complex types of tables and lists, so we commissioned a designer to create additional <a class="reference external" href="http://www.schooltool.org/files/SchoolTool_guidelines5.pdf">SchoolTool Guidelines</a>.  Some of the reports he designed, such as the report card, were not directly usable because we have to keep report card design very simple to work in a wide variety of user-customizable cases, but the examples provided further guidance which may be useful to future form and report designers.</p>
+</section>
+<section id="logo-files">
+<h2>Logo Files<a class="headerlink" href="#logo-files" title="Link to this heading">¶</a></h2>
+<p>SchoolTool logo files in various configurations and formats can be downloaded <a class="reference external" href="http://www.schooltool.org/files/schooltool_logofiles1_0/">here</a>.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">SchoolTool User Interface Guidelines</a><ul>
+<li><a class="reference internal" href="#the-ubuntu-web-guidelines">The Ubuntu Web Guidelines</a></li>
+<li><a class="reference internal" href="#schooltool-guidelines">SchoolTool Guidelines</a></li>
+<li><a class="reference internal" href="#logo-files">Logo Files</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="flourish.html"
+                          title="previous chapter">SchoolTool “presentation” components</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="report_example.html"
+                          title="next chapter">How to add a new XLS report</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/ui_guidelines.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

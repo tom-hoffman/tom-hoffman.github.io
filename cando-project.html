@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Using Project Worksheets &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Managing Multiple Years and Terms" href="multi-years.html" />
+    <link rel="prev" title="Entering Scores in CanDo" href="cando-entry.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="multi-years.html" title="Managing Multiple Years and Terms"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="cando-entry.html" title="Entering Scores in CanDo"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="cando-toc.html" accesskey="U">CanDo Skill Tracking</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Using Project Worksheets</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="using-project-worksheets">
+<h1>Using Project Worksheets<a class="headerlink" href="#using-project-worksheets" title="Link to this heading">¶</a></h1>
+<p>The “Skills” view of a teacher’s CanDo gradebook is organized by Skill Sets assigned to the course.</p>
+<p>The “Projects” view allows teachers to add individual skills to a section, and organize them freely.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Scores entered in the <strong>Projects</strong> worksheets are “inherited” by the <strong>Skill Set</strong> worksheets, but not vice versa.  For example, if Skill A has a score of “2” in the <strong>Skill Set</strong> worksheet, and a new Project is created containing Skill A, no score will appear in the Project worksheet.  This reflects the fact that the Project has not been evaluated, the skill has not been evaluated in the context of the project.  The Score History in the Project worksheet only shows the scores entered in the project.</p>
+<p>Once Skill A is evaluated in the project, the core will also appear in the <strong>Skill Sets</strong> view and Score History.  If it is subsequently updated in the <strong>Skill Sets</strong> view, the score in the <strong>Projects</strong> worksheet will not be updated.</p>
+</div>
+<section id="adding-skills-to-projects">
+<h2>Adding Skills to Projects<a class="headerlink" href="#adding-skills-to-projects" title="Link to this heading">¶</a></h2>
+<p>Click the <strong>View: Projects</strong> radio button in the left sidebar:</p>
+<blockquote>
+<div><img alt="_images/cando-projects-1.png" src="_images/cando-projects-1.png" />
+</div></blockquote>
+<p>This includes an empty default project called “Project1”.  We will rename this to “Hands-On.”  Click on <strong>Settings: Projects</strong> in the left sidebar:</p>
+<blockquote>
+<div><img alt="_images/cando-projects-2.png" src="_images/cando-projects-2.png" />
+</div></blockquote>
+<p>And on the yellow edit pencil next to <strong>Project1</strong>:</p>
+<blockquote>
+<div><img alt="_images/cando-projects-3.png" src="_images/cando-projects-3.png" />
+</div></blockquote>
+<p>Click <strong>Submit</strong>:</p>
+<blockquote>
+<div><img alt="_images/cando-projects-4.png" src="_images/cando-projects-4.png" />
+</div></blockquote>
+<p>And <strong>Done</strong> to return to the gradebook:</p>
+<blockquote>
+<div><img alt="_images/cando-projects-5.png" src="_images/cando-projects-5.png" />
+</div></blockquote>
+<p>To add a Skill to the current project, click <strong>Add: Skill</strong> in the left sidebar.  Use the form to search for the skill you would like to add.  You can use the checkboxes to select specific layers in the skills hierarchy.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This search is currently buggy.  You can only reliably search for Skill Sets.</p>
+<img alt="_images/cando-projects-6.png" src="_images/cando-projects-6.png" />
+</div>
+<p>Clicking on the title of the Skill, Skill Set or other node will take you to a form displaying a Skill Set or list of Skill Sets.</p>
+<blockquote>
+<div><img alt="_images/cando-projects-7.png" src="_images/cando-projects-7.png" />
+</div></blockquote>
+<p>In this case, you see the Basic Geometry Skill Set.  We’ll select “Identify and explain basic Trigonometric functions and their application in determining lengths and angles.”  You could also add other Skills from this set at this time if you wished.</p>
+<p>Click <strong>Submit</strong>:</p>
+<blockquote>
+<div><img alt="_images/cando-projects-8.png" src="_images/cando-projects-8.png" />
+</div></blockquote>
+<p>The skill has been added to the project.</p>
+<p>You can now add additional skills from different Skill Sets, different Documents, or even newly created ones.</p>
+<p>The Skills in the <strong>Project</strong> view are scored just like the <strong>Skill Set</strong> view.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Using Project Worksheets</a><ul>
+<li><a class="reference internal" href="#adding-skills-to-projects">Adding Skills to Projects</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="cando-entry.html"
+                          title="previous chapter">Entering Scores in CanDo</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="multi-years.html"
+                          title="next chapter">Managing Multiple Years and Terms</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/cando-project.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

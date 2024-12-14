@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Changes in SchoolTool 2.8 &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Changes in SchoolTool 2.8</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="changes-in-schooltool-2-8">
+<span id="changes"></span><h1>Changes in SchoolTool 2.8<a class="headerlink" href="#changes-in-schooltool-2-8" title="Link to this heading">¶</a></h1>
+<section id="adding-and-removing-members">
+<h2>Adding and removing members<a class="headerlink" href="#adding-and-removing-members" title="Link to this heading">¶</a></h2>
+<p>From a user interface point of view, the biggest change to SchoolTool 2.8 is
+in the screens that add and remove people from “relationships,” such as group
+memberships, as instructors or students enrolled in a section, or creating a
+contact relationship between a student and their guardian.</p>
+<p>There are two parts to the change:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the interface itself uses checkboxes so you can add/remove/edit multiple
+people at a time;</p></li>
+<li><p>when modifying the relationship you must indicate the type of change
+taking place, for example, if a student has withdrawn as a student or
+graduated.</p></li>
+</ul>
+</div></blockquote>
+<p>For the generic example, we will look at adding a person to the <strong>Students</strong>
+group.  A student’s enrollment status within the school is indicated by their
+membership in the <strong>Students</strong> group.</p>
+<p>If we navigate to the <strong>Students</strong> group, and click the edit pencil next to
+<strong>Members</strong>, we see the new form:</p>
+<blockquote>
+<div><img alt="_images/2.8-changes-0.png" src="_images/2.8-changes-0.png" />
+<img alt="_images/2.8-changes-1.png" src="_images/2.8-changes-1.png" />
+<img alt="_images/2.8-changes-2.png" src="_images/2.8-changes-2.png" />
+</div></blockquote>
+<p>To change the status of one or more current students, for example, to
+“Withdrawn,” check the boxes next to their names, and select <strong>Withdrawn</strong>
+under <strong>Set selected to</strong>.  You may also set the date of the change, which
+defaults to the current date.</p>
+<blockquote>
+<div><img alt="_images/2.8-changes-3.png" src="_images/2.8-changes-3.png" />
+</div></blockquote>
+<p>Click <strong>Update</strong>:</p>
+<blockquote>
+<div><img alt="_images/2.8-changes-4.png" src="_images/2.8-changes-4.png" />
+</div></blockquote>
+<p>Note that you cannot completely remove a person from a group or section.
+Making a relationship inactive will omit the person from most relevant
+views by default.  If a membership or other relationship is a mistake, use
+the “Added in error” status to indicate this.</p>
+<p>Adding students, or adding and editing other group memberships or relationships
+is similar.</p>
+<p>On the <strong>School</strong> page, under <strong>Customize</strong>, you can select <strong>Membership
+States</strong> to customize the states of different types of relationships.</p>
+<blockquote>
+<div><img alt="_images/2.8-changes-5.png" src="_images/2.8-changes-5.png" />
+</div></blockquote>
+<p>For example, click <strong>Student Enrollment</strong>.</p>
+<blockquote>
+<div><img alt="_images/2.8-changes-6.png" src="_images/2.8-changes-6.png" />
+</div></blockquote>
+<p>In each type of relationship, there are a few pre-set “meanings” that
+may affect underlying functionality important to SchoolTool.  For example,
+the basic statuses of student enrollment are defined as:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Active (an enrolled student)</p></li>
+<li><p>Inactive (not an enrolled student)</p></li>
+<li><p>Pre-enrolled (essentially an unenrolled applicant or future student)</p></li>
+<li><p>Graduated/Inactive (completed the program and unenrolled)</p></li>
+<li><p>Graduated/Active (completed the program but still enrolled as a stuent)</p></li>
+</ul>
+</div></blockquote>
+<p>In addition to these “meanings,” you can create additional statuses with their
+own Title and Code.  For example, in this form you could add an inactive
+“Transferred” status.</p>
+<blockquote>
+<div><img alt="_images/2.8-changes-7.png" src="_images/2.8-changes-7.png" />
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Changes in SchoolTool 2.8</a><ul>
+<li><a class="reference internal" href="#adding-and-removing-members">Adding and removing members</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/2.8-changes.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

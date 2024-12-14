@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>System Requirements &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installing SchoolTool" href="install-2_0.html" />
+    <link rel="prev" title="Installation" href="install-toc.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="install-2_0.html" title="Installing SchoolTool"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="install-toc.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="install-toc.html" accesskey="U">Installation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">System Requirements</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="system-requirements">
+<h1>System Requirements<a class="headerlink" href="#system-requirements" title="Link to this heading">¶</a></h1>
+<section id="where-can-i-download-schooltool">
+<h2>Where can I download SchoolTool?<a class="headerlink" href="#where-can-i-download-schooltool" title="Link to this heading">¶</a></h2>
+<p>There is no “Download” link to install SchoolTool.</p>
+<p>SchoolTool is a full stack web application.  That is, it comes with its own web
+server and database.  To make sure all the necessary components are installed
+correctly, we distribute SchoolTool to users as packages, through Ubuntu Linux.
+This gives users a simple “app store” one-click installation experience.</p>
+<p>What follows is an explanation of this choice, hardware recommendations, and in
+subsequent pages instructions for installing various versions of SchoolTool on
+various versions of Ubuntu.</p>
+</section>
+<section id="operating-system">
+<h2>Operating System<a class="headerlink" href="#operating-system" title="Link to this heading">¶</a></h2>
+<section id="ubuntu">
+<h3>Ubuntu<a class="headerlink" href="#ubuntu" title="Link to this heading">¶</a></h3>
+<p>The core SchoolTool development team recommends new installations  of SchoolTool
+on Ubuntu 14.04 LTS (Long Term Service).</p>
+<p>Ubuntu 12.04 LTS will be actively supported at least through the end of 2014,
+but we will be focusing on Ubuntu 14.04 LTS for the foreseeable future, and we
+recommend all users test and upgrade to 14.04 LTS at the earliest convenient
+time (i.e., between terms/school years).</p>
+<p>Going forward, we will not be focusing our efforts on non-LTS Ubuntu releases,
+as we have found most prudent and experienced school sys admins prefer to
+stick to LTS releases.</p>
+</section>
+<section id="why-ubuntu">
+<h3>Why Ubuntu?<a class="headerlink" href="#why-ubuntu" title="Link to this heading">¶</a></h3>
+<p>SchoolTool is written in Python, a highly portable open source programming
+language.  SchoolTool can be ported to Mac OS, Windows, or other Linux or Unix
+versions with a moderate amount of work.  We have done this in the past.</p>
+<p>We have created packages for multiple operating systems, but the core
+development team could not <em>support</em> them.  The Mac OS version ran slowly and
+occasionally hung for no discernible reason.  We could copy/paste some code
+to make SchoolTool run as a Windows service, but we didn’t understand how it
+worked or fix it if it didn’t.  A student information system is mission
+critical for a school; we don’t want schools running systems that nobody is
+responsible for fixing.</p>
+<p>We welcome additional ports and packages; the core development team just does
+not have the capacity to provide and support them ourselves.</p>
+</section>
+</section>
+<section id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Link to this heading">¶</a></h2>
+<section id="compatibility">
+<h3>Compatibility<a class="headerlink" href="#compatibility" title="Link to this heading">¶</a></h3>
+<p>SchoolTool can be installed on any hardware or virtual server that is
+supported by Ubuntu.</p>
+</section>
+<section id="school-level-deployments-or-greater">
+<h3>School Level Deployments or Greater<a class="headerlink" href="#school-level-deployments-or-greater" title="Link to this heading">¶</a></h3>
+<p>For production deployment in a school or district, a real or virtual server
+dedicated to only running SchoolTool is recommended.  This makes it easy to
+resolve any puzzling operating system level problems by simply backing up the
+SchoolTool database and data files, and reinstalling the whole system from
+scratch.  This can usually be done in about an hour.</p>
+<p>SchoolTool can be hosted in “the cloud” on any server (physical or virtual)
+that provides root access to the server OS or the equivalent.  You will need
+to have rights on the server to install software and add SchoolTool as a
+system service.  A simple “web hosting” service that allows you to add HTML
+and PHP pages is not sufficient.</p>
+</section>
+<section id="personal">
+<h3>Personal<a class="headerlink" href="#personal" title="Link to this heading">¶</a></h3>
+<p>For personal use, SchoolTool can be installed and used on a personal desktop
+or laptop computer running Ubuntu Linux, accessing the web interface locally.
+This type of installation is not going to be under heavy load, since there is
+only one user, but it will eat up some memory while running in the background.</p>
+</section>
+<section id="technical-specifications">
+<h3>Technical Specifications<a class="headerlink" href="#technical-specifications" title="Link to this heading">¶</a></h3>
+<p>The primary bottleneck in SchoolTool’s performance is usually memory.  The
+bare minimum RAM requirement for testing is estimated to be 512 megabytes.
+At least 1 gigabyte of RAM, plus at least 2 gigabytes of swap space is
+recommended and if you are setting up for a small production server, adding
+more than 1 gigabyte of RAM is worth it if you can afford it.  More memory
+equals faster database performance.</p>
+<p>Faster processors will make SchoolTool run faster.  Over 1 GHz is recommended.
+Generally speaking, SchoolTool performance will benefit more from raw
+processor speed than adding cores running in parallel.</p>
+<p>Ubuntu SchoolTool packages are available for low-power ARM architecture
+processors, as well as i386 and AMD64 PC and server processors.</p>
+<p>By the scale of modern storage technology, SchoolTool doesn’t require
+significant disk space.  One gigabyte may handle it for quite a while.
+Disk read and write speed is more important than volume.</p>
+</section>
+<section id="virtual-servers">
+<h3>Virtual Servers<a class="headerlink" href="#virtual-servers" title="Link to this heading">¶</a></h3>
+<p>Note that another option for non-Ubuntu users is <a class="reference internal" href="sandbox.html#sandbox"><span class="std std-ref">Testing SchoolTool with Virtual Servers</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">System Requirements</a><ul>
+<li><a class="reference internal" href="#where-can-i-download-schooltool">Where can I download SchoolTool?</a></li>
+<li><a class="reference internal" href="#operating-system">Operating System</a><ul>
+<li><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
+<li><a class="reference internal" href="#why-ubuntu">Why Ubuntu?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hardware">Hardware</a><ul>
+<li><a class="reference internal" href="#compatibility">Compatibility</a></li>
+<li><a class="reference internal" href="#school-level-deployments-or-greater">School Level Deployments or Greater</a></li>
+<li><a class="reference internal" href="#personal">Personal</a></li>
+<li><a class="reference internal" href="#technical-specifications">Technical Specifications</a></li>
+<li><a class="reference internal" href="#virtual-servers">Virtual Servers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="install-toc.html"
+                          title="previous chapter">Installation</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="install-2_0.html"
+                          title="next chapter">Installing SchoolTool</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/system-requirements.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

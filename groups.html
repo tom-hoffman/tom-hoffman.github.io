@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Groups &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Creating Sections" href="sections.html" />
+    <link rel="prev" title="Contacts" href="contacts.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="sections.html" title="Creating Sections"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="contacts.html" title="Contacts"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="populating.html" accesskey="U">Populating Your School</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Groups</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="groups">
+<span id="id1"></span><h1>Groups<a class="headerlink" href="#groups" title="Link to this heading">¶</a></h1>
+<p>In SchoolTool, Groups are used to model some default roles in a school, as well as allowing a wide variety of custom groups to be created to suit local needs.</p>
+<p>In particular:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Groups have their own calendars;</p></li>
+<li><p>you can run reports for the members of a Group;</p></li>
+<li><p>Groups are useful for adding a specific set of students to multiple class sections.</p></li>
+</ul>
+</div></blockquote>
+<p>The default <a class="reference internal" href="roles.html#roles"><span class="std std-ref">SchoolTool Administrative Roles</span></a> are <strong>Site Managers</strong>, <strong>Clerks</strong> and <strong>School Administrators</strong> with certain site-wide privileges.  <strong>Teachers</strong> and <strong>Students</strong> are also default groups that affect the user’s interface and visibility in various forms and searches, but not important permissions.</p>
+<p>Groups are stored by Year.  That is, each school year has its own set of Groups.  For example, you may have one “Students” Group for Year “2008-2009” and a separate “Students” group for Year “2009-2010.”</p>
+<p><strong>Note that you must create Years before you can do anything with Groups.</strong>  See <a class="reference internal" href="years.html#years"><span class="std std-ref">Creating Years</span></a>.</p>
+<p>Groups can be managed through the web, imported via CSV or by <a class="reference internal" href="spreadsheet.html#spreadsheet"><span class="std std-ref">Importing and Exporting from Spreadsheet</span></a>.</p>
+<section id="adding-people-to-existing-groups">
+<h2>Adding People to Existing Groups<a class="headerlink" href="#adding-people-to-existing-groups" title="Link to this heading">¶</a></h2>
+<p>In <a class="reference internal" href="persons.html#persons"><span class="std std-ref">Adding People</span></a>, we imported some People via CSV who have not been assigned to Groups.  We’re going to add all of them to the “Students” Group.</p>
+<p>In order to add People to a Group, you must be logged in as a member of <strong>Site Managers</strong> or <strong>Clerks</strong>. Navigate to the <strong>School</strong> tab, and click on the <strong>Groups</strong> link:</p>
+<blockquote>
+<div><img alt="_images/groups-0.png" src="_images/groups-0.png" />
+</div></blockquote>
+<p>From here, select <strong>Students</strong>:</p>
+<blockquote>
+<div><img alt="_images/groups-1.png" src="_images/groups-1.png" />
+</div></blockquote>
+<p>First we will “manually” add our small group of students.  Click on the yellow pencil icon next to <strong>Members</strong>:</p>
+<blockquote>
+<div><img alt="_images/groups-2.png" src="_images/groups-2.png" />
+</div></blockquote>
+<p>We’ll check the boxes next to our students.  We will leave <strong>Set selected to</strong>
+<strong>Enrolled</strong> for now to indicate they are enrolled as students as of the date
+selected under <strong>Effective date</strong> (the current date by default):</p>
+<blockquote>
+<div><img alt="_images/groups-3.png" src="_images/groups-3.png" />
+</div></blockquote>
+<p>Click <strong>Add</strong>:</p>
+<blockquote>
+<div><img alt="_images/groups-4.png" src="_images/groups-4.png" />
+</div></blockquote>
+<p>Then click <strong>Done</strong> to get back to the main page for the Group.</p>
+<p>If you click on one of the students’ names and then their <strong>Groups</strong> slider, you’ll see their memberships listed:</p>
+<blockquote>
+<div><img alt="_images/groups-6.png" src="_images/groups-6.png" />
+</div></blockquote>
+</section>
+<section id="editing-group-membership">
+<h2>Editing Group Membership<a class="headerlink" href="#editing-group-membership" title="Link to this heading">¶</a></h2>
+<p>Withdrawing or otherwise changing existing group memberships is done as above,
+but by selecting students from the list of Current Members and seting them to
+a different state, such as <strong>Withdrawn</strong> or <strong>Graduated/Inactive</strong>.</p>
+</section>
+<section id="customizing-membership-relationships">
+<h2>Customizing Membership Relationships<a class="headerlink" href="#customizing-membership-relationships" title="Link to this heading">¶</a></h2>
+<p>On the <strong>School</strong> page, under <strong>Customize</strong>, you can select <strong>Membership
+States</strong> to customize the states of different types of relationships.</p>
+<blockquote>
+<div><img alt="_images/2.8-changes-5.png" src="_images/2.8-changes-5.png" />
+</div></blockquote>
+<p>For example, click <strong>Student Enrollment</strong>.</p>
+<blockquote>
+<div><img alt="_images/2.8-changes-6.png" src="_images/2.8-changes-6.png" />
+</div></blockquote>
+<p>In each type of relationship, there are a few pre-set “meanings” that
+may affect underlying functionality important to SchoolTool.  For example,
+the basic statuses of student enrollment are defined as:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Active (an enrolled student)</p></li>
+<li><p>Inactive (not an enrolled student)</p></li>
+<li><p>Pre-enrolled (essentially an unenrolled applicant or future student)</p></li>
+<li><p>Graduated/Inactive (completed the program and unenrolled)</p></li>
+<li><p>Graduated/Active (completed the program but still enrolled as a stuent)</p></li>
+</ul>
+</div></blockquote>
+<p>In addition to these “meanings,” you can create additional statuses with their
+own Title and Code.  For example, in this form you could add an inactive
+“Transferred” status.</p>
+<blockquote>
+<div><img alt="_images/2.8-changes-7.png" src="_images/2.8-changes-7.png" />
+</div></blockquote>
+</section>
+<section id="creating-a-new-group">
+<h2>Creating a New Group<a class="headerlink" href="#creating-a-new-group" title="Link to this heading">¶</a></h2>
+<p>From the main <strong>Groups</strong> view, click <strong>Add: Group</strong>.  Add a relevant title and description:</p>
+<blockquote>
+<div><img alt="_images/groups-7.png" src="_images/groups-7.png" />
+</div></blockquote>
+<p>Add members as above:</p>
+<blockquote>
+<div><img alt="_images/groups-8.png" src="_images/groups-8.png" />
+</div></blockquote>
+<p>You can also assign “Responsible Parties,” who will have permission to modify the Group, add members, and edit the calendar.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Groups</a><ul>
+<li><a class="reference internal" href="#adding-people-to-existing-groups">Adding People to Existing Groups</a></li>
+<li><a class="reference internal" href="#editing-group-membership">Editing Group Membership</a></li>
+<li><a class="reference internal" href="#customizing-membership-relationships">Customizing Membership Relationships</a></li>
+<li><a class="reference internal" href="#creating-a-new-group">Creating a New Group</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="contacts.html"
+                          title="previous chapter">Contacts</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="sections.html"
+                          title="next chapter">Creating Sections</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/groups.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

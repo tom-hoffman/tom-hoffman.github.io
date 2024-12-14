@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Creating Years &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Creating Terms" href="terms.html" />
+    <link rel="prev" title="Entering Data: Web Interface or Import?" href="web-v-import.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="terms.html" title="Creating Terms"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="web-v-import.html" title="Entering Data: Web Interface or Import?"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="setup-toc.html" accesskey="U">School Setup</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Creating Years</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="creating-years">
+<span id="years"></span><h1>Creating Years<a class="headerlink" href="#creating-years" title="Link to this heading">¶</a></h1>
+<p>School years are central to organizing data in SchoolTool.  Before you start setting up the rest of the school, you must start with a school year.</p>
+<p>A school year encompasses the annual cycle of a school.  For example, most students are promoted at the end of a year.  Most new teachers start work at the beginning of the year.  Terms <em>must</em> be contained within years.</p>
+<p>The school year does not have to correspond to a calendar year, and may be defined to suit the processes of your school.  It is best to set this up so that every date is part of one school year or another.  School years <em>cannot</em> overlap.</p>
+<p>If this does not fit the structure of your school, you can simply create a single Year that spans three or more calendar years.  It is likely that by the time that Year expires, we’ll have come up with a revised model for schools that don’t work within individual years.</p>
+<p><em>Setting up a Year is necessary for just about any use of SchoolTool</em>, and it is easiest through the web interface.</p>
+<p>As a member of <strong>Site Managers</strong> click the <strong>School</strong> tab at top.  On a new installation, the page will look like this:</p>
+<blockquote>
+<div><img alt="_images/years-0.png" src="_images/years-0.png" />
+</div></blockquote>
+<p>Click the <strong>Add: School Year</strong> link in the sidebar, enter the Title for the Year and the start and end dates, and hit <strong>Submit</strong>.  Keep the title as short as possible, because it is used as a link frequently.  When you click on the date field, a calendar widget will appear to help you choose the day.</p>
+<p>When setting up the start and end dates, remember that Years cannot overlap.</p>
+<blockquote>
+<div><img alt="_images/years-1.png" src="_images/years-1.png" />
+</div></blockquote>
+<p>Your new Year.  If you click on the yellow pencil icon next to the title, you can edit the information for the Year:</p>
+<blockquote>
+<div><img alt="_images/years-2.png" src="_images/years-2.png" />
+</div></blockquote>
+<p><strong>Done</strong> will take you to the list of Years:</p>
+<blockquote>
+<div><img alt="_images/years-3.png" src="_images/years-3.png" />
+</div></blockquote>
+<p>The main <strong>School</strong> tab now shows your Year set up along with relevant links and statistics:</p>
+<blockquote>
+<div><img alt="_images/years-4.png" src="_images/years-4.png" />
+</div></blockquote>
+<p>Note that under Groups, both <strong>Clerks</strong> and <strong>Site Managers</strong> have one member – the “Default Manager” user.</p>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="web-v-import.html"
+                          title="previous chapter">Entering Data: Web Interface or Import?</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="terms.html"
+                          title="next chapter">Creating Terms</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/years.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

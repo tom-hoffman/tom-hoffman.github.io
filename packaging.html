@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Packaging and publishing in Launchpad PPA &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Translations" href="translation-toc.html" />
+    <link rel="prev" title="Typical structure of a SchoolTool python package" href="package_structure.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="translation-toc.html" title="Translations"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="package_structure.html" title="Typical structure of a SchoolTool python package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="developers.html" accesskey="U">Developers’ Handbook</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Packaging and publishing in Launchpad PPA</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="packaging-and-publishing-in-launchpad-ppa">
+<h1>Packaging and publishing in Launchpad PPA<a class="headerlink" href="#packaging-and-publishing-in-launchpad-ppa" title="Link to this heading">¶</a></h1>
+<p>We are going to demonstrate how to package the <code class="docutils literal notranslate"><span class="pre">schooltool</span></code> package and publish it in the <a class="reference external" href="https://launchpad.net/~schooltool-owners/+archive/ubuntu/2.8">SchoolTool Owners 2.8 PPA</a> in Launchpad.</p>
+<p>First we need to configure our packaging environment, so make sure of installing the following packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install bzr bzr-builddeb python-van.pydeb dh-make
+</pre></div>
+</div>
+<p>Also two environment variables are needed by the Debian package builder when it updates the <code class="docutils literal notranslate"><span class="pre">debian/changelog</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ export DEBFULLNAME=&quot;Douglas Cerna&quot;
+$ export DEBEMAIL=&quot;douglascerna@example.org&quot;
+</pre></div>
+</div>
+<p>If you use Bash you could add these to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file (or the equivalent in another shell).</p>
+<p>The next step is to configure the bzr client. We’re going to assume bzr 2.7.0 for this. You will need to set up your email and Launchpad username:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bzr whoami “Douglas Cerna &lt;douglascerna@example.org&gt;”
+$ bzr launchpad-login replaceafill
+</pre></div>
+</div>
+<p>Besides this you’ll need to set up an SSH key and a GnuPG key and import them in Launchpad so you can write to branches and publish changes in PPAs. You can read more about this in ` Importing your SSH key &lt;<a class="reference external" href="https://help.launchpad.net/YourAccount/CreatingAnSSHKeyPair">https://help.launchpad.net/YourAccount/CreatingAnSSHKeyPair</a>&gt;`_ and <a class="reference external" href="https://help.launchpad.net/YourAccount/ImportingYourPGPKey">Importing your PGP key</a>.</p>
+<p>With this environment set up, let’s create a directory for all of our work:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir ~/packaging
+$ cd ~/packaging
+</pre></div>
+</div>
+<p>Now we are going to branch the schooltool package from the <a class="reference external" href="2.8serieshttps://launchpad.net/schooltool/2.8">2.8serieshttps://launchpad.net/schooltool/2.8</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bzr branch lp:schooltool/2.8 schooltool
+$ cd schooltool
+</pre></div>
+</div>
+<p>Usually you merge some branch with additional changes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bzr merge lp:~replaceafill/schooltool/new_school_page
+$ bzr commit -m “Merged new School page branch”
+</pre></div>
+</div>
+<p>and update the <code class="docutils literal notranslate"><span class="pre">versions.txt.in</span></code> file, usually just removing the <code class="docutils literal notranslate"><span class="pre">dev</span></code> part. And just for reference we also update the CHANGES.txt file this way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">2.8.6</span> <span class="p">(</span><span class="mi">2016</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">12</span><span class="p">)</span>
+<span class="o">------------------</span>
+
+<span class="o">-</span> <span class="n">Added</span> <span class="n">the</span> <span class="n">new</span> <span class="n">School</span> <span class="n">page</span>
+</pre></div>
+</div>
+<p>We mark these couple of changes with a commit and create a “tag” so we reference them later:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bzr commit -m “Preparing release 2.8.6”
+$ bzr tag 2.8.6
+</pre></div>
+</div>
+<p>At this point we can push our changes back to Launchpad:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bzr push lp:schooltool/2.8
+</pre></div>
+</div>
+<p>Next, we need to create a <a class="reference external" href="https://docs.python.org/2.7/distutils/sourcedist.html">source distribution file</a> that we’re going to merge into our packaging branch. SchoolTool branches have rules for doing this in their <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make develop
+$ make release
+</pre></div>
+</div>
+<p>The source distribution file will be placed under <code class="docutils literal notranslate"><span class="pre">./dist/schooltool-2.8.6.tar.gz</span></code>.</p>
+<p>Now, we need to branch our “packaging branch” (a branch with a .debian directory set up):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ..
+$ bzr branch lp:~replaceafill/ubuntu/trusty/schooltool/2.8 2.8_packaging
+$ cd 2.8_packaging
+</pre></div>
+</div>
+<p>and “merge” the source distribution file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bzr merge-upstream ../schooltool/dist/schooltool-2.8.6.tar.gz
+</pre></div>
+</div>
+<p>This will merge all of our changes and because of the way the packaging branch is set up the <code class="docutils literal notranslate"><span class="pre">debian/changelog</span></code> file has been updated and we just need to update its first entry by replacing “UNRELEASED” with “trusty” as the target distribution.</p>
+<p>After that we need to commit our changes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bzr ci
+</pre></div>
+</div>
+<p>This will open a text editor with a default commit message that you can use. Just save the file.</p>
+<p>Now we tell bzr to create a source package from our packaging branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bzr builddeb -S
+</pre></div>
+</div>
+<p>This may ask for the passphrase of your GnuPG key and will create a <code class="docutils literal notranslate"><span class="pre">../build-area</span></code> directory with a <code class="docutils literal notranslate"><span class="pre">.changes</span></code> file necessary for publishing in a PPA with the <code class="docutils literal notranslate"><span class="pre">dput</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ../build-area
+$ dput ppa:schooltool-owners/2.8 schooltool_2.8.6-0ubuntu1_source.changes
+</pre></div>
+</div>
+<p>You’ll need writing access to the target PPA.</p>
+<p>If everything goes well Launchpad will send you an email notifying that your upload has been accepted.</p>
+<p>After that we go back to our packaging branch and push the changes to Launchpad:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ../2.8_packaging
+$ bzr push lp:~replaceafill/ubuntu/trusty/schooltool/2.8
+</pre></div>
+</div>
+<p>We do the same for the 2.8 branch, but first we set a development version for the next release target (e.g. 2.8.7dev) and add something like this to the CHANGES.txt file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">2.8.7</span> <span class="p">(</span><span class="n">unreleased</span><span class="p">)</span>
+<span class="o">------------------</span>
+
+<span class="o">-</span> <span class="n">Nothing</span> <span class="n">changed</span> <span class="n">yet</span>
+</pre></div>
+</div>
+<p>We commit the changes with a message we can identify in the future and push them to Launchpad:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bzr ci -m “Back to development: 2.8.7”
+$ bzr push lp:schooltool/2.8
+</pre></div>
+</div>
+<p>Read the <a class="reference external" href="http://packaging.ubuntu.com/html/">Ubuntu Packaging Guide</a> for learning more about packaging.</p>
+<section id="packaging-third-party-branches">
+<h2>Packaging third party branches<a class="headerlink" href="#packaging-third-party-branches" title="Link to this heading">¶</a></h2>
+<p>The process described above works for all the “core” packages that are included in the Universe repository in Ubuntu:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>schooltool</p></li>
+<li><p>schooltool.cando</p></li>
+<li><p>schooltool.gradebook</p></li>
+<li><p>schooltool.intervention</p></li>
+<li><p>schooltool.ldap</p></li>
+<li><p>schooltool.lyceum.journal</p></li>
+</ul>
+</div></blockquote>
+<p>Third party packages usually have a simpler packaging setup and require a few different steps that we’ll demonstrate by packaging the 2.10 series of the <code class="docutils literal notranslate"><span class="pre">schooltool.ark</span></code>. For more see the <a class="reference external" href="http://packaging.ubuntu.com/html/udd-merging.html#merging-a-new-upstream-version">Merging a new upstream version</a> section in the Ubuntu Packaging Guide.</p>
+<p>Let’s create a new directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir ~/packaging_3rd
+$ cd ~/packaging_3rd
+</pre></div>
+</div>
+<p>and branch schooltool.ark 2.10:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bzr branch lp:schooltool.ark/2.10 schooltool.ark
+</pre></div>
+</div>
+<p>The process to merge changes and get the source distribution file is similar to the described above for the <code class="docutils literal notranslate"><span class="pre">schooltool</span></code> package.</p>
+<p>An additional step is to upload the distribution file somewhere we can reference in the <code class="docutils literal notranslate"><span class="pre">debian/watch</span></code> file of the packaging branch. The <code class="docutils literal notranslate"><span class="pre">schooltool.ark</span></code> package uses the <a class="reference external" href="http://ftp.schooltool.org/schooltool/ark/">http://ftp.schooltool.org/schooltool/ark/</a> directory for this.</p>
+<p>We also have a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> rule for doing this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make upload
+</pre></div>
+</div>
+<p>After the distribution file is available for download we can move on to the packaging branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ..
+$ bzr branch lp:~sielibre/schooltool.ark/2.10_packaging
+$ cd 2.10_packaging
+</pre></div>
+</div>
+<p>A difference here compared to the <code class="docutils literal notranslate"><span class="pre">schooltool</span></code> packaging branch is that we don’t “merge-upstream” the distribution file. Instead we merge the 2.10 branch directly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bzr merge lp:schooltool.ark/2.10
+</pre></div>
+</div>
+<p>In this case the <code class="docutils literal notranslate"><span class="pre">debian/changelog</span></code> file is not automatically updated, so we need to append an entry using the <code class="docutils literal notranslate"><span class="pre">dch</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ dch -a
+</pre></div>
+</div>
+<p>Then we edit the first entry appropriately.</p>
+<p>From here the rest of the process is the same.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Packaging and publishing in Launchpad PPA</a><ul>
+<li><a class="reference internal" href="#packaging-third-party-branches">Packaging third party branches</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="package_structure.html"
+                          title="previous chapter">Typical structure of a SchoolTool python package</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="translation-toc.html"
+                          title="next chapter">Translations</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/packaging.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

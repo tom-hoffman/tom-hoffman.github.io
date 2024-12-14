@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SchoolTool 2.1 Release Notes &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SchoolTool 2.0 Release Notes" href="2.0-release-notes.html" />
+    <link rel="prev" title="SchoolTool 2.3 Release Notes" href="2.3-release-notes.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="2.0-release-notes.html" title="SchoolTool 2.0 Release Notes"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="2.3-release-notes.html" title="SchoolTool 2.3 Release Notes"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="release-notes.html" accesskey="U">Release Notes</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SchoolTool 2.1 Release Notes</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="schooltool-2-1-release-notes">
+<h1>SchoolTool 2.1 Release Notes<a class="headerlink" href="#schooltool-2-1-release-notes" title="Link to this heading">¶</a></h1>
+<p>SchoolTool 2.1 builds upon the the redesigned 2.0 and is included in Ubuntu 12.04 LTS.
+That means it will be supported for several years to come. Please add
+<a class="reference internal" href="install-2_0.html#ppa"><span class="std std-ref">Upgrading SchoolTool</span></a> to your Software Sources to get bugfix releases since <a class="reference internal" href="#id3">2.1.0</a></p>
+<section id="id1">
+<h2>2.1.2<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<section id="schooltool-gradebook-2-1-1-2012-10-03">
+<h3>SchoolTool Gradebook 2.1.1 (2012-10-03)<a class="headerlink" href="#schooltool-gradebook-2-1-1-2012-10-03" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Recursion error in gradebook (<a class="reference external" href="https://launchpad.net/bugs/1052931">https://launchpad.net/bugs/1052931</a>)</p></li>
+<li><p>Fixed Edit Activity submit</p></li>
+<li><p>Fix a rare failure when upgrading from gradebook &lt;= 0.9.0 (<a class="reference external" href="https://launchpad.net/bugs/995615">https://launchpad.net/bugs/995615</a>)</p></li>
+<li><p>Report Layout displays a server error (<a class="reference external" href="https://launchpad.net/bugs/1008176">https://launchpad.net/bugs/1008176</a>)</p></li>
+<li><p>Set short spreadsheet names in Gradebook Export xls (<a class="reference external" href="https://launchpad.net/bugs/1024814">https://launchpad.net/bugs/1024814</a>)</p></li>
+<li><p>Updated translations</p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2>2.1.1 (2012-08-16)<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<section id="schooltool-2-1-1-2012-08-16">
+<h3>SchoolTool 2.1.1 (2012-08-16)<a class="headerlink" href="#schooltool-2-1-1-2012-08-16" title="Link to this heading">¶</a></h3>
+<section id="translations">
+<h4>Translations<a class="headerlink" href="#translations" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Updated translations</p></li>
+<li><p>Added Bosnian, Croatian, Slovenian translations</p></li>
+</ul>
+</section>
+<section id="xls">
+<h4>XLS<a class="headerlink" href="#xls" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Added course_id, government_id and credits to Courses sheet import/export.</p></li>
+<li><p>Exporters must skip sections with no courses (<a class="reference external" href="https://launchpad.net/bugs/1020842">https://launchpad.net/bugs/1020842</a>)</p></li>
+</ul>
+</section>
+<section id="bugfixes">
+<h4>Bugfixes<a class="headerlink" href="#bugfixes" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Missing hexes.svg background in released packages (<a class="reference external" href="https://launchpad.net/bugs/1030218">https://launchpad.net/bugs/1030218</a>)</p></li>
+<li><p>Timetables evolution fails on exception days (<a class="reference external" href="https://launchpad.net/bugs/1003834">https://launchpad.net/bugs/1003834</a>)</p></li>
+<li><p>Advisory accordion doesn’t show advisees (<a class="reference external" href="https://launchpad.net/bugs/1005989">https://launchpad.net/bugs/1005989</a>)</p></li>
+<li><p>Fix upgrade from schooltool &lt; 1.5 crashing (<a class="reference external" href="https://launchpad.net/bugs/1007361">https://launchpad.net/bugs/1007361</a>)</p></li>
+<li><p>Remove demographics when person is deleted.</p></li>
+<li><p>Users cannot see their own photo (<a class="reference external" href="https://launchpad.net/bugs/1007145">https://launchpad.net/bugs/1007145</a>)</p></li>
+</ul>
+</section>
+<section id="development-tools">
+<h4>Development tools<a class="headerlink" href="#development-tools" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Selenium screenshots</p></li>
+</ul>
+</section>
+</section>
+<section id="schooltool-journal-2-1-1-2012-08-16">
+<h3>SchoolTool Journal 2.1.1 (2012-08-16)<a class="headerlink" href="#schooltool-journal-2-1-1-2012-08-16" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Update translations</p></li>
+</ul>
+</section>
+<section id="schooltool-intervention-2-1-1-2012-08-08">
+<h3>SchoolTool Intervention 2.1.1 (2012-08-08)<a class="headerlink" href="#schooltool-intervention-2-1-1-2012-08-08" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Updated translations</p></li>
+</ul>
+</section>
+</section>
+<section id="id3">
+<span id="id4"></span><h2>2.1.0 (2012-04-19)<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<p>Final release for Precise</p>
+<section id="schooltool-2-1-0-2012-04-19">
+<h3>SchoolTool 2.1.0 (2012-04-19)<a class="headerlink" href="#schooltool-2-1-0-2012-04-19" title="Link to this heading">¶</a></h3>
+<section id="new-features">
+<h4>New features<a class="headerlink" href="#new-features" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Add Calendar tab, configure default tab (<a class="reference external" href="https://launchpad.net/bugs/938825">https://launchpad.net/bugs/938825</a>)</p></li>
+<li><p>Add a background with hexes (<a class="reference external" href="https://launchpad.net/bugs/967233">https://launchpad.net/bugs/967233</a>)</p></li>
+<li><p>XLS import now has Teachers and Students sheets</p></li>
+<li><p>Updated many translations, added Sinhalese (si).</p></li>
+</ul>
+</section>
+<section id="id5">
+<h4>Bugfixes<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Fix date validation to not crash on years before 1900 (<a class="reference external" href="https://launchpad.net/bugs/960367">https://launchpad.net/bugs/960367</a>)</p></li>
+<li><p>Fixed section delete view when school year was created with non-ascii title (<a class="reference external" href="https://launchpad.net/bugs/963740">https://launchpad.net/bugs/963740</a>)</p></li>
+<li><p>Fixed resource views when the resource title has non-ascii characters (<a class="reference external" href="https://launchpad.net/bugs/916086">https://launchpad.net/bugs/916086</a>)</p></li>
+<li><p>Show all demographics fields in person index view (<a class="reference external" href="https://launchpad.net/bugs/944471">https://launchpad.net/bugs/944471</a>)</p></li>
+<li><p>XLS import automatically adds teachers and students to the corresponding groups</p></li>
+<li><p>Fix breakage if intervention plugin was used, but then disabled (<a class="reference external" href="https://launchpad.net/bugs/969221">https://launchpad.net/bugs/969221</a>)</p></li>
+<li><p>Replace PIL dependency with Pillow to fix image libraries detection when
+building from source on Ubuntu.</p></li>
+</ul>
+</section>
+</section>
+<section id="schooltool-gradebook-2-1-0-2012-04-18">
+<h3>SchoolTool Gradebook 2.1.0 (2012-04-18)<a class="headerlink" href="#schooltool-gradebook-2-1-0-2012-04-18" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Report sheets XLS export (<a class="reference external" href="https://launchpad.net/bugs/976757">https://launchpad.net/bugs/976757</a>)</p></li>
+<li><p>Period order in attendance report incorrect (<a class="reference external" href="https://launchpad.net/bugs/932508">https://launchpad.net/bugs/932508</a>)</p></li>
+<li><p>Round the score in student gradebook (<a class="reference external" href="https://launchpad.net/bugs/950531">https://launchpad.net/bugs/950531</a>)</p></li>
+<li><p>Refactor worksheets to separate activities and enable different kinds of
+worksheets.</p></li>
+<li><p>Updated translations</p></li>
+</ul>
+</section>
+<section id="schooltool-journal-2-1-0-2012-04-18">
+<h3>SchoolTool Journal 2.1.0 (2012-04-18)<a class="headerlink" href="#schooltool-journal-2-1-0-2012-04-18" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Journal XLS export (<a class="reference external" href="https://launchpad.net/bugs/961854">https://launchpad.net/bugs/961854</a>)</p></li>
+<li><p>Clicking on a student in the Journal does not go to the student (<a class="reference external" href="https://launchpad.net/bugs/661243">https://launchpad.net/bugs/661243</a>)</p></li>
+<li><p>Fix displaying journal if section is scheduled for some other term, but not the
+viewed one (<a class="reference external" href="https://launchpad.net/bugs/976712">https://launchpad.net/bugs/976712</a>)</p></li>
+<li><p>Update translations</p></li>
+</ul>
+</section>
+<section id="schooltool-intervention-2-1-0-2012-04-18">
+<h3>SchoolTool Intervention 2.1.0 (2012-04-18)<a class="headerlink" href="#schooltool-intervention-2-1-0-2012-04-18" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Make Intervention tab highlighted (<a class="reference external" href="https://launchpad.net/bugs/868435">https://launchpad.net/bugs/868435</a>)</p></li>
+<li><p>List relationships with all responsible parties (<a class="reference external" href="https://launchpad.net/bugs/922271">https://launchpad.net/bugs/922271</a>)</p></li>
+<li><p>Contacts may include people other than parents (<a class="reference external" href="https://launchpad.net/bugs/973679">https://launchpad.net/bugs/973679</a>)</p></li>
+<li><p>Added (da) and updated translations.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">SchoolTool 2.1 Release Notes</a><ul>
+<li><a class="reference internal" href="#id1">2.1.2</a></li>
+<li><a class="reference internal" href="#id2">2.1.1 (2012-08-16)</a></li>
+<li><a class="reference internal" href="#id3">2.1.0 (2012-04-19)</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="2.3-release-notes.html"
+                          title="previous chapter">SchoolTool 2.3 Release Notes</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="2.0-release-notes.html"
+                          title="next chapter">SchoolTool 2.0 Release Notes</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/2.1-release-notes.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

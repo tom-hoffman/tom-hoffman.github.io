@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SchoolTool In Languages Other Than English &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="School Setup" href="setup-toc.html" />
+    <link rel="prev" title="Server Settings" href="server-settings.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="setup-toc.html" title="School Setup"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="server-settings.html" title="Server Settings"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="initial-configuration-toc.html" accesskey="U">Initial Configuration Steps</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SchoolTool In Languages Other Than English</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="schooltool-in-languages-other-than-english">
+<span id="translate-app"></span><h1>SchoolTool In Languages Other Than English<a class="headerlink" href="#schooltool-in-languages-other-than-english" title="Link to this heading">¶</a></h1>
+<p>SchoolTool, and its underlying framework Zope 3, were designed from the ground up for full translation and internationalization.</p>
+<section id="selecting-schooltool-s-language">
+<h2>Selecting SchoolTool’s Language<a class="headerlink" href="#selecting-schooltool-s-language" title="Link to this heading">¶</a></h2>
+<p>By default, the language displayed is selected from browser’s preferences.  For example, in Firefox go to <strong>Edit &gt; Preferences &gt; Content</strong> to choose preferred languages.</p>
+<p>You can force SchoolTool pages to always display in a desired language.</p>
+<p>Edit schooltool.conf with your favorite editor:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo gedit /etc/schooltool/standard/schooltool.conf
+</pre></div>
+</div>
+<p>Append a line “lang LANG_CODE” at the end, where LANG_CODE is the desired language code.  Several examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lang</span> <span class="n">ru</span>
+<span class="n">lang</span> <span class="n">en</span><span class="o">-</span><span class="n">gb</span>
+<span class="n">lang</span> <span class="n">es</span><span class="o">-</span><span class="n">sv</span>
+</pre></div>
+</div>
+<p>You can specify more than one locale, separated by commas.  Then a language
+selector will appear in the top bar, allowing the user to switch the
+language:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lang</span> <span class="n">en</span><span class="o">-</span><span class="n">ca</span><span class="p">,</span><span class="n">fr</span>
+</pre></div>
+</div>
+</section>
+<section id="translating-schooltool">
+<h2>Translating SchoolTool<a class="headerlink" href="#translating-schooltool" title="Link to this heading">¶</a></h2>
+<p>Translations can be contributed, edited, checked, improved, through the web via our <a class="reference external" href="https://translations.launchpad.net/schooltool-project">Launchpad project page</a>.  The templates are split between “core” SchoolTool and various components such as the gradebook, but all are accessible via the “SchoolTool Project” page.   You may also use the site in conjunction with other translation tools and upload the relevant files to Launchpad.</p>
+<p>Translations submitted to Launchpad will be included in subsequent updates of SchoolTool.</p>
+<p>To install a translation that has been entered into Launchpad but not yet included in a SchoolTool release, follow the steps below.</p>
+<p>For languages other than Russian, the “ru” below should be replaced with the relevant prefix.</p>
+<p>You must repeat these steps for each translated component of SchoolTool.</p>
+<blockquote>
+<div><ul>
+<li><p>Go to the relevant translation download page, for example, the Russian translation at <a class="reference external" href="https://translations.launchpad.net/schooltool/flourish/+pots/schooltool/ru/+export">https://translations.launchpad.net/schooltool/flourish/+pots/schooltool/ru/+export</a></p></li>
+<li><p>Select “MO export” and request download.</p></li>
+<li><p>You will get an email in a few minutes. Save the file to disk.</p></li>
+<li><p>Transfer the file(s) to the server if downloaded from another computer.</p></li>
+<li><p>Replace current translations with the exported file.  A user with superuser (root) privileges needs to move the file to where SchoolTool will find it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span><span class="o">/</span><span class="n">dist</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">locales</span><span class="o">/</span><span class="n">ru</span><span class="o">/</span><span class="n">LC_MESSAGES</span>
+<span class="n">sudo</span> <span class="n">cp</span> <span class="n">ru_LC_MESSAGES_schooltool</span><span class="o">.</span><span class="n">mo</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span><span class="o">/</span><span class="n">dist</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">locales</span><span class="o">/</span><span class="n">ru</span><span class="o">/</span><span class="n">LC_MESSAGES</span><span class="o">/</span><span class="n">schooltool</span><span class="o">.</span><span class="n">mo</span>
+</pre></div>
+</div>
+</li>
+<li><p>Restart the SchoolTool service. Your translation should be applied.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">SchoolTool In Languages Other Than English</a><ul>
+<li><a class="reference internal" href="#selecting-schooltool-s-language">Selecting SchoolTool’s Language</a></li>
+<li><a class="reference internal" href="#translating-schooltool">Translating SchoolTool</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="server-settings.html"
+                          title="previous chapter">Server Settings</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="setup-toc.html"
+                          title="next chapter">School Setup</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/translations.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

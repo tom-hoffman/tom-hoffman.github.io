@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Setting Up Courses &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Importing and Exporting from Spreadsheet" href="spreadsheet.html" />
+    <link rel="prev" title="Grade Levels" href="levels.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="spreadsheet.html" title="Importing and Exporting from Spreadsheet"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="levels.html" title="Grade Levels"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="setup-toc.html" accesskey="U">School Setup</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Setting Up Courses</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="setting-up-courses">
+<span id="courses"></span><h1>Setting Up Courses<a class="headerlink" href="#setting-up-courses" title="Link to this heading">¶</a></h1>
+<p>In SchoolTool, there is a distinction between “courses” and “sections.”  A
+“course” describes what is taught – the curriculum.  A “section” is an actual
+group of students being taught this content.  For example, “1st Grade
+Mathematics,” “British Literature,” and “Algebra II” are all Courses.  “9:30
+Algebra II, Spring 2008” or “Period B Algebra II, 2009 - 2010” are Sections.</p>
+<p>In particular, this is different from most learning management systems, such as
+<a class="reference external" href="http://moodle.org">Moodle</a>.  A Moodle “course” is equivalent to our
+“section.”</p>
+<p>Where one teacher teaches all subjects to a single group of kids – for
+example, in a kindergarten – you can either make everything one Course
+(“Kindergarten”) or split it up (“Kindergarten Math,” etc.), whichever makes
+more sense for you.  Things like “homeroom” or “advisory” or “internship” that
+are scheduled at a specific time but don’t have a set academic curriculum or
+grades can also be considered Courses.</p>
+<p>You can’t create Sections without Courses, so any use of SchoolTool that
+requires students and teachers to be assigned to Sections will also require
+Courses.  For larger or more complicated schools, importing Courses from a
+spreadsheet or CSV file will save some time.</p>
+<p>Courses are organized by year, so that they can be updated from year to year
+without overwriting previous Courses or changed descriptions.</p>
+<section id="entering-courses-through-the-web-interface">
+<h2>Entering Courses Through the Web Interface<a class="headerlink" href="#entering-courses-through-the-web-interface" title="Link to this heading">¶</a></h2>
+<p>To create Courses, you must be logged in as a member of <strong>Clerks</strong> or <strong>Site
+Managers</strong>. Select the <strong>School</strong> tab, and click on <strong>Courses</strong>:</p>
+<blockquote>
+<div><img alt="_images/courses-0.png" src="_images/courses-0.png" />
+</div></blockquote>
+<p>Then, click the <strong>Add: Course</strong> link and fill out the form.  A title is
+required.  The description, course and alternate ID’s, <a class="reference internal" href="levels.html#levels"><span class="std std-ref">Grade Levels</span></a>
+and credits are optional:</p>
+<blockquote>
+<div><img alt="_images/courses-1.png" src="_images/courses-1.png" />
+</div></blockquote>
+<p>After you click <strong>Add</strong>, you should see your new Course:</p>
+<blockquote>
+<div><img alt="_images/courses-2.png" src="_images/courses-2.png" />
+</div></blockquote>
+</section>
+<section id="importing-courses">
+<h2>Importing Courses<a class="headerlink" href="#importing-courses" title="Link to this heading">¶</a></h2>
+<p>You can also import a text list of Course titles, descriptions and IDs.  This
+can be done by <a class="reference internal" href="spreadsheet.html#spreadsheet"><span class="std std-ref">Importing and Exporting from Spreadsheet</span></a>, or a simple comma-separated value text
+import, described below.</p>
+<p>From the Courses index, select <strong>Import CSV</strong> from the sidebar.  You can then
+either upload a text file from your local filesystem, or use a textbox to
+enter text directly by either copy/pasting from another document or typing the
+necessary information.</p>
+<blockquote>
+<div><img alt="_images/courses-3.png" src="_images/courses-3.png" />
+</div></blockquote>
+<p>The format, as described on the form, is simply:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">,</span> <span class="n">description</span> <span class="p">(</span><span class="n">optional</span><span class="p">),</span> <span class="nb">id</span> <span class="p">(</span><span class="n">optional</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We’ll just type some in for now.  Clicking the <strong>Enter CSV text</strong> reveals a
+text box:</p>
+<blockquote>
+<div><img alt="_images/courses-4.png" src="_images/courses-4.png" />
+</div></blockquote>
+<p>When you’re ready, press <strong>Submit</strong>, and if the import is successful you’ll be
+sent back to the Course index:</p>
+<blockquote>
+<div><img alt="_images/courses-5.png" src="_images/courses-5.png" />
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Setting Up Courses</a><ul>
+<li><a class="reference internal" href="#entering-courses-through-the-web-interface">Entering Courses Through the Web Interface</a></li>
+<li><a class="reference internal" href="#importing-courses">Importing Courses</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="levels.html"
+                          title="previous chapter">Grade Levels</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="spreadsheet.html"
+                          title="next chapter">Importing and Exporting from Spreadsheet</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/courses.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

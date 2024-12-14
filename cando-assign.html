@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Assigning Skills to Courses in CanDo &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Entering Scores in CanDo" href="cando-entry.html" />
+    <link rel="prev" title="Importing Skills" href="cando-import.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="cando-entry.html" title="Entering Scores in CanDo"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="cando-import.html" title="Importing Skills"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="cando-toc.html" accesskey="U">CanDo Skill Tracking</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Assigning Skills to Courses in CanDo</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="assigning-skills-to-courses-in-cando">
+<span id="cando-assign"></span><h1>Assigning Skills to Courses in CanDo<a class="headerlink" href="#assigning-skills-to-courses-in-cando" title="Link to this heading">¶</a></h1>
+<p>Skills appear in teacher gradebooks in two ways.  They can be added to courses, causing them to automatically appear in the CanDo gradebook for every section of the course, or a teacher can create a “project” for a specific section that may contain any skill in the system.  Adding project Skills will be described in the CanDo gradebook user documentation (written for teachers).</p>
+<p>For administrative users, there are several methods of assigning skills to courses and sections.</p>
+<section id="manual-assignment">
+<h2>Manual Assignment<a class="headerlink" href="#manual-assignment" title="Link to this heading">¶</a></h2>
+<p>You can add Skill Sets to Courses through the web.  This is only practical if you do not have a very complex system with many Courses and Skill Sets.</p>
+<p>Start by navigating (via <strong>School</strong> &gt; <strong>Courses</strong>) to an individual course:</p>
+<blockquote>
+<div><img alt="_images/cando-manual-1.png" src="_images/cando-manual-1.png" />
+</div></blockquote>
+<p>Click <strong>Skills</strong>:</p>
+<blockquote>
+<div><img alt="_images/cando-manual-2.png" src="_images/cando-manual-2.png" />
+</div></blockquote>
+<p>Click <strong>Assign Skills</strong> in the left sidebar:</p>
+<blockquote>
+<div><img alt="_images/cando-manual-3.png" src="_images/cando-manual-3.png" />
+</div></blockquote>
+<p>The search functionality in the <strong>Assign Skills</strong> view is currently buggy.  It does not search Skills or Skill Sets, only higher layers in the hierarchy, in this case “Clusters.”</p>
+<p>In this case, we would like to add the “Basic Mathematics” Skill Set from the “B2T Hands-On Math” Cluster.  To do so, click the green <strong>+</strong> icon in the <strong>B2T Hands-On Math</strong> table.  This gives you a pop-up form:</p>
+<blockquote>
+<div><img alt="_images/cando-manual-4.png" src="_images/cando-manual-4.png" />
+</div></blockquote>
+<p>The check box under <strong>Add</strong> selects or deselects all the boxes.  In this case, we only want the box next to <strong>Basic Mathematics</strong> checked:</p>
+<blockquote>
+<div><img alt="_images/cando-manual-5.png" src="_images/cando-manual-5.png" />
+</div></blockquote>
+<p>You can also expand the Skill Sets by clicking the <strong>&gt;</strong> next to the Skill Set title.  Optional skills have a blue background:</p>
+<blockquote>
+<div><img alt="_images/cando-manual-6.png" src="_images/cando-manual-6.png" />
+</div></blockquote>
+<p>Click <strong>Submit</strong>:</p>
+<blockquote>
+<div><img alt="_images/cando-manual-7.png" src="_images/cando-manual-7.png" />
+</div></blockquote>
+<p>If you would like to hide specific skills in the set, that is, omit them from teacher’s gradebook view without changing the underlying Skills Document.  You may also toggle their required status in this course, click <strong>Add: Set Required/Visible</strong>:</p>
+<blockquote>
+<div><img alt="_images/cando-manual-8.png" src="_images/cando-manual-8.png" />
+</div></blockquote>
+<p>In the above case, skill 1.1 will not appear in the CanDo gradebook for this course, and 1.2, 1.3, and 1.4 will be considered as required only in this course.</p>
+<blockquote>
+<div><img alt="_images/cando-manual-9.png" src="_images/cando-manual-9.png" />
+</div></blockquote>
+<p>A teacher in this class will now see:</p>
+<blockquote>
+<div><img alt="_images/cando-manual-10.png" src="_images/cando-manual-10.png" />
+</div></blockquote>
+</section>
+<section id="import-export-using-spreadsheets">
+<h2>Import/Export Using Spreadsheets<a class="headerlink" href="#import-export-using-spreadsheets" title="Link to this heading">¶</a></h2>
+<p>Using SchoolTool’s skill spreadsheets, you can import and export skillset assignments to courses.  This method is probably only practical if you have the correspondence Skill Sets and Courses already in a database.</p>
+<p>To illustrate the format, we will run the <strong>Skills Export</strong> report from the Skills Documents page:</p>
+<blockquote>
+<div><img alt="_images/cando-spreadsheet-1.png" src="_images/cando-spreadsheet-1.png" />
+</div></blockquote>
+<p>The resulting <strong>CourseSkills</strong> worksheet in the exported spreadsheet looks like this:</p>
+<blockquote>
+<div><img alt="_images/cando-spreadsheet-0.png" src="_images/cando-spreadsheet-0.png" />
+</div></blockquote>
+<p>The first column is the Year ID.  This calls attention to the fact that Courses, and their related skills are defined per year.  This is important because these tend to be revised over the years, but you need a persistent record of their previous configuration.</p>
+<p>This sheet allows an outline form where the Year ID does not have to be entered in every cell for easier readability.  The value of a blank cell is equal to the last year defined above it.</p>
+<p>Column B has Course ID’s.  Each course gets one row.</p>
+<p>Column C has a comma-separated list of the ID’s of Skill Sets to be applied to the course.  This does not retain information about hidden skills or course-defined optional/required settings as described above.</p>
+<p>Once you set up your data, you can import the worksheet (only this worksheet or with the rest) following the standard import instructions in <a class="reference internal" href="cando-import.html#cando-import"><span class="std std-ref">Importing Skills</span></a>.</p>
+</section>
+<section id="pattern-matching-assignment">
+<h2>Pattern Matching Assignment<a class="headerlink" href="#pattern-matching-assignment" title="Link to this heading">¶</a></h2>
+<p>Pattern matching assignment is preferable if you have a large body of standards that are applied in a predictable manner to specific courses.  This method is a bit abstract and slightly magical, but it is successfully used to assign thousands of skills to hundreds of courses.</p>
+<p>First we’ll make a Course in SchoolTool called “Building to Teach.”  See <a class="reference internal" href="courses.html#courses"><span class="std std-ref">Setting Up Courses</span></a> if necessary:</p>
+<blockquote>
+<div><img alt="_images/cando-assign-1.png" src="_images/cando-assign-1.png" />
+</div></blockquote>
+<p>We want this to map to the correspondng Cluster created in CanDo:</p>
+<blockquote>
+<div><img alt="_images/cando-assign-2.png" src="_images/cando-assign-2.png" />
+</div></blockquote>
+<p>Your layers may have different names (other than “Cluster”); any layer can be associated with a SchoolTool Course.</p>
+<p>Note that both the Alternate ID for the Building to Teach Course is “B2T Hands-On Math,” which matches the title of the skills Cluster.</p>
+<p>Return to the SchoolTool <strong>Courses</strong> index (via the <strong>School</strong> tab), and you will see a <strong>Batch Assign Skills</strong> link:</p>
+<blockquote>
+<div><img alt="_images/cando-assign-3.png" src="_images/cando-assign-3.png" />
+</div></blockquote>
+<p>As mentioned above, we have set up the example so that the Course <strong>Alternate ID</strong> matches the title of our Cluster <strong>Title</strong>, so we select the following in the form:</p>
+<blockquote>
+<div><img alt="_images/cando-assign-4.png" src="_images/cando-assign-4.png" />
+</div></blockquote>
+<p>And click <strong>Search</strong>:</p>
+<blockquote>
+<div><img alt="_images/cando-assign-5.png" src="_images/cando-assign-5.png" />
+</div></blockquote>
+<p>This looks through all the Courses in the school for matching “Course” nodes in the skills.  Click <strong>Assign</strong>:</p>
+<blockquote>
+<div><img alt="_images/cando-assign-6.png" src="_images/cando-assign-6.png" />
+</div></blockquote>
+<p>This returns us to the course index.  If we click on the <strong>Hands-On Math</strong> link, and then <strong>Skills</strong> we will see the assigned skills:</p>
+<blockquote>
+<div><img alt="_images/cando-assign-7.png" src="_images/cando-assign-7.png" />
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Assigning Skills to Courses in CanDo</a><ul>
+<li><a class="reference internal" href="#manual-assignment">Manual Assignment</a></li>
+<li><a class="reference internal" href="#import-export-using-spreadsheets">Import/Export Using Spreadsheets</a></li>
+<li><a class="reference internal" href="#pattern-matching-assignment">Pattern Matching Assignment</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="cando-import.html"
+                          title="previous chapter">Importing Skills</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="cando-entry.html"
+                          title="next chapter">Entering Scores in CanDo</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/cando-assign.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

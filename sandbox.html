@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Testing SchoolTool with Virtual Servers &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Apache configuration" href="apache.html" />
+    <link rel="prev" title="Basic Database Administration" href="database.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="apache.html" title="Apache configuration"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="database.html" title="Basic Database Administration"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="administrators.html" accesskey="U">System Administration</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Testing SchoolTool with Virtual Servers</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="testing-schooltool-with-virtual-servers">
+<span id="sandbox"></span><h1>Testing SchoolTool with Virtual Servers<a class="headerlink" href="#testing-schooltool-with-virtual-servers" title="Link to this heading">¶</a></h1>
+<section id="using-virtual-servers">
+<h2>Using Virtual Servers<a class="headerlink" href="#using-virtual-servers" title="Link to this heading">¶</a></h2>
+<p>If you would like to test SchoolTool but do not want to install Ubuntu on a
+spare computer, or if you are an Ubuntu user who does not want to install
+the SchoolTool package and (many) dependencies on a production system, one
+solution is to create a virtual server running Ubuntu.</p>
+<p>Using virtualization, we can install Ubuntu as a guest operating system (OS) on
+a host computer which may be running Windows, Mac OS X, Linux, or another OS –
+provided that the host machine has adequate processing power and RAM to allocate to the virtual SchoolTool guest machine.</p>
+<p>There are many options available for running virtual servers. In this case,
+we will use <a class="reference external" href="https://www.virtualbox.org">VirtualBox</a>, which runs on Windows,
+Linux, and Macintosh hosts and is freely available as open source
+software under the terms of the GNU General Public License (GPL) version 2.</p>
+<p>Virtual servers can also be used in production.  If you rent a cloud server
+from a host such as Linode, Rackspace or Digital Ocean, you are actually using
+a virtual server set up by the host service.  You may also set up a virtual
+server to host SchoolTool in production from your own physical servers,
+but configuring and administering such a setup is outside the scope of
+this tutorial.</p>
+</section>
+<section id="installing-virtualbox">
+<h2>Installing VirtualBox<a class="headerlink" href="#installing-virtualbox" title="Link to this heading">¶</a></h2>
+<p>To begin, <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">download the latest version of VirtualBox</a>. Be sure to download the
+appropriate binary package for your host operating system. Run the installer and
+follow the prompts, then start VirtualBox.</p>
+<p>Meanwhile, <a class="reference external" href="http://releases.ubuntu.com/14.04/">download the latest Ubuntu Server 14.04 LTS</a> image.  Note that if your host
+computer is 32 bit, you must also use the 32 bit version of Ubuntu server
+on the virtual server.</p>
+<p>Install Ubuntu as a guest OS by following the instructions in the <a class="reference external" href="https://help.ubuntu.com/community/Ubuntu_as_Guest_OS">Ubuntu
+Community Documentation</a>.</p>
+<p>If your host computer
+has ample memory, you may want to give the guest machines 1 gigabyte of RAM
+or more.  SchoolTool will run with less memory, but the performance may be
+much slower than in a setup with adequate memory.</p>
+<p>You do not need to select anything during the <strong>Install Software</strong> step.</p>
+<p>After you log into the VM on its terminal, the next step is <a class="reference internal" href="install-2_0.html#install-2-0"><span class="std std-ref">Installing SchoolTool</span></a>.
+Remember to configure the system for <a class="reference internal" href="remote.html#remote"><span class="std std-ref">Accessing SchoolTool from Other Computers</span></a>.</p>
+</section>
+<section id="network-adapter-settings">
+<h2>Network Adapter Settings<a class="headerlink" href="#network-adapter-settings" title="Link to this heading">¶</a></h2>
+<p>Each virtual machine can have up to four network adapters, which may be
+configured to attach to the host machine and external networks in a variety
+of ways.</p>
+<p>The following instructions are based on <a class="reference external" href="http://christophermaier.name/blog/2010/09/01/host-only-networking-with-virtualbox">this tutorial by Christopher Maier</a>.</p>
+<section id="accessing-the-internet-from-the-vm">
+<h3>Accessing the Internet From the VM<a class="headerlink" href="#accessing-the-internet-from-the-vm" title="Link to this heading">¶</a></h3>
+<p>A new virtual machine should be set up to use a virtual NAT by default.
+To confirm:</p>
+<p>First, click on the “Network” section of the VirtualBox administrative
+interface for your SchoolTool VM.</p>
+<blockquote>
+<div><img alt="_images/virtualbox-01.png" src="_images/virtualbox-01.png" />
+</div></blockquote>
+<p>Set “Adapter 1” to Network Address Translation (NAT).</p>
+<blockquote>
+<div><img alt="_images/virtualbox-02.png" src="_images/virtualbox-02.png" />
+</div></blockquote>
+<p>This will allow you to access the Internet from within the virtual machine, so
+you can update your Ubuntu Server packages, and install SchoolTool along with
+all of its dependencies. But it won’t allow you to access SchoolTool’s
+web interface from a browser on the host, or allow multiple virtual
+machines to access each other.</p>
+</section>
+<section id="accessing-the-vm-from-the-host-and-other-vms">
+<h3>Accessing the VM From the Host (and Other VMs)<a class="headerlink" href="#accessing-the-vm-from-the-host-and-other-vms" title="Link to this heading">¶</a></h3>
+<p>In order to access the SchoolTool server securely from the host computer, you’ll
+need to create a second Host-Only Network adapter.</p>
+<p>First, stop the server.  Then select File -&gt; Preferences…</p>
+<blockquote>
+<div><img alt="_images/vbox-host-only-01.png" src="_images/vbox-host-only-01.png" />
+</div></blockquote>
+<p>… and select the “Network” settings category from the list on the left-hand
+side. (This is a global preference setting for <em>all</em> VirtualBox VMs, as opposed
+to the machine-specific network adapter configuration we used earlier.)</p>
+<p>If you do not see <em>vboxnet0</em> in the list of Host-Only Networks, click the green
+plus (+) icon to create a new one:</p>
+<blockquote>
+<div><img alt="_images/vbox-host-only-02.png" src="_images/vbox-host-only-02.png" />
+</div></blockquote>
+<p>Select <em>vboxnet0</em> and click the orange screwdriver icon to Edit its settings:</p>
+<blockquote>
+<div><img alt="_images/vbox-host-only-03.png" src="_images/vbox-host-only-03.png" />
+</div></blockquote>
+<p>You should see a dialog like this:</p>
+<blockquote>
+<div><img alt="_images/vbox-host-only-04.png" src="_images/vbox-host-only-04.png" />
+</div></blockquote>
+<p>Take note of the adapter’s IP address (<code class="docutils literal notranslate"><span class="pre">192.168.56.1</span></code> here); that’s the
+address at which your guests can access the host.</p>
+<blockquote>
+<div><img alt="_images/vbox-host-only-05.png" src="_images/vbox-host-only-05.png" />
+</div></blockquote>
+<p>Leave the “Enable Server” box <em>unchecked</em> on the DHCP configuration panel to
+prevent your virtual machines from being assigned random IP addresses every time
+they restart. (We will be assigning static IP addresses instead.)</p>
+<p>Return to the VM-specific network adapter configuration by clicking on the
+“Network” section of the administrative interface for your SchoolTool VM:</p>
+<blockquote>
+<div><img alt="_images/virtualbox-01.png" src="_images/virtualbox-01.png" />
+</div></blockquote>
+<p>Select the “Adapter 2” tab, check <strong>Enable Network Adapter</strong> and select
+“Host-only Adapter” from the <strong>Attached to:</strong> drop-down list.</p>
+<blockquote>
+<div><img alt="_images/vbox-host-only-06.png" src="_images/vbox-host-only-06.png" />
+</div></blockquote>
+<p>Make sure that “Adapter 2” is using the <em>vboxnet0</em> Host-Only Network.</p>
+<blockquote>
+<div><img alt="_images/vbox-host-only-07.png" src="_images/vbox-host-only-07.png" />
+</div></blockquote>
+</section>
+</section>
+<section id="static-ip-configuration">
+<h2>Static IP Configuration<a class="headerlink" href="#static-ip-configuration" title="Link to this heading">¶</a></h2>
+<p>To assign a static IP address to your SchoolTool VM, start and log in
+to the Ubuntu guest and execute the <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">ifconfig</span> <span class="n">eth1</span> <span class="mf">192.168.56.101</span> <span class="n">netmask</span> <span class="mf">255.255.255.0</span> <span class="n">up</span>
+</pre></div>
+</div>
+<p>This will configure the second network adapter (eth1) to use the static IP address
+<code class="docutils literal notranslate"><span class="pre">192.168.56.101</span></code> in the Host-Only Network subnet range.</p>
+<p>You should now be able to access the SchoolTool running on the guest OS from
+a browser on the host computer:</p>
+<blockquote>
+<div><img alt="_images/vbox-host-only-08.png" src="_images/vbox-host-only-08.png" />
+</div></blockquote>
+<p>If this doesn’t work, make sure you followed the instructions for <a class="reference internal" href="remote.html#remote"><span class="std std-ref">Accessing SchoolTool from Other Computers</span></a>.</p>
+<p>To make this configuration persistent, even after rebooting the VM, edit the
+<code class="docutils literal notranslate"><span class="pre">/etc/network/interfaces</span></code> file using vim (or your favorite text editor):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">network</span><span class="o">/</span><span class="n">interfaces</span>
+</pre></div>
+</div>
+<p>Add the following block of code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The host-only network interface</span>
+<span class="n">auto</span> <span class="n">eth1</span>
+<span class="n">iface</span> <span class="n">eth1</span> <span class="n">inet</span> <span class="n">static</span>
+<span class="n">address</span> <span class="mf">192.168.56.101</span>
+<span class="n">netmask</span> <span class="mf">255.255.255.0</span>
+<span class="n">network</span> <span class="mf">192.168.56.0</span>
+<span class="n">broadcast</span> <span class="mf">192.168.56.255</span>
+</pre></div>
+</div>
+<p>Reboot the VM and use <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> to verify that eth1 is configured with the
+desired IP address.</p>
+</section>
+<section id="multi-site-configuration">
+<h2>Multi-Site Configuration<a class="headerlink" href="#multi-site-configuration" title="Link to this heading">¶</a></h2>
+<p>A multi-site configuration, with a central server that aggregates data from
+multiple SchoolTool instances, is currently <a class="reference external" href="http://ark-book.schooltool.org/zrs.html">under development</a>. The configuration described above will allow multiple SchoolTool
+instances to communicate with one another over the Host-Only Network – just
+assign a different static IP address to each virtual machine.</p>
+<p>To expedite multi-site configuration, you may wish to use machine names rather
+than IP addresses. Edit the <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file on the host and each guest VM:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span>
+</pre></div>
+</div>
+<p>and add lines like these:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">192.168.56.101</span>    <span class="n">schooltool1</span>
+<span class="mf">192.168.56.102</span>    <span class="n">schooltool2</span>
+</pre></div>
+</div>
+<p>If the host OS is Linux or
+Mac OS X, the file will be <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code>. If the host is Windows, the file will
+be <code class="docutils literal notranslate"><span class="pre">\Windows\System32\drivers\etc\hosts</span></code>.</p>
+<p>Now, you should be able to access SchoolTool at <code class="docutils literal notranslate"><span class="pre">http://schooltool1:7080</span></code>
+instead of <code class="docutils literal notranslate"><span class="pre">http://192.168.56.101:7080</span></code>.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Testing SchoolTool with Virtual Servers</a><ul>
+<li><a class="reference internal" href="#using-virtual-servers">Using Virtual Servers</a></li>
+<li><a class="reference internal" href="#installing-virtualbox">Installing VirtualBox</a></li>
+<li><a class="reference internal" href="#network-adapter-settings">Network Adapter Settings</a><ul>
+<li><a class="reference internal" href="#accessing-the-internet-from-the-vm">Accessing the Internet From the VM</a></li>
+<li><a class="reference internal" href="#accessing-the-vm-from-the-host-and-other-vms">Accessing the VM From the Host (and Other VMs)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#static-ip-configuration">Static IP Configuration</a></li>
+<li><a class="reference internal" href="#multi-site-configuration">Multi-Site Configuration</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="database.html"
+                          title="previous chapter">Basic Database Administration</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="apache.html"
+                          title="next chapter">Apache configuration</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/sandbox.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

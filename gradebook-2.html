@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Managing Multiple Activities, Categories, Worksheets &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Score Systems" href="score-systems.html" />
+    <link rel="prev" title="SchoolTool’s Gradebooks" href="gradebook.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="score-systems.html" title="Score Systems"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="gradebook.html" title="SchoolTool’s Gradebooks"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="gradebook-toc.html" accesskey="U">Gradebook, Attendance and Report Cards</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Managing Multiple Activities, Categories, Worksheets</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="managing-multiple-activities-categories-worksheets">
+<h1>Managing Multiple Activities, Categories, Worksheets<a class="headerlink" href="#managing-multiple-activities-categories-worksheets" title="Link to this heading">¶</a></h1>
+<section id="multiple-activities">
+<h2>Multiple Activities<a class="headerlink" href="#multiple-activities" title="Link to this heading">¶</a></h2>
+<p>Now, we will make a second activity and score it:</p>
+<blockquote>
+<div><img alt="_images/gradebook2-1.png" src="_images/gradebook2-1.png" />
+</div></blockquote>
+<p>As you can see, after you <strong>Update</strong> the changes, the <strong>Total</strong> and <strong>Average</strong> columns are also updated.</p>
+<blockquote>
+<div><img alt="_images/gradebook2-2.png" src="_images/gradebook2-2.png" />
+</div></blockquote>
+<p>If you want to change the order of the columns, you can select <strong>Move Left</strong> or <strong>Move Right</strong> from each activity’s contextual menu.</p>
+</section>
+<section id="weighting-categories">
+<h2>Weighting Categories<a class="headerlink" href="#weighting-categories" title="Link to this heading">¶</a></h2>
+<p>The most straightforward way of maintaining a point-based gradebook, like SchoolTool’s, is to assign the number of points according to the importance of the assignment.  For example, a weekly quiz might be worth 10 points and a major exam worth 100.  If you do it this way, you don’t have to weight categories.</p>
+<p>On the other hand, if you want to score all types of assignments the same – say you want to assign percentage scores to both weekly quizzes and major exams – then you may need to weight by category.  For example, quizzes are worth 25% of the grade and exams worth 75%.  If weighting categories doesn’t make sense to you, you probably don’t need to weight categories.</p>
+<p>If you don’t need or want to weight categories, you can skip the rest of this section.</p>
+<p>Categories are weighted <em>by worksheet</em>.  So this must be defined on each worksheet.</p>
+<p>While viewing the relevant worksheet, click <strong>Settings: Category Weights</strong> in the sidebar.  Enter the weight of each category by typing numbers in the available fields.  The sum of the weights must total 100.</p>
+<blockquote>
+<div><img alt="_images/gradebook2-3.png" src="_images/gradebook2-3.png" />
+</div></blockquote>
+<p>In the above case, exams are 75% of the calculated average, quizzes are 25%.</p>
+<p>Click on <strong>Submit</strong> and the scores will reflect the new weights:</p>
+<blockquote>
+<div><img alt="_images/gradebook2-4.png" src="_images/gradebook2-4.png" />
+</div></blockquote>
+</section>
+<section id="multiple-worksheets">
+<h2>Multiple Worksheets<a class="headerlink" href="#multiple-worksheets" title="Link to this heading">¶</a></h2>
+<p>You can create multiple worksheets to organize your work in various ways.  One straightforward use is if the section is defined by a semester which is divided into two grading quarters, each quarter might be assigned its own worksheet.</p>
+<p>First we’ll change the name of the default “Sheet1.”  Click on the <strong>Settings: Worksheets</strong> link:</p>
+<blockquote>
+<div><img alt="_images/gradebook2-5.png" src="_images/gradebook2-5.png" />
+</div></blockquote>
+<p>Then, click on the yellow pencil icon next to to “Sheet1” and switch the name to something more descriptive:</p>
+<blockquote>
+<div><img alt="_images/gradebook2-6.png" src="_images/gradebook2-6.png" />
+</div></blockquote>
+<p>Click on <strong>Submit</strong> to finalize your edit:</p>
+<blockquote>
+<div><img alt="_images/gradebook2-7.png" src="_images/gradebook2-7.png" />
+</div></blockquote>
+<p>Now we’ll add a second worksheet.  Click on <strong>Done</strong>, and from the main gradebook view click <strong>Add: Worksheet</strong>:</p>
+<blockquote>
+<div><img alt="_images/gradebook2-8.png" src="_images/gradebook2-8.png" />
+</div></blockquote>
+<p>Click on <strong>Submit</strong>.  Now you’ve got two tabs, with the new (empty) worksheet active:</p>
+<blockquote>
+<div><img alt="_images/gradebook2-9.png" src="_images/gradebook2-9.png" />
+</div></blockquote>
+<p>Add a new activity as we did above and score it:</p>
+<blockquote>
+<div><img alt="_images/gradebook2-10.png" src="_images/gradebook2-10.png" />
+</div></blockquote>
+<p>You can add a summary worksheet to each of your Gradebooks that automatically includes a column for the average of all existing worksheets.  From the main Gradebook page, go back to <strong>Settings: Worksheets</strong> and click on <strong>Create summary worksheet</strong>:</p>
+<blockquote>
+<div><img alt="_images/gradebook2-11.png" src="_images/gradebook2-11.png" />
+</div></blockquote>
+<p>The summary sheet should look like this:</p>
+<blockquote>
+<div><img alt="_images/gradebook2-12.png" src="_images/gradebook2-12.png" />
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Managing Multiple Activities, Categories, Worksheets</a><ul>
+<li><a class="reference internal" href="#multiple-activities">Multiple Activities</a></li>
+<li><a class="reference internal" href="#weighting-categories">Weighting Categories</a></li>
+<li><a class="reference internal" href="#multiple-worksheets">Multiple Worksheets</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="gradebook.html"
+                          title="previous chapter">SchoolTool’s Gradebooks</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="score-systems.html"
+                          title="next chapter">Score Systems</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/gradebook-2.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

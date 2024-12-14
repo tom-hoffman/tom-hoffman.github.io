@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Editing or Translating This Book &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Glossary of SchoolTool" href="glossary.html" />
+    <link rel="prev" title="Translating SchoolTool.org" href="translation-web.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="glossary.html" title="Glossary of SchoolTool"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="translation-web.html" title="Translating SchoolTool.org"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Editing or Translating This Book</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="editing-or-translating-this-book">
+<span id="translate-book"></span><h1>Editing or Translating This Book<a class="headerlink" href="#editing-or-translating-this-book" title="Link to this heading">¶</a></h1>
+<section id="rationale">
+<h2>Rationale<a class="headerlink" href="#rationale" title="Link to this heading">¶</a></h2>
+<p>We have given a lot of thought to setting up this documentation in a way that will make it easy to maintain translations, allow modification for specific sites, and offer a clear process for potential contributors to submit changes to the official version.</p>
+<p>A wiki would be one obvious way to make editing easy – but for managing multiple versions, languages and formats over a long period of time, maintaining text files in version control gives us more control and flexibility than a set of wikis stuffing text in databases.  Using files in revision control facilitates including scripts to automatically reproduce the steps in demonstrations in the documentation, like <a class="reference external" href="http://seleniumhq.org/">Selenium</a> scripts.  Also, it fits in nicely with the rest of our project management systems and code documentation practices.</p>
+<p>Even if this system sounds intimidating, please give it a chance.  After you get through the initial setup, the actual editing is very wiki-like.  If you decide you can’t deal with the revision control part, go ahead and just email <a class="reference external" href="mailto:hoffman&#37;&#52;&#48;schooltool&#46;org">Tom Hoffman</a> with changes, and I’ll try to handle your contributions from there.  Simple changes can simply be <a class="reference external" href="https://bugs.edge.launchpad.net/schooltool">filed as bugs on SchoolTool</a>.</p>
+</section>
+<section id="getting-the-sources">
+<h2>Getting the Sources<a class="headerlink" href="#getting-the-sources" title="Link to this heading">¶</a></h2>
+<p>For non-programmers, the weird part will be using the <a class="reference external" href="http://bazaar-vcs.org/">Bazaar version control system</a> (aka bzr).</p>
+<p>To install bzr on Ubuntu do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">bzr</span>
+</pre></div>
+</div>
+<p>For all other platforms see <a class="reference external" href="http://bazaar-vcs.org/Download">Bazaar downloads</a>.  The rest of the instructions will assume you’re using Ubuntu, other platforms should be similar.  Of course, if you’d like to add instructions for other platforms to this document, just follow these editing process described herein.</p>
+<p>Then, to fetch the source:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bzr</span> <span class="n">branch</span> <span class="n">lp</span><span class="p">:</span><span class="n">schooltool</span><span class="o">-</span><span class="n">book</span>
+</pre></div>
+</div>
+<p>This will create a directory called <strong>schooltool-book</strong>, which contains a <strong>source</strong> directory with all the marked up text files and images which make up the book, and a Makefile and associated files which automate the process of turning the sources into a publishable document.</p>
+</section>
+<section id="building-an-html-version">
+<h2>Building an HTML Version<a class="headerlink" href="#building-an-html-version" title="Link to this heading">¶</a></h2>
+<p>The set of scripts which turn the sources into a finished product is called <a class="reference external" href="http://sphinx.pocoo.org/">Sphinx</a>.</p>
+<p>You’ll need some basic software development tools, if you don’t have them already:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span> <span class="n">python</span><span class="o">-</span><span class="n">virtualenv</span>
+</pre></div>
+</div>
+<p>Within the <strong>schooltool-book</strong> directory, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>This will first make a sandbox containing the Python packages needed for the process, create a <strong>build/html</strong> directory, and put finished web pages in it.</p>
+<p>If you open <strong>build/html/index.html</strong> from your browser, you’ll be able to read the book in web form.  You can publish this directory to the web like any other set of HTML pages.</p>
+</section>
+<section id="building-a-pdf-version">
+<h2>Building a PDF Version<a class="headerlink" href="#building-a-pdf-version" title="Link to this heading">¶</a></h2>
+<p>The PDF output from this process is usable.  Because there are a lot of large screengrab images in the book, and we can’t (or don’t know how to) control the page breaks, the layout isn’t that great.  Hopefully we’ll be able to improve that in the future.</p>
+<p>Also, as of May 2009 there was a unicode bug that bombed out near the end of the book, but most of the content made it into the PDF. We have not confirmed that this PDF rendering bug is fixed, so your mileage may vary. If you manage to make a beautiful PDF by following the instructions below, feel free to let us know how you accomplished it!</p>
+<p>Grab the TeX libraries:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">texlive</span><span class="o">-</span><span class="n">full</span>
+</pre></div>
+</div>
+<p>First, from the <strong>schooltool-book</strong> directory do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">latex</span>
+</pre></div>
+</div>
+<p>Then:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">build</span><span class="o">/</span><span class="n">latex</span>
+<span class="n">make</span> <span class="nb">all</span><span class="o">-</span><span class="n">pdf</span>
+</pre></div>
+</div>
+<p>This should create a schooltool-book.pdf file in the <strong>build/latex</strong> directory.</p>
+<p>For a more complete explanation of the above, see <a class="reference external" href="http://jimmyg.org/blog/2009/sphinx-pdf-generation-with-latex.html">Sphinx PDF Generation with LaTeX</a>.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Editing or Translating This Book</a><ul>
+<li><a class="reference internal" href="#rationale">Rationale</a></li>
+<li><a class="reference internal" href="#getting-the-sources">Getting the Sources</a></li>
+<li><a class="reference internal" href="#building-an-html-version">Building an HTML Version</a></li>
+<li><a class="reference internal" href="#building-a-pdf-version">Building a PDF Version</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="translation-web.html"
+                          title="previous chapter">Translating SchoolTool.org</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="glossary.html"
+                          title="next chapter">Glossary of SchoolTool</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/editing-this-book.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

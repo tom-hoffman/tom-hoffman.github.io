@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Apache configuration &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Nginx configuration" href="nginx.html" />
+    <link rel="prev" title="Testing SchoolTool with Virtual Servers" href="sandbox.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="nginx.html" title="Nginx configuration"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="sandbox.html" title="Testing SchoolTool with Virtual Servers"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="administrators.html" accesskey="U">System Administration</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Apache configuration</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="apache-configuration">
+<span id="apache"></span><h1>Apache configuration<a class="headerlink" href="#apache-configuration" title="Link to this heading">¶</a></h1>
+<section id="virtual-hosting">
+<h2>Virtual hosting<a class="headerlink" href="#virtual-hosting" title="Link to this heading">¶</a></h2>
+<p>SchoolTool provides support for virtual hosting with Apache’s <a class="reference external" href="http://httpd.apache.org/docs/current/mod/mod_proxy.html">mod_proxy</a>.</p>
+<p>The standard SchoolTool instance runs on port 7080, but most web traffic runs
+over port 80 – the standard HTTP port. It’s generally desirable for schools
+to configure a standard web server to listen for requests on port 80 and
+forward these requests to SchoolTool on port 7080. In this scenario, the web
+server listening on port 80 is known as a <em>proxy server</em>.</p>
+<p>This approach has several benefits. By using a well-known web server such as
+<a class="reference external" href="http://httpd.apache.org">Apache HTTP Server</a> , we can protect the SchoolTool server from
+direct exposure to web traffic, thereby improving security and reliability –
+and by accepting incoming browser requests on the widely-used port 80, we
+can avoid the necessity of explaining to students, teachers, and staff that
+they need to tack <code class="docutils literal notranslate"><span class="pre">:7080</span></code> on the end of SchoolTool URLs.</p>
+<p>To configure Apache as a proxy server listening to port 80 on <code class="docutils literal notranslate"><span class="pre">school1.example.org</span></code>
+and passing traffic to SchoolTool on port 7080, you will need root access to
+the Apache server.</p>
+<p>Begin by creating a new file in your Apache configuration directory,
+<code class="docutils literal notranslate"><span class="pre">/etc/apache/sites-available/school1.example.org.conf</span></code>, containing
+the following:</p>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:80</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nb">ServerName</span><span class="w"> </span>school1.example.org
+
+<span class="w">  </span><span class="nt">&lt;Proxy</span><span class="w"> </span><span class="s">*</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nb">order</span><span class="w"> </span>allow,deny
+<span class="w">      </span><span class="nb">allow</span><span class="w"> </span>from<span class="w"> </span><span class="k">all</span>
+<span class="w">      </span><span class="nb">deny</span><span class="w"> </span>from<span class="w"> </span><span class="k">none</span>
+<span class="w">  </span><span class="nt">&lt;/Proxy&gt;</span>
+
+<span class="w">  </span><span class="nb">ProxyPreserveHost</span><span class="w"> </span><span class="k">on</span>
+<span class="w">  </span><span class="nb">RewriteEngine</span><span class="w"> </span><span class="k">On</span>
+
+<span class="w">  </span><span class="nb">RewriteRule</span><span class="w"> </span>^/schooltool.task_results(/?.*)<span class="w"> </span>http://127.0.0.1:7080/schooltool.task_results/$1<span class="w"> </span>[P,L]
+<span class="w">  </span><span class="nb">RewriteRule</span><span class="w"> </span>^(/?.*)<span class="w"> </span>http://127.0.0.1:7080/++vh++http:school1.example.org:80/++$1<span class="w"> </span>[P,L]
+
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</pre></div>
+</div>
+<p>You will need to enable Apache modules <code class="docutils literal notranslate"><span class="pre">mod_proxy</span></code>, <code class="docutils literal notranslate"><span class="pre">mod_proxy_http</span></code> and <code class="docutils literal notranslate"><span class="pre">mod_rewrite</span></code>:</p>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="err">$</span><span class="w"> </span><span class="nb">sudo</span><span class="w"> </span>a2enmod<span class="w"> </span>proxy
+<span class="err">$</span><span class="w"> </span><span class="nb">sudo</span><span class="w"> </span>a2enmod<span class="w"> </span>proxy_http
+<span class="err">$</span><span class="w"> </span><span class="nb">sudo</span><span class="w"> </span>a2enmod<span class="w"> </span>rewrite
+</pre></div>
+</div>
+<p>Then enable the site and restart apache:</p>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="err">$</span><span class="w"> </span><span class="nb">sudo</span><span class="w"> </span>a2ensite<span class="w"> </span>school1.example.org
+<span class="err">$</span><span class="w"> </span><span class="nb">sudo</span><span class="w"> </span>service<span class="w"> </span>apache<span class="w"> </span>reload
+</pre></div>
+</div>
+<p>You can make SchoolTool available in a custom path,
+e.g. <code class="docutils literal notranslate"><span class="pre">school1.example.org/schooltool</span></code>:</p>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nb">RewriteRule</span><span class="w"> </span>^/schooltool/schooltool.task_results(/?.*)<span class="w"> </span>http://127.0.0.1:7080/schooltool.task_results/$1<span class="w"> </span>[P,L]
+<span class="nb">RewriteRule</span><span class="w"> </span>^/schooltool(/?.*)<span class="w"> </span>http://127.0.0.1:7080/++vh++http:school1.example.org:80/schooltool/++$1<span class="w"> </span>[P,L]
+</pre></div>
+</div>
+<p>For more information, see <a class="reference external" href="http://wiki.zope.org/zope3/virtualhosting.html">Virtual Hosting</a> in Zope 3.</p>
+</section>
+<section id="https">
+<h2>HTTPS<a class="headerlink" href="#https" title="Link to this heading">¶</a></h2>
+<p>It is recommmended to use HTTPS/SSL to best protect your users. The
+configuration is similar – just use port 443 instead of port 80, and
+https instead of http:</p>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:443</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nb">ServerName</span><span class="w"> </span>school1.example.org
+
+<span class="w">  </span><span class="nb">SSLEngine</span><span class="w"> </span><span class="k">On</span>
+<span class="w">  </span><span class="nb">SSLCertificateFile</span><span class="w"> </span><span class="sx">/etc/ssl/certs/ssl-cert-snakeoil.pem</span>
+<span class="w">  </span><span class="nb">SSLCertificateKeyFile</span><span class="w"> </span><span class="sx">/etc/ssl/private/ssl-cert-snakeoil.key</span>
+
+<span class="w">  </span><span class="nt">&lt;Proxy</span><span class="w"> </span><span class="s">*</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nb">order</span><span class="w"> </span>allow,deny
+<span class="w">          </span><span class="nb">allow</span><span class="w"> </span>from<span class="w"> </span><span class="k">all</span>
+<span class="w">          </span><span class="nb">deny</span><span class="w"> </span>from<span class="w"> </span><span class="k">none</span>
+<span class="w">  </span><span class="nt">&lt;/Proxy&gt;</span>
+
+<span class="w">  </span><span class="nb">ProxyPreserveHost</span><span class="w"> </span><span class="k">on</span>
+<span class="w">  </span><span class="nb">RewriteEngine</span><span class="w"> </span><span class="k">On</span>
+
+<span class="w">  </span><span class="nb">RewriteRule</span><span class="w"> </span>^/schooltool.task_results(/?.*)<span class="w"> </span>http://127.0.0.1:7080/schooltool.task_results/$1<span class="w"> </span>[P,L]
+<span class="w">  </span><span class="nb">RewriteRule</span><span class="w"> </span>^(/?.*)<span class="w"> </span>http://127.0.0.1:7080/++vh++https:school1.example.org:443/++$1<span class="w"> </span>[P,L]
+
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</pre></div>
+</div>
+<p>For SSL to work, you will need a SSL certificate. Read Ubuntu documentation on
+<a class="reference external" href="https://help.ubuntu.com/community/OpenSSL#SSL_Certificates">OpenSSL</a> about creating a self-signed certificate, or purchase an official one
+from a reputable Certificate Signing Authority.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">mod_ssl</span></code> module has to be enabled.:</p>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="err">$</span><span class="w"> </span><span class="nb">sudo</span><span class="w"> </span>a2enmod<span class="w"> </span>ssl
+</pre></div>
+</div>
+<p>When you get this working, you may want to redirect users that connect through
+regular HTTP to the secure site.  Add a <code class="docutils literal notranslate"><span class="pre">Redirect</span></code>:</p>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:80</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nb">ServerName</span><span class="w"> </span>school1.example.org
+<span class="w">  </span><span class="nb">Redirect</span><span class="w"> </span>/<span class="w"> </span>https://school1.example.org/
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
+<p>Download <a class="reference external" href="_static/school1.example.org.conf">example configuration file</a> with all of the
+above and more.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Apache configuration</a><ul>
+<li><a class="reference internal" href="#virtual-hosting">Virtual hosting</a></li>
+<li><a class="reference internal" href="#https">HTTPS</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="sandbox.html"
+                          title="previous chapter">Testing SchoolTool with Virtual Servers</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="nginx.html"
+                          title="next chapter">Nginx configuration</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/apache.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

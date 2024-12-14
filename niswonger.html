@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SchoolTool for Niswonger/CARE &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SchoolTool for Niswonger/CARE</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="schooltool-for-niswonger-care">
+<h1>SchoolTool for Niswonger/CARE<a class="headerlink" href="#schooltool-for-niswonger-care" title="Link to this heading">¶</a></h1>
+<p>SIELibre has created for Niswonger/CARE a customized and stripped down version of the SchoolTool SIS for tracking its program data about students.  There are a few places where some additional explanation about how SchoolTool concepts map to the roles and tasks Niswonger/CARE requires.</p>
+<section id="key-concepts-for-power-users">
+<h2>Key Concepts for Power Users<a class="headerlink" href="#key-concepts-for-power-users" title="Link to this heading">¶</a></h2>
+<section id="group-permissions">
+<h3>Group Permissions<a class="headerlink" href="#group-permissions" title="Link to this heading">¶</a></h3>
+<p>Some permissions in SchoolTool are based on membership in several standard groups:</p>
+<ul class="simple">
+<li><p>Members of the <strong>Clerks</strong> group can view and edit information about all users, assign any roles to any user.  This would correspond to people administering the project as a whole and supporting use of the software.</p></li>
+<li><p>Members of the <strong>Teachers</strong> group have essentially one special permission.  They can add students for whom they will have an advisor role.  As long as that role is not removed, they can view and edit information about the advisee student.  “Advisors” working for Niswonger/CARE need to be members of the <strong>Teachers</strong> group to add their students to the system.</p></li>
+<li><p>You may want some top-level administrators to be members of the <strong>School Administrators</strong> group, which has read permission to all the data in the system but limited edit rights.  It is essentially a “safer” version of the <strong>Clerks</strong> role, if there is no reason this person should be <em>changing</em> data in the system, but needs access to view everything.</p></li>
+<li><p>Members of the <strong>Students</strong> groups do not have permission to view data about other students, and without passwords cannot log into the system.</p></li>
+</ul>
+</section>
+<section id="relationship-based-permissions">
+<h3>Relationship-based Permissions<a class="headerlink" href="#relationship-based-permissions" title="Link to this heading">¶</a></h3>
+<p>The main way that advisors’ access is limited to only their own students is through the advisor/advisee relationship in SchoolTool.</p>
+<p>People in the system can have multiple advisor/advisee relationships.  Each advisor can have multiple advisees and each person can have multiple advisors.</p>
+<p>When an advisor adds a student to the system, the advisor/advisee relationship is created, giving the advisor permission to view and edit the advisee.  The advisor can then add additional advisors who share the same permissions.  If the advisor accidentally removes him or herself as an advisor, a person in the <strong>Clerks</strong> group or another advisor of the student will be needed to restore the relationship.</p>
+</section>
+<section id="schools-as-groups">
+<h3>Schools as Groups<a class="headerlink" href="#schools-as-groups" title="Link to this heading">¶</a></h3>
+<p>Individual schools are organized as <strong>Groups</strong> in SchoolTool.  That is, when a student is added by an advisor, they are assigned to a school, and in SchoolTool terms, that is tracked by adding them to the corresponding group in the system.  This has no effect on permissions but is important for generating reports by school.</p>
+</section>
+</section>
+<section id="key-tasks">
+<h2>Key Tasks<a class="headerlink" href="#key-tasks" title="Link to this heading">¶</a></h2>
+<section id="adding-advisors">
+<h3>Adding Advisors<a class="headerlink" href="#adding-advisors" title="Link to this heading">¶</a></h3>
+<p>Advisors must be created by a member of the <strong>Clerks</strong> group.  SIELibre will be happy to import these from a provided list, but to add them manually, first log in as a member of <strong>Clerks</strong>.</p>
+<p>Click on the <strong>School</strong> tab:</p>
+<blockquote>
+<div><img alt="_images/niswonger-0.png" src="_images/niswonger-0.png" />
+</div></blockquote>
+<p>Click on <strong>People</strong>:</p>
+<blockquote>
+<div><img alt="_images/niswonger-1.png" src="_images/niswonger-1.png" />
+</div></blockquote>
+<p>In the left sidebar click on <strong>Add: Teacher</strong>:</p>
+<blockquote>
+<div><img alt="_images/niswonger-2.png" src="_images/niswonger-2.png" />
+</div></blockquote>
+<p>Complete the form and click <strong>Submit</strong> or <strong>Submit and add</strong> if you want to go directly to adding another Advisor:</p>
+<blockquote>
+<div><img alt="_images/niswonger-3.png" src="_images/niswonger-3.png" />
+</div></blockquote>
+</section>
+<section id="advisors-adding-students">
+<h3>Advisors Adding Students<a class="headerlink" href="#advisors-adding-students" title="Link to this heading">¶</a></h3>
+<p>Log in as an advisor:</p>
+<blockquote>
+<div><img alt="_images/niswonger-4.png" src="_images/niswonger-4.png" />
+</div></blockquote>
+<p>Select <strong>Add: Student</strong>:</p>
+<blockquote>
+<div><img alt="_images/niswonger-5.png" src="_images/niswonger-5.png" />
+</div></blockquote>
+<p>Fill out the (lengthy) form and click <strong>Submit</strong> or <strong>Submit and add</strong> if you want to go directly to adding another student:</p>
+<blockquote>
+<div><img alt="_images/niswonger-6.png" src="_images/niswonger-6.png" />
+</div></blockquote>
+</section>
+<section id="viewing-and-editing-a-student-record">
+<h3>Viewing and Editing a Student Record<a class="headerlink" href="#viewing-and-editing-a-student-record" title="Link to this heading">¶</a></h3>
+<p>The default view for an advisor includes a search field and a list of their advisees:</p>
+<blockquote>
+<div><img alt="_images/niswonger-7.png" src="_images/niswonger-7.png" />
+</div></blockquote>
+<p>For a member of <strong>Clerks</strong> or <strong>School Administrators</strong> to view a student, he or she should click the <strong>School</strong> tab, then <strong>People</strong>:</p>
+<blockquote>
+<div><img alt="_images/niswonger-8.png" src="_images/niswonger-8.png" />
+</div></blockquote>
+<p>In either case, once the student is located, clicking on the name will take you to the main info page for the student (or other user):</p>
+<blockquote>
+<div><img alt="_images/niswonger-9.png" src="_images/niswonger-9.png" />
+</div></blockquote>
+<p>To edit any information, click the yellow circle (the “edit pencil”) in the relevant area.</p>
+</section>
+<section id="generating-reports">
+<h3>Generating Reports<a class="headerlink" href="#generating-reports" title="Link to this heading">¶</a></h3>
+<p>To generate a report spreadsheet for the system as a whole, a member of <strong>Clerks</strong> or <strong>School Administrators</strong> should click on the School Tab and select <strong>Reports: Custom Export</strong> at left.</p>
+<p>First, select the relevant year:</p>
+<blockquote>
+<div><img alt="_images/niswonger-10.png" src="_images/niswonger-10.png" />
+</div></blockquote>
+<p>At left, the user can filter the students included in the report by School, Level and other criteria, and add data columns.  This will update on the web page, and <strong>Export as XLS</strong> will generate and download a corresponding spreadsheet.</p>
+<blockquote>
+<div><img alt="_images/niswonger-11.png" src="_images/niswonger-11.png" />
+</div></blockquote>
+<p>Advisors can access a slightly simplified version of this which automatically filters for their advisees by clicking <strong>Reports: Custom Export</strong> from their home page.</p>
+</section>
+<section id="starting-a-new-year">
+<h3>Starting a New Year<a class="headerlink" href="#starting-a-new-year" title="Link to this heading">¶</a></h3>
+<p>I already created a new year – 2016-2017 – and set it as “active” see <a class="reference internal" href="multi-years.html#multi-years"><span class="std std-ref">Managing Multiple Years and Terms</span></a> if you’re interested.</p>
+<p>My understanding is that most of the students do not carry over to the new year (having graduated), but some of the Advisors do, and the participating schools have remained the same.</p>
+</section>
+<section id="adding-new-advisors">
+<h3>Adding New Advisors<a class="headerlink" href="#adding-new-advisors" title="Link to this heading">¶</a></h3>
+<p>Advisors are added by members of the <strong>Clerks</strong> group, and they must be assigned to the Teacher group.</p>
+<p>So, to add a new advisor, log in as user that is a member of <strong>Clerks</strong>:</p>
+<blockquote>
+<div><img alt="_images/niswonger-12.png" src="_images/niswonger-12.png" />
+</div></blockquote>
+<p>Click on People, and then <strong>Add: Teacher</strong> at left:</p>
+<blockquote>
+<div><img alt="_images/niswonger-13.png" src="_images/niswonger-13.png" />
+</div></blockquote>
+<p>Fill out the relevant info – you probably only need to complete the <strong>Full Name</strong> and <strong>User</strong> sections.  Use <strong>Submit</strong> if you are only entering one advisor or <strong>Submit and add</strong> if you want to add multiple teachers in sequence.</p>
+<blockquote>
+<div><img alt="_images/niswonger-14.png" src="_images/niswonger-14.png" />
+</div></blockquote>
+</section>
+<section id="editing-advisees">
+<h3>Editing Advisees<a class="headerlink" href="#editing-advisees" title="Link to this heading">¶</a></h3>
+<p>To add existing students as advisees, click on the <strong>Advisory</strong> slider and then on the yellow edit pencil next to <strong>Advisees</strong>:</p>
+<blockquote>
+<div><img alt="_images/niswonger-15.png" src="_images/niswonger-15.png" />
+</div></blockquote>
+<p>Use this view to search for and add existing students to an advisor as necessary.</p>
+<blockquote>
+<div><img alt="_images/niswonger-16.png" src="_images/niswonger-16.png" />
+</div></blockquote>
+<p>If it makes more sense in your workflow, you can also reverse the process and add an advisor from a student’s view.</p>
+</section>
+<section id="updating-repeating-students">
+<h3>Updating Repeating Students<a class="headerlink" href="#updating-repeating-students" title="Link to this heading">¶</a></h3>
+<p>All of the accounts for repeating students are still in the system, but no students are enrolled in the students group or in any of the groups corresponding to specific schools, so this should be done manually, which should be managable if the number of students is relatively small.</p>
+<p>A member of <strong>Clerks</strong> can do this for all students, or an Advisor can edit <em>their advisees</em>.  The advisor can select the student from their list of advisees when they log in.  A clerk can click on <strong>People</strong> from the main <strong>School</strong> page, and search for the person from there.</p>
+<blockquote>
+<div><img alt="_images/niswonger-17.png" src="_images/niswonger-17.png" />
+</div></blockquote>
+<p>On the student’s page, select the <strong>Groups</strong> slider.</p>
+<blockquote>
+<div><img alt="_images/niswonger-18.png" src="_images/niswonger-18.png" />
+</div></blockquote>
+<p>Click on the edit pencil next to <strong>Group Memberships</strong>.</p>
+<p>From here select the group corresponding to the correct school and the <strong>Students</strong> group and add the student to both.</p>
+<blockquote>
+<div><img alt="_images/niswonger-19.png" src="_images/niswonger-19.png" />
+</div></blockquote>
+<p>If you need to edit the student’s advisor as well, you can do that from his or her <strong>Advisory</strong> slider as described above, except editing <strong>Advisors</strong> instead of <strong>Advisees</strong>.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">SchoolTool for Niswonger/CARE</a><ul>
+<li><a class="reference internal" href="#key-concepts-for-power-users">Key Concepts for Power Users</a><ul>
+<li><a class="reference internal" href="#group-permissions">Group Permissions</a></li>
+<li><a class="reference internal" href="#relationship-based-permissions">Relationship-based Permissions</a></li>
+<li><a class="reference internal" href="#schools-as-groups">Schools as Groups</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#key-tasks">Key Tasks</a><ul>
+<li><a class="reference internal" href="#adding-advisors">Adding Advisors</a></li>
+<li><a class="reference internal" href="#advisors-adding-students">Advisors Adding Students</a></li>
+<li><a class="reference internal" href="#viewing-and-editing-a-student-record">Viewing and Editing a Student Record</a></li>
+<li><a class="reference internal" href="#generating-reports">Generating Reports</a></li>
+<li><a class="reference internal" href="#starting-a-new-year">Starting a New Year</a></li>
+<li><a class="reference internal" href="#adding-new-advisors">Adding New Advisors</a></li>
+<li><a class="reference internal" href="#editing-advisees">Editing Advisees</a></li>
+<li><a class="reference internal" href="#updating-repeating-students">Updating Repeating Students</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/niswonger.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

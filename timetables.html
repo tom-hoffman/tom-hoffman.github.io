@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modeling Your School’s Timetable &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Advanced Timetabling" href="adv-timetabling.html" />
+    <link rel="prev" title="Creating Terms" href="terms.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="adv-timetabling.html" title="Advanced Timetabling"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="terms.html" title="Creating Terms"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="setup-toc.html" accesskey="U">School Setup</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Modeling Your School’s Timetable</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="modeling-your-school-s-timetable">
+<span id="timetables"></span><h1>Modeling Your School’s Timetable<a class="headerlink" href="#modeling-your-school-s-timetable" title="Link to this heading">¶</a></h1>
+<p>Creating a school timetable is necessary to designate when sections meet.  SchoolTool is designed to understand a wide variety of school timetables.  This, unfortunately, makes setup somewhat complex.</p>
+<p>If you plan to use SchoolTool for attendance, you will need a Timetable.  You can use the calendaring and resource booking without a Timetable, but you’ll be missing out on the school-specific features of our calendar.  If you are using SchoolTool only as a personal gradebook or only using Interventions, you don’t need a calendar.  Some add-on components of SchoolTool, like CanDo, don’t require a calendar.</p>
+<p>Set up Timetables through the web interface.  They can be exported and imported via spreadsheets, but we don’t support users trying to type Timetables directly into the spreadsheet.</p>
+<p>In this section we will walk you through one common example.  The most important thing in getting through this process is this: if you are asked to choose between something that seems obvious and something that makes no sense to you, take the obvious choice.</p>
+<p>In this case, each class section meets either at a specific time on Monday, Wednesday or Friday, or at a specific time on Tuesday and Thursday.  There are three one-hour periods on Mon./Wed./Fri. and two hour-and-a-half long periods on Tue./Thurs, as shown:</p>
+<blockquote>
+<div><img alt="_images/timetables-7.png" src="_images/timetables-7.png" />
+</div></blockquote>
+<p>To start creating a Timetable, you must be logged in as a member of <strong>Site Managers</strong>. Select the <strong>School</strong> tab, and click on <strong>Timetables</strong>:</p>
+<blockquote>
+<div><img alt="_images/timetables-0.png" src="_images/timetables-0.png" />
+</div></blockquote>
+<p>Click the <strong>Add: Timetable</strong> link.</p>
+<p>Give the Timetable a name.  We’ll call it 3x2.</p>
+<blockquote>
+<div><img alt="_images/timetables-1.png" src="_images/timetables-1.png" />
+</div></blockquote>
+<p>Our schedule is based on the actual days of the week on the calendar.  That is, certain classes meet on Mondays, Wednesdays and Fridays, others meet Tuesdays and Thursdays, so we choose <strong>Days of the week</strong>.</p>
+<blockquote>
+<div><img alt="_images/timetables-2.png" src="_images/timetables-2.png" />
+</div></blockquote>
+<p>Because Tuesday and Thursday classes start at different times than Mon./Wed./Fri. classes, on the next page we select <strong>Different times</strong>:</p>
+<blockquote>
+<div><img alt="_images/timetables-3.png" src="_images/timetables-3.png" />
+</div></blockquote>
+<p>Now we enter the start and end times of each class on each day.  This form is finicky and wants the times in 24 hour (military) format:</p>
+<blockquote>
+<div><img alt="_images/timetables-4.png" src="_images/timetables-4.png" />
+</div></blockquote>
+<p>At our school, periods don’t <strong>Have names</strong> (for example “A,” B,” etc.), but are simply <strong>Designated by time</strong> (e.g., the 9:00 class):</p>
+<blockquote>
+<div><img alt="_images/timetables-5.png" src="_images/timetables-5.png" />
+</div></blockquote>
+<p>If you designate a homeroom period, attendance taken in that period will be noted as presence or absence for the student for the day.  We’ll select <strong>Yes</strong> to demonstrate.:</p>
+<blockquote>
+<div><img alt="_images/timetables-6.png" src="_images/timetables-6.png" />
+<img alt="_images/timetables-6_5.png" src="_images/timetables-6_5.png" />
+</div></blockquote>
+<p>If everything has worked, you should see this:</p>
+<blockquote>
+<div><img alt="_images/timetables-7.png" src="_images/timetables-7.png" />
+</div></blockquote>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="terms.html"
+                          title="previous chapter">Creating Terms</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="adv-timetabling.html"
+                          title="next chapter">Advanced Timetabling</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/timetables.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Importing Skills &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Assigning Skills to Courses in CanDo" href="cando-assign.html" />
+    <link rel="prev" title="CanDo: Introduction and Setup" href="cando.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="cando-assign.html" title="Assigning Skills to Courses in CanDo"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="cando.html" title="CanDo: Introduction and Setup"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="cando-toc.html" accesskey="U">CanDo Skill Tracking</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Importing Skills</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="importing-skills">
+<span id="cando-import"></span><h1>Importing Skills<a class="headerlink" href="#importing-skills" title="Link to this heading">¶</a></h1>
+<p>We recommend beginning this process by first manually creating a document structure and at least one example of the items in your heirarchy down to skills as described in <a class="reference internal" href="cando.html#cando"><span class="std std-ref">CanDo: Introduction and Setup</span></a>.</p>
+<p>Following that, return to the <strong>Skills Documents</strong> page (via the <strong>Skills</strong> link in the <strong>School</strong> page if necessary) and select <strong>Reports &gt; Skills Export</strong>.</p>
+<blockquote>
+<div><img alt="_images/cando-import-1.png" src="_images/cando-import-1.png" />
+<img alt="_images/cando-import-2.png" src="_images/cando-import-2.png" />
+</div></blockquote>
+<p>This will cause your browser to open a spreadsheet with several worksheets.</p>
+<p>The <strong>Documents</strong> worksheet contains a row for each document in the system, including the one we created on the previous page:</p>
+<blockquote>
+<div><img alt="_images/cando-import-3.png" src="_images/cando-import-3.png" />
+</div></blockquote>
+<p>The <strong>Layers</strong> worksheet defines the layers in the document hierarchies.  In this case, the “Cluster” layer we previously created, plus the default Skill Set and Skill.</p>
+<blockquote>
+<div><img alt="_images/cando-import-4.png" src="_images/cando-import-4.png" />
+</div></blockquote>
+<p>Data for any additional layers above Skill Sets and Skills are in the <strong>Nodes</strong> worksheet, in this case our example Cluster.</p>
+<blockquote>
+<div><img alt="_images/cando-import-5.png" src="_images/cando-import-5.png" />
+</div></blockquote>
+<p>The <strong>SkillSets</strong> worksheet contains the Skill Sets, including our single example.  Note that the External ID column should be considered deprecated for Skill Sets.</p>
+<blockquote>
+<div><img alt="_images/cando-import-6.png" src="_images/cando-import-6.png" />
+</div></blockquote>
+<p>The more complicated <strong>Skills</strong> worksheet contains the single example skill.</p>
+<blockquote>
+<div><img alt="_images/cando-import-7.png" src="_images/cando-import-7.png" />
+</div></blockquote>
+<p>We will cover the <strong>CourseSkills</strong> worksheet when we begin associating skills with courses.</p>
+<p>The next step is to get your skills data into this spreadsheet, following the example data you entered through the web interface.</p>
+<p>Depending on what format your existing data is in, you might be able to simply cut and paste into the spreadsheet cells.  Depending on your skills (or access to people with skills) you might be able to write a script that will parse your skills document and either directly insert the data into the spreadsheet, for example, using <a class="reference external" href="http://python.org">Python</a> and <a class="reference external" href="http://www.python-excel.org/">python-excel</a>.</p>
+<p>The end result will look something like this:</p>
+<blockquote>
+<div><img alt="_images/cando-import-9.png" src="_images/cando-import-9.png" />
+</div></blockquote>
+<p>and this:</p>
+<blockquote>
+<div><img alt="_images/cando-import-8.png" src="_images/cando-import-8.png" />
+</div></blockquote>
+<p>Once this is done, you can import the spreadsheet by selecting <strong>Import Skill Data</strong> from the <strong>School</strong> page:</p>
+<blockquote>
+<div><img alt="_images/cando-import-10.png" src="_images/cando-import-10.png" />
+<img alt="_images/cando-import-11.png" src="_images/cando-import-11.png" />
+</div></blockquote>
+<p>The newly populated Skill Sets:</p>
+<blockquote>
+<div><img alt="_images/cando-import-12.png" src="_images/cando-import-12.png" />
+</div></blockquote>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="cando.html"
+                          title="previous chapter">CanDo: Introduction and Setup</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="cando-assign.html"
+                          title="next chapter">Assigning Skills to Courses in CanDo</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/cando-import.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

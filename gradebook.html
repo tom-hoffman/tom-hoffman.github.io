@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SchoolTool’s Gradebooks &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Managing Multiple Activities, Categories, Worksheets" href="gradebook-2.html" />
+    <link rel="prev" title="Gradebook, Attendance and Report Cards" href="gradebook-toc.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="gradebook-2.html" title="Managing Multiple Activities, Categories, Worksheets"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="gradebook-toc.html" title="Gradebook, Attendance and Report Cards"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="gradebook-toc.html" accesskey="U">Gradebook, Attendance and Report Cards</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SchoolTool’s Gradebooks</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="schooltool-s-gradebooks">
+<span id="gradebook"></span><h1>SchoolTool’s Gradebooks<a class="headerlink" href="#schooltool-s-gradebooks" title="Link to this heading">¶</a></h1>
+<p>There are three components that encompass assessment in SchoolTool:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Gradebook</strong>, which is used for scoring activities and assignments based on point values.  The <strong>Gradebook</strong> is also used to report enter grades and comments for report cards.</p></li>
+<li><p><strong>Journal</strong>, which can be used to assign a score to a class meeting, for example, a participation grade for the day.</p></li>
+<li><p><strong>CanDo</strong>, which is our skill (competency, outcome, etc.) based assessment system.  That is, each student’s progress is tracked toward achievement of a specific set of skills.</p></li>
+</ul>
+</div></blockquote>
+<section id="getting-started-with-gradebook">
+<h2>Getting Started with  Gradebook<a class="headerlink" href="#getting-started-with-gradebook" title="Link to this heading">¶</a></h2>
+<p>SchoolTool’s Gradebook allows teachers to track point scores for assigned Activities.  That is, the teacher creates an Activity, assigns a numeric point range for the Activity, and then assigns each student a score for that Activity.  Activities can also be assigned to categories, which can be weighted for the purpose of calculating an overall average.  “Score systems” or grading scales allow percentage scores to be associated with other types of grades, such as A-F, Pass/Fail, etc.</p>
+</section>
+<section id="getting-to-the-gradebook">
+<h2>Getting to the Gradebook<a class="headerlink" href="#getting-to-the-gradebook" title="Link to this heading">¶</a></h2>
+<p>Instructors or students of a section will see a <strong>Gradebook</strong> tab at the top of every page.  Clicking this will take the instructor or student to their Gradebook.  Administrators and other users who do not participate directly in sections have no Gradebook specific view (they can view grades via reports accessed via the <strong>School</strong> tab) so they have no Gradebook tab.</p>
+<p>Note that if you do not wish to use the <strong>Gradebook</strong>, <strong>Journal</strong> or <strong>CanDo</strong>, you can hide their tabs to reduce confusion (see <a class="reference internal" href="server-settings.html#server-settings"><span class="std std-ref">Server Settings</span></a>).</p>
+</section>
+<section id="contextual-menus-zoom">
+<h2>Contextual Menus &amp; Zoom<a class="headerlink" href="#contextual-menus-zoom" title="Link to this heading">¶</a></h2>
+<p>Unlike the parts of SchoolTool we’ve encountered thus far, the Gradebook and Journal use contextual, “pop-up” menus in several places to keep the interface clean and simple.</p>
+<p>These menus appear when you click the left mouse button on certain links, such as the name of a student in the Gradebook:</p>
+<blockquote>
+<div><img alt="_images/gradebook-1.png" src="_images/gradebook-1.png" />
+</div></blockquote>
+<p>Clicking the right mouse button will bring up the standard contextual menu for your browser (“Open Link in New Tab…” etc.).</p>
+<p>The gray buttons at the lower right allow the user to change the font size in the Gradebook or Journal grid.  The gray plus (<strong>+</strong>) button at right makes the font bigger, the gray minus (<strong>-</strong>) button at left makes it smaller, and the middle button returns font size to the default value.</p>
+</section>
+<section id="creating-an-activity">
+<h2>Creating an Activity<a class="headerlink" href="#creating-an-activity" title="Link to this heading">¶</a></h2>
+<p><strong>Log In</strong> as the instructor of a section. If you’re following these tutorials in order, you may log in as the teacher acting as instructor for the Section you made in <a class="reference internal" href="sections.html#sections"><span class="std std-ref">Creating Sections</span></a>.</p>
+<p>Click on <strong>Gradebook</strong> at the top of the page:</p>
+<blockquote>
+<div><img alt="_images/gradebook-2.png" src="_images/gradebook-2.png" />
+</div></blockquote>
+<p>The Gradebook is organized by term and section, each of which may contain multiple worksheets (much like the worksheets in a spreadsheet application).  In the working example, we’ve only got one section, but the <strong>Term</strong> and <strong>Section</strong> menus in the left sidebar allow the teacher to navigate between sections.</p>
+<blockquote>
+<div><img alt="_images/gradebook-0.png" src="_images/gradebook-0.png" />
+</div></blockquote>
+<p>By default, each section has a single worksheet, named <strong>Sheet1</strong>.</p>
+<p>Let’s add an Activity.  Click <strong>Add: Activity</strong> in the sidebar:</p>
+<blockquote>
+<div><img alt="_images/gradebook-3.png" src="_images/gradebook-3.png" />
+</div></blockquote>
+<p>The main content area has three tabs, <strong>Activity</strong>, <strong>Linked Column</strong>, which allows you to embed columns from other worksheets, and <strong>External Score</strong>, which can import scores from other SchoolTool components, or potentially from external sources.</p>
+<p>The fields should be self-explanatory, with the exception of Category, which will be explained shortly.  The example is a 20-point vocabulary quiz.  Note that scores exceeding the “maximum” value are permissible, and will be calculated as extra credit.</p>
+<blockquote>
+<div><img alt="_images/gradebook-3_5.png" src="_images/gradebook-3_5.png" />
+</div></blockquote>
+<p>Click <strong>Submit</strong>.  The worksheet with our new activity:</p>
+<blockquote>
+<div><img alt="_images/gradebook-4.png" src="_images/gradebook-4.png" />
+</div></blockquote>
+</section>
+<section id="scoring-an-activity">
+<h2>Scoring an Activity<a class="headerlink" href="#scoring-an-activity" title="Link to this heading">¶</a></h2>
+<p>Fill in scores by clicking on the relevant cells and entering numbers.  <em>Unsaved</em> scores within the proper range show up as green, invalid scores are red, and scores above the maximum (extra credit) show as yellow.</p>
+<blockquote>
+<div><img alt="_images/gradebook-5.png" src="_images/gradebook-5.png" />
+</div></blockquote>
+<p><em>Scores are not saved until you click **Save*</em>.</p>
+<p>If you accidentally try to navigate away from a worksheet with unsaved changes you <em>should</em> be prompted to save them.</p>
+<blockquote>
+<div><img alt="_images/gradebook-5_5.png" src="_images/gradebook-5_5.png" />
+</div></blockquote>
+<p>Once the worksheet is saved, the cells return to grey, and averages and totals are calculated:</p>
+<blockquote>
+<div><img alt="_images/gradebook-6.png" src="_images/gradebook-6.png" />
+</div></blockquote>
+</section>
+<section id="sorting-by-column">
+<h2>Sorting by Column<a class="headerlink" href="#sorting-by-column" title="Link to this heading">¶</a></h2>
+<p>To sort by column, click on the abbreviated activity title in the column header to bring up the contextual menu and select <strong>Sort</strong>.  Selecting <strong>Sort</strong> repeatedly toggles between descending and ascending sort order.</p>
+<blockquote>
+<div><img alt="_images/gradebook-7.png" src="_images/gradebook-7.png" />
+</div></blockquote>
+</section>
+<section id="activity-categories">
+<h2>Activity Categories<a class="headerlink" href="#activity-categories" title="Link to this heading">¶</a></h2>
+<p>Activity categories define different types of activities or assignments used in a school.  Their main use is in weighting grade calculations.  For example, a teacher may want exams to count for 60% of a student’s grade, with quizzes and class participation counting for 20% each.  Every activity is assigned a category, but if you don’t need to use this feature, you may simply leave everything in the default “Assignment” category.</p>
+<p>Activity categories are configurable by the site manager at the school level.  Currently, individual teachers cannot create or delete activity categories.</p>
+<p>To add or remove activity categories, as “manager” go to <strong>School</strong> and click <strong>Customize: Activity Categories</strong> in the sidebar:</p>
+<blockquote>
+<div><img alt="_images/gradebook-9.png" src="_images/gradebook-9.png" />
+</div></blockquote>
+<p>To delete a category, click on the red minus (<strong>-</strong>) in the row next to it.</p>
+<p>To add a category, select <strong>Add: New Category</strong> in the sidebar, enter the name of the category next to <strong>New Category</strong>, and click on <strong>Add</strong>:</p>
+<blockquote>
+<div><img alt="_images/gradebook-10.png" src="_images/gradebook-10.png" />
+</div></blockquote>
+<p>To change the default category for all activities, click the yellow pencil icon next to the category you’d like to make default, then click the <strong>Make Default</strong> button.  You can also change the title of the category from this screen.</p>
+<blockquote>
+<div><img alt="_images/gradebook-11.png" src="_images/gradebook-11.png" />
+</div></blockquote>
+<p>The teacher can now select <strong>Edit</strong> from the activity’s contextual menu in the gradebook and switch our existing activity to the new <strong>Quiz</strong> category:</p>
+<blockquote>
+<div><img alt="_images/gradebook-12.png" src="_images/gradebook-12.png" />
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">SchoolTool’s Gradebooks</a><ul>
+<li><a class="reference internal" href="#getting-started-with-gradebook">Getting Started with  Gradebook</a></li>
+<li><a class="reference internal" href="#getting-to-the-gradebook">Getting to the Gradebook</a></li>
+<li><a class="reference internal" href="#contextual-menus-zoom">Contextual Menus &amp; Zoom</a></li>
+<li><a class="reference internal" href="#creating-an-activity">Creating an Activity</a></li>
+<li><a class="reference internal" href="#scoring-an-activity">Scoring an Activity</a></li>
+<li><a class="reference internal" href="#sorting-by-column">Sorting by Column</a></li>
+<li><a class="reference internal" href="#activity-categories">Activity Categories</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="gradebook-toc.html"
+                          title="previous chapter">Gradebook, Attendance and Report Cards</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="gradebook-2.html"
+                          title="next chapter">Managing Multiple Activities, Categories, Worksheets</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/gradebook.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

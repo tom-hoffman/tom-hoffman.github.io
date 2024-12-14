@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Managing Multiple SchoolTools on One Server &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Basic Database Administration" href="database.html" />
+    <link rel="prev" title="Customizing SchoolTool CSS" href="custom-css.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="database.html" title="Basic Database Administration"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="custom-css.html" title="Customizing SchoolTool CSS"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="administrators.html" accesskey="U">System Administration</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Managing Multiple SchoolTools on One Server</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="managing-multiple-schooltools-on-one-server">
+<h1>Managing Multiple SchoolTools on One Server<a class="headerlink" href="#managing-multiple-schooltools-on-one-server" title="Link to this heading">¶</a></h1>
+<p>Creating multiple SchoolTool web servers on a single server (physical or virtual) based on the Ubuntu packages is a somewhat manual operation at this point.  It should take you about 10 minutes to edit the necessary files if you have some experience with that sort of thing.  In the explanation below, bear in mind that you can substitute whatever names you want for “another” and use whatever text editor you prefer if you don’t like <code class="docutils literal notranslate"><span class="pre">vim</span></code>.</p>
+<p>SchoolTool instances are defined in /etc/schooltool. Copy the standard one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo cp -r /etc/schooltool/standard /etc/schooltool/another
+</pre></div>
+</div>
+<p>Edit the configuration files and replace or add prefixes to have
+different file names:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo vim /etc/schooltool/another/schooltool.conf
+...
+site-definition /etc/schooltool/another/site.zcml
+...
+result-server-definition /etc/schooltool/another/result-server.zcml
+report-server-definition /etc/schooltool/another/report-server.zcml
+...
+&lt;zeoclient&gt;
+   server /var/run/schooltool/another-zeo.sock
+   blob-dir /var/lib/schooltool/another-blobs
+   shared-blob-dir yes
+&lt;/zeoclient&gt;
+...
+error-log-file /var/log/schooltool/another-error.log
+web-access-log-file /var/log/schooltool/another-web-access.log
+</pre></div>
+</div>
+<p>These are the changes required in zeo.conf:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo vim /etc/schooltool/another/zeo.conf
+...
+address /var/run/schooltool/another-zeo.sock
+...
+&lt;logfile&gt;
+  path /var/log/schooltool/another-zeo.log
+&lt;/logfile&gt;
+...
+&lt;filestorage&gt;
+  path /var/lib/schooltool/another-Data.fs
+  blob-dir /var/lib/schooltool/another-blobs
+&lt;/filestorage&gt;
+</pre></div>
+</div>
+<p>You do not need to create any of those files – they will appear automatically when the server begins logging.</p>
+<p>By default, SchoolTool’s web server listens for connections on port 7080. To prevent collisions, you must configure the duplicate server to listen on a different port:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo vim /etc/schooltool/another/paste.ini
+...
+port = 7082
+</pre></div>
+</div>
+<p>Same thing with the redis configuration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo vim /etc/schooltool/another/redis.conf
+...
+port 7078
+...
+</pre></div>
+</div>
+<p>We also have to use the redis port in a couple of changes to the
+supervisord.conf file (on the environment=… lines):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo vim /etc/schooltool/another/supervisord.conf
+...
+[unix_http_server]
+file=/var/run/schooltool/another-supervisord.sock
+...
+[supervisord]
+logfile=/var/log/schooltool/another-supervisord.log
+...
+pidfile=/var/run/schooltool/another-supervisord.pid
+...
+[supervisorctl]
+serverurl=unix:///var/run/schooltool/another-supervisord.sock
+...
+[program:schooltool]
+...
+command=/usr/bin/start-schooltool-instance /etc/schooltool/another
+environment=CELERY_CONFIG_MODULE=&#39;schooltool.task.config.zope&#39;,REDIS_HOST=&#39;127.0.0.1&#39;,REDIS_PORT=&#39;7078&#39;
+...
+stdout_logfile=/var/log/schooltool/another-paste.log
+...
+[program:zeo]
+...
+command=/usr/bin/runzeo -C /etc/schooltool/another/zeo.conf
+...
+[program:redis]
+...
+command=redis-server /etc/schooltool/another/redis.conf
+...
+[program:celery_report]
+...
+environment=SCHOOLTOOL_CONF=&#39;/etc/schooltool/another/schooltool.conf&#39;,REDIS_HOST=&#39;127.0.0.1&#39;,REDIS_PORT=&#39;7078&#39;
+...
+stdout_logfile=/var/log/schooltool/another-celery_report.log
+...
+</pre></div>
+</div>
+<p>Copy and edit the init script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo cp /etc/init.d/schooltool /etc/init.d/schooltool-another
+$ sudo vim /etc/init.d/schooltool-another
+...
+NAME=schooltool-another
+DESC=&quot;Another SchoolTool&quot;
+...
+INSTANCE=another
+...
+PIDFILE=/var/run/schooltool/another-supervisord.pid
+...
+</pre></div>
+</div>
+<p>Now you can start the new server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo service schooltool-another start
+</pre></div>
+</div>
+<p>Check the logfiles to see if there are any startup errors:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ tail -f /var/log/schooltool/another-supervisord.log
+... INFO success: redis entered RUNNING state, ...
+... INFO success: zeo entered RUNNING state, ...
+... INFO success: celery_report entered RUNNING state, ...
+... INFO success: schooltool entered RUNNING state, ...
+</pre></div>
+</div>
+<p>The server should have started. Go to <a class="reference external" href="http://localhost:7082">http://localhost:7082</a> to see if
+the web interface is up and running.</p>
+<p>In order for this server to stop/start automatically on reboot, install
+its init.d script to the appropriate runlevels:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo update-rc.d schooltool-another defaults
+ Adding system startup for /etc/init.d/schooltool-another ...
+</pre></div>
+</div>
+<p>Congratulations – you now have two instances of SchoolTool.</p>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="custom-css.html"
+                          title="previous chapter">Customizing SchoolTool CSS</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="database.html"
+                          title="next chapter">Basic Database Administration</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/multiple-schooltools.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Importing and Exporting from Spreadsheet &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Populating Your School" href="populating.html" />
+    <link rel="prev" title="Setting Up Courses" href="courses.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="populating.html" title="Populating Your School"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="courses.html" title="Setting Up Courses"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Importing and Exporting from Spreadsheet</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="importing-and-exporting-from-spreadsheet">
+<span id="spreadsheet"></span><h1>Importing and Exporting from Spreadsheet<a class="headerlink" href="#importing-and-exporting-from-spreadsheet" title="Link to this heading">¶</a></h1>
+<p>To import or export data from a spreadsheet, you must be logged in as a member of <strong>Clerks</strong> or <strong>Site Managers</strong>. Select the <strong>School</strong> tab, and click on the <strong>Import XLS</strong> link in the sidebar:</p>
+<blockquote>
+<div><img alt="_images/spreadsheet-0.png" src="_images/spreadsheet-0.png" />
+</div></blockquote>
+<p>The “What is this?” sidebar contains links to three spreadsheets, of which one is empty, and two are populated with sample data.  The empty spreadsheet is documented by a complete set of tooltips – hover the mouse pointer over a row or column header for further explanation of its function.</p>
+<p>Note that importing <code class="docutils literal notranslate"><span class="pre">large_sample_data.xls</span></code> creates a database file of approximately 230 megabytes, and a temporary file the same size, so you’ll need a free half gigabyte of disk space if you want to generate everything at once.  This is also much more memory intensive than routine use of SchoolTool.  A server with less than 512 MB of RAM will go heavily into virtual memory – and, if there is little or no swap partition, this may cause the memory-starved server to start killing processes to free memory.</p>
+<p>While data is being imported from the spreadsheet you’ll see a little notifier on the page:</p>
+<blockquote>
+<div><img alt="_images/spreadsheet-1.png" src="_images/spreadsheet-1.png" />
+</div></blockquote>
+<p>After a successful import, you will be sent back to the main <strong>School</strong> page:</p>
+<blockquote>
+<div><img alt="_images/spreadsheet-2.png" src="_images/spreadsheet-2.png" />
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">large_sample_data.xls</span></code> creates a full school of 1000 students and two years of section enrollments.  <code class="docutils literal notranslate"><span class="pre">sample_data.xls</span></code> has 466 students but only six teachers and a handful of sections (budget cuts).  Users are either “student” or “teacher” followed by a three digit number (for example, “<strong>student000</strong>” or “<strong>teacher001</strong>”), and their passwords are the same as their ID’s.</p>
+<p>To export data to a spreadsheet, navigate to the <strong>School</strong> tab, select <strong>Reports: School Export</strong> in the sidebar menu, and click on the <strong>Download</strong> button to confirm the dialog:</p>
+<blockquote>
+<div><img alt="_images/spreadsheet-3.png" src="_images/spreadsheet-3.png" />
+</div></blockquote>
+<p>Your browser will download an Excel format file (readable by LibreOffice and most other current spreadsheet applications) named export.xls.</p>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="courses.html"
+                          title="previous chapter">Setting Up Courses</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="populating.html"
+                          title="next chapter">Populating Your School</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/spreadsheet.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

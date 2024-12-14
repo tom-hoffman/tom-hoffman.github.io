@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SchoolTool “presentation” components &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SchoolTool User Interface Guidelines" href="ui_guidelines.html" />
+    <link rel="prev" title="Security policy" href="policy.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="ui_guidelines.html" title="SchoolTool User Interface Guidelines"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="policy.html" title="Security policy"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="developers.html" accesskey="U">Developers’ Handbook</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SchoolTool “presentation” components</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="schooltool-presentation-components">
+<span id="flourish"></span><h1>SchoolTool “presentation” components<a class="headerlink" href="#schooltool-presentation-components" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://pypi.python.org/pypi/zope.publisher">The Zope publishing mechanism</a> provides a way of filtering (enabling or disabling) view components based on a marker interface called “layer.”</p>
+<p>SchoolTool’s look and feel functionality for HTML pages and PDF reports comes from a layer called “Flourish” which is placed in the <code class="docutils literal notranslate"><span class="pre">schooltool.skin.flourish</span></code> package.  “Flourish” was the codename, essentially, for a complete redesign of SchoolTool’s web interface roughly midway through its history.</p>
+<section id="html-rendering">
+<h2>HTML rendering<a class="headerlink" href="#html-rendering" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">schooltool.skin.flourish.page.Page</span></code> class is the base component for Flourish. It provides a two step pattern, common to most of SchoolTool’s view components, for producing HTML code through two methods:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">update</span></code> method is supposed to “calculate” the data needed. It also invokes its subcomponents <code class="docutils literal notranslate"><span class="pre">update</span></code> methods.</p></li>
+<li><p>Then the <code class="docutils literal notranslate"><span class="pre">render</span></code> method produces and returns the HTML code based on the data calculated in <code class="docutils literal notranslate"><span class="pre">update</span></code>. This step usually involves calling a <a class="reference external" href="https://docs.zope.org/zope2/zope2book/ZPT.html">Zope Page Template</a> (ZPT) file able to handle conditionals and iterations. The default logic for this method is based on the <code class="docutils literal notranslate"><span class="pre">schooltool/skin/flourish/templates/main.pt</span></code> template.</p></li>
+</ol>
+</div></blockquote>
+<section id="main-template">
+<h3>Main template<a class="headerlink" href="#main-template" title="Link to this heading">¶</a></h3>
+<p>This template has the base HTML 4 document structure for pages and it’s logically divided as header, content and footer areas. It provides plug points for pages to insert content dynamically.</p>
+<p>Let’s review some of these:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">schooltool.skin.flourish</span></code> <a class="reference external" href="https://pypi.python.org/pypi/zc.resourcelibrary">resource library</a> is inserted in the header (&lt;head&gt; element) of the page and it’s in charge of including CSS and Javascript files taking care of dependencies between “sublibraries”.</p></li>
+<li><p>A few <a class="reference external" href="https://pypi.python.org/pypi/zope.contentprovider">providers</a> are used in this template. Providers are just view components that filter and prepare their subcomponents for rendering. This way a full page can be built by merging several small and focused components. The providers in this template render the navigational area at the top of the page.</p></li>
+<li><p>A second template is referenced as the <code class="docutils literal notranslate"><span class="pre">page_template</span></code> attribute of the <code class="docutils literal notranslate"><span class="pre">Page</span></code> which is used for rendering the “main content area” of the page.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="page-template">
+<h3>Page template<a class="headerlink" href="#page-template" title="Link to this heading">¶</a></h3>
+<p>This template renders HTML code specific to the object that is being viewed. It’s logically structured with two sidebars and a content area. This content area in turn is divided into main and additional areas.</p>
+<p>This is roughly the HTML code rendered by this template:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;body&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;sidebar refine&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;sidebar related&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">  </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;main&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">    </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;additional&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/div&gt;</span>
+<span class="w"> </span><span class="nt">&lt;/div&gt;</span>
+</pre></div>
+</div>
+<p>The two sidebars and the additional area are handled by providers. The main area is handled by the <code class="docutils literal notranslate"><span class="pre">content_template</span></code> attribute of the <code class="docutils literal notranslate"><span class="pre">Page</span></code> object and can be set either through ZCML:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- from schooltool/course/browser/flourish.zcml --&gt;</span>
+<span class="nt">&lt;flourish:page</span>
+<span class="w">    </span><span class="na">name=</span><span class="s">&quot;section_linkage.html&quot;</span>
+<span class="w">    </span><span class="na">for=</span><span class="s">&quot;schooltool.course.interfaces.ISection&quot;</span>
+<span class="w">    </span><span class="na">class=</span><span class="s">&quot;.section.FlourishSectionLinkageView&quot;</span>
+<span class="w">    </span><span class="na">content_template=</span><span class="s">&quot;templates/f_section_linkage.pt&quot;</span>
+<span class="w">    </span><span class="na">permission=</span><span class="s">&quot;schooltool.edit&quot;</span>
+<span class="w">    </span><span class="na">subtitle=</span><span class="s">&quot;Terms&quot;</span>
+<span class="w">    </span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>or in Python code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">zope.browserpage.viewpagetemplatefile</span> <span class="kn">import</span> <span class="n">ViewPageTemplateFile</span>
+<span class="k">class</span> <span class="nc">FlourishCourseView</span><span class="p">(</span><span class="n">DisplayForm</span><span class="p">):</span>
+
+   <span class="n">content_template</span> <span class="o">=</span> <span class="n">ViewPageTemplateFile</span><span class="p">(</span><span class="s1">&#39;templates/f_course_view.pt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">Page</span></code> subclass can override any of these templates, composing its own rendering logic.</p>
+</div>
+</section>
+</section>
+<section id="pdf-rendering">
+<h2>PDF rendering<a class="headerlink" href="#pdf-rendering" title="Link to this heading">¶</a></h2>
+<p>SchoolTool uses XML markup called <a class="reference external" href="http://www.reportlab.com/documentation/">ReportLab Markup Language (RML)</a> to layout PDF reports, with ZPT again inserting the dynamic content.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">schooltool.skin.flourish.report.PDFPage</span></code> class is the base component for SchoolTool’s PDF functionality. It’s similar to the <code class="docutils literal notranslate"><span class="pre">Page</span></code> class explained above providing the same two step pattern and a <code class="docutils literal notranslate"><span class="pre">template</span></code> attribute that references the <code class="docutils literal notranslate"><span class="pre">schooltool/skin/flourish/rml/pdf.pt</span></code> file. This template contains RML and provides the basic document structure expected by the <cite>z3c.rml &lt;https://pypi.python.org/pypi/z3c.rml&gt;</cite> package that transforms the RML into PDF. Read <a class="reference external" href="https://www.reportlab.com/docs/rml-for-idiots.pdf">RML for Idiots</a> for more on this.</p>
+<p>There are providers for rendering each part of the RML structure:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">init</span></code>: for the &lt;docinit&gt; element</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stylesheet</span></code>: for the &lt;stylesheet&gt; element</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">template</span></code>: for the &lt;template&gt; element</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page_info</span></code>: for the &lt;pageInfo&gt; element</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">story</span></code>: for filling the &lt;story&gt; element</p></li>
+</ul>
+</div></blockquote>
+<p>A <code class="docutils literal notranslate"><span class="pre">content_template</span></code> attribute is also provided by <code class="docutils literal notranslate"><span class="pre">PDFPage</span></code>. If it’s implemented the output of the &lt;story&gt; element is composed like this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;story&gt;</span>
+<span class="w">   </span><span class="cm">&lt;!-- content_template attribute is rendered here --&gt;</span>
+<span class="w">   </span><span class="cm">&lt;!-- story provider is rendered here --&gt;</span>
+<span class="w"> </span><span class="nt">&lt;/story&gt;</span>
+</pre></div>
+</div>
+<p>The definitions for these providers and the templates they reference can be found in the <code class="docutils literal notranslate"><span class="pre">schooltool/skin/flourish/report.zcml</span></code> file.</p>
+</section>
+<section id="forms">
+<h2>Forms<a class="headerlink" href="#forms" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://pypi.python.org/pypi/z3c.form">z3c.form</a> is the form library used in Flourish. The <code class="docutils literal notranslate"><span class="pre">schooltool.skin.flourish.form</span></code> module provides base classes for add, display and dialog forms. Dialogs use the <a class="reference external" href="https://jqueryui.com/dialog/">jQuery UI</a> library.</p>
+</section>
+<section id="ajax-parts">
+<h2>AJAX parts<a class="headerlink" href="#ajax-parts" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">schooltool.skin.flourish.ajax</span></code> module registers an additional provider for <code class="docutils literal notranslate"><span class="pre">Page</span></code> objects. It’s referenced as “ajax” in ZPT code. It’s used for registering special viewlets, called AJAX parts, that have the ability to render and update without fully reloading their <code class="docutils literal notranslate"><span class="pre">Page</span></code>. This functionality is mostly used for tables. See the <code class="docutils literal notranslate"><span class="pre">schooltool.table.ajax</span></code> module.</p>
+</section>
+<section id="tables">
+<h2>Tables<a class="headerlink" href="#tables" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">schooltool.table.ajax.Table</span></code> class allows to display, filter and sort objects in a container or any kind of iterable. It’s a viewlet manager and three named viewlets can be registered on it (displayed in the order they are rendered):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">filter</span></code>: a <code class="docutils literal notranslate"><span class="pre">schooltool.table.ajax.TableFilter</span></code> object with a <code class="docutils literal notranslate"><span class="pre">filter</span></code> method. It’s usually rendered as a search form</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">batch</span></code>: a <code class="docutils literal notranslate"><span class="pre">schooltool.table.ajax.TableBatch</span></code> object that knows what subset of the filtered items to display based on the request values. It’s rendered as a list of page number links</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">table</span></code>: by default this is just a standard viewlet that reuses the <code class="docutils literal notranslate"><span class="pre">Table.renderTable</span></code> method but that can be overriden to provide more specialized behaviour</p></li>
+</ul>
+</div></blockquote>
+<p>The logic for adding columns, sorting and listing elements of the <code class="docutils literal notranslate"><span class="pre">Table</span></code> class is based on the <a class="reference external" href="https://pypi.python.org/pypi/zc.table">zc.table</a> package.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">SchoolTool “presentation” components</a><ul>
+<li><a class="reference internal" href="#html-rendering">HTML rendering</a><ul>
+<li><a class="reference internal" href="#main-template">Main template</a></li>
+<li><a class="reference internal" href="#page-template">Page template</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pdf-rendering">PDF rendering</a></li>
+<li><a class="reference internal" href="#forms">Forms</a></li>
+<li><a class="reference internal" href="#ajax-parts">AJAX parts</a></li>
+<li><a class="reference internal" href="#tables">Tables</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="policy.html"
+                          title="previous chapter">Security policy</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="ui_guidelines.html"
+                          title="next chapter">SchoolTool User Interface Guidelines</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/flourish.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

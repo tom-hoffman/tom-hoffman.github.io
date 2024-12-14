@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Security policy &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SchoolTool “presentation” components" href="flourish.html" />
+    <link rel="prev" title="SchoolTool Data Model" href="top_level.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="flourish.html" title="SchoolTool “presentation” components"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="top_level.html" title="SchoolTool Data Model"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="developers.html" accesskey="U">Developers’ Handbook</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Security policy</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="security-policy">
+<span id="policy"></span><h1>Security policy<a class="headerlink" href="#security-policy" title="Link to this heading">¶</a></h1>
+<p>Security in SchoolTool is primarily based on the relationships between users and other constructs – for example, a teacher can view and edit only the gradebooks of sections he is instructor of – as well as using permissions based on group membership in some places – for example, a member of the School Administrators group can view but not edit all section gradebooks.</p>
+<p>SchoolTool security policy is based on the <a class="reference external" href="https://pypi.python.org/pypi/zope.security/">Zope Security Framework</a>.  SchoolTool has a custom security policy based around <code class="docutils literal notranslate"><span class="pre">schooltool.app.security.Principal</span></code> and <code class="docutils literal notranslate"><span class="pre">schooltool.securitypolicy.crowds.Crowd</span></code> objects.  A <code class="docutils literal notranslate"><span class="pre">Principal</span></code> is just a component that represents a user and a <code class="docutils literal notranslate"><span class="pre">Crowd</span></code> is a set of <code class="docutils literal notranslate"><span class="pre">Principal</span></code> objects that can react to the object being accessed. For example, you can have an “owner” <code class="docutils literal notranslate"><span class="pre">Crowd</span></code> which only includes the accessing <code class="docutils literal notranslate"><span class="pre">Principal</span></code> if he is looking at an object that “belongs” to them.</p>
+<p>SchoolTool custom permissions are defined in the <code class="docutils literal notranslate"><span class="pre">schooltool/common/security.zcml</span></code> file, with the two most used permissions being <code class="docutils literal notranslate"><span class="pre">schooltool.view</span></code> and <code class="docutils literal notranslate"><span class="pre">schooltool.edit</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Crowd</span></code> objects are coded as adapters that adapt a context object (the object being accessed) to the <code class="docutils literal notranslate"><span class="pre">schooltool.securitypolicy.interfaces.ICrowd</span></code> interface. This interface defines only a <code class="docutils literal notranslate"><span class="pre">contains</span></code> method that receives the <code class="docutils literal notranslate"><span class="pre">Principal</span></code> object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.securitypolicy.crowds</span> <span class="kn">import</span> <span class="n">Crowd</span>
+<span class="k">class</span> <span class="nc">OwnersCrowd</span><span class="p">(</span><span class="n">Crowd</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">principal</span><span class="p">):</span>
+        <span class="n">owner</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">owner</span>
+        <span class="k">return</span> <span class="n">owner</span> <span class="o">==</span> <span class="n">principal</span>
+</pre></div>
+</div>
+<p>Custom crowds can be registered using the <code class="docutils literal notranslate"><span class="pre">crowd</span></code> directive from SchoolTool’s <code class="docutils literal notranslate"><span class="pre">security</span></code> namespace:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;configure</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">&quot;http://schooltool.org/securitypolicy&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;crowd</span>
+<span class="w">      </span><span class="na">name=</span><span class="s">&quot;owner&quot;</span>
+<span class="w">      </span><span class="na">factory=</span><span class="s">&quot;.crowds.OwnerCrowd&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/configure&gt;</span>
+</pre></div>
+</div>
+<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">Crowd</span></code> is assigned an identifier (“owner”) which can later be used in security declarations for objects.</p>
+<p>You use the <code class="docutils literal notranslate"><span class="pre">Crowd</span></code> with through an <code class="docutils literal notranslate"><span class="pre">allow</span></code> directive also from the <code class="docutils literal notranslate"><span class="pre">security</span></code> namespace. You specify a list of <code class="docutils literal notranslate"><span class="pre">Crowd</span></code> ids (<code class="docutils literal notranslate"><span class="pre">crowds</span></code> attribute) that have a permission (<code class="docutils literal notranslate"><span class="pre">permission</span></code> attribute) on a type of object (<code class="docutils literal notranslate"><span class="pre">interface</span></code> attribute):</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;allow</span>
+<span class="w">    </span><span class="na">crowds=</span><span class="s">&quot;owner managers clerks&quot;</span>
+<span class="w">    </span><span class="na">permission=</span><span class="s">&quot;schooltool.edit&quot;</span>
+<span class="w">    </span><span class="na">interface=</span><span class="s">&quot;schooltool.app.interfaces.ISchoolToolApplication&quot;</span>
+<span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>If any of the <code class="docutils literal notranslate"><span class="pre">Crowd</span></code> objects includes the <code class="docutils literal notranslate"><span class="pre">Principal</span></code> that is trying to access the “interface-type” object permission is granted, otherwise it is denied. You can have several <code class="docutils literal notranslate"><span class="pre">&lt;allow&gt;</span></code> directives for the same interface and permission. In that case the lists of <code class="docutils literal notranslate"><span class="pre">Crowd</span></code> objects will be summed.</p>
+<p>In some cases it makes sense to provide a permission to a <code class="docutils literal notranslate"><span class="pre">Crowd</span></code> no matter what the context interface is.  In that case you can just leave the <code class="docutils literal notranslate"><span class="pre">interface</span></code> attribute out, like this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;allow</span>
+<span class="w">    </span><span class="na">crowds=</span><span class="s">&quot;owner managers clerks&quot;</span>
+<span class="w">    </span><span class="na">permission=</span><span class="s">&quot;schooltool.edit&quot;</span>
+<span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<section id="inheriting-permissions">
+<h2>Inheriting permissions<a class="headerlink" href="#inheriting-permissions" title="Link to this heading">¶</a></h2>
+<p>Sometimes it’s not feasible to specify crowds for each and every object. In that case Zope’s traversal mechanism is implicitly used, for example to determine permissions on views, which typically have the context objects set as their <code class="docutils literal notranslate"><span class="pre">__parent__</span></code> attribute.</p>
+<p>Basically, if no <code class="docutils literal notranslate"><span class="pre">&lt;allow&gt;</span></code> declaration (with an explicit interface) is found for an object, the object’s parent is taken (from the attribute <cite>__parent__</cite>). If the parent does not have a matching <code class="docutils literal notranslate"><span class="pre">&lt;allow&gt;</span></code> declaration either, its parent is taken, etc., until a matching declaration is found.</p>
+</section>
+<section id="permission-lookup-order">
+<h2>Permission lookup order<a class="headerlink" href="#permission-lookup-order" title="Link to this heading">¶</a></h2>
+<p>Here is a brief summary of how a permission is checked:</p>
+<ol class="arabic simple">
+<li><p>All crowds for a permission (specified as <code class="docutils literal notranslate"><span class="pre">&lt;allow&gt;</span></code> directives without an explicit interface) are checked.  If any one contains the principal, permit access.</p></li>
+<li><p>While an <code class="docutils literal notranslate"><span class="pre">&lt;allow&gt;</span></code> directive with an explicit interface is not found for the context object, take the context’s parent.</p></li>
+<li><p>If the principal is in any of the crowds specified in the matching <code class="docutils literal notranslate"><span class="pre">&lt;allow&gt;</span></code> directive, permit access.</p></li>
+<li><p>If neither of the previous steps permit access, deny.</p></li>
+</ol>
+<p>This is implemented in the <code class="docutils literal notranslate"><span class="pre">schooltool.securitypolicy.policy.SchoolToolSecurityPolicy</span></code> class.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Security policy</a><ul>
+<li><a class="reference internal" href="#inheriting-permissions">Inheriting permissions</a></li>
+<li><a class="reference internal" href="#permission-lookup-order">Permission lookup order</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="top_level.html"
+                          title="previous chapter">SchoolTool Data Model</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="flourish.html"
+                          title="next chapter">SchoolTool “presentation” components</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/policy.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

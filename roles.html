@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SchoolTool Administrative Roles &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Server Settings" href="server-settings.html" />
+    <link rel="prev" title="Accessing SchoolTool from Other Computers" href="remote.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="server-settings.html" title="Server Settings"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="remote.html" title="Accessing SchoolTool from Other Computers"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="initial-configuration-toc.html" accesskey="U">Initial Configuration Steps</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SchoolTool Administrative Roles</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="schooltool-administrative-roles">
+<span id="roles"></span><h1>SchoolTool Administrative Roles<a class="headerlink" href="#schooltool-administrative-roles" title="Link to this heading">¶</a></h1>
+<p>The “Default Manager” user has sufficient permissions to configure SchoolTool, enter student data, and completely set up and maintain the system.</p>
+<p>Rights and permissions in SchoolTool related to administering the school as a whole are controlled through membership in several <a class="reference internal" href="groups.html#groups"><span class="std std-ref">Groups</span></a>: <strong>Site Managers</strong>, <strong>Clerks</strong> and <strong>School Administrators</strong>.  These groups, as well as <strong>Teachers</strong> and <strong>Students</strong>, cannot be deleted and always exist within each school year.</p>
+<p>By default the “Default Manager” user is a member of both <strong>Site Managers</strong> and <strong>Clerks</strong>.</p>
+<ul class="simple">
+<li><p><strong>Site Managers</strong> - This group is responsible for setting up and technical maintenance of the SchoolTool instance.  It has no pedagogical role, but full permissions regarding server configuration.</p></li>
+<li><p><strong>Clerks</strong> - This group is responsible for day to day school-level data entry, data management and reporting.  <strong>Clerks</strong> are power users in SchoolTool, with most of the same permissions as Site Managers.  The main difference between <strong>Clerks</strong> and <strong>Site Managers</strong> is that <strong>Clerks</strong> have some additional administrative screens, for managing attendance school-wide, for example, and they cannot easily undertake some setup related actions that could cause wide-ranging data loss.</p></li>
+<li><p><strong>School Administrators</strong> - Members of this group can <em>view</em> most data in the system, but have limited rights to edit it.  It is a “safe” role to prevent less technical <strong>School Administrators</strong> from accidentally messing up your SchoolTool instance while still viewing the records and reports they need.  <strong>School Administrators</strong> also have a role in certain processes and workflows, for example receiving notifications and messages regarding student interventions.</p></li>
+</ul>
+<p>A single person can be a member of several of these groups, and permissions are additive (adding a member of <strong>Site Managers</strong> to <strong>School Administrators</strong> does not limit his or her rights to edit data).  There is considerable overlap in permissions between the groups, in particular <strong>Site Managers</strong> and <strong>Clerks</strong>.</p>
+<p>Both <strong>Site Managers</strong> and <strong>Clerks</strong> should be trusted users, because either can elevate their own permissions by adding themselves to the other administrative groups.  Note that a malicious clerk would <em>always</em> be able to wreak havoc on a student information system by intentionally entering bad data, deleting things, etc.</p>
+</section>
+<section id="super-user-and-emergency-password-recovery">
+<h1>Super User and Emergency Password Recovery<a class="headerlink" href="#super-user-and-emergency-password-recovery" title="Link to this heading">¶</a></h1>
+<p>The original “Default Manager” user has some special rights which are independent of his or her group membership, so that SchoolTool administrators cannot completely lock themselves out of the system accidentally.</p>
+<p>If you forget the password for “Default Manager”, you can reset the “Default Manager” password from the server’s terminal.</p>
+<p>Where PASS is the desired password:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo python -m schooltool.app.main -c /etc/schooltool/standard/schooltool.conf --restore-manager PASS
+</pre></div>
+</div>
+<p>And log in with the new password.</p>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">SchoolTool Administrative Roles</a></li>
+<li><a class="reference internal" href="#super-user-and-emergency-password-recovery">Super User and Emergency Password Recovery</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="remote.html"
+                          title="previous chapter">Accessing SchoolTool from Other Computers</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="server-settings.html"
+                          title="next chapter">Server Settings</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/roles.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

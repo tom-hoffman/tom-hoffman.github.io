@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Server Settings &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SchoolTool In Languages Other Than English" href="translations.html" />
+    <link rel="prev" title="SchoolTool Administrative Roles" href="roles.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="translations.html" title="SchoolTool In Languages Other Than English"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="roles.html" title="SchoolTool Administrative Roles"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="initial-configuration-toc.html" accesskey="U">Initial Configuration Steps</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Server Settings</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="server-settings">
+<span id="id1"></span><h1>Server Settings<a class="headerlink" href="#server-settings" title="Link to this heading">¶</a></h1>
+<section id="server-information">
+<h2>Server Information<a class="headerlink" href="#server-information" title="Link to this heading">¶</a></h2>
+<p>When logged in as a <strong>Site Manager</strong>, you should see a “Server” tab in the top bar.  This takes you to a variety of settings and information relevant to the server itself, as opposed to your school.</p>
+<blockquote>
+<div><img alt="_images/server-settings-0.png" src="_images/server-settings-0.png" />
+</div></blockquote>
+<p>In the main content area, the Server Information section provides some technical details you may need for debugging, the <strong>Server Information</strong> link takes you to a more verbose version of this data.</p>
+</section>
+<section id="outgoing-email">
+<span id="email"></span><h2>Outgoing Email<a class="headerlink" href="#outgoing-email" title="Link to this heading">¶</a></h2>
+<p>SchoolTool can send emails through your school email server or another SMTP server.  That is, SchoolTool is not an email server; it sends mail as an email <em>client</em>, like a desktop application such as Evolution or Outlook.</p>
+<p>To enable SchoolTool to send emails, you will need the instructions from your school’s server, your ISP, or your webmail provider to configure a mail client to send mail via the provider’s SMTP service.</p>
+<p>You can also install and use a free mail server using the Ubuntu package manager, such as <code class="docutils literal notranslate"><span class="pre">postfix</span></code> or <code class="docutils literal notranslate"><span class="pre">sendmail</span></code>.  Instructions for doing so are outside the scope of this document.  Running a mail server requires a knowledgeable systems administrator.</p>
+<p>As an example of an external email service, here’s the relevant data for enabling GMail:</p>
+<blockquote>
+<div><img alt="_images/email-gmail.png" src="_images/email-gmail.png" />
+</div></blockquote>
+<p>To send email through an external mail service, you will need to be logged on as “manager.” Navigate to the <strong>Server</strong> tab, then click on the <strong>Outgoing Email</strong> link:</p>
+<blockquote>
+<div><img alt="_images/server-settings-1.png" src="_images/server-settings-1.png" />
+</div></blockquote>
+<p>To edit the settings, click the yellow pencil icon next to <strong>Server status: Disabled</strong> and enter the appropriate data for your server.  Note that the username and password in question in this form are the username and password of a user <em>on the mail server</em>, not on SchoolTool.</p>
+<p><strong>Note:</strong> Outgoing emails from SchoolTool will use this email address, not the email address of a specific user within SchoolTool; e.g., in the example below, all notifications coming from SchoolTool will appear to be from <a class="reference external" href="mailto:schooltool&#46;mgr&#37;&#52;&#48;gmail&#46;com">schooltool<span>&#46;</span>mgr<span>&#64;</span>gmail<span>&#46;</span>com</a>.</p>
+<p>A TLS connection is a type of secure connection between SchoolTool and the mail server.</p>
+<p>As the label suggests, the outgoing email service won’t do anything until you select the <strong>Enable</strong> – <strong>Yes</strong> radio button and click <strong>Apply</strong>.  Select <strong>Enable</strong> – <strong>No</strong> to turn it off.</p>
+<blockquote>
+<div><img alt="_images/server-settings-2.png" src="_images/server-settings-2.png" />
+</div></blockquote>
+<p>Click <strong>Apply</strong> when you’re done.</p>
+<p>To see if it is working, click <strong>Send Test Email</strong> under <strong>Actions</strong> in the sidebar and enter some relevant data, including one of your email addresses as recipient so you can make sure the message arrives safely:</p>
+<blockquote>
+<div><img alt="_images/server-settings-3.png" src="_images/server-settings-3.png" />
+</div></blockquote>
+<p>After you hit <strong>Send</strong>, you’ll find yourself on the <strong>Email Queue</strong> page, and hopefully will tell you that the queue is clear (not that your message is stuck):</p>
+<blockquote>
+<div><img alt="_images/server-settings-4.png" src="_images/server-settings-4.png" />
+</div></blockquote>
+<p>Check your mail, and you should see the message:</p>
+<blockquote>
+<div><img alt="_images/email-gmail-2.png" src="_images/email-gmail-2.png" />
+</div></blockquote>
+</section>
+<section id="calendar">
+<h2>Calendar<a class="headerlink" href="#calendar" title="Link to this heading">¶</a></h2>
+<p>SchoolTool is designed to be usable in many different countries, and different parts of the world handle calendars and dates differently, so you may have to change some settings here to suit your local needs.  Click on the <strong>Calendar</strong> link to do so.</p>
+<blockquote>
+<div><img alt="_images/server-settings-5.png" src="_images/server-settings-5.png" />
+</div></blockquote>
+<p>SchoolTool’s calendar uses a more or less European configuration by default.  I’ve changed it above to suit my American tastes.</p>
+<p>Hit <strong>Apply</strong> to save your new settings.</p>
+</section>
+<section id="ldap-single-sign-on">
+<h2>LDAP Single Sign On<a class="headerlink" href="#ldap-single-sign-on" title="Link to this heading">¶</a></h2>
+<p>If <a class="reference internal" href="ldap.html#ldap"><span class="std std-ref">LDAP Single Sign-on</span></a> plugin is installed, it can be configured from here.</p>
+</section>
+<section id="sidebar-settings">
+<h2>Sidebar Settings<a class="headerlink" href="#sidebar-settings" title="Link to this heading">¶</a></h2>
+<p>Further server settings and information are available in the sidebar at left.</p>
+<section id="security">
+<h3>Security<a class="headerlink" href="#security" title="Link to this heading">¶</a></h3>
+<p>The <strong>Security</strong> link in the sidebar provides a report on the active permissions within the system and limited options to tailor the access rights for your school.</p>
+<p>The main view is a textual summary of what users can conduct which actions on what objects in SchoolTool.</p>
+<blockquote>
+<div><img alt="_images/server-settings-8.png" src="_images/server-settings-8.png" />
+</div></blockquote>
+<p>Clicking the edit pencil next to Access Rights takes you to a form that has a list of specific rights that sites might commonly want to modify.</p>
+<blockquote>
+<div><img alt="_images/server-settings-9.png" src="_images/server-settings-9.png" />
+</div></blockquote>
+<p>Click <strong>Apply</strong> to save whatever changes you might make; <strong>Cancel</strong> to leave without saving changes.</p>
+<p>Note that all the access control settings within the system can be modified from configuration files within SchoolTool’s source code.  This is not a trivial matter, but extensive customization for specific sites is possible.</p>
+</section>
+<section id="errors">
+<h3>Errors<a class="headerlink" href="#errors" title="Link to this heading">¶</a></h3>
+<p>The <strong>Errors</strong> entry in the sidebar provides quick access to a limited number of errors logged on the server since it has been restarted.  They are stored in memory.  Full logs are kept in the filesystem, at <code class="docutils literal notranslate"><span class="pre">/var/log/schooltool</span></code> in a standard Ubuntu package installation.</p>
+<blockquote>
+<div><img alt="_images/server-settings-10.png" src="_images/server-settings-10.png" />
+</div></blockquote>
+<p>Clicking on the exception object takes you to a full description of the error, including the traceback and HTTP request:</p>
+<blockquote>
+<div><img alt="_images/server-settings-11.png" src="_images/server-settings-11.png" />
+</div></blockquote>
+<p>Clicking on the yellow pencil icon allows some customization of this display:</p>
+<blockquote>
+<div><img alt="_images/server-settings-12.png" src="_images/server-settings-12.png" />
+</div></blockquote>
+</section>
+<section id="tabs">
+<h3>Tabs<a class="headerlink" href="#tabs" title="Link to this heading">¶</a></h3>
+<p>Schools that are not using all components of SchoolTool can reduce visual clutter by hiding unnecessary links in the top navigation bar.</p>
+<p>Note that these settings have no effects other than removing navigational links; they don’t change the functionality, data, or security settings of SchoolTool in any way.</p>
+<p>Links can be changed from visible to hidden at any time.</p>
+<p>When users log in, they will usually be directed to the tab selected in the default column. The default tab must also be visible.</p>
+<p>To hide tabs, simply uncheck the corresponding checkbox.  Select the default view in the third table column, click <strong>Submit</strong></p>
+<blockquote>
+<div><img alt="_images/server-settings-12_5.png" src="_images/server-settings-12_5.png" />
+</div></blockquote>
+</section>
+<section id="name-sorting">
+<h3>Name Sorting<a class="headerlink" href="#name-sorting" title="Link to this heading">¶</a></h3>
+<p>Sets the default name sort behavior throughout the application, sorting by first or last names.  This also changes the order that names appear in most places so that the sort column is the leftmost in the table.</p>
+<blockquote>
+<div><img alt="_images/server-settings-12_6.png" src="_images/server-settings-12_6.png" />
+</div></blockquote>
+</section>
+</section>
+<section id="sidebar-actions">
+<h2>Sidebar Actions<a class="headerlink" href="#sidebar-actions" title="Link to this heading">¶</a></h2>
+<section id="pack-database">
+<h3>Pack Database<a class="headerlink" href="#pack-database" title="Link to this heading">¶</a></h3>
+<p>SchoolTool’s database engine supports certain undo capabilities which are not implemented in SchoolTool.  As a result, SchoolTool’s database file grows in size over time.  “Packing” the database strips out the old changes and shrinks the file back down to its minimum size without otherwise affecting your SchoolTool data.</p>
+<p>Packing the database periodically will help optimize performance, particularly after many changes have been made to the database, for example, from large data imports.  This can be a resource-intensive action on large databases, so it is best to do it during off-peak times.</p>
+<p>To pack the database, click <strong>Pack Database</strong> under <strong>Actions</strong> in the sidebar.  You should see a little confirmation spinner while this is in progress:</p>
+<blockquote>
+<div><img alt="_images/server-settings-13.png" src="_images/server-settings-13.png" />
+</div></blockquote>
+<p>And a dialog when it completes:</p>
+<blockquote>
+<div><img alt="_images/server-settings-14.png" src="_images/server-settings-14.png" />
+</div></blockquote>
+<p>Note that if you don’t stay on the page while the packing is underway, it <em>will</em> still complete.  You just will not receive any confirmation.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Server Settings</a><ul>
+<li><a class="reference internal" href="#server-information">Server Information</a></li>
+<li><a class="reference internal" href="#outgoing-email">Outgoing Email</a></li>
+<li><a class="reference internal" href="#calendar">Calendar</a></li>
+<li><a class="reference internal" href="#ldap-single-sign-on">LDAP Single Sign On</a></li>
+<li><a class="reference internal" href="#sidebar-settings">Sidebar Settings</a><ul>
+<li><a class="reference internal" href="#security">Security</a></li>
+<li><a class="reference internal" href="#errors">Errors</a></li>
+<li><a class="reference internal" href="#tabs">Tabs</a></li>
+<li><a class="reference internal" href="#name-sorting">Name Sorting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sidebar-actions">Sidebar Actions</a><ul>
+<li><a class="reference internal" href="#pack-database">Pack Database</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="roles.html"
+                          title="previous chapter">SchoolTool Administrative Roles</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="translations.html"
+                          title="next chapter">SchoolTool In Languages Other Than English</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/server-settings.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1.4 Release Notes &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1.2 Release Notes" href="1.2-release-notes.html" />
+    <link rel="prev" title="1.5 Release Notes" href="1.5-release-notes.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="1.2-release-notes.html" title="1.2 Release Notes"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="1.5-release-notes.html" title="1.5 Release Notes"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="release-notes.html" accesskey="U">Release Notes</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">1.4 Release Notes</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="release-notes">
+<h1>1.4 Release Notes<a class="headerlink" href="#release-notes" title="Link to this heading">¶</a></h1>
+<section id="schooltool">
+<h2>SchoolTool<a class="headerlink" href="#schooltool" title="Link to this heading">¶</a></h2>
+<section id="id1">
+<h3>1.4.4 (2011-09-05)<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Allowed non-integer values for course credits (<a class="reference external" href="https://bugs.launchpad.net/bugs/488376">https://bugs.launchpad.net/bugs/488376</a>)</p></li>
+<li><p>Add School Year copies all course attributes (<a class="reference external" href="https://bugs.launchpad.net/bugs/785994">https://bugs.launchpad.net/bugs/785994</a>)</p></li>
+<li><p>Fixed XLS import crashes:</p>
+<ul>
+<li><p>Username is a number (<a class="reference external" href="https://launchpad.net/bugs/801870">https://launchpad.net/bugs/801870</a>)</p></li>
+<li><p>No file selected for import</p></li>
+<li><p>Section timetables without resources (<a class="reference external" href="https://launchpad.net/bugs/839031">https://launchpad.net/bugs/839031</a>)</p></li>
+<li><p>Empty sections or groups (<a class="reference external" href="https://launchpad.net/bugs/382566">https://launchpad.net/bugs/382566</a>)</p></li>
+</ul>
+</li>
+<li><p>Update translations.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>1.4.3 (2010-11-23)<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>Stable release that contains bugfixes backported from development series up to 1.5.3.</p>
+<ul class="simple">
+<li><p>Fixed Section meeting time misalignment in calendar (<a class="reference external" href="https://launchpad.net/bugs/611797">https://launchpad.net/bugs/611797</a>)</p></li>
+<li><p>Activation of selected school year (<a class="reference external" href="https://launchpad.net/bugs/635160">https://launchpad.net/bugs/635160</a>)</p></li>
+<li><p>Added “New Person” (for administration) to all person views
+(<a class="reference external" href="https://bugs.launchpad.net/bugs/268127">https://bugs.launchpad.net/bugs/268127</a>)</p></li>
+<li><p>Empty usernames no longer crash when adding a person (<a class="reference external" href="https://launchpad.net/bugs/644296">https://launchpad.net/bugs/644296</a>)</p></li>
+<li><p>Fix security checks to let teachers edit learners and other section info
+if they have access rights.</p></li>
+<li><p>Allow teachers to view student info and contacts</p></li>
+<li><p>Add “View Person” action button in contact views (<a class="reference external" href="https://launchpad.net/bugs/635207">https://launchpad.net/bugs/635207</a>)</p></li>
+<li><p>Tweaked WYSIWYG CK editor (<a class="reference external" href="https://launchpad.net/bugs/485446">https://launchpad.net/bugs/485446</a>)</p></li>
+<li><p>Make CK editor work with servers under mod-rewrite (<a class="reference external" href="https://launchpad.net/bugs/258951">https://launchpad.net/bugs/258951</a>)</p></li>
+<li><p>Added error checking on demographics edit form (<a class="reference external" href="https://launchpad.net/bugs/610870">https://launchpad.net/bugs/610870</a>)</p></li>
+<li><p>Update translations.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>1.4.2 (2010-07-15)<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Speed up editing of section learners and instructors (<a class="reference external" href="https://launchpad.net/bugs/599258">https://launchpad.net/bugs/599258</a>)</p></li>
+<li><p>XLS Importer catches errors before trying to create objects. (<a class="reference external" href="https://launchpad.net/bugs/306339">https://launchpad.net/bugs/306339</a>)</p></li>
+<li><p>Removed SchoolTool logo from PDF footers (<a class="reference external" href="https://launchpad.net/bugs/561558">https://launchpad.net/bugs/561558</a>)</p></li>
+<li><p>Update translations (ca, en_AU, eu, ne, pl, tr)</p></li>
+</ul>
+<p>More info at <a class="reference external" href="https://launchpad.net/schooltool/+release/1.4.2">https://launchpad.net/schooltool/+release/1.4.2</a></p>
+</section>
+<section id="id4">
+<h3>1.4.1 (2010-06-15)<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Copy data from previous school year (<a class="reference external" href="https://launchpad.net/bugs/541673">https://launchpad.net/bugs/541673</a>)</p></li>
+<li><p>Update translations (ca, es, es_SV, sk, te, vi, zh_CN)</p></li>
+</ul>
+<p>More info at <a class="reference external" href="https://launchpad.net/schooltool/+release/1.4.1">https://launchpad.net/schooltool/+release/1.4.1</a></p>
+</section>
+<section id="id5">
+<h3>1.4.0 (2010-05-21)<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<p>This is a final release for Lucid.</p>
+<ul class="simple">
+<li><p>Fix Timetable Schemas page for non-manager users (<a class="reference external" href="https://launchpad.net/bugs/545780">https://launchpad.net/bugs/545780</a>)</p></li>
+<li><p>Fix timetable display when first day of the week is empty (<a class="reference external" href="https://launchpad.net/bugs/545763">https://launchpad.net/bugs/545763</a>)</p></li>
+<li><p>Fix timetable plugin for sampledata (<a class="reference external" href="https://launchpad.net/bugs/306107">https://launchpad.net/bugs/306107</a>)</p></li>
+<li><p>Translate “Confirm” button in delete forms correctly.</p></li>
+<li><p>Update translations</p></li>
+</ul>
+<p>More info at <a class="reference external" href="https://launchpad.net/schooltool/+release/1.4.0">https://launchpad.net/schooltool/+release/1.4.0</a></p>
+</section>
+<section id="id6">
+<h3>1.3.2 (2010-04-29)<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Added course names to section links in the person view, sorting Sections and
+Groups links by school year (<a class="reference external" href="https://launchpad.net/bugs/545793">https://launchpad.net/bugs/545793</a>)</p></li>
+<li><p>Made edit links on person, section and group views available only to managers (<a class="reference external" href="https://launchpad.net/bugs/361436">https://launchpad.net/bugs/361436</a>)</p></li>
+<li><p>Display resources of calendar events on weekly view (<a class="reference external" href="https://launchpad.net/bugs/540099">https://launchpad.net/bugs/540099</a>)</p></li>
+<li><p>Changed old Zonki in pdf footers (<a class="reference external" href="https://launchpad.net/bugs/561558">https://launchpad.net/bugs/561558</a>)</p></li>
+<li><p>Use semicolon to separate instructors in section’s label (<a class="reference external" href="https://launchpad.net/bugs/558911">https://launchpad.net/bugs/558911</a>)</p></li>
+<li><p>Prevent the user to enter non-ascii usernames (<a class="reference external" href="https://launchpad.net/bugs/397610">https://launchpad.net/bugs/397610</a>)</p></li>
+<li><p>Update translations</p></li>
+</ul>
+<p>More info at <a class="reference external" href="https://launchpad.net/schooltool/+release/1.3.2">https://launchpad.net/schooltool/+release/1.3.2</a></p>
+</section>
+<section id="id7">
+<h3>1.3.1 (2010-04-07)<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Reduce dependency on <code class="docutils literal notranslate"><span class="pre">zope.app.*</span></code> packages</p></li>
+<li><p>Allow advisors to view person info (<a class="reference external" href="https://launchpad.net/bugs/513064">https://launchpad.net/bugs/513064</a>)</p></li>
+<li><p>Flag to disable mail server (<a class="reference external" href="https://launchpad.net/bugs/513026">https://launchpad.net/bugs/513026</a>)</p></li>
+<li><p>Added action to send emails to student contacts (<a class="reference external" href="https://launchpad.net/bugs/496255">https://launchpad.net/bugs/496255</a>)</p></li>
+<li><p>Formatted email form notifications (<a class="reference external" href="https://launchpad.net/bugs/497492">https://launchpad.net/bugs/497492</a>)</p></li>
+<li><p>Fixed broken FCK Editor in some views (<a class="reference external" href="https://launchpad.net/bugs/556478">https://launchpad.net/bugs/556478</a>)</p></li>
+<li><p>Added a “neutral” submit button style (<a class="reference external" href="https://launchpad.net/bugs/424510">https://launchpad.net/bugs/424510</a>)</p></li>
+<li><p>Added security descriptions tutorial</p></li>
+<li><p>Update translations</p></li>
+</ul>
+<p>More info at <a class="reference external" href="https://launchpad.net/schooltool/+release/1.3.1">https://launchpad.net/schooltool/+release/1.3.1</a></p>
+</section>
+<section id="id8">
+<h3>1.3.0 (2010-01-06)<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Port to zope versions available in karmic <a class="reference external" href="https://launchpad.net/bugs/498803">https://launchpad.net/bugs/498803</a></p></li>
+<li><p>Update translations</p></li>
+</ul>
+</section>
+</section>
+<section id="schooltool-gradebook">
+<h2>SchoolTool Gradebook<a class="headerlink" href="#schooltool-gradebook" title="Link to this heading">¶</a></h2>
+<section id="id9">
+<h3>0.7.3 (2010-10-27)<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Grades rounding mismatch (<a class="reference external" href="https://launchpad.net/bugs/585796">https://launchpad.net/bugs/585796</a>)</p></li>
+<li><p>Calculate average grade with more precision (<a class="reference external" href="https://launchpad.net/bugs/333971">https://launchpad.net/bugs/333971</a>)</p></li>
+<li><p>Use fixed precision for total and linked columns (<a class="reference external" href="https://launchpad.net/bugs/650838">https://launchpad.net/bugs/650838</a>)</p></li>
+<li><p>Fix to let students view section’s gradebook.</p></li>
+<li><p>Cosmetic fixes in various pages.</p></li>
+<li><p>Updated translations (es, lt, nl)</p></li>
+</ul>
+</section>
+<section id="id10">
+<h3>0.7.2 (2010-09-16)<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h3>
+<section id="new-features">
+<h4>New features<a class="headerlink" href="#new-features" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>CSV export of all sections’ grades (requested by SLA)</p></li>
+<li><p>Custom Score Systems need min/max passing scores (<a class="reference external" href="https://launchpad.net/bugs/616451">https://launchpad.net/bugs/616451</a>)</p></li>
+</ul>
+</section>
+<section id="bug-fixes">
+<h4>Bug fixes<a class="headerlink" href="#bug-fixes" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Fixed Gradebook doesn’t remember last section visited (<a class="reference external" href="https://launchpad.net/bugs/623507">https://launchpad.net/bugs/623507</a>)</p></li>
+<li><p>Fixed deletion of report activities (<a class="reference external" href="https://launchpad.net/bugs/627490">https://launchpad.net/bugs/627490</a>)</p></li>
+<li><p>Fixed exception deploying a report sheet when no templates exist (<a class="reference external" href="https://launchpad.net/bugs/592144">https://launchpad.net/bugs/592144</a>)</p></li>
+<li><p>“Enter” in gradebook should not submit form (<a class="reference external" href="https://launchpad.net/bugs/615957">https://launchpad.net/bugs/615957</a>)</p></li>
+<li><p>Updated translations (el, en, es, fr, it, nl)</p></li>
+</ul>
+</section>
+</section>
+<section id="id11">
+<h3>0.7.1 (2010-06-25)<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fixed accessing gradebook if last visited section was deleted (<a class="reference external" href="https://launchpad.net/bugs/591872">https://launchpad.net/bugs/591872</a>)</p></li>
+<li><p>Fixed all averages displayed as “A” (<a class="reference external" href="https://launchpad.net/bugs/596311">https://launchpad.net/bugs/596311</a>)</p></li>
+<li><p>Fix a crash in manage Activity categories (<a class="reference external" href="https://launchpad.net/bugs/585805">https://launchpad.net/bugs/585805</a>)</p></li>
+<li><p>Updated translations (es, ru, tr)</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3>0.7.0 (2010-05-20)<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h3>
+<p>Stable release to go with SchoolTool 1.4.0.</p>
+<ul class="simple">
+<li><p>Fixed failing ranged score system for report activities when using non-english views (<a class="reference external" href="https://launchpad.net/bugs/581825">https://launchpad.net/bugs/581825</a>)</p></li>
+<li><p>Made the gradebook to stop creating a default worksheet if there are report sheets deployed (<a class="reference external" href="https://launchpad.net/bugs/579720">https://launchpad.net/bugs/579720</a>)</p></li>
+<li><p>Made ‘Apply’ button translatable in edit form of report activities</p></li>
+<li><p>Improved due filter message id in the gradebook overview</p></li>
+<li><p>Fixed typo (<a class="reference external" href="https://launchpad.net/bugs/582436">https://launchpad.net/bugs/582436</a>)</p></li>
+<li><p>Updated translations</p></li>
+</ul>
+</section>
+<section id="id13">
+<h3>0.6.2 (2010-04-28)<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Added user preference to hide the due date filter</p></li>
+<li><p>Students should be able to view activity descriptions (<a class="reference external" href="https://launchpad.net/bugs/306553">https://launchpad.net/bugs/306553</a>)</p></li>
+<li><p>Fixed gradebook pdf to break across pages better (<a class="reference external" href="https://launchpad.net/bugs/356544">https://launchpad.net/bugs/356544</a>)</p></li>
+<li><p>Added support for comment score system values in student grades view</p></li>
+<li><p>Add margin of 1em where appropriate (<a class="reference external" href="https://launchpad.net/bugs/513473">https://launchpad.net/bugs/513473</a>)</p></li>
+<li><p>Fixed “Workheet” typo (<a class="reference external" href="https://launchpad.net/bugs/558472">https://launchpad.net/bugs/558472</a>)</p></li>
+<li><p>Make score systems texts translatable</p></li>
+<li><p>Include compiled translations in the tarball</p></li>
+<li><p>Updated translations (da, de, es, pl, pt_BR, vi)</p></li>
+</ul>
+</section>
+<section id="id14">
+<h3>0.6.1 (2010-02-24)<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Main “Gradebook” link now remembers last section (<a class="reference external" href="https://launchpad.net/bugs/513246">https://launchpad.net/bugs/513246</a>)</p></li>
+<li><p>Add gradebook pdf (<a class="reference external" href="https://launchpad.net/bugs/509672">https://launchpad.net/bugs/509672</a>)</p></li>
+<li><p>Add request page for report cards (<a class="reference external" href="https://launchpad.net/bugs/485595">https://launchpad.net/bugs/485595</a>)</p></li>
+<li><p>Overhauled report card layout view for easier use (<a class="reference external" href="https://launchpad.net/bugs/485609">https://launchpad.net/bugs/485609</a>)</p></li>
+<li><p>Ability to unhide worksheets (<a class="reference external" href="https://launchpad.net/bugs/511246">https://launchpad.net/bugs/511246</a>)</p></li>
+<li><p>Linked columns that link to hidden worksheets will now also be hidden</p></li>
+<li><p>Fix gradebook crashes with linked activities (<a class="reference external" href="https://launchpad.net/bugs/513351">https://launchpad.net/bugs/513351</a>)</p></li>
+<li><p>Fix viewing gradebook for sections without courses (<a class="reference external" href="https://launchpad.net/bugs/484485">https://launchpad.net/bugs/484485</a>)</p></li>
+<li><p>Accept the term filter for student reports</p></li>
+<li><p>Fix removing scores from gradebook</p></li>
+<li><p>Left-justify names in gradebook overview (<a class="reference external" href="https://launchpad.net/bugs/513469">https://launchpad.net/bugs/513469</a>)</p></li>
+<li><p>Add security descriptions (<a class="reference external" href="https://launchpad.net/bugs/513476">https://launchpad.net/bugs/513476</a>)</p></li>
+<li><p>Administration can grade students if that is enabled in access control
+(<a class="reference external" href="https://launchpad.net/bugs/517201">https://launchpad.net/bugs/517201</a>)</p></li>
+<li><p>Made cell ids predictable for selenium scripts (<a class="reference external" href="https://launchpad.net/bugs/422641">https://launchpad.net/bugs/422641</a>)</p></li>
+<li><p>Reduce dependency on <code class="docutils literal notranslate"><span class="pre">zope.app.*</span></code> packages</p></li>
+<li><p>Update translations (es, fi, nl, pl, pt)</p></li>
+</ul>
+</section>
+<section id="id15">
+<h3>0.6.0 (2010-01-06)<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Port to zope versions available in karmic <a class="reference external" href="https://launchpad.net/bugs/498803">https://launchpad.net/bugs/498803</a></p></li>
+</ul>
+</section>
+</section>
+<section id="schooltool-intervention">
+<h2>SchoolTool Intervention<a class="headerlink" href="#schooltool-intervention" title="Link to this heading">¶</a></h2>
+<section id="id16">
+<h3>0.3.3 (2010-10-27)<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Change style of some buttons to neutral (<a class="reference external" href="https://launchpad.net/bugs/613571">https://launchpad.net/bugs/613571</a>)</p></li>
+<li><p>Do not crash if persons are removed or don’t have email</p></li>
+<li><p>Added and updated translations (it, nl, pt_BR, sk)</p></li>
+</ul>
+</section>
+<section id="id17">
+<h3>0.3.2 (2010-07-15)<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Added and updated translations (es_SV, it, pl, pt_BR, ru)</p></li>
+</ul>
+</section>
+<section id="id18">
+<h3>0.3.1 (2010-04-28)<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix Interventions Messages Layout (<a class="reference external" href="https://launchpad.net/bugs/561753">https://launchpad.net/bugs/561753</a>)</p></li>
+<li><p>Updated translations (es, vi)</p></li>
+</ul>
+</section>
+<section id="id19">
+<h3>0.3.0 (2010-04-08)<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Multiple UI changes including new dashboard page</p></li>
+<li><p>Refactored intervention security model</p></li>
+<li><p>Created security descriptions (<a class="reference external" href="https://launchpad.net/bugs/513476">https://launchpad.net/bugs/513476</a>)</p></li>
+<li><p>Need user interventions dashboard (<a class="reference external" href="https://launchpad.net/bugs/507313">https://launchpad.net/bugs/507313</a>)</p></li>
+<li><p>Better css for goal add/edit and other intervention views (<a class="reference external" href="https://launchpad.net/bugs/513466">https://launchpad.net/bugs/513466</a>)</p></li>
+<li><p>Evolution script and subscriber for person removal (<a class="reference external" href="https://launchpad.net/bugs/523274">https://launchpad.net/bugs/523274</a>)</p></li>
+<li><p>Need evolution script and subscriber for schoolyear deletion (<a class="reference external" href="https://launchpad.net/bugs/523261">https://launchpad.net/bugs/523261</a>)</p></li>
+<li><p>Search student view now also matches on username</p></li>
+<li><p>Do not crash when there are no terms set up (<a class="reference external" href="https://launchpad.net/bugs/480616">https://launchpad.net/bugs/480616</a>, <a class="reference external" href="https://launchpad.net/bugs/540530">https://launchpad.net/bugs/540530</a>)</p></li>
+<li><p>Added first translations (es, fi, nl, vi)</p></li>
+</ul>
+<p>More info at <a class="reference external" href="https://launchpad.net/schooltool.intervention/+release/0.3.0">https://launchpad.net/schooltool.intervention/+release/0.3.0</a></p>
+</section>
+<section id="id20">
+<h3>0.2.1 (2010-02-10)<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix evolution scripts if there is no container yet (<a class="reference external" href="https://launchpad.net/bugs/515863">https://launchpad.net/bugs/515863</a>)</p></li>
+</ul>
+</section>
+<section id="id21">
+<h3>0.2.0 (2010-01-06)<a class="headerlink" href="#id21" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Port to zope versions available in karmic <a class="reference external" href="https://launchpad.net/bugs/498803">https://launchpad.net/bugs/498803</a></p></li>
+</ul>
+</section>
+</section>
+<section id="schooltool-lyceum-journal">
+<h2>SchoolTool Lyceum Journal<a class="headerlink" href="#schooltool-lyceum-journal" title="Link to this heading">¶</a></h2>
+<section id="id22">
+<h3>0.6.1 (2010-10-20)<a class="headerlink" href="#id22" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Update translations</p></li>
+</ul>
+</section>
+<section id="id23">
+<h3>0.6.0 (2010-05-26)<a class="headerlink" href="#id23" title="Link to this heading">¶</a></h3>
+<p>This release goes with SchoolTool 1.4.0</p>
+<ul class="simple">
+<li><p>Link to Schedule instead of Timetables when there are no periods.
+(<a class="reference external" href="https://launchpad.net/bugs/389563">https://launchpad.net/bugs/389563</a>)</p></li>
+<li><p>Update translations</p></li>
+</ul>
+</section>
+<section id="id24">
+<h3>0.5.3 (2010-04-27)<a class="headerlink" href="#id24" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix crash with non-ascii usernames (<a class="reference external" href="https://launchpad.net/bugs/495872">https://launchpad.net/bugs/495872</a>)</p></li>
+<li><p>Rename journal tab to “Attendance” for students (<a class="reference external" href="https://launchpad.net/bugs/557450">https://launchpad.net/bugs/557450</a>)</p></li>
+<li><p>Update translations (mn, fi, bg), fix or delete wrong translations.</p></li>
+</ul>
+</section>
+<section id="id25">
+<h3>0.5.2 (2010-04-09)<a class="headerlink" href="#id25" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Add security descriptions (<a class="reference external" href="https://launchpad.net/bugs/513476">https://launchpad.net/bugs/513476</a>)</p></li>
+<li><p>Update translations</p></li>
+</ul>
+</section>
+<section id="id26">
+<h3>0.5.1 (2010-02-05)<a class="headerlink" href="#id26" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Reduce dependencies</p></li>
+<li><p>Fix to work with zc.table &gt;= 0.7.0</p></li>
+<li><p>Update translations</p></li>
+</ul>
+</section>
+<section id="id27">
+<h3>0.5.0 (2010-01-06)<a class="headerlink" href="#id27" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Port to zope versions available in karmic <a class="reference external" href="https://launchpad.net/bugs/498803">https://launchpad.net/bugs/498803</a></p></li>
+<li><p>Update translations</p></li>
+</ul>
+</section>
+</section>
+<section id="schooltool-cas">
+<h2>SchoolTool CAS<a class="headerlink" href="#schooltool-cas" title="Link to this heading">¶</a></h2>
+<section id="id28">
+<h3>0.4.2 (2010-07-01)<a class="headerlink" href="#id28" title="Link to this heading">¶</a></h3>
+<p>Final release for SchoolTool 1.4</p>
+</section>
+<section id="id29">
+<h3>0.4.1 (2010-04-09)<a class="headerlink" href="#id29" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Remove dependency on <code class="docutils literal notranslate"><span class="pre">zope.app.security</span></code></p></li>
+<li><p>Minor build improvements, add license, etc.</p></li>
+</ul>
+</section>
+<section id="id30">
+<h3>0.4.0 (2010-01-06)<a class="headerlink" href="#id30" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Fix for stricter redirect rules in newer zope.publisher</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">1.4 Release Notes</a><ul>
+<li><a class="reference internal" href="#schooltool">SchoolTool</a></li>
+<li><a class="reference internal" href="#schooltool-gradebook">SchoolTool Gradebook</a></li>
+<li><a class="reference internal" href="#schooltool-intervention">SchoolTool Intervention</a></li>
+<li><a class="reference internal" href="#schooltool-lyceum-journal">SchoolTool Lyceum Journal</a></li>
+<li><a class="reference internal" href="#schooltool-cas">SchoolTool CAS</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="1.5-release-notes.html"
+                          title="previous chapter">1.5 Release Notes</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="1.2-release-notes.html"
+                          title="next chapter">1.2 Release Notes</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/1.4-release-notes.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Ark project specific functionality &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Testing" href="testing.html" />
+    <link rel="prev" title="How to add a new XLS report" href="report_example.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="testing.html" title="Testing"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="report_example.html" title="How to add a new XLS report"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="developers.html" accesskey="U">Developers’ Handbook</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Ark project specific functionality</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="ark-project-specific-functionality">
+<h1>Ark project specific functionality<a class="headerlink" href="#ark-project-specific-functionality" title="Link to this heading">¶</a></h1>
+<p>The organization of the custom functionality used by the schools networks associated with Ark is somewhat influenced by the sequence in which it was developed.  Peas was the first customer, with no specific plans to add additional networks.  When Rising and then ISLI were added, we knew we would need to maintain some shared packages used by all the Ark clients, as well as specific customizations for each network.  We then backported Peas to use the shared packages, but it is still has more site-specific code than the other two.</p>
+<section id="shared-functionality-across-all-projects">
+<h2>Shared functionality across all projects<a class="headerlink" href="#shared-functionality-across-all-projects" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">schooltool.ark</span></code> package has the functionality that the three ARK projects share. The main development branch in Launchpad is <a class="reference external" href="https://code.launchpad.net/~sielibre/schooltool.ark/trunk">lp:schooltool.ark</a>.</p>
+<section id="assessment">
+<h3>Assessment<a class="headerlink" href="#assessment" title="Link to this heading">¶</a></h3>
+<p>The assessment functionality is based on the <code class="docutils literal notranslate"><span class="pre">AssessmentSetContainer</span></code> object that you can get from a <code class="docutils literal notranslate"><span class="pre">SchoolYear</span></code> object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">schooltool.ark.interfaces</span> <span class="kn">import</span> <span class="n">IAssesmentSetContainer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">assessment_set_container</span> <span class="o">=</span> <span class="n">IAssessmentSetContainer</span><span class="p">(</span><span class="n">schoolyear</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is a container for <code class="docutils literal notranslate"><span class="pre">AssessmentSet</span></code> objects:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">schooltool.ark.assessment</span> <span class="kn">import</span> <span class="n">AssessmentSet</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">term_1_set</span> <span class="o">=</span> <span class="n">AssessmentSet</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">term_1_set</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">u</span><span class="err">’</span><span class="n">Term</span> <span class="mi">1</span> <span class="n">Assessment</span><span class="err">’</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">assessment_set_container</span><span class="p">[</span><span class="err">‘</span><span class="n">term</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">assessment</span><span class="err">’</span><span class="p">]</span> <span class="o">=</span> <span class="n">term_1_set</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">AssessmentSet</span></code> objects are ordered containers for <code class="docutils literal notranslate"><span class="pre">AssessmentSheet</span></code> objects:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; from schooltool.ark.assessment import AssessmentSheet
+&gt;&gt;&gt; sheet = AssessmentSheet()
+&gt;&gt;&gt; sheet.title = u’Quizzes’
+&gt;&gt;&gt; sheet.points = 40
+&gt;&gt;&gt; term_1_set[‘quizzes’] = sheet
+</pre></div>
+</div>
+<p>The points value of sheets is used in weighted average calculations.</p>
+<p>Assessment sets are related to <code class="docutils literal notranslate"><span class="pre">Course</span></code> objects through the <code class="docutils literal notranslate"><span class="pre">CourseAssessmentSets</span></code> object that you can get from a course like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; from schooltool.course.interfaces import ICourseContainer
+&gt;&gt;&gt; from schooltool.ark.interfaces import ICourseAssessmentSets
+&gt;&gt;&gt; courses = ICourseContainer(schoolyear)
+&gt;&gt;&gt; math = courses[‘math’]
+&gt;&gt;&gt; course_assessment_sets = ICourseAssessmentSets(math)
+</pre></div>
+</div>
+<p>Then you can store references to assessment sets by term:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; term = schoolyear[‘term-1’]
+&gt;&gt;&gt; course_assessment_sets.assessment_sets[term.__name__] = term_1_set
+</pre></div>
+</div>
+<p>Gradebook worksheets will be created for the course’s sections for the relevant term based on the assessment sheets of the assessment set. Teachers can add activities to these worksheet at will.</p>
+<p>If a new section is added to a course, it will receive all the sheets for that term.</p>
+</section>
+<section id="behaviour">
+<h3>Behaviour<a class="headerlink" href="#behaviour" title="Link to this heading">¶</a></h3>
+<p>You can get the <code class="docutils literal notranslate"><span class="pre">BehaviourContainer</span></code> for a person like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; from schooltool.ark.interfaces import IBehaviourContainer
+&gt;&gt;&gt; tom = persons[‘tom.hoffman’]
+&gt;&gt;&gt; tom_behaviour = IBehaviourContainer(tom)
+</pre></div>
+</div>
+<p>Then you can add <code class="docutils literal notranslate"><span class="pre">Behaviour</span></code> objects to it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; from datetime import date
+&gt;&gt;&gt; from schooltool.ark.behaviour import Behaviour
+&gt;&gt;&gt; note = Behaviour()
+&gt;&gt;&gt; # Check the schooltool.ark.interfaces.IBehaviour interface
+&gt;&gt;&gt; note.date = date(2016, 9, 1)
+&gt;&gt;&gt; note.category = ‘negative’
+&gt;&gt;&gt; note.actions = [‘point’, ‘parents’]
+&gt;&gt;&gt; note.body = ‘&lt;p&gt;Called parents because of constant absenteeism&lt;/p&gt;’
+&gt;&gt;&gt; note.editors.add(persons[‘manager’])
+&gt;&gt;&gt; tom_behaviour[‘note’] = note
+</pre></div>
+</div>
+</section>
+<section id="dashboard">
+<h3>Dashboard<a class="headerlink" href="#dashboard" title="Link to this heading">¶</a></h3>
+<p>The dashboard stores cached calculations for different school year based values that are used in the Dashboard view:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Student and teacher enrollment</p></li>
+<li><p>Student enrollment by stream</p></li>
+<li><p>Student and teacher attendance (yearly and by week)</p></li>
+<li><p>Student assessment</p></li>
+</ul>
+</div></blockquote>
+<p>You can get a school year’s dashboard cache like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">schooltool.ark.interfaces</span> <span class="kn">import</span> <span class="n">IDashboardCache</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cache</span> <span class="o">=</span> <span class="n">IDashboardCache</span><span class="p">(</span><span class="n">schoolyear</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="demographics-fields">
+<h3>Demographics fields<a class="headerlink" href="#demographics-fields" title="Link to this heading">¶</a></h3>
+<p>All ARK projects define their own custom demographics fields. They’re defined in the <code class="docutils literal notranslate"><span class="pre">demographics.py</span></code> modules of each project.</p>
+</section>
+<section id="look-and-feel">
+<h3>Look and feel<a class="headerlink" href="#look-and-feel" title="Link to this heading">¶</a></h3>
+<p>All ARK projects override SchoolTool’s default page header to customize the color and log of the navigation area.</p>
+</section>
+<section id="reports">
+<h3>Reports<a class="headerlink" href="#reports" title="Link to this heading">¶</a></h3>
+<p>Unfortunately, the many and often complex reports created for the Ark networks were added over time in a rather <em>ad hoc</em> manner on tight deadlines.  As a result, there is no real API and much less shared code than there ought to be.  This makes the body of reports very sensitive to changes in the codebase and subtle inconsistencies in the way various statistics are calculated.</p>
+<p>This is the most likely source of bugs in the system and should be a priority for cleanup and maintenance.</p>
+</section>
+</section>
+<section id="peas">
+<h2>PEAS<a class="headerlink" href="#peas" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">schooltool.peas</span></code> package has the PEAS specific functionality. The main development branch in Launchpad is <a class="reference external" href="https://code.launchpad.net/~sielibre/schooltool.peas/trunk">lp:schooltool.peas</a>.</p>
+<section id="id1">
+<h3>Assessment<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>The assessment system in Uganda is painfully complex, and to understand fully how it is supposed to be implemented you will probably need some additional explanation and documentation from Peas and/or Ayesha.</p>
+<p>The assessment structure is not based on flexible assessment sets containing assessment sheets, but on a simpler hard-coded structure stored in the <code class="docutils literal notranslate"><span class="pre">AssessmentPreferences</span></code> object that you can get for a year:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">schooltool.peas.assessment</span> <span class="kn">import</span> <span class="n">IAssessmentPreferences</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">preferences</span> <span class="o">=</span> <span class="n">IAssessmentPreferences</span><span class="p">(</span><span class="n">schoolyear</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This object carries attributes that specify which gradebook worksheets should be enabled for any section:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bot</span></code>: Beginning of Term sheet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mot</span></code>: Middle of Term sheet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eot</span></code>: End of Term sheet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mock</span></code>: MOCK - PEAS sheet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mock_other</span></code>: MOCK - Other sheet</p></li>
+</ul>
+</div></blockquote>
+<p>Other preferences stored in this object include weights for the term sheets and options for defining in which terms should the MOCK sheets be deployed. See the <code class="docutils literal notranslate"><span class="pre">schooltool.peas.assessment.IAssessmentPreferences</span></code> interface.</p>
+<p>Also, all the courses get a “Target” sheet on the section of the first term of the school year.</p>
+</section>
+<section id="division-scores">
+<h3>Division scores<a class="headerlink" href="#division-scores" title="Link to this heading">¶</a></h3>
+<p>A custom discrete score system has been added for calculating division scores based on the <code class="docutils literal notranslate"><span class="pre">schooltool.peas.assessment.PEASScoreSystem</span></code> object.</p>
+<p>Division scores are calculated by organizing courses in four different areas (Humanities, Science, English and Mathematics), setting the minimum value of 6 as a “credit level” score and applying different sets of rules to get each division.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">schooltool.peas.assessment.find_division</span></code> function takes a list of tuples of (course government_id codes, score) and calculates the division score based on different rules.</p>
+<p>For example the rule for a “Division 1” score is: <strong>Pass a minimum of eight subjects which must include English (with credit level), a Humanity subject, Mathematics and a Science subject. At least seven of the subjects must be a credit level or better. The aggregate for the best eight done subjects must not exceed 32</strong></p>
+</section>
+<section id="report-card">
+<h3>Report card<a class="headerlink" href="#report-card" title="Link to this heading">¶</a></h3>
+<p>PEAS has its own term report card. It’s a PDF report coded in the <code class="docutils literal notranslate"><span class="pre">schooltool.peas.browser.assessment.TermReportCardPDFView</span></code> class.</p>
+</section>
+</section>
+<section id="rising">
+<h2>Rising<a class="headerlink" href="#rising" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">schooltool.rising</span></code> package has the Rising Academies specific functionality. The main development branch in Launchpad is <a class="reference external" href="https://code.launchpad.net/~sielibre/schooltool.rising/trunk">lp:schooltool.rising</a>.</p>
+<section id="id2">
+<h3>Assessment<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>All the courses get a “Target” sheet on the section of the first term of the school year.</p>
+</section>
+<section id="id3">
+<h3>Report card<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p>Rising has its own term report card. It’s a PDF report coded in the <code class="docutils literal notranslate"><span class="pre">schooltool.rising.browser.assessment.TermReportCardPDFView</span></code> class.</p>
+</section>
+<section id="contact-fields">
+<h3>Contact fields<a class="headerlink" href="#contact-fields" title="Link to this heading">¶</a></h3>
+<p>Rising provides additional demographics fields for student contacts. See the <code class="docutils literal notranslate"><span class="pre">schooltool.rising.contact</span></code> module. This functionality is also integrated in the standard XLS importer/exporter.</p>
+</section>
+</section>
+<section id="isli">
+<h2>ISLI<a class="headerlink" href="#isli" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">schooltool.isli</span></code> package has the ISLI specific functionality. The main development branch in Launchpad is <a class="reference external" href="https://code.launchpad.net/~sielibre/schooltool.isli/trunk">lp:schooltool.isli</a>.</p>
+</section>
+<section id="how-to-set-up-a-development-sandbox">
+<h2>How to set up a development sandbox<a class="headerlink" href="#how-to-set-up-a-development-sandbox" title="Link to this heading">¶</a></h2>
+<p>First branch the <em>base</em> branches:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">mysandbox</span>
+<span class="n">cd</span> <span class="n">mysandbox</span>
+<span class="n">bzr</span> <span class="n">branch</span> <span class="n">lp</span><span class="p">:</span><span class="o">~</span><span class="n">schooltool</span><span class="o">-</span><span class="n">owners</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">ark</span> <span class="n">schooltool</span>
+<span class="n">bzr</span> <span class="n">branch</span> <span class="n">lp</span><span class="p">:</span><span class="o">~</span><span class="n">schooltool</span><span class="o">-</span><span class="n">owners</span><span class="o">/</span><span class="n">schooltool</span><span class="o">.</span><span class="n">gradebook</span><span class="o">/</span><span class="n">ark</span> <span class="n">schooltool</span><span class="o">.</span><span class="n">gradebook</span>
+<span class="n">bzr</span> <span class="n">branch</span> <span class="n">lp</span><span class="p">:</span><span class="o">~</span><span class="n">schooltool</span><span class="o">-</span><span class="n">owners</span><span class="o">/</span><span class="n">schooltool</span><span class="o">.</span><span class="n">lyceum</span><span class="o">.</span><span class="n">journal</span><span class="o">/</span><span class="n">ark</span> <span class="n">schooltool</span><span class="o">.</span><span class="n">lyceum</span><span class="o">.</span><span class="n">journal</span>
+<span class="n">bzr</span> <span class="n">branch</span> <span class="n">lp</span><span class="p">:</span><span class="n">schooltool</span><span class="o">.</span><span class="n">ark</span>
+<span class="n">bzr</span> <span class="n">branch</span> <span class="n">lp</span><span class="p">:</span><span class="n">schooltool</span><span class="o">.</span><span class="n">fee</span>
+</pre></div>
+</div>
+<p>Then branch the <em>project specific</em> branches:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bzr</span> <span class="n">branch</span> <span class="n">lp</span><span class="p">:</span><span class="n">schooltool</span><span class="o">.</span><span class="n">peas</span>
+<span class="n">bzr</span> <span class="n">branch</span> <span class="n">lp</span><span class="p">:</span><span class="n">schooltool</span><span class="o">.</span><span class="n">isli</span>
+<span class="n">bzr</span> <span class="n">branch</span> <span class="n">lp</span><span class="p">:</span><span class="n">schooltool</span><span class="o">.</span><span class="n">rising</span>
+</pre></div>
+</div>
+<p>Now when you want to work on a project branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">schooltool</span><span class="o">.</span><span class="n">isli</span>
+</pre></div>
+</div>
+<p>Set the development environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">develop</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Due to incomplete configuration this command could throw an error at first.</p>
+</div>
+<p>Edit the <code class="docutils literal notranslate"><span class="pre">buildout.cfg</span></code> file and change the <code class="docutils literal notranslate"><span class="pre">develop</span> <span class="pre">=</span> <span class="pre">.</span></code> line to add the <em>base</em> branches:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">develop</span> <span class="o">=</span> <span class="o">.</span> <span class="o">../</span><span class="n">schooltool</span> <span class="o">../</span><span class="n">schooltool</span><span class="o">.</span><span class="n">gradebook</span> <span class="o">../</span><span class="n">schooltool</span><span class="o">.</span><span class="n">lyceum</span><span class="o">.</span><span class="n">journal</span> <span class="o">../</span><span class="n">schooltool</span><span class="o">.</span><span class="n">ark</span> <span class="o">../</span><span class="n">schooltool</span><span class="o">.</span><span class="n">fee</span>
+</pre></div>
+</div>
+<p>Then add the <em>base</em> branches to the <code class="docutils literal notranslate"><span class="pre">[versions]</span></code> section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">versions</span><span class="p">]</span>
+<span class="c1"># Unset versions of packages you want to develop</span>
+<span class="n">schooltool</span><span class="o">.</span><span class="n">isli</span> <span class="o">=</span>
+<span class="n">schooltool</span> <span class="o">=</span>
+<span class="n">schooltool</span><span class="o">.</span><span class="n">gradebook</span> <span class="o">=</span>
+<span class="n">schooltool</span><span class="o">.</span><span class="n">lyceum</span><span class="o">.</span><span class="n">journal</span> <span class="o">=</span>
+<span class="n">schooltool</span><span class="o">.</span><span class="n">ark</span> <span class="o">=</span>
+<span class="n">schooltool</span><span class="o">.</span><span class="n">fee</span> <span class="o">=</span>
+</pre></div>
+</div>
+<p>After saving the changes to <code class="docutils literal notranslate"><span class="pre">buildout.cfg</span></code>, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">bin</span><span class="o">/</span><span class="n">buildout</span>
+</pre></div>
+</div>
+<p>The project branch is finally set up.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Ark project specific functionality</a><ul>
+<li><a class="reference internal" href="#shared-functionality-across-all-projects">Shared functionality across all projects</a><ul>
+<li><a class="reference internal" href="#assessment">Assessment</a></li>
+<li><a class="reference internal" href="#behaviour">Behaviour</a></li>
+<li><a class="reference internal" href="#dashboard">Dashboard</a></li>
+<li><a class="reference internal" href="#demographics-fields">Demographics fields</a></li>
+<li><a class="reference internal" href="#look-and-feel">Look and feel</a></li>
+<li><a class="reference internal" href="#reports">Reports</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#peas">PEAS</a><ul>
+<li><a class="reference internal" href="#id1">Assessment</a></li>
+<li><a class="reference internal" href="#division-scores">Division scores</a></li>
+<li><a class="reference internal" href="#report-card">Report card</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rising">Rising</a><ul>
+<li><a class="reference internal" href="#id2">Assessment</a></li>
+<li><a class="reference internal" href="#id3">Report card</a></li>
+<li><a class="reference internal" href="#contact-fields">Contact fields</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#isli">ISLI</a></li>
+<li><a class="reference internal" href="#how-to-set-up-a-development-sandbox">How to set up a development sandbox</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="report_example.html"
+                          title="previous chapter">How to add a new XLS report</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="testing.html"
+                          title="next chapter">Testing</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/ark.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

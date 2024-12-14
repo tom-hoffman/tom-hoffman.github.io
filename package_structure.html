@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Typical structure of a SchoolTool python package &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Packaging and publishing in Launchpad PPA" href="packaging.html" />
+    <link rel="prev" title="Testing" href="testing.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="packaging.html" title="Packaging and publishing in Launchpad PPA"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="testing.html" title="Testing"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="developers.html" accesskey="U">Developers’ Handbook</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Typical structure of a SchoolTool python package</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="typical-structure-of-a-schooltool-python-package">
+<h1>Typical structure of a SchoolTool python package<a class="headerlink" href="#typical-structure-of-a-schooltool-python-package" title="Link to this heading">¶</a></h1>
+<p>In this section we’ll explain the layout of the packages used in SchoolTool. No matter if it’s a “subpackage” like <code class="docutils literal notranslate"><span class="pre">schooltool.course</span></code> or <code class="docutils literal notranslate"><span class="pre">schooltool.basicperson</span></code> or a third party package like <code class="docutils literal notranslate"><span class="pre">schooltool.ark</span></code> the structure is similar.</p>
+<section id="init">
+<h2>__init__<a class="headerlink" href="#init" title="Link to this heading">¶</a></h2>
+<p>The top level directory of a SchoolTool python package has an <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file that converts the directory into a Python package and it’s usually an empty file, but sometimes it may have initialization code or package-level shared attributes like i18n message factories.</p>
+</section>
+<section id="interfaces">
+<h2>interfaces<a class="headerlink" href="#interfaces" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">interfaces</span></code> module defines the external behaviour of the main components in the package and it’s widely used for looking up adapters of that package in the component registry.</p>
+<p>For example to import the group container of a year, coded in the <code class="docutils literal notranslate"><span class="pre">schooltool.group.group</span> <span class="pre">module</span></code>,  from a school year view component, coded in the <code class="docutils literal notranslate"><span class="pre">schooltool.schoolyear.browser.schoolyear</span></code> module we can do it like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.group.interfaces</span> <span class="kn">import</span> <span class="n">IGroupContainer</span>
+<span class="n">schoolyear</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">IGroupContainer</span><span class="p">(</span><span class="n">schoolyear</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We don’t import the adapter code directly, we just look it up by interface.</p>
+</section>
+<section id="configure-zcml">
+<h2>configure.zcml<a class="headerlink" href="#configure-zcml" title="Link to this heading">¶</a></h2>
+<p>SchoolTool python packages are “plugged” in the Zope framework machinery through a <code class="docutils literal notranslate"><span class="pre">configure.zcml</span></code> file. Sometimes there are more top level <code class="docutils literal notranslate"><span class="pre">.zcml</span></code> files included from it.</p>
+<p>This file starts by using some XML namespaces according to the directives needed in the configuration. The most common directives are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">class</span></code> specifies permissions and interfaces implemented by a component</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adapter</span></code> registers components that take other components as their “context” and perform actions based on them</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subscriber</span></code> sets up handler callables that are notified and react when an event in the system happens</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">utility</span></code> registers global components that carries actions independent from the context where they’re used</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="persistent-components-implementation">
+<h2>Persistent components implementation<a class="headerlink" href="#persistent-components-implementation" title="Link to this heading">¶</a></h2>
+<p>Top level modules named after the package main component define their implementation. These components are persisted in the database.</p>
+<p>For example in the <code class="docutils literal notranslate"><span class="pre">schooltool.group</span></code> package there’s a <code class="docutils literal notranslate"><span class="pre">group.py</span></code> module with all the related code for handling <code class="docutils literal notranslate"><span class="pre">Group</span></code> objects.</p>
+<p>Sometimes there may be more a couple of important related components in a single package like the <code class="docutils literal notranslate"><span class="pre">schooltool.course</span></code> package having the <code class="docutils literal notranslate"><span class="pre">course.py</span></code> module for <code class="docutils literal notranslate"><span class="pre">Course</span></code> objects and the <code class="docutils literal notranslate"><span class="pre">section.py</span></code> module for <code class="docutils literal notranslate"><span class="pre">Section</span></code> objects.</p>
+</section>
+<section id="generations-subpackage">
+<h2>generations subpackage<a class="headerlink" href="#generations-subpackage" title="Link to this heading">¶</a></h2>
+<p>Sometimes changes are required in the data model and attributes are added or changed in existing persistent components. The <code class="docutils literal notranslate"><span class="pre">generations</span></code> subpackage contains code for handling those “mutations”. The changes are versioned and handled through an utility.</p>
+</section>
+<section id="test-subpackage">
+<h2>test subpackage<a class="headerlink" href="#test-subpackage" title="Link to this heading">¶</a></h2>
+<p>This subpackage contains unit tests for the main components. They usually don’t need the whole Zope machinery to run. There are also some <code class="docutils literal notranslate"><span class="pre">.txt</span></code> files registered and used as unit tests (called “doctests”).</p>
+</section>
+<section id="locales-directory">
+<h2>locales directory<a class="headerlink" href="#locales-directory" title="Link to this heading">¶</a></h2>
+<p>It contains a <a class="reference external" href="https://www.gnu.org/software/gettext/gettext.html">gettext</a> Portable Object Template (<code class="docutils literal notranslate"><span class="pre">.pot</span></code>) file with all the translatable strings extracted from Python, <code class="docutils literal notranslate"><span class="pre">.zcml</span></code> and page template files. There may also be Portable Object (<code class="docutils literal notranslate"><span class="pre">.po</span></code>) files with translated strings for different languages.</p>
+</section>
+<section id="browser-subpackage">
+<h2>browser subpackage<a class="headerlink" href="#browser-subpackage" title="Link to this heading">¶</a></h2>
+<p>If the package provides HTML or PDF rendering functionality the <code class="docutils literal notranslate"><span class="pre">configure.zcml</span></code> file includes a <code class="docutils literal notranslate"><span class="pre">browser</span></code> subpackage. This subpackage also has <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> and <code class="docutils literal notranslate"><span class="pre">configure.zcml</span></code> files that provide the same functionality described above.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">flourish.zcml</span></code> file in this subpackage specifies the newest view components after a skin reimplementation and it should be authoritative over <code class="docutils literal notranslate"><span class="pre">configure.zcml</span></code>. However <code class="docutils literal notranslate"><span class="pre">configure.zcml</span></code> may still register active components.</p>
+</div>
+<p>The components defined in this subpackage are referred to as “view” components and they include pages and page parts (usually referred as <code class="docutils literal notranslate"><span class="pre">viewlets</span></code>).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">browser</span></code> subpackage may contain some of these directories:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">templates</span></code>: contains <a class="reference external" href="https://docs.zope.org/zope2/zope2book/ZPT.html">Zope Page Template</a> files (with extension <code class="docutils literal notranslate"><span class="pre">.pt</span></code>) for rendering HTML pages or snippets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resources</span></code>: contains JavaScript, CSS or image files used in the layout design of web pages or PDF reports</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rml</span></code>: if a SchoolTool package provides PDF reports this directory contains the <a class="reference external" href="http://www.reportlab.com/software/rml-reference">ReportLab Report Markup Language</a> files for producing the PDF exports</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tests</span></code> and <code class="docutils literal notranslate"><span class="pre">ftests</span></code>: contain unit and functional tests for the old view components. These are mostly deprecated now</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stests</span></code>: contains the newest Selenium functional tests</p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Typical structure of a SchoolTool python package</a><ul>
+<li><a class="reference internal" href="#init">__init__</a></li>
+<li><a class="reference internal" href="#interfaces">interfaces</a></li>
+<li><a class="reference internal" href="#configure-zcml">configure.zcml</a></li>
+<li><a class="reference internal" href="#persistent-components-implementation">Persistent components implementation</a></li>
+<li><a class="reference internal" href="#generations-subpackage">generations subpackage</a></li>
+<li><a class="reference internal" href="#test-subpackage">test subpackage</a></li>
+<li><a class="reference internal" href="#locales-directory">locales directory</a></li>
+<li><a class="reference internal" href="#browser-subpackage">browser subpackage</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="testing.html"
+                          title="previous chapter">Testing</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="packaging.html"
+                          title="next chapter">Packaging and publishing in Launchpad PPA</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/package_structure.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

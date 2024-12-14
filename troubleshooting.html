@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Troubleshooting &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Initial Configuration Steps" href="initial-configuration-toc.html" />
+    <link rel="prev" title="Installing SchoolTool" href="install-2_0.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="initial-configuration-toc.html" title="Initial Configuration Steps"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="install-2_0.html" title="Installing SchoolTool"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Troubleshooting</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h1>
+<p>As of SchoolTool 2.6, the SchoolTool server depends on four running processes to
+work properly.  If SchoolTool is not responding, the first thing to do is issue
+the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo service schooltool status
+</pre></div>
+</div>
+<p>If everything is working properly and running, the output should look like
+something like this (pid and uptime values will vary):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">schooltool</span>                       <span class="n">RUNNING</span>    <span class="n">pid</span> <span class="mi">1411</span><span class="p">,</span> <span class="n">uptime</span> <span class="mi">16</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mi">10</span>
+<span class="n">services</span><span class="p">:</span><span class="n">celery_report</span>           <span class="n">RUNNING</span>    <span class="n">pid</span> <span class="mi">1409</span><span class="p">,</span> <span class="n">uptime</span> <span class="mi">16</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mi">10</span>
+<span class="n">services</span><span class="p">:</span><span class="n">redis</span>                   <span class="n">RUNNING</span>    <span class="n">pid</span> <span class="mi">1405</span><span class="p">,</span> <span class="n">uptime</span> <span class="mi">16</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mi">10</span>
+<span class="n">services</span><span class="p">:</span><span class="n">zeo</span>                     <span class="n">RUNNING</span>    <span class="n">pid</span> <span class="mi">1407</span><span class="p">,</span> <span class="n">uptime</span> <span class="mi">16</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mi">10</span>
+</pre></div>
+</div>
+<p>If one or more of these is not RUNNING, you should try:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo service schooltool stop
+$ sudo service schooltool start
+</pre></div>
+</div>
+<p>and after giving the server time to start – at least a minute just to be sure,
+or until the CPU usage goes down – try again to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo service schooltool status
+</pre></div>
+</div>
+<p>It is useful to know if the server is starting at all or one of the processes is starting and intermittently quitting.</p>
+<p>If your server is memory constrained (under a gigabyte of RAM) and has little or no swap space, the operating system may unpredictably kill one of the SchoolTool processes to save memory.</p>
+<p>The logs are stored in <code class="docutils literal notranslate"><span class="pre">/var/log/schooltool</span></code> with <code class="docutils literal notranslate"><span class="pre">/var/log/schooltool/error.log</span></code> most likely to be relevant if you are having a problem.</p>
+<p>If these steps do not provide enough clues to solve the problem yourself, <em>please</em> <a class="reference external" href="https://bugs.launchpad.net/schooltool-project/+filebug">file a bug on Launchpad</a>.  Include the output from <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">schooltool</span> <span class="pre">status</span></code> and a copy of the <code class="docutils literal notranslate"><span class="pre">error.log</span></code> which you can obtain as so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp /var/log/schooltool/error.log ~/Documents/
+</pre></div>
+</div>
+<p>And attach to the bug report.</p>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="install-2_0.html"
+                          title="previous chapter">Installing SchoolTool</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="initial-configuration-toc.html"
+                          title="next chapter">Initial Configuration Steps</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/troubleshooting.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

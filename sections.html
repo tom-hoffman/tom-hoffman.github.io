@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Creating Sections &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Gradebook, Attendance and Report Cards" href="gradebook-toc.html" />
+    <link rel="prev" title="Groups" href="groups.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="gradebook-toc.html" title="Gradebook, Attendance and Report Cards"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="groups.html" title="Groups"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="populating.html" accesskey="U">Populating Your School</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Creating Sections</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="creating-sections">
+<span id="sections"></span><h1>Creating Sections<a class="headerlink" href="#creating-sections" title="Link to this heading">¶</a></h1>
+<p>Creating Sections – that is, the actual groupings of students and teachers meeting as classes during the Year – is where all the pieces we have constructed thus far come together: Years, Terms, Courses, Timetables and People.</p>
+<p>In primary and secondary schools, “sections” are often referred to as “classes.”  We try to avoid using the term “class” because it has many different meanings – both in schools and in computer programming.  In Moodle and other learning management systems, our “sections” are referred to as “courses.”</p>
+<p>The total number of Sections in a given school quickly multiplies.  In a school with 20 teachers teaching four classes, there will be 80 Sections.  In most cases, you will eventually want to use <a class="reference internal" href="spreadsheet.html#spreadsheet"><span class="std std-ref">Importing and Exporting from Spreadsheet</span></a> to create Sections automatically.  Going through the “manual” process of creating Sections using the web interface will help you understand how Sections work, however.</p>
+<section id="making-a-new-section-via-the-web-interface">
+<h2>Making a New Section Via the Web Interface<a class="headerlink" href="#making-a-new-section-via-the-web-interface" title="Link to this heading">¶</a></h2>
+<p>To create a new Section, you must be logged in as a member of <strong>Clerks</strong>. Navigate to the <strong>School</strong> tab, and click on <strong>Sections</strong>:</p>
+<blockquote>
+<div><img alt="_images/sections-1.png" src="_images/sections-1.png" />
+</div></blockquote>
+<p>Click <strong>Add: Section</strong>.  Select a Course the Section should be associated with, as well as a starting and ending Term.  Note that this Section spans two Terms. The “Title” and “Description” form fields are optional.  If locations have been created via <strong>Resources</strong> (documentation of this needed), they can be selected here.</p>
+<blockquote>
+<div><img alt="_images/sections-2.png" src="_images/sections-2.png" />
+</div></blockquote>
+<p>Click <strong>Submit</strong>:</p>
+<blockquote>
+<div><img alt="_images/sections-3.png" src="_images/sections-3.png" />
+</div></blockquote>
+</section>
+<section id="adding-and-editing-instructors-and-pupils">
+<h2>Adding and Editing Instructors and Pupils<a class="headerlink" href="#adding-and-editing-instructors-and-pupils" title="Link to this heading">¶</a></h2>
+<p>To add an instructor or instructors for the Section, click on the yellow pencil icon next to <strong>Instructors</strong>.  The subsequent form works like the add form for <a class="reference internal" href="groups.html#groups"><span class="std std-ref">Groups</span></a>.  Check the box next to the Person you created in <a class="reference internal" href="user.html#user"><span class="std std-ref">Creating a User Account</span></a>,
+and click <strong>Add</strong>:</p>
+<blockquote>
+<div><img alt="_images/sections-5.png" src="_images/sections-5.png" />
+</div></blockquote>
+<p>Note that instructors gain elevated privileges in a section (for example, to create and score activities or take attendance) whether or not they are members of the “Teacher” Group.</p>
+<p>Click on the yellow pencil icon next to <strong>Students</strong> to add pupils to the Section.  Note that the list of People you may add is not limited to members of the “Student” Group.  Any People in the system can be students in a Section.</p>
+<blockquote>
+<div><img alt="_images/sections-6.png" src="_images/sections-6.png" />
+</div></blockquote>
+<p>The populated Section looks like this:</p>
+<blockquote>
+<div><img alt="_images/sections-8.png" src="_images/sections-8.png" />
+</div></blockquote>
+<p>If the students are all part of a single group, you can use the <strong>Group</strong> menu under search to filter out only the group’s members and then the <strong>Select All</strong> link to check all the boxes with one click.</p>
+<p>Note that the application actually stores Sections spanning multiple Terms as a sequence of linked single-term sections.  If you click on the edit pencil next to Terms you will see:</p>
+<blockquote>
+<div><img alt="_images/sections-4.png" src="_images/sections-4.png" />
+</div></blockquote>
+<p>Each Term has its own enrollment data.  Students that are added or removed from a Section are added or removed from all linked Sections in <em>later</em> terms.  That is, if a student is dropped from the fall semester of this Section, they are also dropped from the spring semester Section.  If a student is added in the spring semester, they are not also added in the fall.  You can disassociate the Sections by clicking <strong>Unlink</strong>.</p>
+</section>
+<section id="scheduling-the-section-into-a-timetable">
+<h2>Scheduling the Section into a Timetable<a class="headerlink" href="#scheduling-the-section-into-a-timetable" title="Link to this heading">¶</a></h2>
+<p>If you have set up Timetables, you can now assign the section’s meeting times.  If you did not create a Timetable, you can still use the Section gradebook and some other SchoolTool functionality, just not anything that is dependent on knowing when the Section meets, like the attendance journal or calendar.</p>
+<p>From the main Section view, click <strong>Add Schedule: School Timetable</strong> in the left sidebar:</p>
+<blockquote>
+<div><img alt="_images/sections-9.png" src="_images/sections-9.png" />
+</div></blockquote>
+<p>Select the relevant Timetable from the menu (we only have one at this point) and the starting and end dates for this particular schedule.  By default this will span the entire Term, but you can assign it to a shorter span if you want to, for example, have the class meet Tuesdays and Thursdays for the first half of the Term and Mondays and Wednesdays for the second half.</p>
+<p>Click <strong>Add</strong>:</p>
+<blockquote>
+<div><img alt="_images/sections-10.png" src="_images/sections-10.png" />
+</div></blockquote>
+<p>This Section meets Monday through Thursday at 10:00.  So we check the appropriate boxes:</p>
+<blockquote>
+<div><img alt="_images/sections-12.png" src="_images/sections-12.png" />
+</div></blockquote>
+<p>If in the Timetable there are consecutive periods which you would like to be treated as a single long period, check the <strong>Treat consecutive periods as a single meeting</strong> box.  The most obvious reason you would want to do this is to count attendance only once at the beginning of a double period.</p>
+<p>Hit <strong>Save</strong>:</p>
+<blockquote>
+<div><img alt="_images/sections-13.png" src="_images/sections-13.png" />
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Creating Sections</a><ul>
+<li><a class="reference internal" href="#making-a-new-section-via-the-web-interface">Making a New Section Via the Web Interface</a></li>
+<li><a class="reference internal" href="#adding-and-editing-instructors-and-pupils">Adding and Editing Instructors and Pupils</a></li>
+<li><a class="reference internal" href="#scheduling-the-section-into-a-timetable">Scheduling the Section into a Timetable</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="groups.html"
+                          title="previous chapter">Groups</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="gradebook-toc.html"
+                          title="next chapter">Gradebook, Attendance and Report Cards</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/sections.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

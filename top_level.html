@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SchoolTool Data Model &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Security policy" href="policy.html" />
+    <link rel="prev" title="SchoolTool Instance" href="instance.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="policy.html" title="Security policy"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="instance.html" title="SchoolTool Instance"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="developers.html" accesskey="U">Developers’ Handbook</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SchoolTool Data Model</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="schooltool-data-model">
+<h1>SchoolTool Data Model<a class="headerlink" href="#schooltool-data-model" title="Link to this heading">¶</a></h1>
+<section id="searching-catalogs">
+<h2>Searching &amp; catalogs<a class="headerlink" href="#searching-catalogs" title="Link to this heading">¶</a></h2>
+<p>SchoolTool takes the approach of avoiding premature optimization in searching in the ZODB and adding catalogs.  That is, catalogs were added to containers that seemed to need them after actual use in the field, but otherwise you search containers through simple traversal.</p>
+<p>Catalogs have the ability to reindex when their definition is changed (like when new indexes are added).  Most of them look for a specific kind of object to index based on their implemented interfaces.</p>
+<p>SchoolTool’s custom cataloging functionality is based on the <code class="docutils literal notranslate"><span class="pre">zc.catalog</span></code> and <code class="docutils literal notranslate"><span class="pre">zope.catalog</span></code> packages.</p>
+<p>Usually to get a catalog you adapt the object container:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">contacts</span> <span class="o">=</span> <span class="n">app</span><span class="p">[</span><span class="s1">&#39;contacts&#39;</span><span class="p">]</span>
+<span class="n">contacts_catalog</span> <span class="o">=</span> <span class="n">ICatalog</span><span class="p">(</span><span class="n">contacts</span><span class="p">)</span>
+
+<span class="n">persons</span> <span class="o">=</span> <span class="n">app</span><span class="p">[</span><span class="s1">&#39;persons&#39;</span><span class="p">]</span>
+<span class="n">persons_catalog</span> <span class="o">=</span> <span class="n">ICatalog</span><span class="p">(</span><span class="n">persons</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then you can use its indexes to search specific properties in the indexed objects. Here we’ll search people with first name ‘Tom’. The <code class="docutils literal notranslate"><span class="pre">apply</span></code> method returns a set of <code class="docutils literal notranslate"><span class="pre">IntId</span></code> identifiers that we turn into actual <code class="docutils literal notranslate"><span class="pre">Person</span></code> objects to print their title:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">zope.intid.interfaces</span> <span class="kn">import</span> <span class="n">IIntIds</span>
+<span class="kn">from</span> <span class="nn">schooltool.table.column</span> <span class="kn">import</span> <span class="n">unindex</span>
+
+<span class="n">ids_utility</span> <span class="o">=</span> <span class="n">getUtility</span><span class="p">(</span><span class="n">IIntIds</span><span class="p">)</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">persons_catalog</span><span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">index</span><span class="o">.</span><span class="n">apply</span><span class="p">({</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="s1">&#39;Tom&#39;</span><span class="p">}):</span>
+    <span class="n">person</span> <span class="o">=</span> <span class="n">ids_utility</span><span class="o">.</span><span class="n">getObject</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="n">person</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+<p>Or you can search using the catalog directly passing the indexes you want to query. Unlike querying indexes directly with <code class="docutils literal notranslate"><span class="pre">apply</span></code>, <code class="docutils literal notranslate"><span class="pre">searchResults</span></code> returns an iterator of content objects:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;Douglas Cerna&#39;</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">contact</span> <span class="ow">in</span> <span class="n">contacts_catalog</span><span class="o">.</span><span class="n">searchResults</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">contact</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+</section>
+<section id="relationships-temporal-and-otherwise">
+<h2>Relationships, temporal and otherwise<a class="headerlink" href="#relationships-temporal-and-otherwise" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">RelationshipProperty</span></code> objects properties are used to link objects.  This is easier to just demonstrate in code.</p>
+<p>We’ll create a temporal relationship between <code class="docutils literal notranslate"><span class="pre">Group</span></code> objects and <code class="docutils literal notranslate"><span class="pre">Person</span></code> objects.</p>
+<p>First you define the roles in the relationship. This relationship will be between a group and a member:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.relationship</span> <span class="kn">import</span> <span class="n">URIObject</span>
+
+<span class="n">URIGroup</span> <span class="o">=</span> <span class="n">URIObject</span><span class="p">(</span>
+    <span class="s1">&#39;http://schooltool.org/ns/membership/group&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Group&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;A role of a containing group.&#39;</span><span class="p">)</span>
+<span class="n">URIMember</span> <span class="o">=</span> <span class="n">URIObject</span><span class="p">(</span>
+    <span class="s1">&#39;http://schooltool.org/ns/membership/member&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Member&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;A group member role.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then we define that this is a temporal relationship.  “Temporal” relationships track the date the relationship becomes active or inactive, and a specific state.  To create non-temporal relationship just use a <code class="docutils literal notranslate"><span class="pre">URIObject</span></code>.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.relationship.temporal</span> <span class="kn">import</span> <span class="n">TemporalURIObject</span>
+
+<span class="n">URIMembership</span> <span class="o">=</span> <span class="n">TemporalURIObject</span><span class="p">(</span>
+    <span class="s1">&#39;http://schooltool.org/ns/membership&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Membership&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;The membership relationship.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And then what kind of relationship it is through a schema:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.relationship</span> <span class="kn">import</span> <span class="n">RelationshipSchema</span>
+
+<span class="n">Membership</span> <span class="o">=</span> <span class="n">RelationshipSchema</span><span class="p">(</span>
+    <span class="n">URIMembership</span><span class="p">,</span>
+    <span class="n">member</span><span class="o">=</span><span class="n">URIMember</span><span class="p">,</span>
+    <span class="n">group</span><span class="o">=</span><span class="n">URIGroup</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then you set a relationship property on a “content” object, in this case <code class="docutils literal notranslate"><span class="pre">Group</span></code>, using the schema and roles defined above:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.relationship</span> <span class="kn">import</span> <span class="n">RelationshipProperty</span>
+
+<span class="k">class</span> <span class="nc">Group</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+
+    <span class="n">members</span> <span class="o">=</span> <span class="n">RelationshipProperty</span><span class="p">(</span><span class="n">URIMembership</span><span class="p">,</span> <span class="n">URIGroup</span><span class="p">,</span> <span class="n">URIMember</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then you link a <code class="docutils literal notranslate"><span class="pre">Group</span></code> object with a <code class="docutils literal notranslate"><span class="pre">Person</span></code> object using the property <code class="docutils literal notranslate"><span class="pre">add</span></code> method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># students_group is Group object</span>
+<span class="n">students_group</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="s1">&#39;students&#39;</span><span class="p">]</span>
+<span class="c1"># tom is Person object</span>
+<span class="n">tom</span> <span class="o">=</span> <span class="n">persons</span><span class="p">[</span><span class="s1">&#39;tom.hoffman&#39;</span><span class="p">]</span>
+<span class="n">students_group</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tom</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Since this is a temporal relationship you can add the link from a starting date:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="n">yesterday</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">students_group</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">yesterday</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tom</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can traverse the relationship property:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># student is a Person object here</span>
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">students_group</span><span class="o">.</span><span class="n">members</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="n">student</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+<p>By default, iterating a relationship property like this will show only “active” objects.</p>
+<p>You can use states in a query to specify which <code class="docutils literal notranslate"><span class="pre">Relationship</span></code> objects you’re looking for:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.relationship.temporal</span> <span class="kn">import</span> <span class="n">INACTIVE</span>
+<span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">students_group</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">INACTIVE</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">student</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Not querying the correct student states is a common a source of bugs.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The interaction between level activation/enrolment and inactivation/unenrolment dates and the end of a <code class="docutils literal notranslate"><span class="pre">Term</span></code> or <code class="docutils literal notranslate"><span class="pre">SchoolYear</span></code> can be tricky, especially for reports.</p>
+</div>
+<p>There is no direct relationship between the dates used in relationships, such as levels, and the beginning and ends of <code class="docutils literal notranslate"><span class="pre">Term</span></code> and <code class="docutils literal notranslate"><span class="pre">SchoolYear</span></code> objects.  By default, the web forms for changing relationships use the current date, but it is editable in the form.</p>
+<p>For example, let’s say the last day of classes is in June 1, but the official end of the <code class="docutils literal notranslate"><span class="pre">SchoolYear</span></code> in SchoolTool is at the end of July.  If graduating students are set as inactive from the <code class="docutils literal notranslate"><span class="pre">Students</span></code> group as of June 1, but a report is run on active students as of the end of the year on July 31, users might still expect to see the graduated (on June 1) students show up in their end of year report.</p>
+<p>There is not necessarily a “correct” way to handle these issues from the application’s point of view, but some kind of logic/policy has to be consistently applied at the user level.</p>
+</section>
+<section id="top-level-containers">
+<h2>Top level containers<a class="headerlink" href="#top-level-containers" title="Link to this heading">¶</a></h2>
+<p>In SchoolTool’s ZODB, we use a number of top-level containers (BTrees) which behave similarly to Python dictionaries.  Objects in these containers are often connected by relationship properties.  Understanding what’s in these containers and how they work is the first step in grokking SchoolTool’s data model.</p>
+<section id="the-schooltool-application">
+<h3>The SchoolTool Application<a class="headerlink" href="#the-schooltool-application" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">SchoolToolApplication</span></code> object is the root and stores all the top level containers in the system. It’s also acts like the root site manager for component look ups.</p>
+<p>You usually get a reference to it by just using the ISchoolToolApplication interface adapter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.app.interfaces</span> <span class="kn">import</span> <span class="n">ISchoolToolApplication</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">ISchoolToolApplication</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the following where we refer to <code class="docutils literal notranslate"><span class="pre">app</span></code> assume it has been assigned this way.</p>
+</section>
+<section id="relationship-states">
+<h3>Relationship States<a class="headerlink" href="#relationship-states" title="Link to this heading">¶</a></h3>
+<p>The codes used in temporal relationships reference relationship state objects.  These objects have a <code class="docutils literal notranslate"><span class="pre">title</span></code>, an <code class="docutils literal notranslate"><span class="pre">active</span></code> attribute and may have a <code class="docutils literal notranslate"><span class="pre">code</span></code>.  The title allows you to define specific variations on the basic states for each use case (enrolment states, group membership states, attendance states, etc.).</p>
+<p>For example to create relationship state objects for the group membership relationship:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.app.interfaces</span> <span class="kn">import</span> <span class="n">IRelationshipStateContainer</span>
+<span class="kn">from</span> <span class="nn">schooltool.relationship.temporal</span> <span class="kn">import</span> <span class="n">INACTIVE</span>
+
+<span class="n">relationship_states</span> <span class="o">=</span> <span class="n">IRelationshipStateContainer</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<span class="n">group_membership_states</span> <span class="o">=</span> <span class="n">relationship_states</span><span class="p">[</span><span class="s1">&#39;group-membership&#39;</span><span class="p">]</span>
+
+<span class="c1"># built using: title, active, code</span>
+<span class="n">pending_state</span> <span class="o">=</span> <span class="n">RelationshipState</span><span class="p">(</span><span class="s1">&#39;Pending&#39;</span><span class="p">,</span> <span class="n">INACTIVE</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">)</span>
+<span class="n">removed_state</span> <span class="o">=</span> <span class="n">RelationshipState</span><span class="p">(</span><span class="s1">&#39;Removed&#39;</span><span class="p">,</span> <span class="n">INACTIVE</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="n">group_membership_states</span><span class="p">[</span><span class="n">pending_state</span><span class="o">.</span><span class="n">code</span><span class="p">]</span> <span class="o">=</span> <span class="n">pending_state</span>
+<span class="n">group_membership_states</span><span class="p">[</span><span class="n">removed_state</span><span class="o">.</span><span class="n">code</span><span class="p">]</span> <span class="o">=</span> <span class="n">removed_state</span>
+</pre></div>
+</div>
+<p>You can then use these states in a relationship:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">students_group</span> <span class="o">=</span> <span class="n">groups</span><span class="p">[</span><span class="s1">&#39;students&#39;</span><span class="p">]</span>
+<span class="n">tom</span> <span class="o">=</span> <span class="n">persons</span><span class="p">[</span><span class="s1">&#39;tom.hoffman&#39;</span><span class="p">]</span>
+<span class="n">students_group</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">relate</span><span class="p">(</span>
+    <span class="n">tom</span><span class="p">,</span>
+    <span class="n">removed_state</span><span class="o">.</span><span class="n">active</span><span class="p">,</span>
+    <span class="n">removed_state</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or to query specific states by code, like getting removed students only:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">students_group</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">coded</span><span class="p">(</span><span class="n">removed_state</span><span class="o">.</span><span class="n">code</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">person</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+</section>
+<section id="persons">
+<h3>Persons<a class="headerlink" href="#persons" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Persons</span></code> container holds Person objects.  These are essentially all the people with logins in the system.  There are not separate objects for students and teachers <em>per se</em>.</p>
+<p>To get the container:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">persons</span> <span class="o">=</span> <span class="n">app</span><span class="p">[</span><span class="s1">&#39;persons&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Person</span></code> functionality is split between two Python packages, <code class="docutils literal notranslate"><span class="pre">schooltool.person</span></code> and <code class="docutils literal notranslate"><span class="pre">schooltool.basicperson</span></code>, with <code class="docutils literal notranslate"><span class="pre">.person</span></code> being the older of the two.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Person</span></code> objects are cataloged.</p>
+<p>The __name__ (the key for objects in a container) is generated from the username attribute.  This is also the login for the user.  Passwords are stored as unsalted SHA-1 hashes.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Person</span></code> objects have several temporal relationship properties:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>groups: <code class="docutils literal notranslate"><span class="pre">Group</span></code>/<code class="docutils literal notranslate"><span class="pre">Section</span></code> objects</p></li>
+<li><p>advisors: <code class="docutils literal notranslate"><span class="pre">Person</span></code> objects</p></li>
+<li><p>advisees: <code class="docutils literal notranslate"><span class="pre">Person</span></code> objects</p></li>
+<li><p>levels: <code class="docutils literal notranslate"><span class="pre">Level</span></code> objects</p></li>
+<li><p>contacts (through adapter): <code class="docutils literal notranslate"><span class="pre">Contact</span></code> objects</p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">Person</span></code> objects also have some common attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>prefix</p></li>
+<li><p>middle_name</p></li>
+<li><p>suffix</p></li>
+<li><p>preferred_name</p></li>
+<li><p>gender</p></li>
+<li><p>birth_date</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="demographics">
+<h3>Demographics<a class="headerlink" href="#demographics" title="Link to this heading">¶</a></h3>
+<p>The objects that add custom information fields to <code class="docutils literal notranslate"><span class="pre">Person</span></code> objects system wide are called <code class="docutils literal notranslate"><span class="pre">Demographic</span> <span class="pre">Fields</span></code> and for tracking that data for each <code class="docutils literal notranslate"><span class="pre">Person</span></code> we use <code class="docutils literal notranslate"><span class="pre">Demographics</span></code> objects.  See <a class="reference internal" href="demographics-schema.html#demographics"><span class="std std-ref">Customizing Demographics</span></a>.</p>
+<p>You can create demographics fields like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.basicperson.interfaces</span> <span class="kn">import</span> <span class="n">IDemographicsFields</span>
+<span class="n">fields</span> <span class="o">=</span> <span class="n">IDemographicsFields</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<span class="c1"># field id and title for text fields</span>
+<span class="n">field</span><span class="p">[</span><span class="s1">&#39;diet&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">TextFieldDescription</span><span class="p">(</span><span class="s1">&#39;diet&#39;</span><span class="p">,</span> <span class="s1">&#39;Dietary requirements&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Demographics fields can be limited to members of some of the built-in groups – Students, Teachers and School Administrators, so that, for example, teachers and administrators see a “Date hired” field while students do not.  This is actually just enforced on the view level, so if you remove someone from one of the groups, the relevant data is still there, just not displayed.</p>
+<p>We have fields for: text lines, integer numbers, text paragraphs, dates, boolean values and selection lists.</p>
+<p>It’s worth mentioning that the demographics fields container is an ordered container so they can be reordered and traversed in order – that is, you can set the order in which they are displayed in forms.</p>
+<p>This is how you store actual <code class="docutils literal notranslate"><span class="pre">Person</span></code> data for a custom demographics field:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.basicperson.interfaces</span> <span class="kn">import</span> <span class="n">IDemographics</span>
+<span class="n">tom</span> <span class="o">=</span> <span class="n">persons</span><span class="p">[</span><span class="s1">&#39;tom.hoffman&#39;</span><span class="p">]</span>
+<span class="n">tom_demographics_data</span> <span class="o">=</span> <span class="n">IDemographics</span><span class="p">(</span><span class="n">tom</span><span class="p">)</span>
+<span class="n">tom_demographics_data</span><span class="p">[</span><span class="s1">&#39;diet&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Lactose intolerance&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="contacts">
+<h3>Contacts<a class="headerlink" href="#contacts" title="Link to this heading">¶</a></h3>
+<p>As SchoolTool is designed primarily for K-12 schools, most formal contact information is focused on parents and other people related to the student.  Parents, etc., are created as contacts which store phone, address and email information.  Contacts are established as temporal relationships.</p>
+<p>The initial implementation where contacts could not log in.  We later added the capability for contacts to have their own login. For this a new <code class="docutils literal notranslate"><span class="pre">Person</span></code> object is added to the system based on the <code class="docutils literal notranslate"><span class="pre">Contact</span></code> object information and the <code class="docutils literal notranslate"><span class="pre">Contact</span></code> object is deleted.  If the contact person logs in, they will have access to read-only views of the related student’s data.</p>
+</section>
+<section id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Resource</span></code> objects represent certain objects in a school.  There are three types: <code class="docutils literal notranslate"><span class="pre">Location</span></code>, <code class="docutils literal notranslate"><span class="pre">Equipment</span></code> and <code class="docutils literal notranslate"><span class="pre">Resource</span></code>.  You may assign a <code class="docutils literal notranslate"><span class="pre">leader</span></code> to a resource as a temporal relationship.  The <code class="docutils literal notranslate"><span class="pre">leader</span></code> has elevated permissions to edit the object.  For example, the music teacher, as the <code class="docutils literal notranslate"><span class="pre">leader</span></code> of his equipment, might edit the condition of musical instruments.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Resources have been underutilized and underdeveloped in SchoolTool, particularly after a large calendar refactoring several years ago.  The original idea was that resources could be scheduled and reserved and generally interact with the calendar and other objects like sections in useful ways.  The Ark clients aren’t using them, and you shouldn’t count on them to do what you expect without testing (and perhaps fixing…).</p>
+</div>
+</section>
+<section id="resource-demographics">
+<h3>“Resource Demographics”<a class="headerlink" href="#resource-demographics" title="Link to this heading">¶</a></h3>
+<p>You can add custom fields to resources with an implementation of the same design as used for people.  For example, you could track serial numbers on equipment or specific facilities within a location.  Again, this hasn’t been used much and should be tested before trying to do anything important or complicated with it.</p>
+</section>
+<section id="terms">
+<h3>Terms<a class="headerlink" href="#terms" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Term</span></code> objects are mainly used for defining the days school is in session (see <a class="reference internal" href="terms.html#terms"><span class="std std-ref">Creating Terms</span></a>). They are created with a title, start date and end date:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="kn">from</span> <span class="nn">schooltool.term.term</span> <span class="kn">import</span> <span class="n">Term</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">term_1</span> <span class="o">=</span> <span class="n">Term</span><span class="p">(</span><span class="s1">&#39;Term 1&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Terms may not overlap in date span.</p>
+</section>
+<section id="years">
+<h3>Years<a class="headerlink" href="#years" title="Link to this heading">¶</a></h3>
+<p>See <a class="reference internal" href="years.html#years"><span class="std std-ref">Creating Years</span></a> for the definition of a year within SchoolTool.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SchoolYear</span></code> objects are stored in a single container that you can get like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.schoolyear.interfaces</span> <span class="kn">import</span> <span class="n">ISchoolYearContainer</span>
+<span class="n">schoolyears</span> <span class="o">=</span> <span class="n">ISchoolYearContainer</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can get the “active” school year (see <a class="reference internal" href="multi-years.html#multi-years"><span class="std std-ref">Managing Multiple Years and Terms</span></a>) like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">active_year</span> <span class="o">=</span> <span class="n">schoolyears</span><span class="o">.</span><span class="n">getActiveSchoolYear</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">SchoolYear</span></code> objects are also containers for <code class="docutils literal notranslate"><span class="pre">Term</span></code> objects:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.term.term</span> <span class="kn">import</span> <span class="n">Term</span>
+<span class="n">active_year</span><span class="p">[</span><span class="s1">&#39;term-1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">term_1</span>
+</pre></div>
+</div>
+<p>It’s worth noting that <code class="docutils literal notranslate"><span class="pre">SchoolYear</span></code> objects are not ordered containers.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Not properly selecting the year – assuming the active year – is sometimes the source of report bugs.</p>
+</div>
+</section>
+<section id="courses">
+<h3>Courses<a class="headerlink" href="#courses" title="Link to this heading">¶</a></h3>
+<p>For an explanation of the general role of courses in SchoolTool, see <a class="reference internal" href="courses.html#courses"><span class="std std-ref">Setting Up Courses</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Course</span></code> objects are stored in containers that you can get from the <code class="docutils literal notranslate"><span class="pre">SchoolYear</span></code> object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.course.interfaces</span> <span class="kn">import</span> <span class="n">ICourseContainer</span>
+<span class="n">schoolyear</span> <span class="o">=</span> <span class="n">schoolyears</span><span class="p">[</span><span class="s1">&#39;2016&#39;</span><span class="p">]</span>
+<span class="n">courses</span> <span class="o">=</span> <span class="n">ICourseContainer</span><span class="p">(</span><span class="n">schoolyear</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">course</span> <span class="ow">in</span> <span class="n">course</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="nb">print</span> <span class="n">course</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+<p>The course container is also an ordered container.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Course</span></code> objects have non-temporal relationships to <code class="docutils literal notranslate"><span class="pre">Section</span></code> objects:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">course</span> <span class="o">=</span> <span class="n">courses</span><span class="p">[</span><span class="s1">&#39;math&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">course</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="n">section</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+<p>They can also be linked to <code class="docutils literal notranslate"><span class="pre">Level</span></code> objects, so you could indicate the grade level associate with the course, however this relationship is not actually used for anything within the application at this point.  It could be used to filter or order courses in a report.</p>
+<p>Courses can have “leaders” who have elevated permissions to edit the course.  This could be, for example, a teacher department head for the relevant course.</p>
+</section>
+<section id="sections">
+<h3>Sections<a class="headerlink" href="#sections" title="Link to this heading">¶</a></h3>
+<p>For an explanation of the general role of sections in SchoolTool, see <a class="reference internal" href="sections.html#sections"><span class="std std-ref">Creating Sections</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Section</span></code> objects are mainly accessed from their related course:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">course</span> <span class="o">=</span> <span class="n">courses</span><span class="p">[</span><span class="s1">&#39;math&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">course</span><span class="o">.</span><span class="n">sections</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="n">section</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+<p>A back reference relationship is also available to get the courses of the section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">course</span> <span class="ow">in</span> <span class="n">section</span><span class="o">.</span><span class="n">courses</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="n">course</span><span class="o">.</span><span class="n">title</span>
+</pre></div>
+</div>
+<p>In the data model, courses have a many to many relationship to sections, however, on the user interface level, it was later restricted to a one to many relationship for simplicity.  That is, even though “courses” is a relationship (which is an iterable property) the system’s user interface only allows the user to set one course per section.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is important to understand that multi-term sections are modeled internally as linked single-term <code class="docutils literal notranslate"><span class="pre">Section</span></code> objects.</p>
+</div>
+<p>That is, in a four term year, a section for a course that happens to run all year is stored as four <code class="docutils literal notranslate"><span class="pre">Section</span></code> objects.  We tend to try to make these linked sections behave as one to the user in the interface.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Section</span></code> objects in a multi-term section are linked with other <code class="docutils literal notranslate"><span class="pre">Section</span></code> objects, like a linked list. The “previous” and “next” attributes are used for this.  In most cases, changes to a section, such as enrolment changes, are propagated to <em>later</em> linked sections.</p>
+<p>Sections are stored in <code class="docutils literal notranslate"><span class="pre">SectionContainer</span></code> objects. There’s a <code class="docutils literal notranslate"><span class="pre">SectionContainer</span></code> object for every <code class="docutils literal notranslate"><span class="pre">Term</span></code> object in the system. You can get a <code class="docutils literal notranslate"><span class="pre">Term</span></code> reference for a section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.term.interfaces</span> <span class="kn">import</span> <span class="n">ITerm</span>
+<span class="n">term</span> <span class="o">=</span> <span class="n">ITerm</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Section</span></code> objects have two temporal relationships: <code class="docutils literal notranslate"><span class="pre">instructors</span></code> and <code class="docutils literal notranslate"><span class="pre">members</span></code> (students of the section). Both with <code class="docutils literal notranslate"><span class="pre">Person</span></code> objects. We have custom subscriber handlers that make propagate instructor and member changes to subsequent sections.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is extremely important to understand that the <code class="docutils literal notranslate"><span class="pre">Section</span></code> <code class="docutils literal notranslate"><span class="pre">instructors</span></code> and <code class="docutils literal notranslate"><span class="pre">members</span></code> relationships are fundamental to SchoolTool’s  and privacy.  See also <a class="reference internal" href="roles.html#roles"><span class="std std-ref">SchoolTool Administrative Roles</span></a> <a class="reference internal" href="policy.html#policy"><span class="std std-ref">Security policy</span></a>.</p>
+</div>
+<p>Teachers and students are granted few additional privileges based simply on membership in the <code class="docutils literal notranslate"><span class="pre">Teachers</span></code> and <code class="docutils literal notranslate"><span class="pre">Students</span></code> groups.  Teachers gain most of their functionality and access privileges based on their role as <code class="docutils literal notranslate"><span class="pre">instructors</span></code> within a <code class="docutils literal notranslate"><span class="pre">Section</span></code>.  For example, they can view personal information only about <code class="docutils literal notranslate"><span class="pre">Person</span></code> objects who are assigned as <code class="docutils literal notranslate"><span class="pre">members</span></code> of a <code class="docutils literal notranslate"><span class="pre">Section</span></code> they are <code class="docutils literal notranslate"><span class="pre">instructor</span></code> of.</p>
+<p>Membership in either <code class="docutils literal notranslate"><span class="pre">Students</span></code> or <code class="docutils literal notranslate"><span class="pre">Teachers</span></code> groups is irrelevant to being assigned as an <code class="docutils literal notranslate"><span class="pre">instructor</span></code> or <code class="docutils literal notranslate"><span class="pre">member</span></code> of a <code class="docutils literal notranslate"><span class="pre">Section</span></code>, except perhaps in terms of the search defaults used in the user interface.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Section</span></code> objects also have a non-temporal relationship <code class="docutils literal notranslate"><span class="pre">resources</span></code> with <code class="docutils literal notranslate"><span class="pre">Resource</span></code> objects.</p>
+</section>
+<section id="groups">
+<h3>Groups<a class="headerlink" href="#groups" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Group</span></code> objects have two different jobs in SchoolTool.  They can be used to organize students for whatever purposes is needed in the school to help with internal organization, report generation, shared calendars, making search filtering more efficient, etc.  In this sense, they are little more than a bag of <code class="docutils literal notranslate"><span class="pre">Person</span></code> objects.</p>
+<p>There are also “built in” groups which have important implications for access and other application behavior.  These groups are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Clerks</p></li>
+<li><p>Site Managers</p></li>
+<li><p>Students</p></li>
+<li><p>Teachers</p></li>
+<li><p>School Administrators</p></li>
+</ul>
+</div></blockquote>
+<p>These implications of memberships in these groups is described in detail at <a class="reference internal" href="roles.html#roles"><span class="std std-ref">SchoolTool Administrative Roles</span></a>.  Note again that membership in <code class="docutils literal notranslate"><span class="pre">Students</span></code> and <code class="docutils literal notranslate"><span class="pre">Teachers</span></code> has little affect on access permissions.  Primarily these cue the user interface in various ways so users see what is most relevant to them.</p>
+<p>Groups are stored in <code class="docutils literal notranslate"><span class="pre">GroupContainer</span></code> objects. There’s a <code class="docutils literal notranslate"><span class="pre">GroupContainer</span></code> object for each <code class="docutils literal notranslate"><span class="pre">SchoolYear</span></code> object that is created when the <code class="docutils literal notranslate"><span class="pre">SchoolYear</span></code> object is added to the system and that is automatically populated with the five “built in” groups.</p>
+<p>The “built in” groups cannot be removed from the system.</p>
+<p>You can get the group container for a school year:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.group.interfaces</span> <span class="kn">import</span> <span class="n">IGroupContainer</span>
+<span class="n">schoolyear</span> <span class="o">=</span> <span class="n">schoolyears</span><span class="p">[</span><span class="s1">&#39;2016&#39;</span><span class="p">]</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">IGroupContainer</span><span class="p">(</span><span class="n">schoolyear</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Group</span></code> objects have a temporal relationship <code class="docutils literal notranslate"><span class="pre">members</span></code>, with <code class="docutils literal notranslate"><span class="pre">Person</span></code> objects.</p>
+<p>Groups can also have <code class="docutils literal notranslate"><span class="pre">leaders</span></code> who have elevated permissions to edit the group.  For example, the coach of the chess team can be given permission to add and remove people from the group.</p>
+</section>
+<section id="streams">
+<h3>Streams<a class="headerlink" href="#streams" title="Link to this heading">¶</a></h3>
+<p>You can get the stream container for a school year:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.stream.interfaces</span> <span class="kn">import</span> <span class="n">IStreamContainer</span>
+<span class="n">schoolyear</span> <span class="o">=</span> <span class="n">schoolyears</span><span class="p">[</span><span class="s1">&#39;2016&#39;</span><span class="p">]</span>
+<span class="n">groups</span> <span class="o">=</span> <span class="n">IStreamContainer</span><span class="p">(</span><span class="n">schoolyear</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Stream</span></code> objects have a temporal relationships <code class="docutils literal notranslate"><span class="pre">members</span></code>, with <code class="docutils literal notranslate"><span class="pre">Person</span></code> objects and a non-temporal relationship <code class="docutils literal notranslate"><span class="pre">sections</span></code>, with <code class="docutils literal notranslate"><span class="pre">Section</span></code> objects.</p>
+</section>
+<section id="levels">
+<h3>Levels<a class="headerlink" href="#levels" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Level</span></code> objects are used to track the linear progress of a student through the school – generally a <code class="docutils literal notranslate"><span class="pre">Level</span></code> corresponds to a year of schooling, which has different names in different countries.  See <a class="reference internal" href="levels.html#levels"><span class="std std-ref">Grade Levels</span></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Internally this tends to be very confusing because levels are not simply an attribute on a student.</p>
+<p>The student has temporal relationships with each <code class="docutils literal notranslate"><span class="pre">Level</span></code> indicating beginning and completing the <code class="docutils literal notranslate"><span class="pre">Level</span></code>.  These are not mutually exclusive, so you could continue adding a student to new levels without removing him or her from the previous one – which is probably not the expected behavior for a school.  Ensuring that a student is only associated with one <code class="docutils literal notranslate"><span class="pre">Level</span></code> at a time is enforced at the view level.</p>
+</div>
+<p>To get the container for <code class="docutils literal notranslate"><span class="pre">Level</span></code> objects:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.level.interfaces</span> <span class="kn">import</span> <span class="n">ILevelContainer</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="n">ILevelContainer</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This container is an ordered container.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Level</span></code> objects are relatively simple with just a title attribute:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.level.level</span> <span class="kn">import</span> <span class="n">Level</span>
+<span class="n">levels</span><span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Level</span><span class="p">(</span><span class="s1">&#39;1st grade&#39;</span><span class="p">)</span>
+<span class="n">levels</span><span class="p">[</span><span class="s1">&#39;2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Level</span><span class="p">(</span><span class="s1">&#39;2nd grade&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Enrolling a student into a level is done from the <code class="docutils literal notranslate"><span class="pre">Person</span></code> object using the <code class="docutils literal notranslate"><span class="pre">levels</span></code> temporal relationship. Let’s enroll a person in 1st grade starting on January 1st, 2015:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first_grade</span> <span class="o">=</span> <span class="n">levels</span><span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">]</span>
+<span class="n">tom</span> <span class="o">=</span> <span class="n">persons</span><span class="p">[</span><span class="s1">&#39;tom.hoffman&#39;</span><span class="p">]</span>
+<span class="n">tom</span><span class="o">.</span><span class="n">levels</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">first_grade</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Promoting a student can be represented by first graduating them from their current level. We may also want to mark them as inactive in that level (the ‘r’ code used here corresponds to the default state code):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.app.states</span> <span class="kn">import</span> <span class="n">GRADUATE</span>
+<span class="n">tom</span><span class="o">.</span><span class="n">levels</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">))</span><span class="o">.</span><span class="n">relate</span><span class="p">(</span>
+    <span class="n">first_grade</span><span class="p">,</span>
+    <span class="n">INACTIVE</span> <span class="o">+</span> <span class="n">GRADUATED</span><span class="p">,</span>
+    <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then we can enroll the student in second grade:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">second_grade</span> <span class="o">=</span> <span class="n">levels</span><span class="p">[</span><span class="s1">&#39;2&#39;</span><span class="p">]</span>
+<span class="n">tom</span><span class="o">.</span><span class="n">levels</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">second_grade</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="remote-tasks-and-messages">
+<h3>Remote Tasks and Messages<a class="headerlink" href="#remote-tasks-and-messages" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">RemoteTask</span></code> objects represent a background job performed by Celery. In fact they reference a custom Celery <code class="docutils literal notranslate"><span class="pre">Task</span></code> object.</p>
+<p>They’re stored in a <code class="docutils literal notranslate"><span class="pre">TaskContainer</span></code> container:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.task.interfaces</span> <span class="kn">import</span> <span class="n">ITaskContainer</span>
+<span class="n">tasks</span> <span class="o">=</span> <span class="n">ITaskContainer</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Some of the important attributes of a <code class="docutils literal notranslate"><span class="pre">RemoteTask</span></code> object are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>creator_username: a key from the <code class="docutils literal notranslate"><span class="pre">Person</span></code> container mostly used to set <code class="docutils literal notranslate"><span class="pre">Message</span></code> objects in the user interface for a user.</p></li>
+<li><p>routing_key: to identify the Celery queue the task belongs to (see <a class="reference external" href="http://docs.celeryproject.org/en/latest/userguide/routing.html#exchanges-queues-and-routing-keys">http://docs.celeryproject.org/en/latest/userguide/routing.html#exchanges-queues-and-routing-keys</a>)</p></li>
+<li><p>celery_task: a custom Celery <code class="docutils literal notranslate"><span class="pre">Task</span></code> that tracks the <code class="docutils literal notranslate"><span class="pre">RemoteTask</span></code> that is attached to, provides access to the <code class="docutils literal notranslate"><span class="pre">SchoolToolApplication</span></code> object and manages the transaction when the task is executed</p></li>
+</ul>
+</div></blockquote>
+<p>Some of the important methods of a <code class="docutils literal notranslate"><span class="pre">RemoteTask</span></code> object are:</p>
+<blockquote>
+<div><ul>
+<li><p>schedule: this method is responsable for:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Setting the creator for the task based on an HTTP request provided by a view.</p></li>
+<li><p>Creating a custom transaction manager and adding it to the current transaction machinery (see <a class="reference external" href="http://zodb.readthedocs.io/en/latest/transactions.html#transaction-managers">http://zodb.readthedocs.io/en/latest/transactions.html#transaction-managers</a>).</p></li>
+<li><p>Adding the <code class="docutils literal notranslate"><span class="pre">RemoteTask</span></code> object to the task container.</p></li>
+<li><p>Notifying subscribers that the task has been scheduled.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>complete: notifies subscribers that the celery task has been successfully executed (the transaction was committed). These subscribers, for example, create success <code class="docutils literal notranslate"><span class="pre">Message</span></code> objects that are displayed in the user’s profile. The method finally deletes the <code class="docutils literal notranslate"><span class="pre">RemoteTask</span></code> object from the task container.</p></li>
+<li><p>fail: notifies subscribers that the celery task has failed (the transaction was aborted).</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most importers and reports in the system are coded as remote tasks.</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Message</span></code> objects are mostly created from notification handlers and may reference the task (for example a failed message showing the task identifier in a ticket that can be tracked in the celery_report.log file)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Messages could be used much more extensively in SchoolTool for all kinds of notification, with a little more refinement, including making them deletable (they are not currently).</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Message</span></code> objects are cataloged.</p>
+</section>
+<section id="email">
+<h3>Email<a class="headerlink" href="#email" title="Link to this heading">¶</a></h3>
+<p>Schooltool can act as an email client to send emails through a mail server, as described in <a class="reference internal" href="server-settings.html#server-settings"><span class="std std-ref">Server Settings</span></a>.</p>
+<p>You can get the container for <code class="docutils literal notranslate"><span class="pre">Email</span></code> objects like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schooltool.email.interfaces</span> <span class="kn">import</span> <span class="n">IEmailContainer</span>
+<span class="n">emails</span> <span class="o">=</span> <span class="n">IEmailContainer</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Email</span></code> objects store message information like subject, body, sender and recipeint email addresses and status data.</p>
+<p>The logic for sending and queuing (in case of errors) <code class="docutils literal notranslate"><span class="pre">Email</span></code> objects is handled through the <code class="docutils literal notranslate"><span class="pre">EmailUtility</span></code> utility which acts as an SMTP client.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">SchoolTool Data Model</a><ul>
+<li><a class="reference internal" href="#searching-catalogs">Searching &amp; catalogs</a></li>
+<li><a class="reference internal" href="#relationships-temporal-and-otherwise">Relationships, temporal and otherwise</a></li>
+<li><a class="reference internal" href="#top-level-containers">Top level containers</a><ul>
+<li><a class="reference internal" href="#the-schooltool-application">The SchoolTool Application</a></li>
+<li><a class="reference internal" href="#relationship-states">Relationship States</a></li>
+<li><a class="reference internal" href="#persons">Persons</a></li>
+<li><a class="reference internal" href="#demographics">Demographics</a></li>
+<li><a class="reference internal" href="#contacts">Contacts</a></li>
+<li><a class="reference internal" href="#resources">Resources</a></li>
+<li><a class="reference internal" href="#resource-demographics">“Resource Demographics”</a></li>
+<li><a class="reference internal" href="#terms">Terms</a></li>
+<li><a class="reference internal" href="#years">Years</a></li>
+<li><a class="reference internal" href="#courses">Courses</a></li>
+<li><a class="reference internal" href="#sections">Sections</a></li>
+<li><a class="reference internal" href="#groups">Groups</a></li>
+<li><a class="reference internal" href="#streams">Streams</a></li>
+<li><a class="reference internal" href="#levels">Levels</a></li>
+<li><a class="reference internal" href="#remote-tasks-and-messages">Remote Tasks and Messages</a></li>
+<li><a class="reference internal" href="#email">Email</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="instance.html"
+                          title="previous chapter">SchoolTool Instance</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="policy.html"
+                          title="next chapter">Security policy</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/top_level.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SchoolTool Instance &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SchoolTool Data Model" href="top_level.html" />
+    <link rel="prev" title="Setting up a sandbox" href="dev_sandbox.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="top_level.html" title="SchoolTool Data Model"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="dev_sandbox.html" title="Setting up a sandbox"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="developers.html" accesskey="U">Developers’ Handbook</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SchoolTool Instance</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="schooltool-instance">
+<h1>SchoolTool Instance<a class="headerlink" href="#schooltool-instance" title="Link to this heading">¶</a></h1>
+<p>A SchoolTool instance is set up as a process controlled by <a class="reference external" href="http://supervisord.org">Supervisor</a>.</p>
+<p>Supervisor is configured to start four “programs”:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>SchoolTool</p></li>
+<li><p>ZEO</p></li>
+<li><p>Redis</p></li>
+<li><p>Celery report</p></li>
+</ul>
+</div></blockquote>
+<p>Supervisor uses the <code class="docutils literal notranslate"><span class="pre">supervisord.conf</span></code> configuration file in the instance directory for setting these programs and their priorities.</p>
+<p>Let’s describe what each program sets up.</p>
+<section id="schooltool-program">
+<h2>SchoolTool program<a class="headerlink" href="#schooltool-program" title="Link to this heading">¶</a></h2>
+<p>Starts the <a class="reference external" href="http://pythonpaste.org">Paste server</a>.  This is the main web server for SchoolTool.  Paste can also be proxied through other web servers like Apache and Ngnix. See <a class="reference internal" href="apache.html#apache"><span class="std std-ref">Apache configuration</span></a> and <a class="reference internal" href="nginx.html#nginx"><span class="std std-ref">Nginx configuration</span></a> for more on this. Paste uses the <code class="docutils literal notranslate"><span class="pre">paste.ini</span></code> configuration file in the instance directory for setting two WSGI applications mapped to these two URLs:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/: the SchoolTool application server that handles all the user interface requests. The <code class="docutils literal notranslate"><span class="pre">schooltool.conf</span></code> configuration file in the instance directory is used for defining what Zope packages get included (the main one being schooltool.skin.flourish.instance), the database connection and its caching options, optional locale codes to present the user interface, fonts used in PDF reports and error logging.</p></li>
+<li><p>/schooltool.task_results: the task result server provides a small <a class="reference external" href="http://bottlepy.org">Bottle</a> application with just one route used for accessing the state of remote tasks and used for updating progress bars and report request dialogs.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="zeo-program">
+<h2>ZEO program<a class="headerlink" href="#zeo-program" title="Link to this heading">¶</a></h2>
+<p>Starts the <a class="reference external" href="http://www.zodb.org/en/latest/documentation/guide/zeo.html">ZEO storage server</a> which allows connections to the ZODB database from multiple processes (the two WSGI applications explained above). The <code class="docutils literal notranslate"><span class="pre">zeo.conf</span></code> configuration file in the instance directory is used for defining the path to the database file and blobs directory and logging.</p>
+</section>
+<section id="redis-program">
+<h2>Redis program<a class="headerlink" href="#redis-program" title="Link to this heading">¶</a></h2>
+<p>Starts a <a class="reference external" href="http://redis.io">Redis server</a> used by Celery as a message broker between the task result server and Celery’s worker processes. The <code class="docutils literal notranslate"><span class="pre">redis.conf</span></code> configuration file in the instance directory is used for defining the path to the database file and logging.</p>
+</section>
+<section id="celery-report-program">
+<h2>Celery report program<a class="headerlink" href="#celery-report-program" title="Link to this heading">¶</a></h2>
+<p>Starts a <a class="reference external" href="http://www.celeryproject.org/">Celery worker daemon</a> for handling remote tasks setting the default loader and queue routing options. Celery’s backend and queue configurations are hard coded in the <code class="docutils literal notranslate"><span class="pre">schooltool.task.celery.config.work_default</span></code> module.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These components, particularly as deployed on Ubuntu 14.04, work well together, despite the apparently large number of moving parts.  We recommend an “if it ain’t broke, don’t fix it” approach here.</p>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">SchoolTool Instance</a><ul>
+<li><a class="reference internal" href="#schooltool-program">SchoolTool program</a></li>
+<li><a class="reference internal" href="#zeo-program">ZEO program</a></li>
+<li><a class="reference internal" href="#redis-program">Redis program</a></li>
+<li><a class="reference internal" href="#celery-report-program">Celery report program</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="dev_sandbox.html"
+                          title="previous chapter">Setting up a sandbox</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="top_level.html"
+                          title="next chapter">SchoolTool Data Model</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/instance.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

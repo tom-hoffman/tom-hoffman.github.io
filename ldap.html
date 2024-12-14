@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>LDAP Single Sign-on &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Central Authentication Service (CAS) Support" href="cas.html" />
+    <link rel="prev" title="Nginx configuration" href="nginx.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="cas.html" title="Central Authentication Service (CAS) Support"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="nginx.html" title="Nginx configuration"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="administrators.html" accesskey="U">System Administration</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">LDAP Single Sign-on</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="ldap-single-sign-on">
+<span id="ldap"></span><h1>LDAP Single Sign-on<a class="headerlink" href="#ldap-single-sign-on" title="Link to this heading">¶</a></h1>
+<p>LDAP integration allows users to sign into SchoolTool with their
+existing LDAP accounts.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We cannot test our LDAP support against all the existing LDAP implementations and configurations, so we cannot guarantee it will “just work” for you.</p>
+<p>Before you make any promises about SchoolTool working with your LDAP, test it against your LDAP server.</p>
+<p>In particular, there seems to be a problem currently with LDAP servers trying to assign non-ASCII characters in usernames, which is not supported by Zope (and thus SchoolTool).  We are looking into a fix for this issue.</p>
+</div>
+<p>To enable LDAP support, you will need to install the <a class="reference external" href="https://launchpad.net/schooltool.ldap">SchoolTool LDAP</a> plugin from the
+<a class="reference internal" href="install-2_0.html#ppa"><span class="std std-ref">Upgrading SchoolTool</span></a> using <strong>Ubuntu Software Center</strong>,
+or the command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">schooltool</span><span class="o">.</span><span class="n">ldap</span>
+</pre></div>
+</div>
+<p>Once you have installed the plugin, LDAP configuration will appear on the Server page.</p>
+<blockquote>
+<div><img alt="_images/ldap-config-1.png" src="_images/ldap-config-1.png" />
+</div></blockquote>
+<p>Users will not be automatically “pulled” from the LDAP server.
+Instead, they will be created (if missing) when they log in for
+the first time.  Here, student001 just logged in on a fresh
+SchoolTool installation with LDAP support:</p>
+<blockquote>
+<div><img alt="_images/ldap-newperson-1.png" src="_images/ldap-newperson-1.png" />
+</div></blockquote>
+<p>SchoolTool will pull some of the user’s contact information and update it
+each time user logs in.</p>
+<blockquote>
+<div><img alt="_images/ldap-newperson-2.png" src="_images/ldap-newperson-2.png" />
+<img alt="_images/ldap-newperson-4.png" src="_images/ldap-newperson-4.png" />
+</div></blockquote>
+<p>If configured, users can also be automatically assigned to desired
+SchoolTool groups.  Here, two users have been assigned to “students”:</p>
+<blockquote>
+<div><img alt="_images/ldap-newperson-3.png" src="_images/ldap-newperson-3.png" />
+</div></blockquote>
+<section id="configuring-ldap">
+<h2>Configuring LDAP<a class="headerlink" href="#configuring-ldap" title="Link to this heading">¶</a></h2>
+<p>By default, SchoolTool will look for <code class="docutils literal notranslate"><span class="pre">/etc/ldap.conf</span></code> and try to figure
+out your current setup.  If your server has that entry, there’s a good
+chance that LDAP integration will work out-of-the-box.</p>
+<blockquote>
+<div><img alt="_images/ldap-config-1.png" src="_images/ldap-config-1.png" />
+</div></blockquote>
+<p>If you have installed <strong>Zentyal</strong> (<a class="reference external" href="http://www.zentyal.com/">http://www.zentyal.com/</a>) on the
+same server and configured Users / Groups modules, SchoolTool should
+be able to pick up LDAP settings automatically.</p>
+<p>It’s important to note autodetection works on server start up, so
+SchoolTool needs to be restarted after the server’s LDAP config changes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo service schooltool restart
+</pre></div>
+</div>
+<p>SchoolTool’s LDAP settings can be edited with a web browser, unless this option is
+explicitly disabled in <code class="docutils literal notranslate"><span class="pre">schooltool.conf</span></code>.</p>
+<blockquote>
+<div><img alt="_images/ldap-config-2.png" src="_images/ldap-config-2.png" />
+</div></blockquote>
+<p>To enable LDAP integration you must specify <strong>LDAP server URI</strong> and at
+least one <strong>user DN query</strong>.</p>
+<p><strong>User DN queries</strong> are used to obtain the list of LDAP users.  We
+also require to specify the “login attribute”, which in almost all
+cases is “uid” and should look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>uid ou=Users,dc=example,dc=com?one?(objectClass=inetOrgPerson)
+</pre></div>
+</div>
+<p>If you need to fine-tune your queries it’s best to install an interactive
+LDAP browser (like <a class="reference external" href="http://jxplorer.org">http://jxplorer.org</a>) and test what queries return
+proper lists of users.</p>
+<p><strong>Bind DN</strong> and <strong>Bind password</strong> are used when connecting to LDAP to retrieve the
+user list.  Leave these fields empty if anonymous LDAP connections are allowed to
+query for users.</p>
+<p><strong>Group DN queries</strong> and <strong>POSIX group counterparts</strong> allow automatic
+adding of users to desired SchoolTool groups.  To enable mapping, you
+will need to enter one or more queries that retreive the list of LDAP
+groups.  You will also have to find out “gidNumber” of each LDAP group
+you want to map.  Again, using tools like jXplorer helps a lot.</p>
+<blockquote>
+<div><img alt="_images/ldap-config-3.png" src="_images/ldap-config-3.png" />
+</div></blockquote>
+<p><strong>POSIX group counterparts</strong> allow you to bind groups to a specific
+school year or to the active one.  Users will be assigned to their
+groups when they log into SchoolTool:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2012</span><span class="o">-</span><span class="mi">2013</span><span class="p">,</span> <span class="n">students</span><span class="p">,</span> <span class="mi">2001</span>
+<span class="p">,</span> <span class="n">teachers</span><span class="p">,</span> <span class="mi">2003</span>
+</pre></div>
+</div>
+</section>
+<section id="advanced-configuration">
+<h2>Advanced configuration<a class="headerlink" href="#advanced-configuration" title="Link to this heading">¶</a></h2>
+<p>You can configure LDAP by adding a section like this to <code class="docutils literal notranslate"><span class="pre">schooltool.conf</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;ldap_authentication&gt;
+
+  allow_web_config no
+  autodetect_from /etc/ldap.conf
+  uri ldap://127.0.0.1:389
+
+  default_login_attr uid
+  default_login_filter objectclass=inetOrgPerson
+
+  query_users uid dc=localhost?sub?(objectClass=inetOrgPerson)
+
+  query_groups dc=localhost?sub?(objectClass=posixGroup)
+  bind_group teachers 7001
+  bind_group 2011-2012 students 6024
+
+  bind_dn ldapmanager
+  bind_password thepassword
+
+&lt;/ldap_authentication&gt;
+</pre></div>
+</div>
+<p><strong>Important</strong>: through-the-web configuration takes precedence over
+<code class="docutils literal notranslate"><span class="pre">schooltool.conf</span></code>, unless <code class="docutils literal notranslate"><span class="pre">allow_web_config</span></code> is set to <code class="docutils literal notranslate"><span class="pre">no</span></code>.</p>
+<p><strong>allow_web_config</strong> lets you disable through-the-web overriding of
+these settings.</p>
+<p><strong>autodetect_from</strong> should point to the <code class="docutils literal notranslate"><span class="pre">ldap.conf</span></code> file that SchoolTool
+will use to infer its LDAP configuration.</p>
+<p>It’s worth noting that <strong>query_users</strong>, <strong>query_groups</strong> and
+<strong>bind_group</strong> can have multiple entries.</p>
+<p><strong>default_login_attr</strong> and <strong>default_login_filter</strong> are rarely-used settings,
+useful primarily when you want to influence auto-detection of LDAP settings.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">LDAP Single Sign-on</a><ul>
+<li><a class="reference internal" href="#configuring-ldap">Configuring LDAP</a></li>
+<li><a class="reference internal" href="#advanced-configuration">Advanced configuration</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="nginx.html"
+                          title="previous chapter">Nginx configuration</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="cas.html"
+                          title="next chapter">Central Authentication Service (CAS) Support</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/ldap.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

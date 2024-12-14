@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Adding People &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contacts" href="contacts.html" />
+    <link rel="prev" title="Customizing Demographics" href="demographics-schema.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="contacts.html" title="Contacts"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="demographics-schema.html" title="Customizing Demographics"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="populating.html" accesskey="U">Populating Your School</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Adding People</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="adding-people">
+<span id="persons"></span><h1>Adding People<a class="headerlink" href="#adding-people" title="Link to this heading">¶</a></h1>
+<section id="passwords-and-logins">
+<h2>Passwords and Logins<a class="headerlink" href="#passwords-and-logins" title="Link to this heading">¶</a></h2>
+<p>If you do not set a password for a Person, they will not be able to log in.  SchoolTool is designed to allow students to log in and use SchoolTool to manage their calendar, view grades, etc.  Whether or not students are given passwords determines if they can log into your SchoolTool instance.</p>
+</section>
+<section id="advisor">
+<h2>Advisor<a class="headerlink" href="#advisor" title="Link to this heading">¶</a></h2>
+<p>This allows you to designate a teacher as an advisor for another Person.  This may give the Advisor more access to information about this student, and is used in the Intervention component.</p>
+</section>
+<section id="methods-of-adding-people">
+<h2>Methods of Adding People<a class="headerlink" href="#methods-of-adding-people" title="Link to this heading">¶</a></h2>
+<section id="web-forms">
+<h3>Web Forms<a class="headerlink" href="#web-forms" title="Link to this heading">¶</a></h3>
+<p>You can add one Person at a time via the web interface using the same procedure covered in <a class="reference internal" href="user.html#user"><span class="std std-ref">Creating a User Account</span></a>.  In this case we’ll use the <strong>Add: Student</strong> link:</p>
+<blockquote>
+<div><img alt="_images/persons-0.png" src="_images/persons-0.png" />
+<img alt="_images/persons-1.png" src="_images/persons-1.png" />
+</div></blockquote>
+<p>Note that the <strong>Submit and Add</strong> button takes you directly to another Add form of the same type.  Use this when you’re adding many People to the system at once.  <strong>Submit</strong> will take you to the new Person’s page:</p>
+<blockquote>
+<div><img alt="_images/persons-2.png" src="_images/persons-2.png" />
+</div></blockquote>
+<p>The main content area for a Person is an “accordion” with different sections that slide open vertically.  We’ll cover each section in turn as we continue through more aspects of SchoolTool.</p>
+</section>
+<section id="csv-import">
+<h3>CSV Import<a class="headerlink" href="#csv-import" title="Link to this heading">¶</a></h3>
+<p>This is a simple way to import Person usernames, first names, last names and passwords.  It does not add any other demographic data.</p>
+<p>To import user data from a CSV, you must be logged in as “manager.” Select the <strong>School</strong> tab and click on <strong>People</strong>.  Then click the <strong>Import: Import CSV</strong> link.  As explained on this form, you can either upload a CSV file or use the textbox to directly type or paste your data:</p>
+<blockquote>
+<div><img alt="_images/persons-3.png" src="_images/persons-3.png" />
+</div></blockquote>
+<p><strong>Submit</strong> and return to the People index:</p>
+<blockquote>
+<div><img alt="_images/persons-4.png" src="_images/persons-4.png" />
+</div></blockquote>
+</section>
+<section id="xls-import">
+<h3>XLS Import<a class="headerlink" href="#xls-import" title="Link to this heading">¶</a></h3>
+<p><a class="reference internal" href="spreadsheet.html#spreadsheet"><span class="std std-ref">Importing and Exporting from Spreadsheet</span></a> is another method of importing People.  The one trick here is that if you have changed the demographic schema (as shown in <a class="reference internal" href="adv-timetabling.html#adv-timetabling"><span class="std std-ref">Advanced Timetabling</span></a>) you should first do an <strong>XLS Export</strong> to get a worksheet that has your new fields in the correct sequence.  Add your People and re-import the worksheet.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Adding People</a><ul>
+<li><a class="reference internal" href="#passwords-and-logins">Passwords and Logins</a></li>
+<li><a class="reference internal" href="#advisor">Advisor</a></li>
+<li><a class="reference internal" href="#methods-of-adding-people">Methods of Adding People</a><ul>
+<li><a class="reference internal" href="#web-forms">Web Forms</a></li>
+<li><a class="reference internal" href="#csv-import">CSV Import</a></li>
+<li><a class="reference internal" href="#xls-import">XLS Import</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="demographics-schema.html"
+                          title="previous chapter">Customizing Demographics</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="contacts.html"
+                          title="next chapter">Contacts</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/persons.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

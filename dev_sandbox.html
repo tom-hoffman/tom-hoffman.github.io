@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Setting up a sandbox &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SchoolTool Instance" href="instance.html" />
+    <link rel="prev" title="Sandbox structure" href="sandbox_structure.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="instance.html" title="SchoolTool Instance"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="sandbox_structure.html" title="Sandbox structure"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="developers.html" accesskey="U">Developers’ Handbook</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Setting up a sandbox</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="setting-up-a-sandbox">
+<span id="dev-sandbox"></span><h1>Setting up a sandbox<a class="headerlink" href="#setting-up-a-sandbox" title="Link to this heading">¶</a></h1>
+<p>SchoolTool uses <a class="reference external" href="http://bazaar-vcs.org/">Bazaar</a> VCS.  Be sure to install it first:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~$ sudo apt-get install bzr
+</pre></div>
+</div>
+<p>If you don’t already have it, you need make to bootstrap the process:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~$ sudo apt-get install make
+</pre></div>
+</div>
+<section id="quickstart">
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading">¶</a></h2>
+<p>To get started with a sandbox:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~$ bzr co lp:schooltool schooltool
+~$ cd schooltool
+</pre></div>
+</div>
+<p>Install <a class="reference internal" href="#build-dependencies">build dependencies</a> like compilers, development libraries and fonts:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~$ sudo make ubuntu-environment
+</pre></div>
+</div>
+<p>Next, pull down additional libraries via PIP and get everything in place:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~$ make develop
+</pre></div>
+</div>
+<p>The <strong>schooltool</strong> package just contains the “core” functionality of SchoolTool: gets the server up and running, lets you define the structure of the school and the calendar.</p>
+<p>To <em>use</em> SchoolTool for anything (beyond calendaring) you need plugins.</p>
+<p>Enable plugins (optional).</p>
+<p>To enable plugins, edit buildout.cfg to contain, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">package</span><span class="p">]</span>
+<span class="n">eggs</span> <span class="o">+=</span> <span class="n">schooltool</span>
+        <span class="n">schooltool</span><span class="o">.</span><span class="n">gradebook</span>
+        <span class="n">schooltool</span><span class="o">.</span><span class="n">lyceum</span><span class="o">.</span><span class="n">journal</span>
+        <span class="n">schooltool</span><span class="o">.</span><span class="n">intervention</span>
+</pre></div>
+</div>
+<p>Build and run schooltool:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/schooltool$ make run
+</pre></div>
+</div>
+<p>Open <a class="reference external" href="http://localhost:7080/">http://localhost:7080/</a> in your browser.  To make SchoolTool accessible over the network, edit <code class="docutils literal notranslate"><span class="pre">./instance/paste.ini</span></code> as described in <a class="reference internal" href="remote.html#remote"><span class="std std-ref">Accessing SchoolTool from Other Computers</span></a>.</p>
+<p>If you want to change enabled plugins, edit buildout.cfg, and run SchoolTool again:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/schooltool$ make run
+</pre></div>
+</div>
+</section>
+<section id="setting-up-a-full-development-sandbox">
+<h2>Setting up a full development sandbox<a class="headerlink" href="#setting-up-a-full-development-sandbox" title="Link to this heading">¶</a></h2>
+<section id="set-your-buildout-eggs-and-cache-directories">
+<h3>Set your buildout eggs and cache directories<a class="headerlink" href="#set-your-buildout-eggs-and-cache-directories" title="Link to this heading">¶</a></h3>
+<p>Create ~/.buildout/default.cfg and add:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">buildout</span><span class="p">]</span>
+<span class="n">eggs</span><span class="o">-</span><span class="n">directory</span> <span class="o">=</span> <span class="o">/</span><span class="n">home</span><span class="o">/*</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">*/.</span><span class="n">buildout</span><span class="o">/</span><span class="n">eggs</span>
+<span class="n">download</span><span class="o">-</span><span class="n">cache</span> <span class="o">=</span> <span class="o">/</span><span class="n">home</span><span class="o">/*</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">*/.</span><span class="n">buildout</span><span class="o">/</span><span class="n">cache</span>
+<span class="n">extends</span><span class="o">-</span><span class="n">cache</span> <span class="o">=</span> <span class="o">/</span><span class="n">home</span><span class="o">/*</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">*/.</span><span class="n">buildout</span><span class="o">/</span><span class="n">extends</span>
+</pre></div>
+</div>
+<p>Buildout does not understand the unix ~ notation, so use the full
+path.</p>
+<p>Create the cache directories:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~$ mkdir -p ~/.buildout/eggs
+~$ mkdir -p ~/.buildout/cache
+~$ mkdir -p ~/.buildout/extends
+</pre></div>
+</div>
+</section>
+<section id="create-the-shared-repository">
+<h3>Create the shared repository<a class="headerlink" href="#create-the-shared-repository" title="Link to this heading">¶</a></h3>
+<p>Create the bzr shared repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~$ mkdir schooltool_sandbox
+~$ bzr init-repo schooltool_sandbox
+</pre></div>
+</div>
+<p>(<a class="reference external" href="http://bazaar-vcs.org/SharedRepositoryTutorial">http://bazaar-vcs.org/SharedRepositoryTutorial</a>)</p>
+</section>
+</section>
+<section id="working-on-a-project">
+<h2>Working on a project<a class="headerlink" href="#working-on-a-project" title="Link to this heading">¶</a></h2>
+<p>For a list of projects, see:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">launchpad</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">schooltool</span><span class="o">-</span><span class="n">project</span>
+</pre></div>
+</div>
+<section id="get-the-project-you-want-to-work-on">
+<h3>Get the project you want to work on<a class="headerlink" href="#get-the-project-you-want-to-work-on" title="Link to this heading">¶</a></h3>
+<p>Let’s assume you worked on schooltool.gradebook super ajax feature and your launchpad
+username is “ideveloper”.  Parts you are expected to change depending on who you are or what you
+are working on are underlined:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~$ cd schooltool_sandbox
+~/schooltool_sandbox$ bzr branch lp:schooltool.gradebook schooltool.gradebook_super_ajax
+                                                                             -----------
+~/schooltool_sandbox$ cd schooltool.gradebook_super_ajax
+</pre></div>
+</div>
+<p>It’s slow for the first copy of the project.  Shared repository at least speeds up the second branch.</p>
+<p>Ensure you have all needed dev tools:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/schooltool_sandbox/schooltool.gradebook_super_ajax$ sudo make ubuntu-environment
+</pre></div>
+</div>
+<p>Now, build the project:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/schooltool_sandbox/schooltool.gradebook_super_ajax$ make develop
+</pre></div>
+</div>
+<p>Congratulations, you can run the server now:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/schooltool_sandbox/schooltool.gradebook_super_ajax$ make run
+</pre></div>
+</div>
+</section>
+<section id="develop-your-feature">
+<h3>Develop your feature<a class="headerlink" href="#develop-your-feature" title="Link to this heading">¶</a></h3>
+<p>Push your branch to Launchpad:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/schooltool_sandbox/schooltool.gradebook$ bzr push lp:~ideveloper/schooltool/schooltool.gradebook_super_ajax
+                                                        ----------            -------------------------------
+</pre></div>
+</div>
+<p>Now you can begin your work.  Commit using <code class="docutils literal notranslate"><span class="pre">bzr</span> <span class="pre">ci</span></code>; diff using <code class="docutils literal notranslate"><span class="pre">bzr</span> <span class="pre">diff</span></code>; update your branch using <code class="docutils literal notranslate"><span class="pre">bzr</span> <span class="pre">pull</span></code>.  Commit often and in small chunks.</p>
+<p>Don’t forget to update the eggs from time to time to the latest released versions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/schooltool_sandbox/schooltool.gradebook_super_ajax$ make update
+</pre></div>
+</div>
+</section>
+<section id="publishing-your-changes">
+<h3>Publishing your changes<a class="headerlink" href="#publishing-your-changes" title="Link to this heading">¶</a></h3>
+<p>If you worked on a bugfix, now is a good time to link your branch to the bug in Launchpad:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">code</span><span class="o">.</span><span class="n">launchpad</span><span class="o">.</span><span class="n">net</span><span class="o">/~</span><span class="n">ideveloper</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">schooltool</span><span class="o">.</span><span class="n">gradebook_super_ajax</span>
+                           <span class="o">-----------</span>            <span class="o">-------------------------------</span>
+</pre></div>
+</div>
+<p>Finally, propose a merge (to development focus branch) in the Launchpad branch’s page (same link above).</p>
+<p>Once it’s reviewed, the feature will be merged to trunk and new development eggs will be released.</p>
+</section>
+</section>
+<section id="general-guidelines">
+<h2>General guidelines<a class="headerlink" href="#general-guidelines" title="Link to this heading">¶</a></h2>
+<p><strong>Create a new branch for every feature</strong></p>
+<p>Having every feature and every bugfix in a separate branch allows
+reviewing checkins <strong>easier</strong>, because every branch has only 1 goal. If a
+bugfix is not complete or it <strong>did not pass the review</strong> - you can
+<strong>continue working</strong> on it in that <strong>same branch</strong> so all the related changes
+are in the same place and not 20 unrelated checkins apart.  And most importantly,
+they are <strong>not mixed with other features</strong>.  It also makes the <strong>backporting</strong> to
+older SchoolTool versions a lot easier for the maintainers.</p>
+<p><strong>Work on a single plugin at a time</strong></p>
+<p>Have a separate checkout directory for each project.  Do not modify buildout.cfg
+unless you really need to.  Avoid cross-dependencies between plugins.  Select carefully
+to which plugin the feature should logically belong to.  Keep things simple.  Thanks!</p>
+<p><strong>Commit often.  Write tests.</strong></p>
+<p>Commit often and in small chunks.  Write/update unit and functional tests to
+pass with each commit.  The more you practice this rule, the fewer bugs you’ll
+eventually make.</p>
+<p>If you’re fixing an unobvious bug, it’s a good idea to write a test that ensures the
+bug won’t be reimplemented again.</p>
+</section>
+<section id="developing-multiple-plugins-at-the-same-time">
+<h2>Developing multiple plugins at the same time<a class="headerlink" href="#developing-multiple-plugins-at-the-same-time" title="Link to this heading">¶</a></h2>
+<p>WARNING: we recommend avoiding this scenario when possible.</p>
+<p>Let’s assume you want to work on both SchoolTool core and the Gradebook plugin.</p>
+<p>First, check out branches (lp:schooltool and lp:schooltool.gradebook) to your sandbox:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~/schooltool_sandbox$ bzr branch lp:schooltool schooltool_dev
+~/schooltool_sandbox$ bzr branch lp:schooltool.gradebook schooltool.gradebook_dev
+</pre></div>
+</div>
+<p>Edit <code class="docutils literal notranslate"><span class="pre">buildout.cfg</span></code> in the directory you run the server from (say, schooltool.gradebook_dev).</p>
+<p>Change develop to include both SchoolTool and Gradebook:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">develop</span> <span class="o">=</span> <span class="o">.</span> <span class="o">../</span><span class="n">schooltool_dev</span>
+</pre></div>
+</div>
+<p>Check if all desired eggs are included:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">schooltool</span><span class="p">]</span>
+<span class="n">eggs</span> <span class="o">+=</span> <span class="n">schooltool</span>
+        <span class="n">schooltool</span><span class="o">.</span><span class="n">gradebook</span>
+<span class="o">&lt;...&gt;</span>
+</pre></div>
+</div>
+<p>Push both directories to separate branches in Launchpad, request merges on both at the
+same time.  I believe it’s obvious that dealing with multiple branch merging increases
+chances of human error.</p>
+</section>
+<section id="build-dependencies">
+<span id="id1"></span><h2>Build dependencies<a class="headerlink" href="#build-dependencies" title="Link to this heading">¶</a></h2>
+<p>On Ubuntu you can simply <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">make</span> <span class="pre">ubuntu-environment</span></code>. On other systems,
+below is what you need:</p>
+<p>Build essentials:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apt-get install build-essential gettext
+</pre></div>
+</div>
+<p>Contains gcc, make and other tools needed to build software.</p>
+<p>Python 2.6 or 2.7 with development headers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apt-get install python-dev
+</pre></div>
+</div>
+<p>Development libraries:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apt-get install libicu-dev libxslt1-dev libfreetype6-dev libjpeg-dev enscript
+</pre></div>
+</div>
+<p>You also need virtualenv and both Ubuntu and Liberation fonts:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ apt-get install python-virtualenv ttf-ubuntu-font-family ttf-liberation
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="sandbox.html#sandbox"><span class="std std-ref">Testing SchoolTool with Virtual Servers</span></a> if you want to manage several sandboxes using VirtualBox.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Setting up a sandbox</a><ul>
+<li><a class="reference internal" href="#quickstart">Quickstart</a></li>
+<li><a class="reference internal" href="#setting-up-a-full-development-sandbox">Setting up a full development sandbox</a><ul>
+<li><a class="reference internal" href="#set-your-buildout-eggs-and-cache-directories">Set your buildout eggs and cache directories</a></li>
+<li><a class="reference internal" href="#create-the-shared-repository">Create the shared repository</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#working-on-a-project">Working on a project</a><ul>
+<li><a class="reference internal" href="#get-the-project-you-want-to-work-on">Get the project you want to work on</a></li>
+<li><a class="reference internal" href="#develop-your-feature">Develop your feature</a></li>
+<li><a class="reference internal" href="#publishing-your-changes">Publishing your changes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#general-guidelines">General guidelines</a></li>
+<li><a class="reference internal" href="#developing-multiple-plugins-at-the-same-time">Developing multiple plugins at the same time</a></li>
+<li><a class="reference internal" href="#build-dependencies">Build dependencies</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="sandbox_structure.html"
+                          title="previous chapter">Sandbox structure</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="instance.html"
+                          title="next chapter">SchoolTool Instance</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/dev_sandbox.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

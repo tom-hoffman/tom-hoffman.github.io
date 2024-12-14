@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Advanced Timetabling &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Grade Levels" href="levels.html" />
+    <link rel="prev" title="Modeling Your School’s Timetable" href="timetables.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="levels.html" title="Grade Levels"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="timetables.html" title="Modeling Your School’s Timetable"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="setup-toc.html" accesskey="U">School Setup</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Advanced Timetabling</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="advanced-timetabling">
+<span id="adv-timetabling"></span><h1>Advanced Timetabling<a class="headerlink" href="#advanced-timetabling" title="Link to this heading">¶</a></h1>
+<section id="exception-days">
+<h2>Exception Days<a class="headerlink" href="#exception-days" title="Link to this heading">¶</a></h2>
+<p>Exception days are days during a term when the regular timetable pattern
+does not apply.  There are many possible reasons, such as a school assembly,
+early dismissal for teacher inservice training, or missing school for a
+weather related emergency.</p>
+<p>Exceptions days are defined under the <strong>Timetables</strong> of the relevant year.</p>
+<p>In this example we will cancel school on January 4, 2011, and shorten first
+period on January 5.</p>
+<p>Here is the calendar of a teacher for this week:</p>
+<blockquote>
+<div><img alt="_images/adv-timetabling-0.png" src="_images/adv-timetabling-0.png" />
+</div></blockquote>
+<p>To cancel school on January 4, as a member of <strong>Clerks</strong> or <strong>Site Managers</strong>,
+on the <strong>School</strong> page, with the appropriate year tab selected, click on
+the timetable schema or schemas relevant to the affected day.  In our example,
+it is simply called “Schema.”</p>
+<blockquote>
+<div><img alt="_images/adv-timetabling-1.png" src="_images/adv-timetabling-1.png" />
+</div></blockquote>
+<p>Clicking on the name of the schema provides this overview:</p>
+<blockquote>
+<div><img alt="_images/adv-timetabling-2.png" src="_images/adv-timetabling-2.png" />
+</div></blockquote>
+<p>To add to <strong>Exception Days</strong> click on the edit pencil next to the text near
+the bottom of the page.  First select the day to modify, in this case, we will
+cancel school on January 4, 2011:</p>
+<blockquote>
+<div><img alt="_images/adv-timetabling-3.png" src="_images/adv-timetabling-3.png" />
+</div></blockquote>
+<p>The next form shows the standard start and end times for periods during the
+day.  Removing the start and end times for a period cancels it entirely.</p>
+<blockquote>
+<div><img alt="_images/adv-timetabling-4.png" src="_images/adv-timetabling-4.png" />
+</div></blockquote>
+<p>Since no sections should meet on a day school is cancelled, we must
+delete the start and end times for each period, leaving each space blank:</p>
+<blockquote>
+<div><img alt="_images/adv-timetabling-5.png" src="_images/adv-timetabling-5.png" />
+</div></blockquote>
+<p>Click <strong>Modify</strong> and January 4 is now listed as an exception day:</p>
+<blockquote>
+<div><img alt="_images/adv-timetabling-7.png" src="_images/adv-timetabling-7.png" />
+</div></blockquote>
+<p>Looking back at the teacher’s calendar for the week, we see no section
+scheduled on Tuesday, January 4.  The schedule resumes as before on
+January 5.</p>
+<blockquote>
+<div><img alt="_images/adv-timetabling-8.png" src="_images/adv-timetabling-8.png" />
+</div></blockquote>
+<p>Repeating the steps above, we will modify January 5, shortening first
+period to reflect a 30 minute delay in the start of school:</p>
+<blockquote>
+<div><img alt="_images/adv-timetabling-9.png" src="_images/adv-timetabling-9.png" />
+</div></blockquote>
+<p>The new time is reflected in the teacher’s calendar:</p>
+<blockquote>
+<div><img alt="_images/adv-timetabling-10.png" src="_images/adv-timetabling-10.png" />
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Advanced Timetabling</a><ul>
+<li><a class="reference internal" href="#exception-days">Exception Days</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="timetables.html"
+                          title="previous chapter">Modeling Your School’s Timetable</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="levels.html"
+                          title="next chapter">Grade Levels</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/adv-timetabling.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

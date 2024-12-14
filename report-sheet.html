@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Report Sheets and Report Cards &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Course Worksheets" href="course-worksheets.html" />
+    <link rel="prev" title="Score Systems" href="score-systems.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="course-worksheets.html" title="Course Worksheets"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="score-systems.html" title="Score Systems"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="gradebook-toc.html" accesskey="U">Gradebook, Attendance and Report Cards</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Report Sheets and Report Cards</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="report-sheets-and-report-cards">
+<span id="report-sheet"></span><h1>Report Sheets and Report Cards<a class="headerlink" href="#report-sheets-and-report-cards" title="Link to this heading">¶</a></h1>
+<p>You can use SchoolTool to generate report cards using traditional grades, scores on a list of standards, or other measures.</p>
+<p>SchoolTool provides a mechanism called “report sheets” for collecting data about each student in each Section in a school.  Most commonly, this is one or more grades for a Section, which will subsequently be published as a report card (and stored for other use, of course).</p>
+<p>However, the system is designed to be very flexible.  It leverages the features of the SchoolTool gradebook.  You can use it for any data you’d like to collect regularly about student performance or behavior in all classes.  You can use SchoolTool’s customizable score systems to gather non-traditional grading or assessment data, including comments.</p>
+<p>The printed report cards are currently <em>very</em> simple.  The intention is to develop them further based on feedback, so <a class="reference external" href="http://bugs.launchpad.net/schooltool">please let us know what you’d like to see</a> on report cards and how they ought to look.  We <em>will</em> respond to feedback.</p>
+<p>Also, based on user feedback we shall develop other web and printed reports.  <a class="reference external" href="http://bugs.launchpad.net/schooltool">Let us know what you need.</a></p>
+<p>There are several steps involved in getting from the initial design of a report sheet to a printed report card.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>As “manager,” define a report sheet template.  This describes what scores will be collected on this report sheet.  Typically, the template describes a report card that can be re-used in subsequent Terms or Years.</p></li>
+<li><p>As “manager,” deploy the report sheet to the appropriate term or year.  This places a copy of that sheet in each teacher’s gradebook for each Section for that term or year.</p></li>
+<li><p>As “manager,” define the layout of the report card for the year.</p></li>
+<li><p>Teachers enter scores in the relevant report sheet in each Section’s Gradebook.</p></li>
+<li><p>Generate report card PDFs by Group or student.</p></li>
+</ol>
+</div></blockquote>
+<section id="defining-a-report-sheet-template">
+<h2>Defining a Report Sheet Template<a class="headerlink" href="#defining-a-report-sheet-template" title="Link to this heading">¶</a></h2>
+<p>In our ongoing example, we’ve defined a year and two semesters within the year.  At the example school, each semester the teachers report three grades: first quarter, second quarter and a final grade.  So each report sheet will contain columns for these values.</p>
+<p>Note that you can deploy multiple report sheets.  So if you wanted you could deploy three sheets with one value per sheet.  If you also had interim reports every three weeks, you could deploy those on the same report sheet, or on a separate one.  You should experiment on a test server and see what maps best to your school’s operation.</p>
+<p>To define a report sheet template, as “manager” go to <strong>School</strong> then <strong>Customize: Report Sheet Templates</strong>:</p>
+<blockquote>
+<div><img alt="_images/report-sheet-1.png" src="_images/report-sheet-1.png" />
+</div></blockquote>
+<p>Click <strong>Add: Report Sheet Template</strong> and give the sheet a descriptive title (although avoid referring to the year if you want to re-use it):</p>
+<blockquote>
+<div><img alt="_images/report-sheet-2.png" src="_images/report-sheet-2.png" />
+</div></blockquote>
+<p>Click <strong>Submit</strong> and you can add Activities to the sheet:</p>
+<blockquote>
+<div><img alt="_images/report-sheet-3.png" src="_images/report-sheet-3.png" />
+</div></blockquote>
+<p>Next, you will define the Activities on what will appear as a worksheet in every Gradebook for the relevant terms.</p>
+<p>Click <strong>Add: Report Activity</strong>:</p>
+<p>Now we’ll define the first column on the report sheet – the first quarter grade.  We’ll use the HAMS score system defined in <a class="reference internal" href="score-systems.html#score-systems"><span class="std std-ref">Score Systems</span></a>:</p>
+<blockquote>
+<div><img alt="_images/report-sheet-5.png" src="_images/report-sheet-5.png" />
+</div></blockquote>
+<p>You can also just define a maximum and minimum score range instead of a score system.</p>
+<p>Click <strong>Submit</strong> when you’re ready.  Thus:</p>
+<blockquote>
+<div><img alt="_images/report-sheet-6.png" src="_images/report-sheet-6.png" />
+</div></blockquote>
+<p>We’ll repeat the process for the second quarter and final grades:</p>
+<blockquote>
+<div><img alt="_images/report-sheet-7.png" src="_images/report-sheet-7.png" />
+</div></blockquote>
+<p>If you would like to add a comment field, use the “Comment” score system.</p>
+</section>
+<section id="deploying-a-report-sheet">
+<h2>Deploying a Report Sheet<a class="headerlink" href="#deploying-a-report-sheet" title="Link to this heading">¶</a></h2>
+<p>Once you define a report sheet, you then want to place a copy of it in every teacher’s gradebook for each section they teach.  We call this “deploying” the template.  Once you deploy a template, subsequent changes to the template will <em>not</em> change the already deployed sheets.  So make sure you’ve got the template the way you want it before you deploy it.</p>
+<p>Again, it is best to experiment on a test server, or some kind of practice or backup database.</p>
+<p>Report sheets may be deployed to individual Terms, or to Years (which will automatically include all contained Terms).</p>
+<p>As “manager,” navigate back to the <strong>School</strong> view for the relevant year (in this case 2011-2012).  At the bottom of the main content area is the section for deployed <strong>Report Sheets</strong>:</p>
+<blockquote>
+<div><img alt="_images/report-sheet-8.png" src="_images/report-sheet-8.png" />
+</div></blockquote>
+<p>Click on <strong>Report Sheets</strong>.  In this case, we want to deploy the “Quarterly &amp; Semester” report sheet to both Terms in the Year:</p>
+<blockquote>
+<div><img alt="_images/report-sheet-9.png" src="_images/report-sheet-9.png" />
+</div></blockquote>
+<p>And then click the <strong>Submit</strong>:</p>
+<blockquote>
+<div><img alt="_images/report-sheet-10.png" src="_images/report-sheet-10.png" />
+</div></blockquote>
+</section>
+<section id="laying-out-a-report-card">
+<h2>Laying Out a Report Card<a class="headerlink" href="#laying-out-a-report-card" title="Link to this heading">¶</a></h2>
+<p>While we’re here and logged in as “manager,” we might as well lay out the final report card.  From <strong>School</strong>,  Click <strong>Customize: Report Card Layout</strong>:</p>
+<blockquote>
+<div><img alt="_images/report-sheet-11.png" src="_images/report-sheet-11.png" />
+</div></blockquote>
+<p>The basic report card layout is a grid above an outline.</p>
+<p>Each row in the grid corresponds to a section the student attends, each column to an activity from a report sheet.  So for a traditional report card containing our 1st and 2nd marking period grades we will <strong>Add: Grid Column</strong>:</p>
+<blockquote>
+<div><img alt="_images/report-sheet-12.png" src="_images/report-sheet-12.png" />
+</div></blockquote>
+<p>Click <strong>Sumbit</strong> and thus:</p>
+<blockquote>
+<div><img alt="_images/report-sheet-13.png" src="_images/report-sheet-13.png" />
+</div></blockquote>
+<p>Repeating for all three grades, both terms:</p>
+<blockquote>
+<div><img alt="_images/report-sheet-14.png" src="_images/report-sheet-14.png" />
+</div></blockquote>
+<p>If you would like the results formatted as an outline list, you can follow the above process using <strong>Add: Outline Item</strong>.  If you have comments, you can only add them to this section (they would not fit in the grid).  You might also select this option if your score system uses long descriptive titles.</p>
+</section>
+<section id="entering-scores-into-a-report-sheet">
+<h2>Entering Scores into a Report Sheet<a class="headerlink" href="#entering-scores-into-a-report-sheet" title="Link to this heading">¶</a></h2>
+<p><strong>Log out</strong> as “manager,” <strong>Log in</strong> as a teacher, and navigate to the <strong>Gradebook</strong>.  We now have a new tab for our report sheet, <strong>Quarterly &amp; Sem</strong>:</p>
+<p>Enter the grades as you would in a regular Gradebook and hit <strong>Save</strong>.</p>
+<blockquote>
+<div><img alt="_images/report-sheet-15.png" src="_images/report-sheet-15.png" />
+</div></blockquote>
+<p>Currently, if you want to add a comment score, you must click on a student name and select <strong>Score</strong> from the pop-up menu.  This will allow you to enter all the scores for the student, including a full comment field.  After a comment is entered for a student, you will see a “…” ellipsis in the relevant gradebook cell.</p>
+<p>Repeat for each of the teacher’s sections in the term.  In real life, if this was the end of the first quarter, only the first quarter grades would be entered.</p>
+</section>
+<section id="printing-report-cards">
+<h2>Printing Report Cards<a class="headerlink" href="#printing-report-cards" title="Link to this heading">¶</a></h2>
+<p>You can print report cards either for individual students, or for Groups.</p>
+<p><strong>Log out</strong> as a teacher and <strong>Log in</strong> as “manager.”  Navigate to the <strong>School</strong> tab, click on <strong>People</strong>, and select a Person.</p>
+<blockquote>
+<div><img alt="_images/report-sheet-16.png" src="_images/report-sheet-16.png" />
+</div></blockquote>
+<p>Click on <strong>Reports: Student Report Card</strong>:</p>
+<blockquote>
+<div><img alt="_images/report-sheet-17.png" src="_images/report-sheet-17.png" />
+</div></blockquote>
+<p>A .pdf file will be downloaded.  Open it and it looks like this (well, with a full set of courses and grades):</p>
+<blockquote>
+<div><img alt="_images/report-sheet-18.png" src="_images/report-sheet-18.png" />
+</div></blockquote>
+<p>Basic, but it is a good start.  Let us know what to add!</p>
+<p>To generate a single .pdf with all the report cards for the members of a group (e.g., students), navigate to the group and hit the <strong>Reports: Student Report Card</strong> button.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Report Sheets and Report Cards</a><ul>
+<li><a class="reference internal" href="#defining-a-report-sheet-template">Defining a Report Sheet Template</a></li>
+<li><a class="reference internal" href="#deploying-a-report-sheet">Deploying a Report Sheet</a></li>
+<li><a class="reference internal" href="#laying-out-a-report-card">Laying Out a Report Card</a></li>
+<li><a class="reference internal" href="#entering-scores-into-a-report-sheet">Entering Scores into a Report Sheet</a></li>
+<li><a class="reference internal" href="#printing-report-cards">Printing Report Cards</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="score-systems.html"
+                          title="previous chapter">Score Systems</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="course-worksheets.html"
+                          title="next chapter">Course Worksheets</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/report-sheet.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

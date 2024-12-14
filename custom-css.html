@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Customizing SchoolTool CSS &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Managing Multiple SchoolTools on One Server" href="multiple-schooltools.html" />
+    <link rel="prev" title="System Administration" href="administrators.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="multiple-schooltools.html" title="Managing Multiple SchoolTools on One Server"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="administrators.html" title="System Administration"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="administrators.html" accesskey="U">System Administration</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Customizing SchoolTool CSS</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="customizing-schooltool-css">
+<span id="css"></span><h1>Customizing SchoolTool CSS<a class="headerlink" href="#customizing-schooltool-css" title="Link to this heading">¶</a></h1>
+<section id="css-overrides">
+<h2>CSS Overrides<a class="headerlink" href="#css-overrides" title="Link to this heading">¶</a></h2>
+<p>For sites that wish to change the default appearance of the SchoolTool
+administrative interface, it is possible to override SchoolTool’s Cascading
+Style Sheets with your own customized styles.</p>
+<p>In the past, this could only be accomplished by modifying SchoolTool core files,
+which was undesirable because changes would be lost during upgrades.</p>
+<section id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h3>
+<p>Overriding SchoolTool’s default styles and images with your own customizations
+will require administrative access to the server. It will also require
+knowledge of HTML and CSS, but no Python programming experience is necessary.</p>
+</section>
+<section id="the-custom-css-directory">
+<h3>The <code class="docutils literal notranslate"><span class="pre">custom-css</span></code> Directory<a class="headerlink" href="#the-custom-css-directory" title="Link to this heading">¶</a></h3>
+<p>As of SchoolTool 2.8.3, there is now a <code class="docutils literal notranslate"><span class="pre">custom-css</span></code> directory for your custom
+styles and images, located at:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">standard</span><span class="o">/</span><span class="n">custom</span><span class="o">-</span><span class="n">css</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Because the <code class="docutils literal notranslate"><span class="pre">custom-css</span></code> directory is located in <code class="docutils literal notranslate"><span class="pre">/etc/schooltool/</span></code> (along
+with other SchoolTool configuration files), any custom styles and images stored
+here will persist across SchoolTool and system upgrades.</p>
+</section>
+<section id="the-custom-css-file">
+<h3>The <code class="docutils literal notranslate"><span class="pre">custom.css</span></code> File<a class="headerlink" href="#the-custom-css-file" title="Link to this heading">¶</a></h3>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">custom-css</span></code> directory will contain one file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">standard</span><span class="o">/</span><span class="n">custom</span><span class="o">-</span><span class="n">css</span><span class="o">/</span><span class="n">custom</span><span class="o">.</span><span class="n">css</span>
+</pre></div>
+</div>
+<p>Add your CSS rules here, by logging on to the server and editing the
+file using your favorite text editor.</p>
+</section>
+<section id="adding-resources">
+<h3>Adding Resources<a class="headerlink" href="#adding-resources" title="Link to this heading">¶</a></h3>
+<p>Because the entire <code class="docutils literal notranslate"><span class="pre">custom-css</span></code> directory gets registered as a resource
+library, any file added to this directory may be accessed in your custom CSS.</p>
+<p>For example, if you upload <code class="docutils literal notranslate"><span class="pre">image.png</span></code> to the <code class="docutils literal notranslate"><span class="pre">custom-css</span></code> directory,
+you can access that
+resource at <code class="docutils literal notranslate"><span class="pre">/&#64;&#64;/schooltool.flourish.custom/image.png</span></code>, or simply use
+the relative URL in your CSS, for clear and concise
+code, for example <code class="docutils literal notranslate"><span class="pre">url(&quot;image.png&quot;)</span></code>.</p>
+</section>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
+<p>The easiest way to determine what CSS rules to override is to use a DOM
+inspector, such as that provided by Google Chrome’s built-in Developer Tools,
+or the Page Inspector provided by Mozilla Firefox Developer Tools (in either
+browser, right-click on a webpage element and select “Inspect Element” from the
+context menu).</p>
+<blockquote>
+<div><img alt="_images/custom-css-01.png" src="_images/custom-css-01.png" />
+</div></blockquote>
+<p>This will allow you to use the inspector to examine and modify the structure and
+layout of a webpage, so that you can pinpoint the CSS rules needed to modify the
+appearance of a page element without the need to search through all the CSS
+files included in the SchoolTool source code.</p>
+<blockquote>
+<div><img alt="_images/custom-css-02.png" src="_images/custom-css-02.png" />
+</div></blockquote>
+<p>In this example, we are inspecting the <code class="docutils literal notranslate"><span class="pre">&lt;h1</span> <span class="pre">class=&quot;brand&quot;&gt;</span></code> element in the
+SchoolTool page header, which contains the text and image elements of the
+SchoolTool logo.</p>
+<section id="changing-colors">
+<h3>Changing Colors<a class="headerlink" href="#changing-colors" title="Link to this heading">¶</a></h3>
+<p>To change the background color of the header from the default (hexadecimal RGB
+#008c93) to another color specified by hex value or name (in this example,
+green), edit the <code class="docutils literal notranslate"><span class="pre">custom.css</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">standard</span><span class="o">/</span><span class="n">custom</span><span class="o">-</span><span class="n">css</span><span class="o">/</span><span class="n">custom</span><span class="o">.</span><span class="n">css</span>
+</pre></div>
+</div>
+<p>and add the following block of CSS code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">header</span> <span class="n">ul</span><span class="o">.</span><span class="n">navigation</span> <span class="p">{</span>
+  <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="n">green</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then load any page of the SchoolTool administrative interface in the browser to
+see the new green background color in the header.</p>
+<blockquote>
+<div><img alt="_images/custom-css-03.png" src="_images/custom-css-03.png" />
+</div></blockquote>
+</section>
+<section id="replacing-schooltool-logo-image">
+<h3>Replacing SchoolTool Logo (image)<a class="headerlink" href="#replacing-schooltool-logo-image" title="Link to this heading">¶</a></h3>
+<p>To replace the default SchoolTool logo with a custom <code class="docutils literal notranslate"><span class="pre">logo.png</span></code> image, we will
+first need to hide the default logo. Edit the <code class="docutils literal notranslate"><span class="pre">custom.css</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">standard</span><span class="o">/</span><span class="n">custom</span><span class="o">-</span><span class="n">css</span><span class="o">/</span><span class="n">custom</span><span class="o">.</span><span class="n">css</span>
+</pre></div>
+</div>
+<p>and add the following block of CSS code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">header</span> <span class="o">&gt;</span> <span class="n">h1</span><span class="o">.</span><span class="n">brand</span> <span class="n">span</span><span class="p">,</span> <span class="o">.</span><span class="n">header</span> <span class="o">&gt;</span> <span class="n">h1</span><span class="o">.</span><span class="n">brand</span> <span class="n">img</span> <span class="p">{</span>
+  <span class="n">display</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then, upload the desired logo image (in this case, <code class="docutils literal notranslate"><span class="pre">logo.png</span></code>) into the
+<code class="docutils literal notranslate"><span class="pre">custom-css</span></code> directory. In this
+example, we will use the PEAS logo, which is a transparent PNG image 195 pixels
+wide and 40 pixels high; your organization’s logo may need to be resized to fit
+tidily into the site template.</p>
+<p>Edit the <code class="docutils literal notranslate"><span class="pre">custom.css</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">standard</span><span class="o">/</span><span class="n">custom</span><span class="o">-</span><span class="n">css</span><span class="o">/</span><span class="n">custom</span><span class="o">.</span><span class="n">css</span>
+</pre></div>
+</div>
+<p>and add the following block of CSS code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">header</span> <span class="o">&gt;</span> <span class="n">h1</span><span class="o">.</span><span class="n">brand</span> <span class="p">{</span>
+  <span class="n">background</span><span class="p">:</span> <span class="n">url</span><span class="p">(</span><span class="s2">&quot;logo.png&quot;</span><span class="p">)</span> <span class="n">no</span><span class="o">-</span><span class="n">repeat</span> <span class="n">scroll</span> <span class="n">right</span> <span class="n">top</span> <span class="n">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="n">height</span><span class="p">:</span> <span class="mi">40</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">width</span><span class="p">:</span> <span class="mi">195</span><span class="n">px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This will set the <code class="docutils literal notranslate"><span class="pre">logo.png</span></code> image as the background for the <code class="docutils literal notranslate"><span class="pre">&lt;h1</span>
+<span class="pre">class=&quot;brand&quot;&gt;</span></code> element in the SchoolTool page header.</p>
+<blockquote>
+<div><img alt="_images/custom-css-04.png" src="_images/custom-css-04.png" />
+</div></blockquote>
+</section>
+<section id="replacing-schooltool-logo-text">
+<h3>Replacing SchoolTool Logo (text)<a class="headerlink" href="#replacing-schooltool-logo-text" title="Link to this heading">¶</a></h3>
+<p>If you’d like to use text instead of a background image, this is also possible
+using the <code class="docutils literal notranslate"><span class="pre">::after</span></code> and <code class="docutils literal notranslate"><span class="pre">::before</span></code> CSS selectors:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="http://www.w3schools.com/cssref/sel_after.asp">::after</a></p></li>
+<li><p><a class="reference external" href="http://www.w3schools.com/cssref/sel_before.asp">::before</a></p></li>
+</ul>
+</div></blockquote>
+<p>Again, we will first need to hide the default logo. Edit the <code class="docutils literal notranslate"><span class="pre">custom.css</span></code>
+file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">standard</span><span class="o">/</span><span class="n">custom</span><span class="o">-</span><span class="n">css</span><span class="o">/</span><span class="n">custom</span><span class="o">.</span><span class="n">css</span>
+</pre></div>
+</div>
+<p>and add the following block of CSS code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">header</span> <span class="o">&gt;</span> <span class="n">h1</span><span class="o">.</span><span class="n">brand</span> <span class="n">span</span><span class="p">,</span> <span class="o">.</span><span class="n">header</span> <span class="o">&gt;</span> <span class="n">h1</span><span class="o">.</span><span class="n">brand</span> <span class="n">img</span> <span class="p">{</span>
+  <span class="n">display</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then, edit the <code class="docutils literal notranslate"><span class="pre">custom.css</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">standard</span><span class="o">/</span><span class="n">custom</span><span class="o">-</span><span class="n">css</span><span class="o">/</span><span class="n">custom</span><span class="o">.</span><span class="n">css</span>
+</pre></div>
+</div>
+<p>and add the following block of CSS code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">header</span> <span class="o">&gt;</span> <span class="n">h1</span><span class="o">.</span><span class="n">brand</span><span class="p">::</span><span class="n">before</span> <span class="p">{</span>
+  <span class="n">content</span><span class="p">:</span> <span class="s2">&quot;Foo &quot;</span><span class="p">;</span>
+  <span class="n">color</span><span class="p">:</span> <span class="n">pink</span><span class="p">;</span>
+  <span class="n">font</span><span class="o">-</span><span class="n">weight</span><span class="p">:</span> <span class="n">bold</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">.</span><span class="n">header</span> <span class="o">&gt;</span> <span class="n">h1</span><span class="o">.</span><span class="n">brand</span><span class="p">::</span><span class="n">after</span> <span class="p">{</span>
+  <span class="n">content</span><span class="p">:</span> <span class="s2">&quot;School&quot;</span><span class="p">;</span>
+  <span class="n">color</span><span class="p">:</span> <span class="n">lightblue</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This will yield the result seen in the following screenshot:</p>
+<blockquote>
+<div><img alt="_images/custom-css-05.png" src="_images/custom-css-05.png" />
+</div></blockquote>
+</section>
+<section id="replacing-schooltool-logo-text-and-image">
+<h3>Replacing SchoolTool Logo (text and image)<a class="headerlink" href="#replacing-schooltool-logo-text-and-image" title="Link to this heading">¶</a></h3>
+<p>With a little CSS finesse, we can even replace the SchoolTool logo with our own
+custom logo combining HTML text and an uploaded image.</p>
+<p>Again, we will first need to hide the default logo. Edit the <code class="docutils literal notranslate"><span class="pre">custom.css</span></code>
+file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">standard</span><span class="o">/</span><span class="n">custom</span><span class="o">-</span><span class="n">css</span><span class="o">/</span><span class="n">custom</span><span class="o">.</span><span class="n">css</span>
+</pre></div>
+</div>
+<p>and add the following block of CSS code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">header</span> <span class="o">&gt;</span> <span class="n">h1</span><span class="o">.</span><span class="n">brand</span> <span class="n">span</span><span class="p">,</span> <span class="o">.</span><span class="n">header</span> <span class="o">&gt;</span> <span class="n">h1</span><span class="o">.</span><span class="n">brand</span> <span class="n">img</span> <span class="p">{</span>
+  <span class="n">display</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then, edit the <code class="docutils literal notranslate"><span class="pre">custom.css</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">schooltool</span><span class="o">/</span><span class="n">standard</span><span class="o">/</span><span class="n">custom</span><span class="o">-</span><span class="n">css</span><span class="o">/</span><span class="n">custom</span><span class="o">.</span><span class="n">css</span>
+</pre></div>
+</div>
+<p>and add the following block of CSS code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">header</span> <span class="o">&gt;</span> <span class="n">h1</span><span class="o">.</span><span class="n">brand</span><span class="p">::</span><span class="n">before</span> <span class="p">{</span>
+  <span class="n">content</span><span class="p">:</span> <span class="s2">&quot;Foo School&quot;</span><span class="p">;</span>
+  <span class="n">padding</span><span class="o">-</span><span class="n">right</span><span class="p">:</span> <span class="mi">150</span><span class="n">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">.</span><span class="n">header</span> <span class="o">&gt;</span> <span class="n">h1</span><span class="o">.</span><span class="n">brand</span> <span class="p">{</span>
+  <span class="n">background</span><span class="p">:</span> <span class="n">url</span><span class="p">(</span><span class="s2">&quot;logo.png&quot;</span><span class="p">)</span> <span class="n">top</span> <span class="n">right</span> <span class="n">no</span><span class="o">-</span><span class="n">repeat</span><span class="p">;</span>
+  <span class="n">width</span><span class="p">:</span> <span class="mi">350</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">height</span><span class="p">:</span> <span class="mi">40</span><span class="n">px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This will yield the result seen in the following screenshot:</p>
+<blockquote>
+<div><img alt="_images/custom-css-06.png" src="_images/custom-css-06.png" />
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Customizing SchoolTool CSS</a><ul>
+<li><a class="reference internal" href="#css-overrides">CSS Overrides</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#the-custom-css-directory">The <code class="docutils literal notranslate"><span class="pre">custom-css</span></code> Directory</a></li>
+<li><a class="reference internal" href="#the-custom-css-file">The <code class="docutils literal notranslate"><span class="pre">custom.css</span></code> File</a></li>
+<li><a class="reference internal" href="#adding-resources">Adding Resources</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#changing-colors">Changing Colors</a></li>
+<li><a class="reference internal" href="#replacing-schooltool-logo-image">Replacing SchoolTool Logo (image)</a></li>
+<li><a class="reference internal" href="#replacing-schooltool-logo-text">Replacing SchoolTool Logo (text)</a></li>
+<li><a class="reference internal" href="#replacing-schooltool-logo-text-and-image">Replacing SchoolTool Logo (text and image)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="administrators.html"
+                          title="previous chapter">System Administration</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="multiple-schooltools.html"
+                          title="next chapter">Managing Multiple SchoolTools on One Server</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/custom-css.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CanDo: Introduction and Setup &#8212; The SchoolTool Book</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/flourish.css?v=c4462e41" />
+    
+    <script src="_static/documentation_options.js?v=841abef3"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/jquery.colorbox-min.js"></script>
+    <script src="_static/flourish.js"></script>
+    
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Importing Skills" href="cando-import.html" />
+    <link rel="prev" title="CanDo Skill Tracking" href="cando-toc.html" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin" />
+
+  </head><body>
+<div class="schooltool">
+  <div class="header">
+    <h1 class="brand">
+      <a href="http://www.schooltool.org/">
+        <span class="school">school</span><span class="tool">tool</span>
+        <img alt="Logo" src="_static/logo-small.png" />
+      </a>
+    </h1>
+    <ul class="navigation">
+      <li>
+        <a href="http://schooltool.org/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="features.html">
+          Features
+        </a>
+      </li>
+      <li>
+        <a href="http://launchpad.net/schooltool-project/+announcements">
+          News
+        </a>
+      </li>
+      <li>
+        <a href="screenshots.html">
+          Screenshots
+        </a>
+      </li>
+      <li>
+        <a href="system-requirements.html">
+          Download
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          Documentation
+        </a>
+      </li>
+      <li>
+        <a href="about.html">
+          Contact
+        </a>
+      </li>
+    </ul>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          var scrollTop = $(window).scrollTop();
+          if (scrollTop > 64) {
+            $('div.related').css('position', 'fixed');
+            $('div.related').css('top', '0');
+          } else {
+            $('div.related').css('position', 'absolute');
+            $('div.related').css('top', '64px');
+          }
+        });
+      });
+    </script>
+    
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="cando-import.html" title="Importing Skills"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="cando-toc.html" title="CanDo Skill Tracking"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">The SchoolTool Book</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="cando-toc.html" accesskey="U">CanDo Skill Tracking</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">CanDo: Introduction and Setup</a></li> 
+      </ul>
+    </div>
+<!-- Search Bar -->
+<div id="search-box">
+  <form class="search-form" id="google-appliance-search-form" method="get"
+        accept-charset="UTF-8"
+        action="search.html">
+      <div>
+        <div id="edit-keys-wrapper" class="form-item">
+          <input type="text" class="form-text"
+                 onfocus="if(this.value=='Type to search'){this.value=''}"
+                 onblur="if(this.value==''){this.value='Type to search';}"
+                 value="Type to search" size="20" id="edit-keys" name="q"
+                 maxlength="255" />
+            <input type="hidden" value="yes" name="check_keywords" />
+            <input type="hidden" value="default" name="area" />
+        </div>
+        <img src="_static/arrow.png" class="form-submit"
+             onclick="$(this).closest('form').submit()"
+             style="cursor: pointer" />
+      </div>
+    </form>
+  </div>
+  <!-- End Search Bar -->
+  </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="cando-introduction-and-setup">
+<span id="cando"></span><h1>CanDo: Introduction and Setup<a class="headerlink" href="#cando-introduction-and-setup" title="Link to this heading">¶</a></h1>
+<section id="background">
+<h2>Background<a class="headerlink" href="#background" title="Link to this heading">¶</a></h2>
+<p>CanDo helps a school manage what is often called outcome-based assessment.  It is also called competency, skill or standard based assessment.  The basic principal is the same.  You have a body of outcomes, which we will generically call “Skills” in the rest of this document, and you track student achievement of those Skills directly, rather than through assigning points to activities or participation and assigning an aggregate grade.</p>
+<p>Note: CanDo was developed in collaboration with the Arlington Career Center (of the Arlington (Virginia, USA) Public Schools and Virginia Career and Technical Education Resource Center.  CTE users in Virginia should refer to the <a class="reference external" href="http://cando.cteresource.org/">VA CTE site</a> for specific documentation concerning your competencies and other details.</p>
+<p>Getting to a specific example as quickly as possible will help.</p>
+<p>Below is a mindmap showing the hierarchy of “Hands-On Math” Skills covered in the <a class="reference external" href="http://www.buildingtoteach.com/">Building to Teach</a> program (click on image to expand).</p>
+<blockquote>
+<div><img alt="_images/cando-skills-setup-0.png" src="_images/cando-skills-setup-0.png" />
+</div></blockquote>
+<p>Each leaf in this tree is a “Skill,” for example:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Understand Place Value Chart and the necessity to operate in “like units.”</p></li>
+<li><p>Round numbers. Understands relationship of this skill to “tolerance” in building process.</p></li>
+<li><p>Add and subtract, whole numbers.</p></li>
+</ul>
+</div></blockquote>
+<p>These are grouped in branches called “Skill Sets,” e.g.:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Basic Mathematics</p></li>
+<li><p>Fractions and Mixed Numbers</p></li>
+<li><p>Decimals</p></li>
+</ul>
+</div></blockquote>
+<p>The trunk of the tree is a node representing the Hands-On Math course, for clarity, we will refer to this as a “Cluster.”  This is the only Cluster in the program (for this demo, at least).</p>
+<p>The root node is the entire Building to Teach program.</p>
+<p>CanDo requires skills be organized into Skill Sets, although “Skill” and “Skill Set” can be renamed to map to local terminology.</p>
+<p>The organizing nodes above this level are optional.  In this case we just have “Cluster.”</p>
+</section>
+<section id="organizing-your-skills-to-work-with-cando">
+<h2>Organizing your Skills to Work with CanDo<a class="headerlink" href="#organizing-your-skills-to-work-with-cando" title="Link to this heading">¶</a></h2>
+<p>There are a few things to keep in mind in considering how to organize your skills for use in CanDo.</p>
+<p>In CanDo, “Skills” are the things that are directly evaluated.  Teachers can score a Skill, not a Skill Set or anything else above that in the hierarchy.  Reports could generate aggregate scores based on the Skill scores.</p>
+<p>If you had a local system where you had, say, “standards” and “criteria” where “criteria” were the things that teachers actually scored, then you would map “standard” (in your system) to “Skill Set” and “criteria” to “Skill.”</p>
+<p>A second consideration is that the CanDo gradebook is organized like a spreadsheet with a set of worksheets.  In a given section, each Skill Set corresponds to a worksheet.  From the user’s point of view, it is best if each worksheet, and thus Skill Set, has 8 - 10 skills, to minimize the amount of time the teacher spends switching between sheets or scrolling from side to side within a worksheet, so you may want to either combine your groups of Skills or split them up if they tend to be much smaller or larger than 8 - 10.</p>
+<p>Finally, a little planning is necessary if you want to automatically map your skills to courses.  We will cover exactly how this works later, but you need to match one attribute of the courses (title, description, course ID, alternate ID) with an attribute of the “node” in your skills hierarchy (title, description, label).</p>
+<p>In our example, we have a “Cluster” layer, and the single Cluster in the skills hierarchy has the title “B2T Hands-On Math.”  If there was also a Course in SchoolTool that had the same title (or a match in another attribute), they could be automatically matched.</p>
+</section>
+<section id="entering-skills-and-skill-sets-through-the-web">
+<h2>Entering Skills and Skill Sets Through the Web<a class="headerlink" href="#entering-skills-and-skill-sets-through-the-web" title="Link to this heading">¶</a></h2>
+<p>Logged in as “manager,” go to <strong>School</strong> and click <strong>Skills</strong> from the sidebar:</p>
+<blockquote>
+<div><img alt="_images/cando-skills-setup-1.png" src="_images/cando-skills-setup-1.png" />
+</div></blockquote>
+<p>We’ll start with a document representing the Building to Teach program.  Click <strong>Add: Document</strong>:</p>
+<blockquote>
+<div><img alt="_images/cando-skills-setup-2.png" src="_images/cando-skills-setup-2.png" />
+</div></blockquote>
+<p>Give the document a title and an optional description.  Under <strong>Layer Hierarchy</strong>, in this case, as defined above, we have “Cluster,” “Skill Set” and “Skill”.  Click on <strong>Add layer</strong> and add “Cluster” above “Skill Set.”  We could also rename “Skill Set” and “Skill” to suit the names used in our particular document (e.g., “strand” and “standard”).</p>
+<p>Click <strong>Submit</strong>:</p>
+<blockquote>
+<div><img alt="_images/cando-skills-setup-3.png" src="_images/cando-skills-setup-3.png" />
+</div></blockquote>
+<p>To add a Cluster, click <strong>Add: Cluster</strong>:</p>
+<blockquote>
+<div><img alt="_images/cando-skills-setup-3_5.png" src="_images/cando-skills-setup-3_5.png" />
+</div></blockquote>
+<p>Click <strong>Submit</strong>:</p>
+<blockquote>
+<div><img alt="_images/cando-skills-setup-3_6.png" src="_images/cando-skills-setup-3_6.png" />
+</div></blockquote>
+<p>Since we are done entering Clusters, to add the Skill Sets to <strong>Hands On Math</strong> click that link in the Cluster list:</p>
+<blockquote>
+<div><img alt="_images/cando-skills-setup-3_7.png" src="_images/cando-skills-setup-3_7.png" />
+</div></blockquote>
+<p>To add a Skill Set click <strong>Add: Skill Set</strong>:</p>
+<blockquote>
+<div><img alt="_images/cando-skills-setup-4.png" src="_images/cando-skills-setup-4.png" />
+</div></blockquote>
+<p>The label attribute is important because you need a short representation of the Skill Set that will appear within a tab in the CanDo gradebook.</p>
+<blockquote>
+<div><img alt="_images/cando-skills-setup-5.png" src="_images/cando-skills-setup-5.png" />
+</div></blockquote>
+<p>Similarly, to add a Skill to the Skill Set, click <strong>Add: Skill</strong> from the Skill Set view:</p>
+<blockquote>
+<div><img alt="_images/cando-skills-setup-6.png" src="_images/cando-skills-setup-6.png" />
+</div></blockquote>
+<p>Each skill is assigned a score system, that is, the grading scale on which students will be evaluated on this skill.  For example, the default score system for CanDo is “Competency:”</p>
+<blockquote>
+<div><img alt="_images/cando-skills-setup-7.png" src="_images/cando-skills-setup-7.png" />
+</div></blockquote>
+<p>As you add more skills, the form will use your previous score system selection as the default.  In practice, a given set of skills will usually use one score system, but if you are including different types of skills (academic, technical, social, etc) within your system, they may require different score systems as well.</p>
+<p>See the main <a class="reference internal" href="score-systems.html#score-systems"><span class="std std-ref">Score Systems</span></a> page for more about creating a custom Score System.  Note that it is much easier to enter scores in CanDo if the Score System labels or titles are single characters.</p>
+<p>A meaningful label is particularly important for skills as it will be what the teacher sees at the top of the column in their gradebook view.</p>
+<p>The <strong>Required</strong> selection has an impact on various reports.  If in doubt, choose <strong>Yes</strong>.</p>
+<p>Use the <strong>External ID</strong> field if the skill has a particular identifier used by the standards-making body.</p>
+<p>Click <strong>Submit and Add</strong> if you want to go directly to creating the next skill.</p>
+<p>Otherwise, <strong>Submit</strong> results in:</p>
+<blockquote>
+<div><img alt="_images/cando-skills-setup-8.png" src="_images/cando-skills-setup-8.png" />
+</div></blockquote>
+<p>Clicking <strong>Done</strong> takes you back up to the containing Skill Set and up through subsequent layers.</p>
+<p>This outlines the basic procedure for manually creating a skills document.  There will necessarily be a lot of repetition in manually entering all the Skill Sets, skills, and other required layers of hierarchy.  If you have a large set of standards of standards, and you have them in machine-readable form, such as csv tables, a spreadsheet, or XML, you will probably want to import them in bulk, which we will explain in the next page.  However, the easiest way to start the process, even if you want to import, is to follow the above procedure for at least one skill as shown above.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">CanDo: Introduction and Setup</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#organizing-your-skills-to-work-with-cando">Organizing your Skills to Work with CanDo</a></li>
+<li><a class="reference internal" href="#entering-skills-and-skill-sets-through-the-web">Entering Skills and Skill Sets Through the Web</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="cando-toc.html"
+                          title="previous chapter">CanDo Skill Tracking</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="cando-import.html"
+                          title="next chapter">Importing Skills</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  <div class="footer">
+    <p class="copyright">
+        &copy; Copyright 2014, the Shuttleworth Foundation.  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+    </p>
+    <p>
+      Last updated on Dec 14, 2024.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 7.4.7.
+    <a href="_sources/cando.rst.txt"
+             rel="nofollow">Show Source</a>
+    </p>
+  </div>
+</div>
+  </body>
+</html>
